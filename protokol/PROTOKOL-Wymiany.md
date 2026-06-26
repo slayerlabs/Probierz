@@ -27,7 +27,7 @@ date: 2026-06-26
 | 4 | **Ewaluacja** — B odpala modele, zwraca odpowiedzi + scoring + taksonomię awarii | format poniżej |
 | 5 | **Weryfikacja commitu** — porównujesz hash zwróconego zestawu z krokiem 2 | `sha256sum` musi się zgadzać (B nie podmienił) |
 | 6 | **Spalenie** — zestaw → `spalony` w manifeście, NIGDY więcej jako aktywny eval | wpis w `PROVENANCE-Manifest.md` |
-| 7 | **Audyt następnej iteracji** — przed kolejną rundą: czy modele B wchłonęły spalony zestaw | `contamination_check.py` (info, nie blokada) |
+| 7 | **Audyt międzyrundowy** — przed kolejną rundą: czy modele B wchłonęły spalony zestaw | `contamination_check.py` — łapie **po fakcie** (nie blokuje w trakcie rundy) |
 
 ## Format zwrotu wyników (B → A)
 ```json
@@ -40,6 +40,14 @@ date: 2026-06-26
 - Każdy zestaw użyty jako eval **dokładnie raz**.
 - Autor NIE widzi puli itemów drugiego teamu (symetria ślepoty).
 - Wynik bez `tryb_awarii` = niepełny (taksonomia obowiązkowa, S3).
+
+## Model zaufania (trust-minimized, NIE trustless)
+Commitment (hash) daje **integralność**: A nie podmieni zestawu pod wynik, B nie zwróci innego niż dostał.
+Ale **nic kryptograficznie nie blokuje**, by Team B po reveal douczył modele na ujawnionym zestawie w **tej samej**
+rundzie. Realnym zabezpieczeniem jest **jednorazowość + spalenie** (krok 6) oraz **audyt międzyrundowy** (krok 7),
+który taki przeciek łapie **po fakcie**. Świadomie: **redukujemy pokusę, nie eliminujemy jej kryptograficznie**.
+To i tak istotnie mocniejsze niż self-benchmark (Goodhart/M3): niezależny autor + integralność + jednorazowość.
+_(doprecyzowanie z review Xaviera, 2026-06-26)_
 
 ## Powiązania
 [[../docs/25-Syntezy/S1-Commitment-Protokol|S1]] · [[../docs/10-Tezy/T2-Wymiana-Blind|T2]] · [[PROVENANCE-Manifest|manifest]]
