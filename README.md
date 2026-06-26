@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/flaga-pl.svg" alt="Flaga Polski" width="200">
+</p>
+
 # Probierz 🇵🇱
 
 > **Kamień probierczy dla modeli** — bezlitosny test, który demaskuje, czy zdolność jest *prawdziwa*,
