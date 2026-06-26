@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.pyc
+
+# Lokalne / wrażliwe — benchmarki eval-only NIGDY do publicznego repo (spalą się)
+eval-only/
+*.spalony.jsonl
+zestawy-tajne/
