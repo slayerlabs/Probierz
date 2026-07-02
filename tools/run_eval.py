@@ -6,7 +6,10 @@ Realizuje pomiar wg dokumentow Probierza:
 - liczy wynik itemu jako statystyke odporna (mediana pass po parafrazach) + wariancje (wrazliwosc),
 - zapisuje odpowiedzi surowe do audytu (grader trybu awarii = osobny krok, S3/S4).
 
-NIE klasyfikuje automatycznie trybu awarii (to wymaga >=2 graderow roznego pochodzenia, S4) —
+Odpornosc na przerwanie: zapis INKREMENTALNY po kazdym itemie (checkpoint) + WZNAWIANIE
+(pomija itemy juz obecne w pliku --out). Wolne endpointy (Slayer ~40s/wywolanie) nie traca postepu.
+
+NIE klasyfikuje automatycznie trybu awarii (wymaga >=2 graderow roznego pochodzenia, S4) —
 zapisuje surowe wyjscia do reczej/pol-automatycznej klasyfikacji.
 
 Model: dowolny endpoint OpenAI-compatible (chat/completions). Dla Slayera uzyj proxy:
@@ -17,7 +20,7 @@ Uzycie:
     --base-url http://127.0.0.1:8799/v1 --model slayer-v49-qwen3.5-27b \
     --api-key "$SLAYER_API_KEY" --out wyniki-slayer-d1.json
 """
-import argparse, json, re, sys, time, urllib.request, urllib.error
+import argparse, json, os, re, sys, time, urllib.request, urllib.error
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -43,7 +46,7 @@ def call_model(base_url, model, api_key, system, user, max_tokens=1024, temperat
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url, data=data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=120) as r:
+            with urllib.request.urlopen(req, timeout=180) as r:
                 j = json.loads(r.read().decode("utf-8"))
                 return j["choices"][0]["message"]["content"]
         except Exception as e:
@@ -53,19 +56,17 @@ def call_model(base_url, model, api_key, system, user, max_tokens=1024, temperat
 
 
 def extract_answer(text):
-    """Wyciaga wartosc po 'WYNIK:'; fallback: ostatnia liczba/linia."""
+    """Wyciaga wartosc po 'WYNIK:'; fallback: ostatnia niepusta linia."""
     if text is None:
         return ""
     m = list(re.finditer(r"WYNIK:\s*(.+)", text, flags=re.IGNORECASE))
     if m:
         return m[-1].group(1).strip().rstrip(".").strip()
-    # fallback: ostatnia niepusta linia
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     return lines[-1] if lines else ""
 
 
 def normalize_num(s):
-    """Do porownania numerycznego: wyciaga pierwsza liczbe (kropka/przecinek dziesietny)."""
     s = s.replace(",", ".")
     m = re.search(r"-?\d+(?:\.\d+)?", s)
     return float(m.group(0)) if m else None
@@ -82,10 +83,43 @@ def judge(answer, kanon, typ):
         if a is None or k is None:
             return False
         return abs(a - k) < 1e-6
-    else:  # kanoniczny_tekst
+    else:
         na, nk = normalize_text(answer), normalize_text(kanon)
-        # pass gdy kanon wystepuje jako slowo/fraza w odpowiedzi (tolerancja rozwlesklosci)
         return nk == na or re.search(r"\b" + re.escape(nk) + r"\b", na) is not None
+
+
+def score_item(it, base_url, model, api_key, max_tokens, temperature):
+    kanon, typ = it["odpowiedz_kanoniczna"], it["typ_odpowiedzi"]
+    per_para = []
+    for p in it["spec_parafrazy"]:
+        raw = call_model(base_url, model, api_key, SYSTEM, p, max_tokens, temperature)
+        ans = extract_answer(raw)
+        per_para.append({"prompt": p, "raw": raw, "answer": ans, "pass": judge(ans, kanon, typ)})
+    passes = [x["pass"] for x in per_para]
+    pass_rate = sum(passes) / len(passes)
+    return {
+        "id": it["id"], "poziom_krokow": it["poziom_krokow"],
+        "pass_median": pass_rate >= 0.5,
+        "pass_rate_parafraz": round(pass_rate, 3),
+        "wrazliwosc_parafraza": 0 if all(passes) or not any(passes) else 1,
+        "kanon": kanon, "typ": typ, "per_parafraza": per_para,
+    }
+
+
+def build_summary(model, eval_path, items, results):
+    n = len(results)
+    npass = sum(r["pass_median"] for r in results)
+    return {
+        "model": model, "eval": eval_path, "n_items": len(items), "n_scored": n,
+        "pass_median_count": npass,
+        "pass_median_rate": round(npass / n, 3) if n else 0,
+        "items_wrazliwe": sum(r["wrazliwosc_parafraza"] for r in results),
+    }
+
+
+def save(out_path, model, eval_path, items, results):
+    payload = {"summary": build_summary(model, eval_path, items, results), "results": results}
+    json.dump(payload, open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
 
 def main():
@@ -100,46 +134,32 @@ def main():
     args = ap.parse_args()
 
     items = [json.loads(l) for l in open(args.eval, encoding="utf-8") if l.strip()]
-    results = []
-    n_pass_median = 0
+
+    # WZNAWIANIE: wczytaj dotychczasowe wyniki, pomin juz zrobione itemy
+    results, done = [], set()
+    if os.path.exists(args.out):
+        try:
+            prev = json.load(open(args.out, encoding="utf-8"))
+            results = prev.get("results", [])
+            done = {r["id"] for r in results}
+            if done:
+                print(f"Wznawianie: {len(done)} itemow juz zrobionych, pomijam.")
+        except Exception:
+            pass
 
     for it in items:
-        paras = it["spec_parafrazy"]
-        kanon = it["odpowiedz_kanoniczna"]
-        typ = it["typ_odpowiedzi"]
-        per_para = []
-        for p in paras:
-            raw = call_model(args.base_url, args.model, args.api_key, SYSTEM, p,
-                             args.max_tokens, args.temperature)
-            ans = extract_answer(raw)
-            ok = judge(ans, kanon, typ)
-            per_para.append({"prompt": p, "raw": raw, "answer": ans, "pass": ok})
-        passes = [x["pass"] for x in per_para]
-        pass_rate = sum(passes) / len(passes)
-        pass_median = pass_rate >= 0.5  # statystyka odporna: wiekszosc parafraz
-        wrazliwosc = 0 if all(passes) or not any(passes) else 1  # rozjazd miedzy parafrazami
-        if pass_median:
-            n_pass_median += 1
-        results.append({
-            "id": it["id"], "poziom_krokow": it["poziom_krokow"],
-            "pass_median": pass_median, "pass_rate_parafraz": round(pass_rate, 3),
-            "wrazliwosc_parafraza": wrazliwosc, "kanon": kanon, "typ": typ,
-            "per_parafraza": per_para,
-        })
-        print(f"  {it['id']} (L{it['poziom_krokow']}): pass={pass_median} "
-              f"({sum(passes)}/{len(passes)} parafraz)"
-              + ("  [WRAZLIWY na parafraze]" if wrazliwosc else ""))
+        if it["id"] in done:
+            continue
+        r = score_item(it, args.base_url, args.model, args.api_key, args.max_tokens, args.temperature)
+        results.append(r)
+        save(args.out, args.model, args.eval, items, results)  # CHECKPOINT po kazdym itemie
+        print(f"  {r['id']} (L{r['poziom_krokow']}): pass={r['pass_median']} "
+              f"({sum(x['pass'] for x in r['per_parafraza'])}/{len(r['per_parafraza'])} parafraz)"
+              + ("  [WRAZLIWY na parafraze]" if r["wrazliwosc_parafraza"] else ""))
 
-    summary = {
-        "model": args.model, "eval": args.eval, "n_items": len(items),
-        "pass_median_count": n_pass_median,
-        "pass_median_rate": round(n_pass_median / len(items), 3) if items else 0,
-        "items_wrazliwe": sum(r["wrazliwosc_parafraza"] for r in results),
-    }
-    out = {"summary": summary, "results": results}
-    json.dump(out, open(args.out, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    save(args.out, args.model, args.eval, items, results)
     print("\n=== PODSUMOWANIE ===")
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    print(json.dumps(build_summary(args.model, args.eval, items, results), ensure_ascii=False, indent=2))
     print(f"\nZapisano: {args.out}")
     return 0
 

@@ -1,0 +1,303 @@
+{
+  "summary": {
+    "model": "slayer-v49-qwen3.5-27b",
+    "eval": "../benchmarks/d1-rozumowanie-v1/eval.jsonl",
+    "n_items": 10,
+    "n_scored": 10,
+    "pass_median_count": 9,
+    "pass_median_rate": 0.9,
+    "items_wrazliwe": 1
+  },
+  "results": [
+    {
+      "id": "D1-L2-01",
+      "poziom_krokow": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "17",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Anna ma 12 lat. Jej brat jest o 5 lat starszy. Ile lat ma brat?",
+          "raw": "Aby rozwiązać to zadanie, wykonajmy następujące kroki:\n\n1.  **Zidentyfikujmy dane:** Wiemy, że Anna ma 12 lat.\n2.  **Zidentyfikujmy relację:** Jej brat jest o 5 lat starszy od Anny.\n3.  **Wykonajmy obliczenia:** Aby obliczyć wiek brata, musimy dodać 5 lat do wieku Anny.\n    $$12 + 5 = 17$$\n\nBrat Anny ma 17 lat.\n\nWYNIK: 17",
+          "answer": "17",
+          "pass": true
+        },
+        {
+          "prompt": "Anna liczy 12 lat, a brat jest starszy od niej o 5 lat. Podaj wiek brata.",
+          "raw": "Aby rozwiązać to zadanie, wykonajmy następujące kroki:\n\n1.  **Zidentyfikujmy dane:**\n    *   Wiek Anny: 12 lat.\n    *   Różnica wieku: Brat jest starszy od Anny o 5 lat.\n\n2.  **Ustalmy działanie:**\n    *   Ponieważ brat jest starszy, musimy dodać różnicę wieku do wieku Anny.\n    *   Wzór: Wiek Anny + 5 lat = Wiek brata.\n\n3.  **Wykonajmy obliczenia:**\n    *   $12 + 5 = 17$\n\nWiek brata wynosi 17 lat.\n\nWYNIK: 17",
+          "answer": "17",
+          "pass": true
+        },
+        {
+          "prompt": "Brat Anny jest o 5 lat starszy niż Anna, która ma 12 lat. Ile lat ma brat?",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy podane dane:\n1. Anna ma 12 lat.\n2. Jej brat jest o 5 lat starszy od Anny.\n\nAby obliczyć wiek brata, musimy dodać 5 lat do wieku Anny:\n$$12 + 5 = 17$$\n\nBrat Anny ma 17 lat.\n\nWYNIK: 17",
+          "answer": "17",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L2-02",
+      "poziom_krokow": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "8",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Kupiono 3 zeszyty po 4 zl. Zaplacono banknotem 20 zl. Ile wynosi reszta?",
+          "raw": "Krok 1: Obliczenie całkowitego kosztu zakupionych zeszytów.\nKupiono 3 zeszyty, a cena jednego wynosi 4 zł.\nObliczenie: $3 \\times 4 = 12$ zł.\n\nKrok 2: Obliczenie reszty z zapłaconej kwoty.\nZapłacono banknotem 20 zł, a koszt zakupu wyniósł 12 zł.\nObliczenie: $20 - 12 = 8$ zł.\n\nWYNIK: 8",
+          "answer": "8",
+          "pass": true
+        },
+        {
+          "prompt": "Trzy zeszyty kosztuja po 4 zl kazdy. Placisz 20 zl. Jaka reszta?",
+          "raw": "Krok 1: Oblicz całkowity koszt trzech zeszytów.\nCena jednego zeszytu wynosi 4 zł.\nLiczba zeszytów to 3.\nKoszt całkowity = 3 * 4 zł = 12 zł.\n\nKrok 2: Oblicz resztę z podanej kwoty.\nPłacisz kwotą 20 zł.\nKoszt towaru to 12 zł.\nReszta = 20 zł - 12 zł = 8 zł.\n\nWYNIK: 8 zł",
+          "answer": "8 zł",
+          "pass": true
+        },
+        {
+          "prompt": "Za 3 zeszyty po 4 zl zaplacono 20 zl. Podaj kwote reszty.",
+          "raw": "Aby obliczyć kwotę reszty, wykonajmy następujące kroki:\n\n1.  **Oblicz całkowity koszt zakupów:**\n    Mamy 3 zeszyty, a cena jednego zeszytu wynosi 4 zł.\n    Koszt = liczba zeszytów × cena jednego zeszytu\n    Koszt = 3 × 4 zł = 12 zł.\n\n2.  **Oblicz resztę:**\n    Zapłacono 20 zł, a koszt towaru wyniósł 12 zł.\n    Reszta = kwota zapłacona - koszt towaru\n    Reszta = 20 zł - 12 zł = 8 zł.\n\nWYNIK: 8",
+          "answer": "8",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L3-01",
+      "poziom_krokow": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "200",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Samochod jedzie 60 km/h przez 2 godziny, potem 80 km/h przez 1 godzine. Ile km przejechal lacznie?",
+          "raw": "Aby obliczyć całkowitą drogę przebytą przez samochód, należy podzielić przejazd na dwa odcinki i zsumować dystanse z każdego z nich.\n\n**Krok 1: Obliczenie dystansu pierwszego odcinka**\nSamochód jedzie z prędkością 60 km/h przez 2 godziny.\nWzór na drogę: $s = v \\cdot t$\n$s_1 = 60 \\text{ km/h} \\cdot 2 \\text{ h} = 120 \\text{ km}$\n\n**Krok 2: Obliczenie dystansu drugiego odcinka**\nSamochód jedzie z prędkością 80 km/h przez 1 godzinę.\n$s_2 = 80 \\text{ km/h} \\cdot 1 \\text{ h} = 80 \\text{ km}$\n\n**Krok 3: Obliczenie całkowitej drogi**\nSumujemy dystanse z obu odcinków:\n$s_{\\text{całkowita}} = s_1 + s_2$\n$s_{\\text{całkowita}} = 120 \\text{ km} + 80 \\text{ km} = 200 \\text{ km}$\n\nWYNIK: 200",
+          "answer": "200",
+          "pass": true
+        },
+        {
+          "prompt": "Przez 2 h auto jedzie 60 km/h, nastepnie 1 h z predkoscia 80 km/h. Podaj laczny dystans w km.",
+          "raw": "Aby obliczyć łączny dystans, należy podzielić podróż na dwa odcinki i obliczyć dystans dla każdego z nich z osobna, korzystając ze wzoru: dystans = prędkość × czas.\n\n**Krok 1: Obliczenie dystansu pierwszego odcinka**\n*   Czas jazdy ($t_1$): 2 godziny\n*   Prędkość ($v_1$): 60 km/h\n*   Dystans ($d_1$) = $60 \\text{ km/h} \\times 2 \\text{ h} = 120 \\text{ km}$\n\n**Krok 2: Obliczenie dystansu drugiego odcinka**\n*   Czas jazdy ($t_2$): 1 godzina\n*   Prędkość ($v_2$): 80 km/h\n*   Dystans ($d_2$) = $80 \\text{ km/h} \\times 1 \\text{ h} = 80 \\text{ km}$\n\n**Krok 3: Obliczenie łącznego dystansu**\n*   Łączny dystans ($D$) = $d_1 + d_2$\n*   $D = 120 \\text{ km} + 80 \\text{ km} = 200 \\text{ km}$\n\nWYNIK: 200",
+          "answer": "200",
+          "pass": true
+        },
+        {
+          "prompt": "Auto: 2 godziny po 60 km/h, dalej 1 godzina po 80 km/h. Ile kilometrow razem?",
+          "raw": "Aby obliczyć całkowitą przebytą drogę, musimy zsumować dystansy pokonane w obu etapach podróży.\n\n**Krok 1: Obliczenie dystansu w pierwszym etapie**\nW pierwszym etapie auto jechało przez 2 godziny z prędkością 60 km/h.\nWzór na drogę: $s = v \\cdot t$\n$s_1 = 60 \\text{ km/h} \\cdot 2 \\text{ h} = 120 \\text{ km}$\n\n**Krok 2: Obliczenie dystansu w drugim etapie**\nW drugim etapie auto jechało przez 1 godzinę z prędkością 80 km/h.\n$s_2 = 80 \\text{ km/h} \\cdot 1 \\text{ h} = 80 \\text{ km}$\n\n**Krok 3: Obliczenie całkowitego dystansu**\nSumujemy oba dystanse:\n$s_{\\text{całkowite}} = s_1 + s_2$\n$s_{\\text{całkowite}} = 120 \\text{ km} + 80 \\text{ km} = 200 \\text{ km}$\n\nWYNIK: 200",
+          "answer": "200",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L3-02",
+      "poziom_krokow": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "Cezary",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "W wyscigu Bartek jest przed Cezarym, a Cezary przed Dawidem. Adam jest przed Bartkiem. Kto jest na 3. miejscu?",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy kolejność zawodników na podstawie podanych informacji:\n\n1.  **Bartek jest przed Cezarym**: Kolejność to Bartek -> Cezary.\n2.  **Cezary jest przed Dawidem**: Kolejność to Cezary -> Dawid.\n    Łącząc te dwie informacje, otrzymujemy sekwencję: Bartek -> Cezary -> Dawid.\n3.  **Adam jest przed Bartkiem**: Adam znajduje się na początku tej sekwencji.\n    Pełna kolejność od pierwszego miejsca to: Adam -> Bartek -> Cezary -> Dawid.\n\nTeraz przypiszmy miejsca:\n1.  Adam\n2.  Bartek\n3.  Cezary\n4.  Dawid\n\nNa trzecim miejscu znajduje się Cezary.\n\nWYNIK: Cezary",
+          "answer": "Cezary",
+          "pass": true
+        },
+        {
+          "prompt": "Adam wyprzedza Bartka, Bartek Cezarego, Cezary Dawida. Podaj zawodnika z 3. pozycji.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy kolejność zawodników na podstawie podanych informacji o wyprzedzaniu:\n\n1.  **Adam wyprzedza Bartka**: Oznacza to, że Adam jest przed Bartkiem.\n    *   Tymczasowa kolejność: Adam, Bartek.\n2.  **Bartek wyprzedza Cezarego**: Oznacza to, że Bartek jest przed Cezarym.\n    *   Łączna kolejność: Adam, Bartek, Cezary.\n3.  **Cezary wyprzedza Dawida**: Oznacza to, że Cezary jest przed Dawidem.\n    *   Ostateczna kolejność: Adam, Bartek, Cezary, Dawid.\n\nTeraz przypiszmy numery pozycji:\n1.  Adam\n2.  Bartek\n3.  Cezary\n4.  Dawid\n\nZawodnikiem z 3. pozycji jest Cezary.\n\nWYNIK: Cezary",
+          "answer": "Cezary",
+          "pass": true
+        },
+        {
+          "prompt": "Kolejnosc: Adam przed Bartkiem, Bartek przed Cezarym, Cezary przed Dawidem. Kto zajmuje trzecie miejsce?",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy podaną kolejność krok po kroku:\n\n1.  **Adam przed Bartkiem**: Oznacza to, że Adam jest na pozycji 1, a Bartek na pozycji 2 (względem siebie).\n2.  **Bartek przed Cezarym**: Skoro Bartek jest przed Cezarym, a Adam jest przed Bartkiem, kolejność rozszerza się do: Adam -> Bartek -> Cezary.\n3.  **Cezary przed Dawidem**: Dodajemy Dawida na końcu tej sekwencji.\n\nPełna kolejność od pierwszego do czwartego miejsca wygląda następująco:\n1.  Adam\n2.  Bartek\n3.  Cezary\n4.  Dawid\n\nPytanie brzmi, kto zajmuje trzecie miejsce. Zgodnie z powyższą listą, jest to Cezary.\n\nWYNIK: Cezary",
+          "answer": "Cezary",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L4-01",
+      "poziom_krokow": 4,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "20",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ojciec ma teraz 40 lat, syn 10. Za ile lat ojciec bedzie dokladnie 2 razy starszy od syna?",
+          "raw": "Oto rozwiązanie zadania krok po kroku:\n\n1.  **Zdefiniujmy zmienne:**\n    *   Obecny wiek ojca: $40$ lat.\n    *   Obecny wiek syna: $10$ lat.\n    *   Szukana liczba lat, które muszą minąć: $x$.\n\n2.  **Ułóżmy wyrażenia na wiek w przyszłości:**\n    *   Za $x$ lat ojciec będzie miał: $40 + x$ lat.\n    *   Za $x$ lat syn będzie miał: $10 + x$ lat.\n\n3.  **Sformułujmy równanie na podstawie warunku zadania:**\n    Zadanie mówi, że za $x$ lat ojciec będzie dokładnie 2 razy starszy od syna. Oznacza to, że wiek ojca będzie równy dwukrotności wieku syna.\n    $$40 + x = 2 \\cdot (10 + x)$$\n\n4.  **Rozwiążmy równanie:**\n    *   Rozwiń nawias po prawej stronie:\n        $$40 + x = 20 + 2x$$\n    *   Przenieś niewiadomą $x$ na jedną stronę, a liczby na drugą (odejmij $x$ od obu stron i odjąć $20$ od obu stron):\n        $$40 - 20 = 2x - x$$\n    *   Uprość równanie:\n        $$20 = x$$\n\n5.  **Sprawdźmy wynik:**\n    *   Jeśli minie $20$ lat:\n        *   Ojciec będzie miał: $40 + 20 = 60$ lat.\n        *   Syn będzie miał: $10 + 20 = 30$ lat.\n    *   Czy $60$ jest dwa razy większe od $30$? Tak, ponieważ $30 \\cdot 2 = 60$.\n\nWynik jest poprawny.\n\nWYNIK: 20",
+          "answer": "20",
+          "pass": true
+        },
+        {
+          "prompt": "Teraz ojciec liczy 40 lat, syn 10. Po ilu latach wiek ojca bedzie dwukrotnoscia wieku syna?",
+          "raw": "Oto rozwiązanie zadania krok po kroku:\n\n1.  **Zdefiniujmy zmienne:**\n    *   Obecny wiek ojca: $40$ lat.\n    *   Obecny wiek syna: $10$ lat.\n    *   Szukana liczba lat, które muszą minąć: $x$.\n\n2.  **Zapiszmy wyrażenia na wiek w przyszłości:**\n    *   Po $x$ latach wiek ojca wyniesie: $40 + x$.\n    *   Po $x$ latach wiek syna wyniesie: $10 + x$.\n\n3.  **Ułóżmy równanie na podstawie warunku zadania:**\n    Zadanie mówi, że po $x$ latach wiek ojca będzie dwukrotnością wieku syna. Oznacza to:\n    $$40 + x = 2 \\cdot (10 + x)$$\n\n4.  **Rozwiążmy równanie:**\n    *   Rozwiń nawias po prawej stronie:\n        $$40 + x = 20 + 2x$$\n    *   Przenieś niewiadomą $x$ na jedną stronę, a liczby na drugą (odejmij $x$ od obu stron i odjąć $20$ od obu stron):\n        $$40 - 20 = 2x - x$$\n    *   Uprość równanie:\n        $$20 = x$$\n\n5.  **Sprawdźmy wynik:**\n    *   Po $20$ latach ojciec będzie miał: $40 + 20 = 60$ lat.\n    *   Po $20$ latach syn będzie miał: $10 + 20 = 30$ lat.\n    *   Czy $60$ jest dwukrotnością $30$? Tak, ponieważ $30 \\cdot 2 = 60$.\n\nWynik jest poprawny.\n\nWYNIK: 20",
+          "answer": "20",
+          "pass": true
+        },
+        {
+          "prompt": "Ojciec 40, syn 10. Za ile lat ojciec bedzie mial dwa razy tyle co syn?",
+          "raw": "Oto rozwiązanie zadania krok po kroku:\n\n1.  **Zdefiniujmy zmienne:**\n    *   Obecny wiek ojca: $40$ lat.\n    *   Obecny wiek syna: $10$ lat.\n    *   Szukana liczba lat, które muszą minąć: $x$.\n\n2.  **Ułóżmy równanie:**\n    Za $x$ lat:\n    *   Wiek ojca wyniesie: $40 + x$\n    *   Wiek syna wyniesie: $10 + x$\n\n    Zgodnie z treścią zadania, za $x$ lat ojciec będzie miał dwa razy tyle lat co syn. Możemy to zapisać jako równanie:\n    $$40 + x = 2 \\cdot (10 + x)$$\n\n3.  **Rozwiążmy równanie:**\n    *   Rozwiń nawias po prawej stronie:\n        $$40 + x = 20 + 2x$$\n    *   Przenieś niewiadomą $x$ na jedną stronę, a liczby na drugą (odejmij $x$ od obu stron i odjąć $20$ od obu stron):\n        $$40 - 20 = 2x - x$$\n    *   Uprość równanie:\n        $$20 = x$$\n\n4.  **Sprawdźmy wynik:**\n    *   Za $20$ lat ojciec będzie miał: $40 + 20 = 60$ lat.\n    *   Za $20$ lat syn będzie miał: $10 + 20 = 30$ lat.\n    *   Czy $60$ jest dwa razy większe od $30$? Tak, ponieważ $30 \\cdot 2 = 60$.\n\nOdpowiedź: Za 20 lat ojciec będzie miał dwa razy tyle lat co syn.\n\nWYNIK: 20",
+          "answer": "20",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L4-02",
+      "poziom_krokow": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "20",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Zbiornik ma 100 litrow. Rano wlano 30 l, w poludnie wylano 45 l, wieczorem wlano 20 l. Ile litrow jest teraz, jesli na poczatku byl pusty?",
+          "raw": "Rozwiążmy to zadanie krok po kroku, śledząc stan zbiornika w czasie:\n\n1.  **Stan początkowy**: Zbiornik jest pusty.\n    *   Ilość wody: $0$ litrów.\n\n2.  **Rano**: Wlano $30$ litrów.\n    *   Obliczenie: $0 + 30 = 30$ litrów.\n    *   Aktualna ilość: $30$ litrów.\n\n3.  **W południe**: Wylano $45$ litrów.\n    *   Obliczenie: $30 - 45 = -15$ litrów.\n    *   **Analiza fizyczna**: Zbiornik nie może zawierać ujemnej ilości wody. Oznacza to, że wylano całą dostępną wodę ($30$ litrów), a operacja \"wylania\" $45$ litrów jest niemożliwa do wykonania w pełnym zakresie. W rzeczywistości wylano tylko $30$ litrów, a zbiornik stał się pusty.\n    *   Aktualna ilość: $0$ litrów.\n\n4.  **Wieczorem**: Wlano $20$ litrów.\n    *   Obliczenie: $0 + 20 = 20$ litrów.\n    *   Aktualna ilość: $20$ litrów.\n\n5.  **Sprawdzenie pojemności**: Zbiornik ma pojemność $100$ litrów. Obecna ilość ($20$ l) mieści się w tej pojemności, więc nie ma przepełnienia.\n\nOstateczna ilość wody w zbiorniku wynosi $20$ litrów.\n\nWYNIK: 20",
+          "answer": "20",
+          "pass": true
+        },
+        {
+          "prompt": "Pusty zbiornik 100 l: +30 l rano, -45 l w poludnie, +20 l wieczorem. Ile litrow po wszystkim?",
+          "raw": "Rozwiązanie zadania krok po kroku:\n\n1.  **Stan początkowy**: Zbiornik jest pusty, więc początkowa ilość wody wynosi **0 l**.\n2.  **Rano**: Do zbiornika dodano 30 l.\n    *   Obliczenie: $0 + 30 = 30$ l.\n3.  **W południe**: Ze zbiornika pobrano 45 l.\n    *   Obliczenie: $30 - 45 = -15$ l.\n    *   *Uwaga fizyczna*: W rzeczywistości z pustego zbiornika (lub takiego z 30 l) nie można pobrać 45 l, ponieważ nie ma tyle wody. Matematycznie wynik operacji jest ujemny (-15), co w kontekście fizycznym oznacza, że zbiornik został opróżniony do zera, a operacja \"brakuje\" 15 l. Jednak w typowych zadaniach matematycznych tego typu, jeśli nie ma specyfikacji \"nie można pobrać więcej niż jest\", traktujemy to jako czystą operację arytmetyczną na bilansie.\n    *   Jeśli jednak zadanie zakłada realny zbiornik, ilość wody nie może być ujemna. W takim przypadku po pobraniu 45 l z 30 l, w zbiorniku zostaje **0 l** (bo nie ma czego więcej pobrać).\n    *   Sprawdźmy dalszy ciąg w obu scenariuszach:\n        *   *Scenariusz A (czysta matematyka)*: $-15 + 20 = 5$ l.\n        *   *Scenariusz B (realny zbiornik)*: Po południu mamy 0 l. Wieczorem dodajemy 20 l. $0 + 20 = 20$ l.\n\n    Zazwyczaj w prostych zadaniach tekstowych o zbiornikach, jeśli wynik pośredni jest ujemny, oznacza to błąd w założeniach zadania lub konieczność przyjęcia, że pobrano tyle, ile było (czyli 30 l), a nie 45 l. Jednakże, jeśli traktujemy to jako prosty bilans przepływów (np. w systemie, gdzie \"ujemne\" oznacza dług lub stan przed napełnieniem), wynik to 5.\n\n    Spójrzmy na treść: \"Pusty zbiornik\".\n    - Start: 0\n    - +30 -> 30\n    - -45 -> Nie da się pobrać 45 z 30. Maksymalnie można pobrać 30. Zostaje 0.\n    - +20 -> 0 + 20 = 20.\n\n    Jednakże, w wielu testach matematycznych (szczególnie tych sprawdzających dodawanie liczb ujemnych), oczekuje się wyniku algebraicznego: $0 + 30 - 45 + 20 = 5$.\n    Jeśli jednak zadanie jest z życia codziennego (fizyka), wynik to 20.\n    Zazwyczaj w takich krótkich zadaniach \"puzzle\" przyjmuje się logikę algebraiczną, chyba że zadanie jest wyraźnie o \"realności\". Sprawdźmy sumę: $30 - 45 + 20 = 5$.\n    Czyli bilans netto to +5 litrów.\n\n    Rozważmy jednak kontekst \"pustego zbiornika\". Jeśli w południe próbujemy wylać 45 litrów, a mamy tylko 30, to wylewamy 30 i zbiornik jest pusty. Wieczorem wlewamy 20. Wtedy jest 20.\n    Jeśli jednak zadanie jest czysto matematycznym ćwiczeniem na dodawanie i odejmowanie liczb całkowitych, to wynik to 5.\n\n    Przyjmijmy standardowe podejście do zadań tekstowych tego typu w edukacji matematycznej: często pomija się ograniczenie fizyczne \"nie można mieć ujemnej wody\" i traktuje to jako bilans przepływów.\n    Obliczenie: $0 + 30 - 45 + 20$.\n    $30 - 45 = -15$.\n    $-15 + 20 = 5$.\n\n    Jednakże, jeśli zadanie jest logiczne i dotyczy rzeczywistego zbiornika, odpowiedź 5 jest niemożliwa (nie można mieć -15 litrów wody",
+          "answer": "Jednakże, jeśli zadanie jest logiczne i dotyczy rzeczywistego zbiornika, odpowiedź 5 jest niemożliwa (nie można mieć -15 litrów wody",
+          "pass": false
+        },
+        {
+          "prompt": "Start: 0 l. Kolejno: wlano 30, wylano 45, wlano 20. Podaj koncowy stan w litrach.",
+          "raw": "Rozwiązanie zadania krok po kroku:\n\n1.  **Stan początkowy**: 0 litrów.\n2.  **Operacja 1 (wlanie)**: Do stanu początkowego dodajemy 30 litrów.\n    $0 + 30 = 30$ litrów.\n3.  **Operacja 2 (wylanie)**: Od aktualnego stanu odejmujemy 45 litrów.\n    $30 - 45 = -15$ litrów.\n    *(Uwaga: Matematycznie wynik jest ujemny, co w kontekście fizycznym oznacza, że pojemnik był pusty i zabrakło 15 litrów do wylania, lub jest to zadanie czysto arytmetyczne. Przyjmujemy wynik arytmetyczny).*\n4.  **Operacja 3 (wlanie)**: Do aktualnego stanu dodajemy 20 litrów.\n    $-15 + 20 = 5$ litrów.\n\nKońcowy stan wynosi 5 litrów.\n\nWYNIK: 5",
+          "answer": "5",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1-L5-01",
+      "poziom_krokow": 5,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "13:00",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Spotkanie trwa 90 min i konczy sie o 15:00. Zaczelo sie 30 min po przyjsciu Oli. O ktorej przyszla Ola?",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy dane krok po kroku:\n\n1.  **Określenie czasu zakończenia spotkania:**\n    Spotkanie kończy się o 15:00.\n\n2.  **Obliczenie czasu rozpoczęcia spotkania:**\n    Spotkanie trwa 90 minut. Aby znaleźć godzinę rozpoczęcia, odejmujemy czas trwania od godziny zakończenia.\n    90 minut to 1 godzina i 30 minut.\n    15:00 minus 1 godzina to 14:00.\n    14:00 minus 30 minut to 13:30.\n    Spotkanie rozpoczęło się o 13:30.\n\n3.  **Obliczenie czasu przyjścia Oli:**\n    Wiemy, że spotkanie zaczęło się 30 minut po przyjściu Oli. Oznacza to, że Ola przyszła 30 minut wcześniej niż rozpoczęło się spotkanie.\n    Godzina rozpoczęcia: 13:30.\n    Odejmujemy 30 minut: 13:30 - 0:30 = 13:00.\n\nOla przyszła o 13:00.\n\nWYNIK: 13:00",
+          "answer": "13:00",
+          "pass": true
+        },
+        {
+          "prompt": "Zebranie (90 min) konczy sie o 15:00. Start byl 30 min po wejsciu Oli. Podaj godzine wejscia Oli.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy podane dane krok po kroku:\n\n1.  **Czas trwania zebrania:** 90 minut.\n2.  **Godzina zakończenia zebrania:** 15:00.\n3.  **Zależność startu od wejścia Oli:** Start zebrania nastąpił 30 minut po wejściu Oli.\n\n**Krok 1: Obliczenie godziny rozpoczęcia zebrania.**\nJeśli zebranie trwało 90 minut i zakończyło się o 15:00, musimy odjąć 90 minut od godziny zakończenia.\n90 minut to 1 godzina i 30 minut.\n15:00 - 1 godzina = 14:00\n14:00 - 30 minut = 13:30\nZebranie rozpoczęło się o **13:30**.\n\n**Krok 2: Obliczenie godziny wejścia Oli.**\nWiemy, że start zebrania (13:30) był 30 minut po wejściu Oli. Oznacza to, że Ola weszła 30 minut przed rozpoczęciem zebrania.\n13:30 - 30 minut = 13:00.\n\nOla weszła o godzinie 13:00.\n\nWYNIK: 13:00",
+          "answer": "13:00",
+          "pass": true
+        },
+        {
+          "prompt": "Koniec spotkania: 15:00, czas trwania 90 min. Ola weszla 30 min przed startem. O ktorej weszla?",
+          "raw": "Aby rozwiązać to zadanie, musimy najpierw ustalić godzinę rozpoczęcia spotkania, a następnie obliczyć moment wejścia Oli.\n\n1.  **Obliczenie godziny rozpoczęcia spotkania:**\n    *   Koniec spotkania: 15:00\n    *   Czas trwania: 90 minut (co stanowi 1 godzinę i 30 minut).\n    *   Godzina rozpoczęcia = Godzina końca - Czas trwania\n    *   15:00 - 1:30 = 13:30.\n    *   Spotkanie rozpoczęło się o 13:30.\n\n2.  **Obliczenie godziny wejścia Oli:**\n    *   Ola weszła 30 minut przed startem.\n    *   Godzina wejścia = Godzina rozpoczęcia - 30 minut\n    *   13:30 - 0:30 = 13:00.\n\nOla weszła o godzinie 13:00.\n\nWYNIK: 13:00",
+          "answer": "13:00",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L5-02",
+      "poziom_krokow": 5,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jesli pada, biore parasol. Jesli biore parasol, nie biore kurtki. Dzis padalo. Czy wziolem kurtke?",
+          "raw": "Rozwiążmy to zadanie krok po kroku, stosując logikę dedukcyjną:\n\n1.  **Zidentyfikujmy przesłanki:**\n    *   Przesłanka 1: Jeśli pada, to biorę parasol. (Jeśli $P$, to $Pa$)\n    *   Przesłanka 2: Jeśli biorę parasol, to nie biorę kurtki. (Jeśli $Pa$, to nie $K$)\n    *   Przesłanka 3: Dziś padało. ($P$ jest prawdziwe)\n\n2.  **Wykonajmy dedukcję:**\n    *   Z Przesłanki 3 wiemy, że padało ($P$).\n    *   Zgodnie z Przesłanką 1, skoro padało, to musiałem zabrać parasol ($Pa$).\n    *   Zgodnie z Przesłanką 2, skoro zabrałem parasol ($Pa$), to nie zabrałem kurtki (nie $K$).\n\n3.  **Wniosek:**\n    *   Na podstawie powyższych kroków, fakt, że padało, prowadzi do wniosku, że nie wziąłem kurtki.\n\nWYNIK: Nie",
+          "answer": "Nie",
+          "pass": true
+        },
+        {
+          "prompt": "Reguly: deszcz => parasol; parasol => brak kurtki. Dzis byl deszcz. Wziolem kurtke czy nie?",
+          "raw": "Oto logiczne rozwiązanie zadania krok po kroku:\n\n1.  **Zdefiniujmy reguły:**\n    *   Reguła 1: Jeśli jest deszcz, to bierzemy parasol (deszcz $\\Rightarrow$ parasol).\n    *   Reguła 2: Jeśli bierzemy parasol, to nie bierzemy kurtki (parasol $\\Rightarrow$ brak kurtki).\n\n2.  **Zidentyfikujmy fakt:**\n    *   Fakt: Dzisiaj był deszcz.\n\n3.  **Zastosujmy reguły do faktu:**\n    *   Skoro był deszcz (zgodnie z faktem), to zgodnie z Regułą 1 musiałem wziąć parasol.\n    *   Skoro wziąłem parasol (wynik z poprzedniego kroku), to zgodnie z Regułą 2 nie wziąłem kurtki.\n\n4.  **Wniosek:**\n    *   Na podstawie łańcucha logicznego (deszcz $\\rightarrow$ parasol $\\rightarrow$ brak kurtki), nie wziąłem kurtki.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Gdy pada, biore parasol; gdy mam parasol, nie biore kurtki. Padalo dzisiaj. Kurtka: tak czy nie?",
+          "raw": "Rozwiążmy to zadanie krok po kroku, analizując podane reguły i fakty:\n\n1.  **Analiza reguł:**\n    *   Reguła 1: Jeśli pada, to biorę parasol. (Pada $\\rightarrow$ Parasol)\n    *   Reguła 2: Jeśli mam parasol, to nie biorę kurtki. (Parasol $\\rightarrow$ Nie Kurtka)\n\n2.  **Analiza faktu:**\n    *   Fakt: Padało dzisiaj.\n\n3.  **Wnioskowanie:**\n    *   Skoro padało dzisiaj (Fakt), to zgodnie z Regułą 1, musiałem zabrać parasol.\n    *   Skoro mam parasol (wynik z poprzedniego kroku), to zgodnie z Regułą 2, nie biorę kurtki.\n\n4.  **Odpowiedź na pytanie:**\n    *   Pytanie brzmi: \"Kurtka: tak czy nie?\"\n    *   Na podstawie wnioskowania, kurtka nie została zabrana.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L6-01",
+      "poziom_krokow": 6,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "16.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Mam 2 l roztworu 10% soli i 3 l roztworu 20% soli. Mieszam oba. Ile procent soli ma mieszanina? Podaj z dokladnoscia do 0.1.",
+          "raw": "Aby obliczyć stężenie procentowe powstałej mieszaniny, musimy najpierw wyznaczyć całkowitą masę soli oraz całkowitą objętość (lub masę) roztworu. Zakładamy, że gęstość roztworów jest zbliżona do wody i objętości się sumują, co jest standardowym założeniem w tego typu zadaniach, chyba że podano inaczej.\n\n**Krok 1: Obliczenie ilości soli w pierwszym roztworze**\nMamy 2 litry roztworu o stężeniu 10%.\nIlość soli = $2 \\, \\text{l} \\times 10\\% = 2 \\times 0.10 = 0.2 \\, \\text{l}$ (w przeliczeniu na jednostkę objętościową soli lub masę, jeśli gęstość jest stała).\n\n**Krok 2: Obliczenie ilości soli w drugim roztworze**\nMamy 3 litry roztworu o stężeniu 20%.\nIlość soli = $3 \\, \\text{l} \\times 20\\% = 3 \\times 0.20 = 0.6 \\, \\text{l}$.\n\n**Krok 3: Obliczenie całkowitej ilości soli w mieszaninie**\nSumujemy ilość soli z obu roztworów:\nCałkowita sól = $0.2 + 0.6 = 0.8 \\, \\text{l}$.\n\n**Krok 4: Obliczenie całkowitej objętości mieszaniny**\nSumujemy objętości obu roztworów:\nCałkowita objętość = $2 \\, \\text{l} + 3 \\, \\text{l} = 5 \\, \\text{l}$.\n\n**Krok 5: Obliczenie stężenia procentowego mieszaniny**\nStężenie ($C_p$) obliczamy ze wzoru:\n$$C_p = \\frac{\\text{Całkowita ilość soli}}{\\text{Całkowita objętość}} \\times 100\\%$$\n\n$$C_p = \\frac{0.8}{5} \\times 100\\%$$\n\n$$C_p = 0.16 \\times 100\\% = 16\\%$$\n\n**Krok 6: Zaokrąglenie wyniku**\nWynik wynosi dokładnie 16%. Wymagana dokładność to 0.1.\n$16.0\\%$\n\nWYNIK: 16.0",
+          "answer": "16.0",
+          "pass": true
+        },
+        {
+          "prompt": "Laczę 2 l roztworu 10-procentowego z 3 l roztworu 20-procentowego (sol). Jakie stezenie ma wynik (do 0.1%)?",
+          "raw": "Aby obliczyć stężenie wynikowe roztworu, musimy wyznaczyć całkowitą masę rozpuszczonej substancji (soli) oraz całkowitą objętość otrzymanego roztworu. Zakładamy, że gęstość roztworów jest zbliżona do gęstości wody (1 kg/l), co jest standardowym założeniem w tego typu zadaniach, jeśli nie podano innych danych.\n\n**Krok 1: Obliczenie masy soli w pierwszym roztworze**\nMamy 2 litry roztworu o stężeniu 10%.\nPrzyjmując gęstość $1 \\text{ kg/l}$, masa pierwszego roztworu wynosi $2 \\text{ kg}$.\nMasa soli ($m_{s1}$) to 10% masy roztworu:\n$$m_{s1} = 2 \\text{ kg} \\times 0,10 = 0,2 \\text{ kg}$$\n\n**Krok 2: Obliczenie masy soli w drugim roztworze**\nMamy 3 litry roztworu o stężeniu 20%.\nPrzyjmując gęstość $1 \\text{ kg/l}$, masa drugiego roztworu wynosi $3 \\text{ kg}$.\nMasa soli ($m_{s2}$) to 20% masy roztworu:\n$$m_{s2} = 3 \\text{ kg} \\times 0,20 = 0,6 \\text{ kg}$$\n\n**Krok 3: Obliczenie całkowitej masy soli i całkowitej masy roztworu**\nCałkowita masa soli ($m_{s\\_total}$):\n$$m_{s\\_total} = 0,2 \\text{ kg} + 0,6 \\text{ kg} = 0,8 \\text{ kg}$$\n\nCałkowita masa roztworu ($m_{r\\_total}$):\n$$m_{r\\_total} = 2 \\text{ kg} + 3 \\text{ kg} = 5 \\text{ kg}$$\n(Odpowiada to objętości 5 litrów).\n\n**Krok 4: Obliczenie stężenia procentowego wynikowego**\nStężenie procentowe ($C_p$) obliczamy ze wzoru:\n$$C_p = \\frac{m_{s\\_total}}{m_{r\\_total}} \\times 100\\%$$\n\nPodstawiamy wartości:\n$$C_p = \\frac{0,8}{5} \\times 100\\%$$\n$$C_p = 0,16 \\times 100\\%$$\n$$C_p = 16\\%$$\n\n**Krok 5: Zaokrąglenie**\nWynik wynosi dokładnie 16%. Wymagane jest podanie wyniku z dokładnością do 0,1%.\n$$16,0\\%$$\n\nWYNIK: 16,0%",
+          "answer": "16,0%",
+          "pass": true
+        },
+        {
+          "prompt": "Roztwor A: 2 l, 10% soli. Roztwor B: 3 l, 20% soli. Po zmieszaniu podaj procent soli (1 miejsce po przecinku).",
+          "raw": "Aby obliczyć procentowe stężenie soli w powstałym roztworze, należy wykonać następujące kroki:\n\n1.  **Obliczenie masy soli w roztworze A:**\n    *   Objętość: 2 l\n    *   Stężenie: 10%\n    *   Masa soli = $2 \\cdot 0,10 = 0,2$ l (przyjmując, że gęstość jest zbliżona do wody, lub traktując jednostki jako proporcjonalne do masy rozpuszczonej substancji w tym kontekście).\n\n2.  **Obliczenie masy soli w roztworze B:**\n    *   Objętość: 3 l\n    *   Stężenie: 20%\n    *   Masa soli = $3 \\cdot 0,20 = 0,6$ l.\n\n3.  **Obliczenie całkowitej masy soli w mieszaninie:**\n    *   Całkowita masa soli = $0,2 + 0,6 = 0,8$ l.\n\n4.  **Obliczenie całkowitej objętości mieszaniny:**\n    *   Całkowita objętość = $2 + 3 = 5$ l.\n\n5.  **Obliczenie nowego stężenia procentowego:**\n    *   Wzór: $\\frac{\\text{Całkowita masa soli}}{\\text{Całkowita objętość}} \\cdot 100\\%$\n    *   Obliczenie: $\\frac{0,8}{5} \\cdot 100\\% = 0,16 \\cdot 100\\% = 16\\%$.\n\n6.  **Formatowanie wyniku:**\n    *   Wynik to 16%.\n    *   Wymagane jest podanie wyniku z 1 miejscem po przecinku: 16,0%.\n\nWYNIK: 16,0%",
+          "answer": "16,0%",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L6-02",
+      "poziom_krokow": 6,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "4.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Malarz maluje pokoj w 6 godzin, drugi w 12 godzin. Pracujac razem, w ile godzin pomaluja pokoj? Podaj ulamek lub liczbe do 0.1.",
+          "raw": "Aby rozwiązać to zadanie, obliczmy wydajność pracy każdego z malarzy, a następnie zsumujmy je, aby znaleźć czas potrzebny do wykonania pracy wspólnie.\n\n1.  **Obliczenie wydajności pierwszego malarza:**\n    Pierwszy malarz maluje cały pokój w 6 godzin. Oznacza to, że w ciągu 1 godziny wykonuje $\\frac{1}{6}$ pracy.\n\n2.  **Obliczenie wydajności drugiego malarza:**\n    Drugi malarz maluje cały pokój w 12 godzin. Oznacza to, że w ciągu 1 godziny wykonuje $\\frac{1}{12}$ pracy.\n\n3.  **Obliczenie łącznej wydajności:**\n    Gdy pracują razem, ich wydajności się sumują. W ciągu 1 godziny wykonują:\n    $$ \\frac{1}{6} + \\frac{1}{12} $$\n    Aby dodać te ułamki, sprowadźmy je do wspólnego mianownika (którym jest 12):\n    $$ \\frac{1}{6} = \\frac{2}{12} $$\n    $$ \\frac{2}{12} + \\frac{1}{12} = \\frac{3}{12} $$\n    Ułamek $\\frac{3}{12}$ można skrócić do $\\frac{1}{4}$.\n    Oznacza to, że pracując razem, w ciągu 1 godziny malują $\\frac{1}{4}$ pokoju.\n\n4.  **Obliczenie czasu potrzebnego do wykonania całej pracy:**\n    Jeśli w 1 godzinę wykonują $\\frac{1}{4}$ pracy, to całość (czyli 1 pokój) zajmą im:\n    $$ 1 \\div \\frac{1}{4} = 4 \\text{ godziny} $$\n\nWYNIK: 4",
+          "answer": "4",
+          "pass": true
+        },
+        {
+          "prompt": "Jeden malarz konczy pokoj w 6 h, drugi w 12 h. Wspolnie zajmie im ile godzin (do 0.1)?",
+          "raw": "Aby rozwiązać to zadanie, obliczmy wydajność pracy każdego z malarzy, a następnie ich łączną wydajność.\n\n1.  **Obliczenie wydajności pierwszego malarza:**\n    Pierwszy malarz kończy pokój w 6 godzin. Oznacza to, że w ciągu 1 godziny wykonuje $\\frac{1}{6}$ całej pracy.\n\n2.  **Obliczenie wydajności drugiego malarza:**\n    Drugi malarz kończy pokój w 12 godzin. Oznacza to, że w ciągu 1 godziny wykonuje $\\frac{1}{12}$ całej pracy.\n\n3.  **Obliczenie łącznej wydajności:**\n    Gdy pracują wspólnie, ich wydajności się sumują. W ciągu 1 godziny wykonują:\n    $$ \\frac{1}{6} + \\frac{1}{12} $$\n    Aby dodać te ułamki, sprowadźmy je do wspólnego mianownika (którym jest 12):\n    $$ \\frac{1}{6} = \\frac{2}{12} $$\n    $$ \\frac{2}{12} + \\frac{1}{12} = \\frac{3}{12} $$\n    Ułamek $\\frac{3}{12}$ można skrócić do $\\frac{1}{4}$.\n    Oznacza to, że pracując razem, wykonują $\\frac{1}{4}$ pokoju w ciągu 1 godziny.\n\n4.  **Obliczenie czasu potrzebnego na wykonanie całej pracy:**\n    Jeśli w 1 godzinę wykonują $\\frac{1}{4}$ pracy, to na wykonanie całego pokoju (czyli 1 całości) potrzebują:\n    $$ 1 \\div \\frac{1}{4} = 4 \\text{ godziny} $$\n\n5.  **Formatowanie wyniku:**\n    Zadanie wymaga podania wyniku z dokładnością do 0.1.\n    Wynik to dokładnie 4, więc zapisujemy go jako 4.0.\n\nWYNIK: 4.0",
+          "answer": "4.0",
+          "pass": true
+        },
+        {
+          "prompt": "Tempo: malarz A 6 h na pokoj, malarz B 12 h. Razem pomaluja w ile godzin (1 miejsce po przecinku)?",
+          "raw": "Aby rozwiązać to zadanie, obliczmy najpierw wydajność pracy każdego z malarzy, czyli jaką część pokoju maluje w ciągu jednej godziny.\n\n1.  **Wydajność malarza A:**\n    Malarz A maluje cały pokój w 6 godzin.\n    Jego wydajność wynosi: $1/6$ pokoju na godzinę.\n\n2.  **Wydajność malarza B:**\n    Malarz B maluje cały pokój w 12 godzin.\n    Jego wydajność wynosi: $1/12$ pokoju na godzinę.\n\n3.  **Wydajność wspólna:**\n    Gdy pracują razem, ich wydajności się sumują.\n    Wspólna wydajność = $1/6 + 1/12$.\n    Aby dodać te ułamki, sprowadźmy je do wspólnego mianownika (12):\n    $1/6 = 2/12$\n    $2/12 + 1/12 = 3/12$\n    Ułamek $3/12$ można skrócić do $1/4$.\n    Oznacza to, że razem malują $1/4$ pokoju w ciągu jednej godziny.\n\n4.  **Czas potrzebny na pomalowanie całego pokoju:**\n    Jeśli w ciągu godziny malują $1/4$ pokoju, to na pomalowanie całego pokoju (czyli 1) potrzebują:\n    $1 / (1/4) = 4$ godziny.\n\n5.  **Formatowanie wyniku:**\n    Zadanie wymaga podania wyniku z dokładnością do 1 miejsca po przecinku.\n    $4$ zapisane z jednym miejscem po przecinku to $4.0$.\n\nWYNIK: 4.0",
+          "answer": "4.0",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
