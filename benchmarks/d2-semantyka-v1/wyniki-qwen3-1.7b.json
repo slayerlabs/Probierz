@@ -1,0 +1,303 @@
+{
+  "summary": {
+    "model": "qwen/qwen3-1.7b",
+    "eval": "../benchmarks/d2-semantyka-v1/eval.jsonl",
+    "n_items": 10,
+    "n_scored": 10,
+    "pass_median_count": 6,
+    "pass_median_rate": 0.6,
+    "items_wrazliwe": 3
+  },
+  "results": [
+    {
+      "id": "D2-L1-01",
+      "poziom": 1,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie: 'Nie każdy uczeń zdał egzamin.' Czy wynika z tego, że przynajmniej jeden uczeń NIE zdał? Odpowiedz tak lub nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "'Nie każdy uczeń zdał egzamin.' Czy to znaczy, że co najmniej jeden uczeń nie zdał? Tak czy nie?",
+          "raw": "\n\nWYNIK: Tak.",
+          "answer": "Tak",
+          "pass": true
+        },
+        {
+          "prompt": "Ze zdania 'nie każdy uczeń zdał egzamin' — czy wynika, że jest uczeń, który nie zdał? Podaj tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L1-02",
+      "poziom": 1,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "nie wiadomo",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie: 'Nikt nie powiedział, że to niemożliwe.' Czy ktoś twierdził, że to jest możliwe? Odpowiedz: tak / nie / nie wiadomo.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": false
+        },
+        {
+          "prompt": "'Nikt nie powiedział, że to niemożliwe.' Czy z tego wynika, że ktoś uznał to za możliwe? tak/nie/nie wiadomo.",
+          "raw": "\n\nWYNIK: nie wiadomo",
+          "answer": "nie wiadomo",
+          "pass": true
+        },
+        {
+          "prompt": "Ze zdania 'nikt nie powiedział, że to niemożliwe' — czy wynika, że ktoś nazwał to możliwym? tak/nie/nie wiadomo.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-01",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Wszyscy studenci lubią kawę' oraz 'Anna jest studentką'. Czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Dane: każdy student lubi kawę; Anna to studentka. Czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Skoro wszyscy studenci lubią kawę, a Anna jest studentką — czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-02",
+      "poziom": 2,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiadomo",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Niektóre ptaki nie latają.' Czy wynika z tego, że niektóre ptaki latają? tak/nie/nie wiadomo.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": false
+        },
+        {
+          "prompt": "Zdanie 'niektóre ptaki nie latają' — czy pozwala wnioskować, że niektóre ptaki latają? tak/nie/nie wiadomo.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": false
+        },
+        {
+          "prompt": "Z 'niektóre ptaki nie latają' — czy logicznie wynika, że część ptaków lata? tak/nie/nie wiadomo.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-03",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie A: 'Piotr kupił czerwony samochód.' Zdanie B: 'Piotr kupił samochód.' Czy A pociąga za sobą B? tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "A: 'Piotr kupił czerwony samochód.' B: 'Piotr kupił samochód.' Czy z A wynika B? tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Czy ze zdania 'Piotr kupił czerwony samochód' wynika 'Piotr kupił samochód'? tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L3-01",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Każdy chłopiec kocha jakąś dziewczynę.' Czy to zdanie MUSI znaczyć, że istnieje jedna dziewczyna kochana przez wszystkich chłopców? tak/nie.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Zdanie 'każdy chłopiec kocha jakąś dziewczynę' — czy koniecznie oznacza jedną wspólną dziewczynę dla wszystkich? tak/nie.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'każdy chłopiec kocha jakąś dziewczynę' wymusza istnienie jednej dziewczyny kochanej przez każdego? tak/nie.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L3-02",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Żaden student nie przeczytał wszystkich lektur.' Czy wynika, że każdy student pominął przynajmniej jedną lekturę? tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Ze zdania 'żaden student nie przeczytał wszystkich lektur' — czy każdy student opuścił co najmniej jedną? tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'żaden student nie przeczytał wszystkich lektur' znaczy, że dla każdego studenta istnieje nieprzeczytana lektura? tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-01",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Pytanie: 'Czy przestałeś już spóźniać się do pracy?' Jeśli ktoś NIGDY się nie spóźniał, czy może odpowiedzieć samym 'tak' lub 'nie' zgodnie z prawdą? tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": false
+        },
+        {
+          "prompt": "'Czy przestałeś się spóźniać do pracy?' — osoba, która nigdy się nie spóźniała: czy 'tak'/'nie' będzie prawdziwe? tak/nie.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Gdy ktoś nigdy się nie spóźniał, czy na pytanie 'czy przestałeś się spóźniać?' może zgodnie z prawdą rzec samo tak lub nie? tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-02",
+      "poziom": 4,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Ktoś mówi: 'Zjadłem część ciasta.' Czy z tego LOGICZNIE wynika, że nie zjadł całego ciasta? (logicznie, nie potocznie) tak/nie.",
+          "raw": "\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": false
+        },
+        {
+          "prompt": "Wypowiedź 'zjadłem część ciasta' — czy ściśle logicznie wyklucza zjedzenie całości? tak/nie.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'zjadłem część ciasta' logicznie (nie w mowie potocznej) oznacza, że nie zjadł całego? tak/nie.",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-03",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "niejednoznaczne",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Burmistrz odmówił demonstrantom pozwolenia, bo oni obawiali się przemocy.' Kto obawiał się przemocy — burmistrz czy demonstranci? Odpowiedz: burmistrz / demonstranci / niejednoznaczne.",
+          "raw": "\n\nWYNIK: demonstranci",
+          "answer": "demonstranci",
+          "pass": false
+        },
+        {
+          "prompt": "W zdaniu 'burmistrz odmówił demonstrantom pozwolenia, bo oni obawiali się przemocy' — kto się bał? burmistrz/demonstranci/niejednoznaczne.",
+          "raw": "\n\nWYNIK: demonstranci",
+          "answer": "demonstranci",
+          "pass": false
+        },
+        {
+          "prompt": "'Burmistrz odmówił demonstrantom, bo oni bali się przemocy' — 'oni' to kto? burmistrz/demonstranci/niejednoznaczne.",
+          "raw": "\n\nWYNIK: demonstranci",
+          "answer": "demonstranci",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

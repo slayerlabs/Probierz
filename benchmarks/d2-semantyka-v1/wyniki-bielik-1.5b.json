@@ -1,0 +1,303 @@
+{
+  "summary": {
+    "model": "bielik-1.5b-v3.0-instruct",
+    "eval": "../benchmarks/d2-semantyka-v1/eval.jsonl",
+    "n_items": 10,
+    "n_scored": 10,
+    "pass_median_count": 5,
+    "pass_median_rate": 0.5,
+    "items_wrazliwe": 4
+  },
+  "results": [
+    {
+      "id": "D2-L1-01",
+      "poziom": 1,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie: 'Nie każdy uczeń zdał egzamin.' Czy wynika z tego, że przynajmniej jeden uczeń NIE zdał? Odpowiedz tak lub nie.",
+          "raw": "Tak. Z zdania \"Nie każdy uczeń zdał egzamin.\" wynika, że przynajmniej jeden uczeń nie zdał egzaminu.",
+          "answer": "Tak. Z zdania \"Nie każdy uczeń zdał egzamin.\" wynika, że przynajmniej jeden uczeń nie zdał egzaminu.",
+          "pass": true
+        },
+        {
+          "prompt": "'Nie każdy uczeń zdał egzamin.' Czy to znaczy, że co najmniej jeden uczeń nie zdał? Tak czy nie?",
+          "raw": "Tak. \"Nie każdy\" oznacza, że istnieje przynajmniej jedna osoba (uczeń), która nie zdała egzaminu.",
+          "answer": "Tak. \"Nie każdy\" oznacza, że istnieje przynajmniej jedna osoba (uczeń), która nie zdała egzaminu.",
+          "pass": true
+        },
+        {
+          "prompt": "Ze zdania 'nie każdy uczeń zdał egzamin' — czy wynika, że jest uczeń, który nie zdał? Podaj tak/nie.",
+          "raw": "Tak, wynika, że jest uczeń, który nie zdał egzaminu.",
+          "answer": "Tak, wynika, że jest uczeń, który nie zdał egzaminu.",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L1-02",
+      "poziom": 1,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiadomo",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie: 'Nikt nie powiedział, że to niemożliwe.' Czy ktoś twierdził, że to jest możliwe? Odpowiedz: tak / nie / nie wiadomo.",
+          "raw": "Nie wiem.",
+          "answer": "Nie wiem.",
+          "pass": false
+        },
+        {
+          "prompt": "'Nikt nie powiedział, że to niemożliwe.' Czy z tego wynika, że ktoś uznał to za możliwe? tak/nie/nie wiadomo.",
+          "raw": "Nie, z tego zdania nie wynika, że ktoś uznał to za możliwe. Wypowiedź sugeruje raczej, że osoba uważa, iż coś jest trudne lub wymagające wysiłku, ale niekoniecznie oznacza to, że uważa to za niemożliwe.",
+          "answer": "Nie, z tego zdania nie wynika, że ktoś uznał to za możliwe. Wypowiedź sugeruje raczej, że osoba uważa, iż coś jest trudne lub wymagające wysiłku, ale niekoniecznie oznacza to, że uważa to za niemożliwe.",
+          "pass": false
+        },
+        {
+          "prompt": "Ze zdania 'nikt nie powiedział, że to niemożliwe' — czy wynika, że ktoś nazwał to możliwym? tak/nie/nie wiadomo.",
+          "raw": "Nie, z podanego zdania \"Nikt nie powiedział, że to niemożliwe\" nie wynika, że ktoś nazwał coś możliwym. Zdanie sugeruje jedynie brak jednoznacznej opinii na ten temat.",
+          "answer": "Nie, z podanego zdania \"Nikt nie powiedział, że to niemożliwe\" nie wynika, że ktoś nazwał coś możliwym. Zdanie sugeruje jedynie brak jednoznacznej opinii na ten temat.",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-01",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Wszyscy studenci lubią kawę' oraz 'Anna jest studentką'. Czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "Aby odpowiedzieć na to pytanie, musimy przeanalizować podane informacje i zastosować logiczne rozumowanie:\n\n1. \"Wszyscy studenci lubią kawę\" - To stwierdzenie sugeruje, że większość studentów (w tym Anna) lubi kawę.\n2. \"Anna jest studentką\" - Wiemy, że Anna jest jedną z tych osób.\n\nNa podstawie powyższych informacji możemy stwierdzić, że odpowiedź brzmi: tak.",
+          "answer": "Na podstawie powyższych informacji możemy stwierdzić, że odpowiedź brzmi: tak.",
+          "pass": true
+        },
+        {
+          "prompt": "Dane: każdy student lubi kawę; Anna to studentka. Czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "Aby rozwiązać to zadanie, musimy przeanalizować podane informacje i zastosować logiczne rozumowanie.\n\n1. \"Każdy student lubi kawę\" - oznacza, że wszyscy studenci mają tę cechę.\n2. \"Anna jest studentką\" - Anna spełnia warunek bycia studentem (jest częścią grupy studentów).\n3. Pytanie: Czy Anna lubi kawę?\n\nPonieważ każdy student lubi kawę i Anna jest studentką, możemy wnioskować, że Anna również lubi kawę.\n\nOdpowiedź: tak",
+          "answer": "Odpowiedź: tak",
+          "pass": true
+        },
+        {
+          "prompt": "Skoro wszyscy studenci lubią kawę, a Anna jest studentką — czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "Anna lubi kawę.",
+          "answer": "Anna lubi kawę.",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-02",
+      "poziom": 2,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiadomo",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Niektóre ptaki nie latają.' Czy wynika z tego, że niektóre ptaki latają? tak/nie/nie wiadomo.",
+          "raw": "Tak, wynika z tego, że niektóre ptaki nie latają.",
+          "answer": "Tak, wynika z tego, że niektóre ptaki nie latają.",
+          "pass": false
+        },
+        {
+          "prompt": "Zdanie 'niektóre ptaki nie latają' — czy pozwala wnioskować, że niektóre ptaki latają? tak/nie/nie wiadomo.",
+          "raw": "Nie, zdanie \"Niektóre ptaki nie latają\" nie pozwala wnioskować, że wszystkie ptaki latają. Może ono sugerować, że istnieje grupa ptaków (np. gatunki wodne lub nocne), które nie są zdolne do lotu. Jednak nie można na tej podstawie stwierdzić, że wszystkie ptaki nie latają.",
+          "answer": "Nie, zdanie \"Niektóre ptaki nie latają\" nie pozwala wnioskować, że wszystkie ptaki latają. Może ono sugerować, że istnieje grupa ptaków (np. gatunki wodne lub nocne), które nie są zdolne do lotu. Jednak nie można na tej podstawie stwierdzić, że wszystkie ptaki nie latają.",
+          "pass": false
+        },
+        {
+          "prompt": "Z 'niektóre ptaki nie latają' — czy logicznie wynika, że część ptaków lata? tak/nie/nie wiadomo.",
+          "raw": "Nie, logicznie nie wynika, że część ptaków lata.",
+          "answer": "Nie, logicznie nie wynika, że część ptaków lata.",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-03",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie A: 'Piotr kupił czerwony samochód.' Zdanie B: 'Piotr kupił samochód.' Czy A pociąga za sobą B? tak/nie.",
+          "raw": "A pociąga za sobą B, ponieważ zdanie \"Piotr kupił czerwony samochód\" zawiera więcej informacji niż zdanie \"Piotr kupił samochód\". W pierwszym zdaniu jest mowa o kolorze samochodu (czerwony), co nie występuje w drugim zdaniu.",
+          "answer": "A pociąga za sobą B, ponieważ zdanie \"Piotr kupił czerwony samochód\" zawiera więcej informacji niż zdanie \"Piotr kupił samochód\". W pierwszym zdaniu jest mowa o kolorze samochodu (czerwony), co nie występuje w drugim zdaniu.",
+          "pass": false
+        },
+        {
+          "prompt": "A: 'Piotr kupił czerwony samochód.' B: 'Piotr kupił samochód.' Czy z A wynika B? tak/nie.",
+          "raw": "Tak, z A wynika B.",
+          "answer": "Tak, z A wynika B.",
+          "pass": true
+        },
+        {
+          "prompt": "Czy ze zdania 'Piotr kupił czerwony samochód' wynika 'Piotr kupił samochód'? tak/nie.",
+          "raw": "Tak, ze zdania \"Piotr kupił czerwony samochód\" wynika \"Piotr kupił samochód\".",
+          "answer": "Tak, ze zdania \"Piotr kupił czerwony samochód\" wynika \"Piotr kupił samochód\".",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L3-01",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Każdy chłopiec kocha jakąś dziewczynę.' Czy to zdanie MUSI znaczyć, że istnieje jedna dziewczyna kochana przez wszystkich chłopców? tak/nie.",
+          "raw": "Nie, zdanie \"Każdy chłopiec kocha jakąś dziewczynę\" nie musi oznaczać, że istnieje jedna dziewczyna kochanka przez wszystkich chłopców. Może ono sugerować, że każdy chłopiec ma swoją ulubioną lub wybraną dziewczynę, ale niekoniecznie oznacza to, że wszyscy chłopcy mają tę samą dziewczynę jako kochankę.",
+          "answer": "Nie, zdanie \"Każdy chłopiec kocha jakąś dziewczynę\" nie musi oznaczać, że istnieje jedna dziewczyna kochanka przez wszystkich chłopców. Może ono sugerować, że każdy chłopiec ma swoją ulubioną lub wybraną dziewczynę, ale niekoniecznie oznacza to, że wszyscy chłopcy mają tę samą dziewczynę jako kochankę.",
+          "pass": true
+        },
+        {
+          "prompt": "Zdanie 'każdy chłopiec kocha jakąś dziewczynę' — czy koniecznie oznacza jedną wspólną dziewczynę dla wszystkich? tak/nie.",
+          "raw": "Nie, \"koniecźnie\" nie oznacza jednej wspólnej dziewczyny dla wszystkich chłopców. W zdaniu \"każdy chłopiec kocha jakąś dziewczynę\" każdy chłopiec (mężczyzna) ma swoją własną dziewczynę, z którą się zakochuje. Nie ma tu wspólnego związku ani partnerki dla wszystkich mężczyzn.",
+          "answer": "Nie, \"koniecźnie\" nie oznacza jednej wspólnej dziewczyny dla wszystkich chłopców. W zdaniu \"każdy chłopiec kocha jakąś dziewczynę\" każdy chłopiec (mężczyzna) ma swoją własną dziewczynę, z którą się zakochuje. Nie ma tu wspólnego związku ani partnerki dla wszystkich mężczyzn.",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'każdy chłopiec kocha jakąś dziewczynę' wymusza istnienie jednej dziewczyny kochanej przez każdego? tak/nie.",
+          "raw": "Nie, nie wymusza istnienia jednej dziewczyny kochanej przez każdego. To zdanie jest metaforą lub przenośnie i sugeruje, że każdy chłopiec może mieć swoją ukochaną dziewczynę, ale niekoniecznie musi to dotyczyć wszystkich chłopców w danym kontekście.",
+          "answer": "Nie, nie wymusza istnienia jednej dziewczyny kochanej przez każdego. To zdanie jest metaforą lub przenośnie i sugeruje, że każdy chłopiec może mieć swoją ukochaną dziewczynę, ale niekoniecznie musi to dotyczyć wszystkich chłopców w danym kontekście.",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L3-02",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Żaden student nie przeczytał wszystkich lektur.' Czy wynika, że każdy student pominął przynajmniej jedną lekturę? tak/nie.",
+          "raw": "Tak, wynik końcowy to \"tak\".",
+          "answer": "Tak, wynik końcowy to \"tak\".",
+          "pass": true
+        },
+        {
+          "prompt": "Ze zdania 'żaden student nie przeczytał wszystkich lektur' — czy każdy student opuścił co najmniej jedną? tak/nie.",
+          "raw": "Tak, każdy student opuścił co najmniej jedną lekturę.",
+          "answer": "Tak, każdy student opuścił co najmniej jedną lekturę.",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'żaden student nie przeczytał wszystkich lektur' znaczy, że dla każdego studenta istnieje nieprzeczytana lektura? tak/nie.",
+          "raw": "Nie, zdanie \"żaden student nie przeczytał wszystkich lektur\" oznacza, że przynajmniej jeden student przeczytał wszystkie lektury. Nie można stwierdzić, że każdy student ma nieprzeczytaną lekturę.",
+          "answer": "Nie, zdanie \"żaden student nie przeczytał wszystkich lektur\" oznacza, że przynajmniej jeden student przeczytał wszystkie lektury. Nie można stwierdzić, że każdy student ma nieprzeczytaną lekturę.",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-01",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Pytanie: 'Czy przestałeś już spóźniać się do pracy?' Jeśli ktoś NIGDY się nie spóźniał, czy może odpowiedzieć samym 'tak' lub 'nie' zgodnie z prawdą? tak/nie.",
+          "raw": "Tak.",
+          "answer": "Tak.",
+          "pass": false
+        },
+        {
+          "prompt": "'Czy przestałeś się spóźniać do pracy?' — osoba, która nigdy się nie spóźniała: czy 'tak'/'nie' będzie prawdziwe? tak/nie.",
+          "raw": "Tak, osoba ta przestała się spóźniać do pracy.",
+          "answer": "Tak, osoba ta przestała się spóźniać do pracy.",
+          "pass": false
+        },
+        {
+          "prompt": "Gdy ktoś nigdy się nie spóźniał, czy na pytanie 'czy przestałeś się spóźniać?' może zgodnie z prawdą rzec samo tak lub nie? tak/nie.",
+          "raw": "Tak, osoba, która nigdy się nie spóźniała, może zgodnie z prawdą odpowiedzieć \"tak\" na pytanie \"Czy przestajesz się spóźniać?\" bez konieczności dodawania dodatkowych informacji.",
+          "answer": "Tak, osoba, która nigdy się nie spóźniała, może zgodnie z prawdą odpowiedzieć \"tak\" na pytanie \"Czy przestajesz się spóźniać?\" bez konieczności dodawania dodatkowych informacji.",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-02",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Ktoś mówi: 'Zjadłem część ciasta.' Czy z tego LOGICZNIE wynika, że nie zjadł całego ciasta? (logicznie, nie potocznie) tak/nie.",
+          "raw": "Tak, logicznie rzecz biorąc, jeśli ktoś powiedział \"Zjadłem część ciasta\", to nie oznacza automatycznie, że zjadł całe ciasto. Może być prawdą, że zjadł tylko część, ale niekoniecznie całą.",
+          "answer": "Tak, logicznie rzecz biorąc, jeśli ktoś powiedział \"Zjadłem część ciasta\", to nie oznacza automatycznie, że zjadł całe ciasto. Może być prawdą, że zjadł tylko część, ale niekoniecznie całą.",
+          "pass": false
+        },
+        {
+          "prompt": "Wypowiedź 'zjadłem część ciasta' — czy ściśle logicznie wyklucza zjedzenie całości? tak/nie.",
+          "raw": "Nie, wypowiedź \"zjedliśmy część ciasta\" nie wyklucza całkowicie zjedzenia całości. Może to oznaczać, że ktoś zjadł tylko część ciasta, a reszta została pozostawiona lub zjedzona przez kogoś innego.",
+          "answer": "Nie, wypowiedź \"zjedliśmy część ciasta\" nie wyklucza całkowicie zjedzenia całości. Może to oznaczać, że ktoś zjadł tylko część ciasta, a reszta została pozostawiona lub zjedzona przez kogoś innego.",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'zjadłem część ciasta' logicznie (nie w mowie potocznej) oznacza, że nie zjadł całego? tak/nie.",
+          "raw": "Tak, \"zjadłem część ciasta\" logicznie oznacza, że nie zjadłem całego.",
+          "answer": "Tak, \"zjadłem część ciasta\" logicznie oznacza, że nie zjadłem całego.",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-03",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "niejednoznaczne",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Burmistrz odmówił demonstrantom pozwolenia, bo oni obawiali się przemocy.' Kto obawiał się przemocy — burmistrz czy demonstranci? Odpowiedz: burmistrz / demonstranci / niejednoznaczne.",
+          "raw": "Odpowiedź: burmistrz.",
+          "answer": "Odpowiedź: burmistrz.",
+          "pass": false
+        },
+        {
+          "prompt": "W zdaniu 'burmistrz odmówił demonstrantom pozwolenia, bo oni obawiali się przemocy' — kto się bał? burmistrz/demonstranci/niejednoznaczne.",
+          "raw": "Wynik końcowy: \"burmistrz\"",
+          "answer": "Wynik końcowy: \"burmistrz\"",
+          "pass": false
+        },
+        {
+          "prompt": "'Burmistrz odmówił demonstrantom, bo oni bali się przemocy' — 'oni' to kto? burmistrz/demonstranci/niejednoznaczne.",
+          "raw": "Wynik końcowy: \"Burmistrz odmówił demonstracji, ponieważ obawiali się przemocy.\"",
+          "answer": "Wynik końcowy: \"Burmistrz odmówił demonstracji, ponieważ obawiali się przemocy.\"",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

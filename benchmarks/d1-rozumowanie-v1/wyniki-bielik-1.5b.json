@@ -1,0 +1,303 @@
+{
+  "summary": {
+    "model": "bielik-1.5b-v3.0-instruct",
+    "eval": "../benchmarks/d1-rozumowanie-v1/eval.jsonl",
+    "n_items": 10,
+    "n_scored": 10,
+    "pass_median_count": 2,
+    "pass_median_rate": 0.2,
+    "items_wrazliwe": 5
+  },
+  "results": [
+    {
+      "id": "D1-L2-01",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "17",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Anna ma 12 lat. Jej brat jest o 5 lat starszy. Ile lat ma brat?",
+          "raw": "Aby znaleźć wiek brata Anny, należy dodać jej wiek do wieku starszego brata.\n\nOznaczmy wiek brata jako \\( B \\).\n\nZgodnie z podanymi informacjami:\n\\[ B = A + 5 \\]\ngdzie \\( A \\) to wiek Anny (12 lat).\n\nPodstawiając wartość \\( A \\):\n\\[ B = 12 + 5 = 17 \\]\n\nOdpowiedź: Brat Anny ma 17 lat.",
+          "answer": "Odpowiedź: Brat Anny ma 17 lat.",
+          "pass": true
+        },
+        {
+          "prompt": "Anna liczy 12 lat, a brat jest starszy od niej o 5 lat. Podaj wiek brata.",
+          "raw": "Aby obliczyć wiek brata Anny, należy dodać do jej wieku różnicę między nimi.\n\nObliczenia:\n- Wiek Anny = 12 lat\n- Różnica wieku = 5 lat\n- Wiek brata = Wiek Anny + Różnica wieku = 12 lat + 5 lat = 17 lat\n\nOdpowiedź: Brat Anny ma 17 lat.",
+          "answer": "Odpowiedź: Brat Anny ma 17 lat.",
+          "pass": true
+        },
+        {
+          "prompt": "Brat Anny jest o 5 lat starszy niż Anna, która ma 12 lat. Ile lat ma brat?",
+          "raw": "Aby rozwiązać to zadanie, wykonajmy następujące kroki:\n\n1. **Zidentyfikuj dane**:\n   - Anna ma 12 lat.\n   - Brat Anny jest o 5 lat starszy niż Anna.\n\n2. **Oblicz wiek brata**:\n   \\[\n   \\text{Wiek brata} = \\text{Wiek Anny} + 5 \\, \\text{lat}\n   \\]\n   Podstawiając dane:\n   \\[\n   \\text{Wiek brata} = 12 \\, \\text{lat} + 5 \\, \\text{lat} = 17 \\, \\text{lat}\n   \\]\n\n3. **Odpowiedź**:\n   Brat Anny ma 17 lat.\n\n**WYNIK:** 17",
+          "answer": "** 17",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L2-02",
+      "poziom": 2,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "8",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Kupiono 3 zeszyty po 4 zl. Zaplacono banknotem 20 zl. Ile wynosi reszta?",
+          "raw": "Aby obliczyć resztę, należy odjąć wartość zakupionych zeszytów od wartości użytego banknotu:\n\n20 zł (banknot) - 3 x 4 zł (cena za 3 zeszyty) = 20 zł - 12 zł = 8 zł\n\nOdpowiedź: Reszta wynosi 8 złotych.",
+          "answer": "Odpowiedź: Reszta wynosi 8 złotych.",
+          "pass": true
+        },
+        {
+          "prompt": "Trzy zeszyty kosztuja po 4 zl kazdy. Placisz 20 zl. Jaka reszta?",
+          "raw": "<tool_call> {\"name\": \"calculate_remainder\", \"arguments\": {\"dividend\": 20, \"divisor\": 6}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"calculate_remainder\", \"arguments\": {\"dividend\": 20, \"divisor\": 6}}</tool_call>",
+          "pass": false
+        },
+        {
+          "prompt": "Za 3 zeszyty po 4 zl zaplacono 20 zl. Podaj kwote reszty.",
+          "raw": "<tool_call> {\"name\": \"calculate_remainder\", \"arguments\": {\"dividend\": 20, \"divisor\": 3}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"calculate_remainder\", \"arguments\": {\"dividend\": 20, \"divisor\": 3}}</tool_call>",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1-L3-01",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "200",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Samochod jedzie 60 km/h przez 2 godziny, potem 80 km/h przez 1 godzine. Ile km przejechal lacznie?",
+          "raw": "Aby obliczyć całkowitą odległość przejechaną przez samochód, należy wykonać następujące kroki:\n\n1. Oblicz dystans pokonany przy prędkości 60 km/h przez 2 godziny:\n   \\[\n   \\text{Dystans} = \\text{Prędkość} \\times \\text{Czas} = 60 \\, \\text{km/h} \\times 2 \\, \\text{h} = 120 \\, \\text{km}\n   \\]\n\n2. Oblicz dystans pokonany przy prędkości 80 km/h przez 1 godzinę:\n   \\[\n   \\text{Dystans} = \\text{Prędkość} \\times \\text{Czas} = 80 \\, \\text{km/h} \\times 1 \\, \\text{h} = 80 \\, \\text{km}\n   \\]\n\n3. Dodaj oba dystanse, aby uzyskać całkowitą odległość:\n   \\[\n   \\text{Całkowita odległość} = 120 \\, \\text{km} + 80 \\, \\text{km} = 200 \\, \\text{km}\n   \\]\n\nOdpowiedź: Samochód przejechany łącznie 200 km.",
+          "answer": "Odpowiedź: Samochód przejechany łącznie 200 km.",
+          "pass": true
+        },
+        {
+          "prompt": "Przez 2 h auto jedzie 60 km/h, nastepnie 1 h z predkoscia 80 km/h. Podaj laczny dystans w km.",
+          "raw": "Aby obliczyć całkowity dystans przejechany przez samochód, należy najpierw obliczyć odległość pokonaną podczas pierwszej części podróży (2 godziny przy prędkości 60 km/h) oraz drugiej części (1 godzina przy prędkości 80 km/h), a następnie dodać te dwie odległości.\n\nOdległość w pierwszej części:\n\\[ \\text{odległość} = \\text{prędkość} \\times \\text{czas} = 60 \\, \\text{km/h} \\times 2 \\, \\text{h} = 120 \\, \\text{km} \\]\n\nOdległość w drugiej części:\n\\[ \\text{odległość} = \\text{prędkość} \\times \\text{czas} = 80 \\, \\text{km/h} \\times 1 \\, \\text{h} = 80 \\, \\text{km} \\]\n\nCałkowity dystans:\n\\[ \\text{całkowity dystans} = 120 \\, \\text{km} + 80 \\, \\text{km} = 200 \\, \\text{km} \\]\n\nOdpowiedź:\n\\[ \\boxed{200} \\]",
+          "answer": "\\[ \\boxed{200} \\]",
+          "pass": true
+        },
+        {
+          "prompt": "Auto: 2 godziny po 60 km/h, dalej 1 godzina po 80 km/h. Ile kilometrow razem?",
+          "raw": "Aby rozwiązać to zadanie, musimy obliczyć czas podróży dla każdej części trasy i dodać je do siebie.\n\n1. **Pierwsza część trasy:**\n   - Prędkość = 60 km/h\n   - Czas = 2 godziny\n   - Dystans = Prędkość * Czas = 60 km/h * 2 h = 120 km\n\n2. **Druga część trasy:**\n   - Prędkość = 80 km/h\n   - Czas = 1 godzina\n   - Dystans = Prędkość * Czas = 80 km/h * 1 h = 80 km\n\n3. **Całkowity dystans:**\n   - Całkowity dystans = Dystans pierwszej części + Dystans drugiej części = 120 km + 80 km = 200 km\n\nOdpowiedź:\n\\[ \\boxed{200} \\]",
+          "answer": "\\[ \\boxed{200} \\]",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L3-02",
+      "poziom": 3,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "Cezary",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "W wyscigu Bartek jest przed Cezarym, a Cezary przed Dawidem. Adam jest przed Bartkiem. Kto jest na 3. miejscu?",
+          "raw": "Aby rozwiązać to zadanie, musimy ustalić kolejność zawodników w wyścigu, zaczynając od informacji o pozycji Adama względem Bartka i przechodząc do innych zawodników.\n\n1. Adam jest przed Bartkiem (A > B).\n2. Bartek jest przed Cezarym (B > C).\n3. Cezary jest przed Dawidem (C > D).\n\nTeraz łączymy te informacje:\n- Adam jest przed Bartkiem, więc A > B.\n- Bartek jest przed Cezarym, więc B > C.\n- Cezary jest przed Dawidem, więc C > D.\n\nPonieważ nie mamy informacji o bezpośrednim porównaniu Adama z innymi zawodnikami poza tym, że jest przed Bartkiem, możemy jedynie stwierdzić, że Adam jest na 3. miejscu (A = 3).\n\nOdpowiedź: Adam",
+          "answer": "Odpowiedź: Adam",
+          "pass": false
+        },
+        {
+          "prompt": "Adam wyprzedza Bartka, Bartek Cezarego, Cezary Dawida. Podaj zawodnika z 3. pozycji.",
+          "raw": "<tool_call> {\"name\": \"solve_puzzle\", \"arguments\": json.dumps({\n  \"task\": \"Adam wyprzedza Bartka, Bartek Cezarego, Cezary Dawida. Podaj zawodnika z 3. pozycji.\",\n  \"solution\": {\n    \"1st_place\": \"Dawid\",\n    \"2nd_place\": \"Cezary\",\n    \"3rd_place\": \"Bartek\"\n  }\n})}</tool_call>",
+          "answer": "})}</tool_call>",
+          "pass": false
+        },
+        {
+          "prompt": "Kolejnosc: Adam przed Bartkiem, Bartek przed Cezarym, Cezary przed Dawidem. Kto zajmuje trzecie miejsce?",
+          "raw": "Aby rozwiązać to zadanie, musimy najpierw zidentyfikować kolejność podanych osób i następnie określić, kto znajduje się na trzecim miejscu.\n\nOto kolejność podana w zadaniu:\n1. Adam\n2. Bartek\n3. Cezary\n4. Dawid\n\nZgodnie z tą kolejnością, osoba znajdująca się na trzecim miejscu to Cezary.\n\nWYNIK: Cezary",
+          "answer": "Cezary",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L4-01",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "20",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ojciec ma teraz 40 lat, syn 10. Za ile lat ojciec bedzie dokladnie 2 razy starszy od syna?",
+          "raw": "<tool_call> {\"name\": \"calculate_age\", \"arguments\": {\"ojciec_wiek\": 40, \"syn_wiek\": 10}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"calculate_age\", \"arguments\": {\"ojciec_wiek\": 40, \"syn_wiek\": 10}}</tool_call>",
+          "pass": false
+        },
+        {
+          "prompt": "Teraz ojciec liczy 40 lat, syn 10. Po ilu latach wiek ojca bedzie dwukrotnoscia wieku syna?",
+          "raw": "<tool_call> {\"name\": \"calculate_age\", \"arguments\": {\"father_age\": 40, \"son_age\": 10}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"calculate_age\", \"arguments\": {\"father_age\": 40, \"son_age\": 10}}</tool_call>",
+          "pass": false
+        },
+        {
+          "prompt": "Ojciec 40, syn 10. Za ile lat ojciec bedzie mial dwa razy tyle co syn?",
+          "raw": "Aby rozwiązać to zadanie, możemy użyć prostego wzoru matematycznego. Oznaczmy liczbę lat, które upłyną od teraz, jako \\( x \\).\n\nOjciec ma obecnie 40 lat, a syn 10 lat. Po \\( x \\) latach ojciec będzie miał:\n\\[ 40 + x \\]\nlat, a syn:\n\\[ 10 + x \\]\nlat.\n\nZgodnie z zadaniem, po tym czasie ojciec będzie miał dwa razy tyle co syn:\n\\[ 40 + x = 2(10 + x) \\]\n\nRozwiązujemy równanie:\n\\[ 40 + x = 20 + 2x \\]\n\\[ 40 - 20 = 2x - x \\]\n\\[ 20 = x \\]\n\nOdpowiedź: Po 20 latach ojciec będzie miał dwa razy tyle co syn.",
+          "answer": "Odpowiedź: Po 20 latach ojciec będzie miał dwa razy tyle co syn.",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L4-02",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "20",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Zbiornik ma 100 litrow. Rano wlano 30 l, w poludnie wylano 45 l, wieczorem wlano 20 l. Ile litrow jest teraz, jesli na poczatku byl pusty?",
+          "raw": "Rozwiązanie:\n\n1. Zapisz początkową ilość wody w zbiorniku: 0 litrów (pusty)\n2. Wlej wodę rano: 0 + 30 = 30 litrów\n3. Wylej wodę w południe: 30 - 45 = -15 litrów (zbiornik jest pusty, ale możemy to zapisać jako -15 l)\n4. Wlej wodę wieczorem: (-15) + 20 = 5 litrów\n\nOstateczna ilość wody w zbiorniku wynosi 5 litrów.\n\nWYNIK: 5",
+          "answer": "5",
+          "pass": false
+        },
+        {
+          "prompt": "Pusty zbiornik 100 l: +30 l rano, -45 l w poludnie, +20 l wieczorem. Ile litrow po wszystkim?",
+          "raw": "Aby obliczyć całkowitą ilość wody pozostającą w zbiorniku po wszystkich operacjach, należy wykonać następujące kroki:\n\n1. **Początkowa ilość wody**: 100 litrów\n2. **Woda dodana rano**: +30 l = 100 + 30 = 130 l\n3. **Woda zużyta w południe**: -45 l = 130 - 45 = 85 l\n4. **Woda pozostała wieczorem**: +20 l = 85 + 20 = 105 l\n\nPo wszystkich operacjach zbiornik zawiera 105 litrów wody.\n\nWYNIK: 105",
+          "answer": "105",
+          "pass": false
+        },
+        {
+          "prompt": "Start: 0 l. Kolejno: wlano 30, wylano 45, wlano 20. Podaj koncowy stan w litrach.",
+          "raw": "<tool_call> {\"name\": \"calculate_final_volume\", \"arguments\": {\"initial_volume\": 0, \"additions\": [30], \"deletions\": [45, 20]}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"calculate_final_volume\", \"arguments\": {\"initial_volume\": 0, \"additions\": [30], \"deletions\": [45, 20]}}</tool_call>",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1-L5-01",
+      "poziom": 5,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "13:00",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Spotkanie trwa 90 min i konczy sie o 15:00. Zaczelo sie 30 min po przyjsciu Oli. O ktorej przyszla Ola?",
+          "raw": "Aby rozwiązać to zadanie, musimy najpierw określić godzinę rozpoczęcia spotkania. Spotkanie rozpoczęło się 30 minut po przybyciu Oli. Następnie dodajemy te 30 minut do godziny zakończenia spotkania (15:00).\n\nOto obliczenia krok po kroku:\n\n1. Określenie godziny rozpoczęcia spotkania:\n   - Spotkanie trwa 90 minut, a kończy się o 15:00.\n   - Rozpoczęcie = Zakończenie - Czas trwania = 15:00 - 90 minut = 14:30 (początek spotkania)\n\n2. Określenie godziny przybycia Oli:\n   - Spotkanie rozpoczęło się o 14:30, a Ola przyszła 30 minut wcześniej.\n   - Przyszła godzina = Rozpoczęcie + (-30 minut) = 14:30 - 30 minut = 14:00\n\nOla przybyła o godzinie 14:00.",
+          "answer": "Ola przybyła o godzinie 14:00.",
+          "pass": false
+        },
+        {
+          "prompt": "Zebranie (90 min) konczy sie o 15:00. Start byl 30 min po wejsciu Oli. Podaj godzine wejscia Oli.",
+          "raw": "Aby obliczyć godzinę wejścia Oli, należy odjąć czas oczekiwania od zakończenia zebrania.\n\nOli czekała przez 30 minut na rozpoczęcie zebrania, które trwało 90 minut.\n\nOdejmujemy 30 minut od 90 minut:\n\\[ 90 \\text{ min} - 30 \\text{ min} = 60 \\text{ min} \\]\n\nPonieważ godzina jest wyrażona w minutach, wynik to 1 godzina (60 minut).\n\nOdpowiedź: Oli weszła na zebranie o godzinie 15:00.",
+          "answer": "Odpowiedź: Oli weszła na zebranie o godzinie 15:00.",
+          "pass": false
+        },
+        {
+          "prompt": "Koniec spotkania: 15:00, czas trwania 90 min. Ola weszla 30 min przed startem. O ktorej weszla?",
+          "raw": "Aby rozwiązać to zadanie, musimy najpierw określić godzinę rozpoczęcia spotkania i dodać do niej czas trwania oraz czas spóźnienia Oli.\n\n1. Godzina rozpoczęcia: 15:00\n2. Czas trwania spotkania: 90 minut (1 godzina)\n3. Spóźnienie Oli: 30 minut\n\nTeraz obliczamy końcową godzinę:\n\n- 15:00 + 1 godzina = 16:00\n- 16:00 + 30 minut = 16:30\n\nOla weszła o godzinie 16:30.\n\nOdpowiedź: WYNIK: 16:30",
+          "answer": "16:30",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1-L5-02",
+      "poziom": 5,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jesli pada, biore parasol. Jesli biore parasol, nie biore kurtki. Dzis padalo. Czy wziolem kurtke?",
+          "raw": "<tool_call> {\"name\": \"logical_and\", \"arguments\": {\"a\": true, \"b\": false}}</tool_call> \n<tool_call> {\"name\": \"logical_or\", \"arguments\": {\"a\": true, \"b\": true}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"logical_or\", \"arguments\": {\"a\": true, \"b\": true}}</tool_call>",
+          "pass": false
+        },
+        {
+          "prompt": "Reguly: deszcz => parasol; parasol => brak kurtki. Dzis byl deszcz. Wziolem kurtke czy nie?",
+          "raw": "<tool_call> {\"name\": \"desc\", \"arguments\": {\"description\": \"parasol\", \"action\": \"brak kurtki\"}}</tool_call> \n<tool_call> {\"name\": \"desc\", \"arguments\": {\"description\": \"dzis byl deszcz\", \"action\": \"wziąłem kurtkę\"}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"desc\", \"arguments\": {\"description\": \"dzis byl deszcz\", \"action\": \"wziąłem kurtkę\"}}</tool_call>",
+          "pass": false
+        },
+        {
+          "prompt": "Gdy pada, biore parasol; gdy mam parasol, nie biore kurtki. Padalo dzisiaj. Kurtka: tak czy nie?",
+          "raw": "<tool_call> {\"name\": \"interpret_conditions\", \"arguments\": {\"paragraph\": \"Gdy pada, biorę parasol; gdy mam parasol, nie biorę kurtki. Padalo dzisiaj.\"}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"interpret_conditions\", \"arguments\": {\"paragraph\": \"Gdy pada, biorę parasol; gdy mam parasol, nie biorę kurtki. Padalo dzisiaj.\"}}</tool_call>",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L6-01",
+      "poziom": 6,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "16.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Mam 2 l roztworu 10% soli i 3 l roztworu 20% soli. Mieszam oba. Ile procent soli ma mieszanina? Podaj z dokladnoscia do 0.1.",
+          "raw": "<tool_call> {\"name\": \"calculate_solution_concentration\", \"arguments\": {\"solutions\": [2, 3], \"mixing_factors\": [10, 20]}}</tool_call>",
+          "answer": "<tool_call> {\"name\": \"calculate_solution_concentration\", \"arguments\": {\"solutions\": [2, 3], \"mixing_factors\": [10, 20]}}</tool_call>",
+          "pass": false
+        },
+        {
+          "prompt": "Laczę 2 l roztworu 10-procentowego z 3 l roztworu 20-procentowego (sol). Jakie stezenie ma wynik (do 0.1%)?",
+          "raw": "Aby znaleźć stężenie końcowe, użyjemy zasady masy molowej i proporcji objętościowych.\n\n1. Oblicz masę molową każdego roztworu:\n   - Roztwór 10%: masa molowa = 2 g/mol (zakładając wodę jako składnik) * 10% = 0.2 g/mol\n   - Roztwór 20%: masa molowa = 3 g/mol (zakładając wodę jako składnik) * 20% = 0.6 g/mol\n\n2. Oblicz całkowitą masę roztworów przed zmieszaniem:\n   - Masa roztworu 10% = 2 l * 0.2 g/mol = 0.4 g (w przybliżeniu, ponieważ nie podano dokładnej gęstości)\n   - Masa roztworu 20% = 3 l * 0.6 g/mol = 1.8 g\n\n3. Oblicz całkowitą masę końcowego roztworu:\n   - Całkowita masa = 0.4 g + 1.8 g = 2.2 g (w przybliżeniu)\n\n4. Oblicz stężenie końcowe:\n   - Stężenie końcowe = (Całkowita masa / Objętość końcowa) * 100%\n   - Przyjmując objętość końcową jako całkowitą objętość roztworów (5 l):\n   - Stężenie końcowe = (2.2 g / 5 l) * 100% = 44%\n\nOdpowiedź: Stężenie końcowego roztworu wynosi około 44%.",
+          "answer": "Odpowiedź: Stężenie końcowego roztworu wynosi około 44%.",
+          "pass": false
+        },
+        {
+          "prompt": "Roztwor A: 2 l, 10% soli. Roztwor B: 3 l, 20% soli. Po zmieszaniu podaj procent soli (1 miejsce po przecinku).",
+          "raw": "Aby obliczyć procentową zawartość soli w mieszanym roztworze, należy najpierw określić całkowitą ilość soli w każdym z roztworów i następnie dodać je do siebie.\n\nRoztwór A: 2 l * 10% = 0,2 kg soli\nRoztwór B: 3 l * 20% = 0,6 kg soli\nCałkowita ilość soli w mieszanym roztworze: 0,2 + 0,6 = 0,8 kg\n\nTeraz obliczamy procentową zawartość soli w mieszanym roztworze:\n(0,8 kg / (2 l + 3 l)) * 100% = (0,8 kg / 5 l) * 100% = 16%\n\nOdpowiedź: 16.0%",
+          "answer": "Odpowiedź: 16.0%",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L6-02",
+      "poziom": 6,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "4.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Malarz maluje pokoj w 6 godzin, drugi w 12 godzin. Pracujac razem, w ile godzin pomaluja pokoj? Podaj ulamek lub liczbe do 0.1.",
+          "raw": "Aby obliczyć czas potrzebny na pomalowanie pokoju przez dwóch malarzy pracujących jednocześnie, możemy skorzystać z metody dodawania ich indywidualnych czasów pracy.\n\nObliczenie:\n\\[ \\text{Czas razem} = \\frac{1}{6} + \\frac{1}{12} \\]\n\nNajpierw znajdźmy wspólny mianownik (LCM):\n\\[ LCM(6, 12) = 12 \\]\n\nPrzekształcamy ułamki:\n\\[ \\frac{1}{6} = \\frac{2}{12} \\quad \\text{i} \\quad \\frac{1}{12} = \\frac{1}{12} \\]\n\nDodajemy ułamki:\n\\[ \\frac{2}{12} + \\frac{1}{12} = \\frac{3}{12} \\]\n\nUprośćmy wynik:\n\\[ \\frac{3}{12} = \\frac{1}{4} \\]\n\nOdpowiedź:\n\\[ \\boxed{0.25} \\]",
+          "answer": "\\[ \\frac{3}{12} = \\frac{1}{4} \\]",
+          "pass": false
+        },
+        {
+          "prompt": "Jeden malarz konczy pokoj w 6 h, drugi w 12 h. Wspolnie zajmie im ile godzin (do 0.1)?",
+          "raw": "Aby obliczyć czas potrzebny na wykonanie zadania przez dwóch malarzy jednocześnie, możemy skorzystać z koncepcji pracy zespołowej.\n\nObliczamy stosunek ich wydajności:\n- Pierwszy malarz pracuje 6 h i wykonuje pracę w ciągu tych godzin.\n- Drugi malarz pracuje 12 h i również wykonuje pracę w ciągu tych godzin.\n\nStosunek ich wydajności wynosi:\n\\[ \\frac{6}{12} = \\frac{1}{2} \\]\n\nOznacza to, że pierwszy malarz jest dwukrotnie bardziej wydajny niż drugi.\n\nTeraz obliczamy czas potrzebny na wykonanie zadania przez obu malarzy jednocześnie:\n- Jeśli jeden malarz potrzebuje 6 h, a drugi 12 h, to razem potrzebują:\n\\[ 6 + 12 = 18 \\text{ godzin} \\]\n\nJednakże, ponieważ pierwszy malarz jest dwukrotnie bardziej wydajny, możemy również obliczyć czas potrzebnego dla obu malarzy jako:\n\\[ \\frac{18}{3} = 6 \\text{ h} \\]\n\nOstatecznie, odpowiedź to:\n\\[ \\boxed{6.0} \\]",
+          "answer": "\\[ \\boxed{6.0} \\]",
+          "pass": false
+        },
+        {
+          "prompt": "Tempo: malarz A 6 h na pokoj, malarz B 12 h. Razem pomaluja w ile godzin (1 miejsce po przecinku)?",
+          "raw": "Aby obliczyć łączny czas potrzebny do pomalowania pokoju przez obu malarzy, należy dodać ich indywidualne czasy pracy i podzielić wynik przez liczbę malarzy.\n\nObliczenia:\n6 h (malarz A) + 12 h (malarz B) = 18 h\n\nŁączny czas pracy:\n18 h / 2 malarzy = 9 h\n\nOdpowiedź:\nWYNIK: 9",
+          "answer": "9",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

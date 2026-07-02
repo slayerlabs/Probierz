@@ -1,0 +1,303 @@
+{
+  "summary": {
+    "model": "qwen/qwen3-1.7b",
+    "eval": "../benchmarks/d1-rozumowanie-v1/eval.jsonl",
+    "n_items": 10,
+    "n_scored": 10,
+    "pass_median_count": 8,
+    "pass_median_rate": 0.8,
+    "items_wrazliwe": 3
+  },
+  "results": [
+    {
+      "id": "D1-L2-01",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "17",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Anna ma 12 lat. Jej brat jest o 5 lat starszy. Ile lat ma brat?",
+          "raw": "\n\nWYNIK: 17",
+          "answer": "17",
+          "pass": true
+        },
+        {
+          "prompt": "Anna liczy 12 lat, a brat jest starszy od niej o 5 lat. Podaj wiek brata.",
+          "raw": "\n\nAnna ma 12 lat, a jej brat jest starszy o 5 lat. Dodając 5 lat do wieku Anniny, obliczamy:  \n$12 + 5 = 17$.  \n\nWYNIK: 17",
+          "answer": "17",
+          "pass": true
+        },
+        {
+          "prompt": "Brat Anny jest o 5 lat starszy niż Anna, która ma 12 lat. Ile lat ma brat?",
+          "raw": "\n\nWYNIK: 17",
+          "answer": "17",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L2-02",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "8",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Kupiono 3 zeszyty po 4 zl. Zaplacono banknotem 20 zl. Ile wynosi reszta?",
+          "raw": "\n\nWYNIK: 8zł",
+          "answer": "8zł",
+          "pass": true
+        },
+        {
+          "prompt": "Trzy zeszyty kosztuja po 4 zl kazdy. Placisz 20 zl. Jaka reszta?",
+          "raw": "\n\nWYNIK: 8zł",
+          "answer": "8zł",
+          "pass": true
+        },
+        {
+          "prompt": "Za 3 zeszyty po 4 zl zaplacono 20 zl. Podaj kwote reszty.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1-L3-01",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "200",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Samochod jedzie 60 km/h przez 2 godziny, potem 80 km/h przez 1 godzine. Ile km przejechal lacznie?",
+          "raw": "\n\nWYNIK: 200",
+          "answer": "200",
+          "pass": true
+        },
+        {
+          "prompt": "Przez 2 h auto jedzie 60 km/h, nastepnie 1 h z predkoscia 80 km/h. Podaj laczny dystans w km.",
+          "raw": "\n\nWYNIK: 200",
+          "answer": "200",
+          "pass": true
+        },
+        {
+          "prompt": "Auto: 2 godziny po 60 km/h, dalej 1 godzina po 80 km/h. Ile kilometrow razem?",
+          "raw": "\n\nWYNIK: 200",
+          "answer": "200",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L3-02",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "Cezary",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "W wyscigu Bartek jest przed Cezarym, a Cezary przed Dawidem. Adam jest przed Bartkiem. Kto jest na 3. miejscu?",
+          "raw": "\n\nWYNIK: Cezary",
+          "answer": "Cezary",
+          "pass": true
+        },
+        {
+          "prompt": "Adam wyprzedza Bartka, Bartek Cezarego, Cezary Dawida. Podaj zawodnika z 3. pozycji.",
+          "raw": "\n\nWYNIK: Cezar",
+          "answer": "Cezar",
+          "pass": false
+        },
+        {
+          "prompt": "Kolejnosc: Adam przed Bartkiem, Bartek przed Cezarym, Cezary przed Dawidem. Kto zajmuje trzecie miejsce?",
+          "raw": "\n\nWYNIK: Cezary",
+          "answer": "Cezary",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L4-01",
+      "poziom": 4,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "20",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ojciec ma teraz 40 lat, syn 10. Za ile lat ojciec bedzie dokladnie 2 razy starszy od syna?",
+          "raw": "\n\nWYNIK: 20",
+          "answer": "20",
+          "pass": true
+        },
+        {
+          "prompt": "Teraz ojciec liczy 40 lat, syn 10. Po ilu latach wiek ojca bedzie dwukrotnoscia wieku syna?",
+          "raw": "\n\nWYNIK: 20",
+          "answer": "20",
+          "pass": true
+        },
+        {
+          "prompt": "Ojciec 40, syn 10. Za ile lat ojciec bedzie mial dwa razy tyle co syn?",
+          "raw": "\n\nWYNIK: 20",
+          "answer": "20",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L4-02",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "20",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Zbiornik ma 100 litrow. Rano wlano 30 l, w poludnie wylano 45 l, wieczorem wlano 20 l. Ile litrow jest teraz, jesli na poczatku byl pusty?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Pusty zbiornik 100 l: +30 l rano, -45 l w poludnie, +20 l wieczorem. Ile litrow po wszystkim?",
+          "raw": "\n\nWYNIK: 105",
+          "answer": "105",
+          "pass": false
+        },
+        {
+          "prompt": "Start: 0 l. Kolejno: wlano 30, wylano 45, wlano 20. Podaj koncowy stan w litrach.",
+          "raw": "\n\nWYNIK: 5",
+          "answer": "5",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1-L5-01",
+      "poziom": 5,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "13:00",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Spotkanie trwa 90 min i konczy sie o 15:00. Zaczelo sie 30 min po przyjsciu Oli. O ktorej przyszla Ola?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Zebranie (90 min) konczy sie o 15:00. Start byl 30 min po wejsciu Oli. Podaj godzine wejscia Oli.",
+          "raw": "\n\nWYNIK: 13:00",
+          "answer": "13:00",
+          "pass": true
+        },
+        {
+          "prompt": "Koniec spotkania: 15:00, czas trwania 90 min. Ola weszla 30 min przed startem. O ktorej weszla?",
+          "raw": "\n\nWYNIK: 13:30",
+          "answer": "13:30",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1-L5-02",
+      "poziom": 5,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jesli pada, biore parasol. Jesli biore parasol, nie biore kurtki. Dzis padalo. Czy wziolem kurtke?",
+          "raw": "\n\nWYNIK: Nie wzialem kurtki.",
+          "answer": "Nie wzialem kurtki",
+          "pass": true
+        },
+        {
+          "prompt": "Reguly: deszcz => parasol; parasol => brak kurtki. Dzis byl deszcz. Wziolem kurtke czy nie?",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Gdy pada, biore parasol; gdy mam parasol, nie biore kurtki. Padalo dzisiaj. Kurtka: tak czy nie?",
+          "raw": "\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L6-01",
+      "poziom": 6,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "16.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Mam 2 l roztworu 10% soli i 3 l roztworu 20% soli. Mieszam oba. Ile procent soli ma mieszanina? Podaj z dokladnoscia do 0.1.",
+          "raw": "\n\nWYNIK: 16.0%",
+          "answer": "16.0%",
+          "pass": true
+        },
+        {
+          "prompt": "Laczę 2 l roztworu 10-procentowego z 3 l roztworu 20-procentowego (sol). Jakie stezenie ma wynik (do 0.1%)?",
+          "raw": "\n\nWYNIK: 16%",
+          "answer": "16%",
+          "pass": true
+        },
+        {
+          "prompt": "Roztwor A: 2 l, 10% soli. Roztwor B: 3 l, 20% soli. Po zmieszaniu podaj procent soli (1 miejsce po przecinku).",
+          "raw": "\n\nWYNIK: 16",
+          "answer": "16",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1-L6-02",
+      "poziom": 6,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "4.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Malarz maluje pokoj w 6 godzin, drugi w 12 godzin. Pracujac razem, w ile godzin pomaluja pokoj? Podaj ulamek lub liczbe do 0.1.",
+          "raw": "\n\nWYNIK: 4.0",
+          "answer": "4.0",
+          "pass": true
+        },
+        {
+          "prompt": "Jeden malarz konczy pokoj w 6 h, drugi w 12 h. Wspolnie zajmie im ile godzin (do 0.1)?",
+          "raw": "\n\nWYNIK: 4.0",
+          "answer": "4.0",
+          "pass": true
+        },
+        {
+          "prompt": "Tempo: malarz A 6 h na pokoj, malarz B 12 h. Razem pomaluja w ile godzin (1 miejsce po przecinku)?",
+          "raw": "\n\nWYNIK: 4.0",
+          "answer": "4.0",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
