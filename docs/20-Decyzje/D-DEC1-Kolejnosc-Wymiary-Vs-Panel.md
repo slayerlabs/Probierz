@@ -2,7 +2,7 @@
 type: decyzja
 id: BENCH-DEC1
 title: "Decyzja — kolejność: budować D3–D6 czy najpierw rozszerzyć panel?"
-status: otwarta
+status: w-toku
 parents: ["BENCH-C2", "BENCH-S4", "BENCH-S5"]
 author: Arkadiusz Słota
 date: 2026-07-02
@@ -60,11 +60,30 @@ Rozstrzygamy **empirycznie, minimalnym testem**, nie deklaracją:
 ## Rekomendacja (do akceptacji)
 **Sekwencja: panel → mini-test D1↔D2 → decyzja o D3–D6.** To godzi obie strony: panel jest potrzebny
 tak czy inaczej (robimy go pierwszy), a tani mini-test na 2 wymiarach rozstrzyga, czy inwestować w
-D3–D6, zanim to zrobimy. Unika zarówno pracy w próżnię (AT-DEC1 pkt 1–2), jak i sekwencyjnego marnowania
-czasu (T-DEC1 pkt 3) — bo budowę D3–D6 odpalamy natychmiast po pozytywnym mini-teście, nie po pełnym
-6-wymiarowym cyklu.
+D3–D6, zanim to zrobimy.
 
-Warunek wstępny wszystkiego: **panel modeli.** Bez niego decyzja pozostaje otwarta.
+## Wynik częściowy — 2 modele × 2 wymiary (2026-07-02)
+Pierwsze dwa węzły panelu (Slayer v49 27B, gemma-3n-e4b ~4B):
+
+| Model | D1 | D2 |
+|---|---|---|
+| Slayer v49 | 9/10 | 9/10 |
+| gemma-3n-e4b | 10/10 | 7/10 |
+
+**Kierunek zgodny z dekompozycją, lecz statystycznie NIEISTOTNY.** Znaki różnic (gemma − Slayer) są
+**przeciwne** między wymiarami (D1: +0.10, D2: −0.20 per-item), co *wygląda* jak odwrócenie rankingu.
+Ale bootstrap (20k iteracji, resampling po itemach) daje: D1 95% CI = [0.00, 0.30], D2 95% CI =
+[−0.50, 0.00] — **oba obejmują 0**. Wg kryterium S4 (istotne odwrócenie = oba CI nie obejmują 0)
+odwrócenie jest **nieistotne**.
+
+**Interpretacja:** to nie dowód współliniowości (AT-DEC1 nie wygrywa), lecz **brak mocy statystycznej**
+— dokładnie jak przewiduje „fakt techniczny" (K=2, M=2, 10 itemów). Kierunek nie zaprzecza dekompozycji.
+Lekarstwem jest **więcej danych**: (a) dokończyć panel (pozostałe 3 modele na D1+D2), (b) zwiększyć K
+do ≥4 (D3–D6), (c) rozważyć więcej itemów per wymiar.
+
+**Rozstrzygnięcie robocze:** kontynuować w kierunku T-DEC1 (budować D3–D6), bo brak istotności wynika
+z mocy, nie z braku efektu, a sygnał kierunkowy jest właściwy. Warunek: **najpierw dokończyć panel na
+D1+D2** — jeśli po pełnym panelu (M≥5) korelacja D1↔D2 okaże się ≈1 z istotnością, wrócić do AT-DEC1.
 
 ## Powiązania
 parents: [[../00-Cele/C2-Konstrukt-Zdolnosci-Jezykowej|C2]] · [[../25-Syntezy/S4-Taksonomia-Wymiarow|S4]] · [[../25-Syntezy/S5-MIRT-Panel|S5]] · kontra-baza: [[../15-Antytezy/AT4-Splatanie-Czynnik-G|AT4]] · stan: [[../90-Ewaluacja/Stan|Stan]]
