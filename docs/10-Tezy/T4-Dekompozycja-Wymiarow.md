@@ -29,24 +29,30 @@ Każdy z uzasadnieniem „dlaczego JĘZYKOWY, nie domenowy":
 | **D5 Wierność instrukcji** | realizacja polecenia (format, ograniczenia, odmowa błędnej instrukcji) | pragmatyka: odwzorowanie intencji na działanie |
 | **D6 Kalibracja niepewności** | „nie wiem" vs pewna halucynacja; adekwatność deklarowanej pewności | metajęzykowa reprezentacja granic wiedzy |
 
-> Jest to **kandydat**, nie ustalenie. S4 rozstrzyga finalną listę oraz warunek obalenia per wymiar.
-> Liczba i granice wymiarów są **empirycznie testowalne** (rozbieżność rankingów), nie ustalane
-> arbitralnie.
+> Jest to **kandydat**, nie ustalenie. S4 rozstrzyga finalną listę, kryterium demarkacji między
+> wymiarami oraz warunek obalenia per wymiar; rozważa też wymiary kandydujące (wiedza faktyczna,
+> przekrój językowy PL). Liczba i granice wymiarów są **empirycznie testowalne** (rozbieżność
+> rankingów), nie ustalane arbitralnie.
 
 ## Mechanizm rozłączności (procedura weryfikacji)
-Wymiary są rozłączne **operacyjnie**, jeśli na panelu modeli występuje **odwrócenie rankingu**:
-istnieje para modeli (X, Y) i para wymiarów (A, B) taka, że X > Y na A oraz X < Y na B. Pojedyncze
-odwrócenie na parę wymiarów jest dowodem, że wymiary niosą niezależny sygnał. Brak odwróceń na żadnej
-parze oznacza współliniowość wymiarów (zastosowanie ma AT4 / czynnik g).
+Wymiary są rozłączne **operacyjnie**, jeśli na panelu modeli występuje **istotne odwrócenie rankingu**:
+istnieje para modeli (X, Y) i para wymiarów (A, B) taka, że X > Y na A oraz X < Y na B, przy czym
+przedziały ufności zdolności (bootstrap, S5) **nie zachodzą na siebie w obu wymiarach**. Istotne
+odwrócenie na parę wymiarów jest dowodem niezależnego sygnału; odwrócenie mieszczące się w przedziałach
+ufności traktujemy jako szum. Brak istotnych odwróceń na żadnej parze oznacza współliniowość wymiarów
+(zastosowanie ma AT4 / czynnik g).
 
 ## Dowód (żadnej tezy bez dowodu — do wykonania w fazie baseline)
 Teza jest falsyfikowalna i **niezweryfikowana na naszych danych**. Plan dowodu:
 1. minimalny zestaw ~5–10 itemów per wymiar (D1–D6), audyt czystości `contamination_check.py` → 0%;
 2. przejazd **panelem ≥5 modeli** (od słabszego do mocniejszego, w tym Slayer v49);
-3. macierz wynik[model × wymiar]; obliczyć: (a) liczbę odwróceń rankingu, (b) korelacje między
-   wymiarami, (c) analizę czynnikową (udział wariancji wyjaśniany przez 1. składową).
-**Wynik pozytywny:** ≥1 odwrócenie na większości par wymiarów oraz 1. składowa < ~90% wariancji.
-**Wynik negatywny (obala T4):** brak odwróceń oraz 1. składowa ≥ ~90% → konstrukt jednowymiarowy.
+3. macierz wynik[model × wymiar]; obliczyć: (a) liczbę **istotnych** odwróceń rankingu (wg CI z S5),
+   (b) korelacje między wymiarami, (c) analizę równoległą (parallel analysis) liczby składowych
+   głównych powyżej poziomu odniesienia z permutacji.
+**Wynik pozytywny (T4 utrzymana):** ≥1 istotne odwrócenie na większości par wymiarów oraz ≥2 składowe
+powyżej poziomu odniesienia z analizy równoległej.
+**Wynik negatywny (obala T4):** brak istotnych odwróceń oraz tylko 1. składowa powyżej poziomu
+odniesienia → konstrukt jednowymiarowy. (Próg operacyjny i procedura: S4.)
 
 > Do czasu tego pomiaru T4 ma status **w-dyskusji**, nie „ustalone": zgodnie z zasadą projektu żaden
 > wynik nie jest przyjmowany bez pomiaru.

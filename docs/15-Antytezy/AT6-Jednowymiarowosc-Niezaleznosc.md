@@ -1,18 +1,18 @@
 ---
 type: antyteza
 id: BENCH-AT6
-title: "IRT zakłada jednowymiarowość i lokalną niezależność — LLM je naruszają"
+title: "IRT jest nietrafnym formalizmem dla małego panelu modeli"
 status: w-dyskusji
 parents: ["BENCH-T6"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
 
-# AT6 — Założenia IRT są dla LLM nietrafne (steelman)
+# AT6 — Założenia i wybór IRT są dla oceny LLM nietrafne (steelman)
 
 ## Najmocniejsza wersja
-Klasyczny IRT (2PL/3PL, T6) opiera się na trzech założeniach, z których każde jest problematyczne dla
-oceny LLM:
+Klasyczny IRT (2PL/3PL, T6) opiera się na założeniach, z których każde jest problematyczne dla oceny
+LLM, a sam wybór IRT jest wątpliwy przy realnej liczności panelu:
 
 1. **Jednowymiarowość.** Model 2PL/3PL zakłada jeden parametr latentny $\theta$ na model. Konstrukt z
    T4 jest z założenia **wielowymiarowy** (D1–D6). Zastosowanie jednowymiarowego IRT do zestawu
@@ -32,27 +32,48 @@ oceny LLM:
    modele dzielą architektury i dane treningowe. Oszacowania $b_j, a_j$ mogą nie być przenośne na
    modele spoza panelu kalibracyjnego.
 
-## Dodatkowo: mała próba i identyfikowalność
-Estymacja 3PL wymaga wielu odpowiadających na item dla stabilnego oszacowania $\{a_j, b_j, c_j\}$.
-Panel LLM liczy realnie od kilku do kilkunastu modeli — o rzędy wielkości mniej niż próby ludzkie, na
-których IRT jest zwykle stosowany. Przy takiej liczności estymacja 3PL (zwłaszcza $c_j$) ma wysoką
-wariancję, a przedziały ufności dla $\theta$ mogą być zbyt szerokie, by rozdzielić modele.
+4. **Nietrafny wybór formalizmu (zarzut najcięższy).** Nawet gdyby założenia 1–3 były spełnione,
+   estymacja **absolutnej** zdolności $\theta$ i dwóch parametrów itemu z panelu 5–12 modeli jest źle
+   uwarunkowana (patrz „Bilans" niżej). Dla małej liczby odpowiadających lepiej uwarunkowany jest
+   **pomiar porównawczy**: model Bradleya-Terry'ego lub ocena typu Elo na **parach modeli** (który z
+   pary rozwiązuje item, gdy drugi zawodzi) estymuje tylko względną zdolność, wymaga mniej parametrów i
+   nie zakłada absolutnej skali. IRT dostarcza więcej (skala absolutna, parametry itemów), ale przy
+   dostępnej liczności ta dodatkowa struktura jest nieidentyfikowalna — płacimy wariancją za informację,
+   której danych nie starcza, by wyznaczyć.
+
+## Bilans stopni swobody (kwantyfikacja punktu 4)
+2PL per wymiar ma $2J + M - 2$ parametrów ($a_j, b_j$ na item, $\theta_m$ na model, minus 2 więzy
+normalizacji skali) przy $M \cdot J$ **binarnych** obserwacjach (1 bit każda).
+
+| M modeli | J itemów | #param | #obs | obs/param |
+|---|---|---|---|---|
+| 5 | 10 | 23 | 50 | 2.2 |
+| 8 | 10 | 26 | 80 | 3.1 |
+| 12 | 20 | 50 | 240 | 4.8 |
+
+Stabilna MLE wymaga zwykle obs/param ≥ 5–10; w psychometrii 2PL rekomenduje się N ≥ ~500
+respondentów dla stabilnego $a_j$. Panel LLM (5–12 modeli) jest o 1.5–2 rzędy wielkości poniżej.
+Parametr dyskryminacji $a_j$, estymowany z nachylenia krzywej po 5–12 punktach $\theta$, jest
+szczególnie niestabilny.
 
 ## Konsekwencja, jeśli prawdziwa
-Jednowymiarowy IRT (T6 w wersji podstawowej) jest źle specyfikowany. Bez korekty: $\theta$
+IRT 2PL/3PL (T6 w wersji podstawowej) jest źle specyfikowany i źle uwarunkowany: $\theta$
 nieinterpretowalne (naruszona jednowymiarowość), zaniżone błędy standardowe (naruszona lokalna
-niezależność), niestabilne parametry itemów (mały, nielosowy panel). Wynik liczbowy sprawiałby wrażenie
+niezależność), niestabilne $a_j$ (mały, nielosowy panel). Wynik liczbowy sprawiałby wrażenie
 precyzyjnego pomiaru, nie będąc nim.
 
 ## Czego wymaga, by ją odeprzeć (kierunek dla S5)
-- **wielowymiarowy IRT (MIRT)** lub osobny model jednowymiarowy **per wymiar** D_i (zamiast jednego
-  $\theta$ globalnego), zgodnie z warunkiem obalenia S4;
-- **test lokalnej niezależności** (np. statystyka $Q_3$ na resztach) i grupowanie itemów dzielących
-  kontekst w **testlety**, jeśli zależność jest istotna;
+- **redukcja liczby parametrów:** domyślnie model **1PL / Rascha** ($a_j$ wspólne, tylko $b_j$ na item)
+  — bilans $J + M - 1$ parametrów, znacznie lepiej uwarunkowany; 2PL tylko warunkowo, po wykazaniu
+  wystarczającej liczności;
+- **alternatywa porównawcza:** Bradley-Terry / Elo na parach modeli jako pomiar główny lub kontrolny,
+  gdy skala absolutna jest nieidentyfikowalna;
+- osobny model **per wymiar** D_i (nie jeden $\theta$ globalny), zgodnie z warunkiem obalenia S4;
+- **test lokalnej niezależności** ($Q_3$ na resztach) i grupowanie itemów dzielących kontekst w
+  **testlety**;
 - **kwantyfikacja niepewności** adekwatna do małej próby: bootstrap po itemach i po modelach,
-  raportowanie przedziałów ufności dla $\theta$ i dla parametrów itemów;
-- **weryfikacja przenośności** parametrów (differential item functioning) na modelach spoza panelu
-  kalibracyjnego.
+  przedziały ufności dla wszystkich estymat; brak rozdzielenia modeli raportowany jawnie;
+- **weryfikacja przenośności** parametrów (differential item functioning) na modelach spoza panelu.
 
 ## Powiązania
 parent: [[../10-Tezy/T6-IRT-Model-Pomiaru|T6]] · rozstrzyga: [[../25-Syntezy/S5-MIRT-Panel|S5]] · konstrukt: [[../25-Syntezy/S4-Taksonomia-Wymiarow|S4]]
