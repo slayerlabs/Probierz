@@ -1,0 +1,332 @@
+{
+  "summary": {
+    "model": "nvidia/nemotron-3-nano-4b",
+    "eval": "../benchmarks/d1-rozumowanie-hard-v1/eval.jsonl",
+    "n_items": 11,
+    "n_scored": 11,
+    "pass_median_count": 10,
+    "pass_median_rate": 0.909,
+    "items_wrazliwe": 4
+  },
+  "results": [
+    {
+      "id": "D1H-L7-01",
+      "poziom": 7,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "18",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ania jest 3 razy starsza od Bartka. Za 6 lat Ania bedzie 2 razy starsza od Bartka. Ile lat ma teraz Ania?",
+          "raw": "\nAby rozwiązać problem, postawmy zmienne:\n\n- \\( A \\) – obecny wiek Ani,\n- \\( B \\) – obecny wiek Bartka.\n\nZ pierwszego zdania:\n\\[\nA = 3B.\n\\]\n\nZ drugiego zdania (za 6 lat):\n\\[\nA + 6 = 2\\,(B + 6).\n\\]\n\nPodstawiamy \\( A = 3B \\) do drugiej równania:\n\\[\n3B + 6 = 2(B + 6) \\\\\n3B + 6 = 2B + 12.\n\\]\n\nRozwiązujemy dla \\( B \\):\n\\[\n3B - 2B = 12 - 6 \\\\\nB = 6.\n\\]\n\nTeraz znajdźmy wiek Ani:\n\\[\nA = 3B = 3 \\times 6 = 18.\n\\]\n\nWersja sprawdzenia: za 6 lat Ania będzie \\( 18 + 6 = 24 \\) lat, a Bartka \\( 6 + 6 = 12 \\) lat. Wtedy Ania będzie dokładnie dwa razy starsza od Bartka.\n\n**WYNIK:** 18",
+          "answer": "** 18",
+          "pass": true
+        },
+        {
+          "prompt": "Obecnie Ania ma trzykrotnosc wieku Bartka. Za 6 lat jej wiek bedzie dwukrotnoscia wieku Bartka. Podaj obecny wiek Ani.",
+          "raw": "\n**Rozwiązanie krok po kroku**\n\n1. Niech \\(A\\) – obecny wiek Ani, a \\(B\\) – obecny wiek Bartka.\n\n2. Z pierwszego zdania:  \n   \\[\n   A = 3B \\qquad\\text{(Ania ma trzykrotnie większy wiek niż Bartko)}\n   \\]\n\n3. Z drugiego zdania: za 6 lat jej wiek będzie dwukrotnym wiekiem Bartka (w tym samym czasie).  \n   \\[\n   A + 6 = 2\\,(B + 6)\n   \\]\n\n4. Podstaw \\(A = 3B\\) do równania z drugiego zdania:  \n   \\[\n   3B + 6 = 2(B + 6) \\;\\Longrightarrow\\; 3B + 6 = 2B + 12\n   \\]\n\n5. Rozwiąż względem \\(B\\):  \n   \\[\n   3B - 2B = 12 - 6 \\;\\Longrightarrow\\; B = 6\n   \\]\n\n6. Znajdź wiek Ani:  \n   \\[\n   A = 3B = 3 \\times 6 = 18\n   \\]\n\n7. Sprawdzenie: za 6 lat Ania będzie \\(18+6=24\\) lat, a Bartko – \\(6+6=12\\) lat.  \n   \\(24 = 2 \\times 12\\) – warunek spełniony.\n\n**WYNIK:** 18",
+          "answer": "** 18",
+          "pass": true
+        },
+        {
+          "prompt": "Teraz wiek Ani = 3x wiek Bartka. Po 6 latach: wiek Ani = 2x wiek Bartka. Ile lat ma Ania dzis?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L7-02",
+      "poziom": 7,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "57",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Liczba dwucyfrowa: suma cyfr = 12. Po zamianie cyfr miejscami liczba rosnie o 18. Jaka to liczba?",
+          "raw": "\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        },
+        {
+          "prompt": "Dwucyfrowa liczba ma cyfry sumujace sie do 12; przestawienie cyfr zwieksza ja o 18. Podaj liczbe.",
+          "raw": "\n\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        },
+        {
+          "prompt": "Suma cyfr pewnej liczby dwucyfrowej to 12. Zamiana cyfr daje liczbe o 18 wieksza. Ktora to liczba?",
+          "raw": "\nLiczba dwucyfrowa ma formę \\(10a+b\\), gdzie \\(a\\) i \\(b\\) to cyfry.  \n\nWarunki:\n1. Suma cyfr: \\(a+b=12\\).\n2. Zamiana cyfr daje liczbę o 18 wiekszej wartości: \\(10b+a = (10a+b)+18\\).\n\nRozwiązanie:\n\\[\n10b + a = 10a + b + 18 \\;\\Longrightarrow\\; 9b = 9a + 18 \\;\\Longrightarrow\\; b = a + 2.\n\\]\n\nPodstaw \\(b = a+2\\) do równania sumy cyfr:\n\\[\na + (a+2) = 12 \\;\\Longrightarrow\\; 2a + 2 = 12 \\;\\Longrightarrow\\; 2a = 10 \\;\\Longrightarrow\\; a = 5.\n\\]\n\nWtedy \\(b = a+2 = 7\\). Liczba to \\(10a+b = 10\\cdot5+7 = 57\\).\n\n**Sprawdzenie:**  \n- Suma cyfr: \\(5+7=12\\) – spełnione.  \n- Zamiana cyfr: \\(75\\); \\(75 - 57 = 18\\) – spełnione.\n\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-01",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "3",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Sklep miesza kawe: 3 kg po 40 zl/kg i pewna ilosc po 60 zl/kg. Mieszanka ma kosztowac 50 zl/kg. Ile kg drozszej kawy dodano?",
+          "raw": "\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        },
+        {
+          "prompt": "Do 3 kg kawy po 40 zl/kg dosypano kawe po 60 zl/kg tak, ze srednia cena = 50 zl/kg. Ile kg drozszej?",
+          "raw": "\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        },
+        {
+          "prompt": "3 kg taniej (40 zl/kg) + x kg drozszej (60 zl/kg) daje mieszanke 50 zl/kg. Podaj x.",
+          "raw": "\nMamy:\n\n- 3 kg taniej materiału po 40 zł/kg → koszt = 3·40 = 120 zł.  \n- x kg droższej materiały po 60 zł/kg → koszt = 60x zł.\n\nŁączna masa = 3 + x kg, łączny koszt = 120 + 60x zł.  \nŚrednia cena mieszanki wynosi 50 zł/kg:\n\n\\[\n\\frac{120 + 60x}{3 + x} = 50.\n\\]\n\nRozwiązujemy równanie:\n\n\\[\n120 + 60x = 50(3 + x) = 150 + 50x \\\\\n60x - 50x = 150 - 120 \\\\\n10x = 30 \\\\\nx = 3.\n\\]\n\nWięc potrzebna jest 3 kg droższej mieszanki.\n\n**WYNIK: 3**",
+          "answer": "3**",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-02",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "B",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Trzy osoby: A mowi 'B klamie', B mowi 'C klamie', C mowi 'A i B klamia'. Dokladnie jedna osoba mowi prawde. Kto mowi prawde? Podaj: A / B / C.",
+          "raw": "\nB  \nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        },
+        {
+          "prompt": "A: 'B klamie'; B: 'C klamie'; C: 'A i B klamia'. Prawde mowi dokladnie jedna osoba. Ktora? A/B/C.",
+          "raw": "\nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        },
+        {
+          "prompt": "Wypowiedzi: A twierdzi ze B klamie, B ze C klamie, C ze A i B klamia. Tylko jedna prawdomowna. Kto? A/B/C.",
+          "raw": "\nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-03",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "3.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Kran A napelnia basen w 4 h, kran B w 6 h, odplyw C oprozznia w 12 h. Wszystkie otwarte naraz. W ile godzin basen sie napelni? Podaj do 0.1.",
+          "raw": "\nWYNIK: 3.0",
+          "answer": "3.0",
+          "pass": true
+        },
+        {
+          "prompt": "A napelnia w 4h, B w 6h, odplyw C oprozznia w 12h; wszystkie dzialaja jednoczesnie. Czas napelnienia (0.1)?",
+          "raw": "\nCzas napelnienia całego naczynia wynosi 3 h.  \n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        },
+        {
+          "prompt": "Dwa krany (4h, 6h) napelniaja, odplyw (12h) oprozznia, wszystko naraz. Ile godzin do pelna (0.1)?",
+          "raw": "\nWYNIK: 2.997",
+          "answer": "2.997",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-01",
+      "poziom": 9,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "10:36",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Dwa miasta dzieli 300 km. Pociag X rusza z pierwszego o 8:00 z predkoscia 60 km/h. Pociag Y rusza z drugiego o 9:00 z predkoscia 90 km/h, jadac na przeciw. O ktorej sie miejaja? Podaj HH:MM.",
+          "raw": "\nWYNIK: 10:36",
+          "answer": "10:36",
+          "pass": true
+        },
+        {
+          "prompt": "Odleglosc 300 km. X: start 8:00, 60 km/h. Y: start 9:00 z naprzeciwka, 90 km/h. Godzina spotkania (HH:MM)?",
+          "raw": "\nX i Y jedzą się w kierunku przeciwległym.  \n\nZdefiniujmy \\(t\\) – liczbę godzin od 8:00, do której spotykają się.  \n- Odległość pokonana przez X: \\(d_X = 60\\,t\\).  \n- Y startuje o 9:00, więc jego czas jazdy to \\(t-1\\) godziny; jej odległość: \\(d_Y = 90\\,(t-1)\\).\n\nŁączna odległość wynosi 300 km:\n\n\\[\n60t + 90(t-1) = 300.\n\\]\n\nRozwiązanie:\n\n\\[\n\\begin{aligned}\n60t + 90t - 90 &= 300\\\\\n150t &= 390\\\\\nt &= \\frac{390}{150}=2.6\\ \\text{h}.\n\\end{aligned}\n\\]\n\nZatem godzina spotkania to \\(8:00 + 2.6\\) h = \\(10:36\\).\n\n**WYNIK: 10:36**",
+          "answer": "10:36**",
+          "pass": true
+        },
+        {
+          "prompt": "Miasta 300 km od siebie. O 8:00 rusza X (60 km/h), o 9:00 z drugiej strony Y (90 km/h). Kiedy sie spotkaja? HH:MM.",
+          "raw": "\n**Rozwiązanie krok po kroku**\n\n1. **Zdefiniujmy zmienne**  \n   - \\(t\\) – liczba godzin od 8:00, w której samochód X rusza.  \n   - Odległość pokonana przez X: \\(d_X = 60\\,t\\) km.\n\n2. **Samochód Y rusza o 9:00**, czyli po 1 h od momentu startu X.  \n   - Jeśli spotkanie nastąpi po \\(t\\) godzinach, Y będzie jechał przez \\((t-1)\\) godzin (jeśli \\(t>1\\)).  \n   - Odległość pokonana przez Y: \\(d_Y = 90\\,(t-1)\\) km.\n\n3. **Łączna odległość między miastami wynosi 300 km**, więc przy spotkaniu suma odległości pokonanych równa się tej wartości:\n   \\[\n   d_X + d_Y = 300 \\quad\\Longrightarrow\\quad 60t + 90(t-1) = 300.\n   \\]\n\n4. **Rozwiążmy równanie**:\n   \\[\n   60t + 90t - 90 = 300 \\\\\n   150t = 390 \\\\\n   t = \\frac{390}{150} = 2{,}6\\ \\text{h}.\n   \\]\n\n5. **Przeliczmy \\(t\\) na godzinę i minutę**:\n   - \\(2{,}6\\) h = 2 h + 0,6·60 min = 2 h + 36 min.\n   - Od 8:00 dodajemy 2 h 36 min → **10:36**.\n\n**WYNIK:** 10:36",
+          "answer": "** 10:36",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-02",
+      "poziom": 9,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "2",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Cztery zadania A,B,C,D. B musi byc po A. C musi byc po B. D musi byc przed C ale po A. Ile jest mozliwych kolejnosci wykonania wszystkich czterech?",
+          "raw": "\nWYNIK: 2",
+          "answer": "2",
+          "pass": true
+        },
+        {
+          "prompt": "Zadania A,B,C,D z regulami: A<B, B<C, A<D, D<C. Ile roznych poprawnych kolejnosci?",
+          "raw": "\nWYNIK: 2",
+          "answer": "2",
+          "pass": true
+        },
+        {
+          "prompt": "Porzadki A,B,C,D spelniajace: B po A, C po B, D po A i przed C. Policz liczbe dopuszczalnych ustawien.",
+          "raw": "\nWYNIK: 2",
+          "answer": "2",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-03",
+      "poziom": 9,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "sprzecznosc",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Pieciu biegaczy: Tomek przed Ola, Ola przed Piotrem, Piotr przed Rafalem, Rafal przed Sara. Wiadomo tez, ze Sara nie jest ostatnia. Kto jest ostatni? Jesli warunki sie wykluczaja, odpowiedz 'sprzecznosc'.",
+          "raw": "\n**Rozwiązanie krok po kroku**\n\n1. Zrozumiemy wszystkie podane porządekowe informacje jako „a przed b” – czyli a kończy wyścig wcześniej niż b.  \n2. Zatem otrzymujemy łańcuch:  \n   - Tomek (T) przed Ola (O) → T < O  \n   - Ola (O) przed Piotrem (P) → O < P  \n   - Piotr (P) przed Rafalem (R) → P < R  \n   - Rafal (R) przed Sara (S) → R < S  \n\n3. Łącząc te równości otrzymujemy jedną możliwą kolejność:  \n   **T, O, P, R, S** – czyli Sara jest ostatnią.\n\n4. W problemie dodatkowo podaje się, że „Sara nie jest ostatnia”. To bezpośrednio sprzeczy z wynikiem z kroku 3.\n\n5. Ponieważ warunki są sprzeczne (Sara jednocześnie musi być ostatnia i nie może być ostatnia), odpowiedź jest **sprzecznosc**.\n\n**WYNIK: sprzecznosc**",
+          "answer": "sprzecznosc**",
+          "pass": true
+        },
+        {
+          "prompt": "Tomek<Ola<Piotr<Rafal<Sara (x<y = x przed y), a jednoczesnie Sara nie ostatnia. Kto ostatni? Jesli niemozliwe: 'sprzecznosc'.",
+          "raw": "\nRozważmy łańcuch porównań:\n\n1. Tomek < Ola  \n2. Ola < Piotr  \n3. Piotr < Rafal  \n4. Rafal < Sara  \n\nZ tego wynika, że kolejność od najmniejszego do największego jest: Tomek, Ola, Piotr, Rafal, **Sara**. Zatem Sara jest ostatnią osobą w łańcuchu.\n\nNastępnie przyjmujemy dodatkowe informacje:\n\n- „a jednoczesnie Sara nie ostatnia” – to znaczy, że Sara **nie** może być ostatnią.\n\nTo tworzy sprzeczność: z łańcucha Sara jest ostatnią, a dodatkowo mówi się, że nie jest. Zatem warunki są niemożliwe do spełnienia jednocześnie.\n\nWynikiem jest „sprzecznosc”.\n\nWYNIK: sprzecznosc",
+          "answer": "sprzecznosc",
+          "pass": true
+        },
+        {
+          "prompt": "Kolejnosc wymusza: Tomek, Ola, Piotr, Rafal, Sara. Ale podano, ze Sara nie jest ostatnia. Kto na koncu? Gdy sie wyklucza: 'sprzecznosc'.",
+          "raw": "\n**Rozwiązanie krok po kroku**\n\n1. Zadanie mówi, że kolejność wymusza: **Tomek, Ola, Piotr, Rafal, Sara**.  \n2. W tej kolejności Sara jest ostatnią (jest w piątej pozycji).  \n3. Następnie podaje się dodatkowe informacje: **„Sara nie jest ostatnia.”**  \n4. To oznacza, że warunek „Sara nie jest ostatnia” sprzecznie kontrastuje z wymuszoną kolejnością, w której Sara jest ostatnią.  \n5. Gdy dwie warunki są sprzeczne, wynikiem jest **sprzecznosc**.\n\n**WYNIK: sprzecznosc**",
+          "answer": "sprzecznosc**",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-01",
+      "poziom": 10,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "9.1",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Cena akcji: +10% w poniedzialek, -20% we wtorek, +25% w srode. W czwartek spadla o pewien procent i wrocila DOKLADNIE do ceny sprzed poniedzialku. O ile procent spadla w czwartek? Podaj do 0.1.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Akcja: pon +10%, wt -20%, sr +25%, czw -x%. Po czwartku cena = cena poczatkowa. Podaj x (do 0.1).",
+          "raw": "\nAby znaleźć x, postaramy się, jak zmiany procentowe wpływają na cenę.\n\n1. **Początkowa cena** – oznaczmy ją \\(P\\).\n\n2. **Po pon +10%**  \n   \\[\n   P_1 = P \\times (1+0{,}10)=1{,}10P\n   \\]\n\n3. **Po wt -20%**  \n   \\[\n   P_2 = 1{,}10P \\times (1-0{,}20)=1{,}10P \\times 0{,}80=0{,}88P\n   \\]\n\n4. **Po sr +25%**  \n   \\[\n   P_3 = 0{,}88P \\times (1+0{,}25)=0{,}88P \\times 1{,}25=1{,}10P\n   \\]\n\n5. **Po czw -x%**  \n   \\[\n   P_4 = 1{,}10P \\times \\bigl(1-\\frac{x}{100}\\bigr)\n   \\]\n\n6. Zgodnie z условием po czwartek cena wróci do początkowej:\n   \\[\n   P_4 = P \\quad\\Longrightarrow\\quad 1{,}10\\bigl(1-\\frac{x}{100}\\bigr)=1\n   \\]\n\n7. Rozwiązujemy równanie:\n   \\[\n   1-\\frac{x}{100}= \\frac{1}{1{,}10}=0{,}90909\\ldots\n   \\]\n   \\[\n   \\frac{x}{100}=1-0{,}90909\\ldots =0{,}090909\\ldots\n   \\]\n   \\[\n   x=0{,}090909\\ldots \\times 100 = 9{,}0909\\ldots\\%\n   \\]\n\n8. Zamykając do jednej cyfry po przecinku: \\(x \\approx 9,1\\%\\).\n\n**WYNIK: 9.1**",
+          "answer": "9.1**",
+          "pass": true
+        },
+        {
+          "prompt": "Zmiany: +10, -20, +25 procent (pon-sr). W czwartek spadek o x% przywraca cene wyjsciowa. Ile x (0.1)?",
+          "raw": "\nWYNIK: 9.1",
+          "answer": "9.1",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-02",
+      "poziom": 10,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "3.2",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Suma wieku ojca, matki i dziecka = 70. Ojciec jest o 4 lata starszy od matki. Za 10 lat dziecko bedzie mialo polowe wieku, jaki matka miala 5 lat temu. Ile lat ma dziecko teraz? Podaj do 0.1.",
+          "raw": "\nWYNIK: 3.2",
+          "answer": "3.2",
+          "pass": true
+        },
+        {
+          "prompt": "ojciec+matka+dziecko=70; ojciec=matka+4; za 10 lat dziecko = 1/2 wieku matki sprzed 5 lat. Wiek dziecka dzis (0.1)?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Razem 70 lat. Ojciec o 4 starszy od matki. Dziecko za 10 lat = polowa wieku matki z przed 5 lat. Ile ma dziecko (0.1)?",
+          "raw": "\nWYNIK: 4",
+          "answer": "4",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-03",
+      "poziom": 10,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "10.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Zespol 6 robotnikow buduje mur w 12 dni. Po 4 dniach dolaczylo 2 robotnikow. Ile dni LACZNIE trwala budowa (od poczatku)? Podaj do 0.1.",
+          "raw": "\nWYNIK: 10",
+          "answer": "10",
+          "pass": true
+        },
+        {
+          "prompt": "6 robotnikow buduje mur w 12 dni. Po 4 dniach dochodzi 2 (razem 8). Ile dni od startu trwala calosc (0.1)?",
+          "raw": "\n6 robotników budują mur w 12 dniach → łączna ilość pracowniczych dni potrzebnych =  \n\\(6 \\times 12 = 72\\) robótnych dni.\n\nPo 4 dniach 6 robotników już wykonali:  \n\\(6 \\times 4 = 24\\) robótnych dni.  \n\nPozostała do zrobienia praca:  \n\\(72 - 24 = 48\\) robótnych dni.\n\nWtedy dochodzi 2 dodatkowych robotników, więc razem mamy 8 robotników.  \nCzas potrzebny na resztę pracy:  \n\\(\\frac{48}{8} = 6\\) dni.\n\nDodajemy te 6 dni do pierwszych 4 dni:  \n\\(4 + 6 = 10\\) dni.\n\nWYNIK: 10",
+          "answer": "10",
+          "pass": true
+        },
+        {
+          "prompt": "Mur: 6 ludzi = 12 dni. Przez pierwsze 4 dni pracuje 6, potem 8. Laczny czas budowy od poczatku (0.1)?",
+          "raw": "\nWYNIK: 10",
+          "answer": "10",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

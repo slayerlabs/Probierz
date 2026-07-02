@@ -1,0 +1,332 @@
+{
+  "summary": {
+    "model": "qwen/qwen3-1.7b",
+    "eval": "../benchmarks/d1-rozumowanie-hard-v1/eval.jsonl",
+    "n_items": 11,
+    "n_scored": 11,
+    "pass_median_count": 6,
+    "pass_median_rate": 0.545,
+    "items_wrazliwe": 5
+  },
+  "results": [
+    {
+      "id": "D1H-L7-01",
+      "poziom": 7,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "18",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ania jest 3 razy starsza od Bartka. Za 6 lat Ania bedzie 2 razy starsza od Bartka. Ile lat ma teraz Ania?",
+          "raw": "\n\nWYNIK: 18",
+          "answer": "18",
+          "pass": true
+        },
+        {
+          "prompt": "Obecnie Ania ma trzykrotnosc wieku Bartka. Za 6 lat jej wiek bedzie dwukrotnoscia wieku Bartka. Podaj obecny wiek Ani.",
+          "raw": "\n\nWYNIK: 18",
+          "answer": "18",
+          "pass": true
+        },
+        {
+          "prompt": "Teraz wiek Ani = 3x wiek Bartka. Po 6 latach: wiek Ani = 2x wiek Bartka. Ile lat ma Ania dzis?",
+          "raw": "\n\nWYNIK: 18",
+          "answer": "18",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L7-02",
+      "poziom": 7,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "57",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Liczba dwucyfrowa: suma cyfr = 12. Po zamianie cyfr miejscami liczba rosnie o 18. Jaka to liczba?",
+          "raw": "\n\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        },
+        {
+          "prompt": "Dwucyfrowa liczba ma cyfry sumujace sie do 12; przestawienie cyfr zwieksza ja o 18. Podaj liczbe.",
+          "raw": "\n\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        },
+        {
+          "prompt": "Suma cyfr pewnej liczby dwucyfrowej to 12. Zamiana cyfr daje liczbe o 18 wieksza. Ktora to liczba?",
+          "raw": "\n\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-01",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "3",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Sklep miesza kawe: 3 kg po 40 zl/kg i pewna ilosc po 60 zl/kg. Mieszanka ma kosztowac 50 zl/kg. Ile kg drozszej kawy dodano?",
+          "raw": "\n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        },
+        {
+          "prompt": "Do 3 kg kawy po 40 zl/kg dosypano kawe po 60 zl/kg tak, ze srednia cena = 50 zl/kg. Ile kg drozszej?",
+          "raw": "\n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        },
+        {
+          "prompt": "3 kg taniej (40 zl/kg) + x kg drozszej (60 zl/kg) daje mieszanke 50 zl/kg. Podaj x.",
+          "raw": "\n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-02",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "B",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Trzy osoby: A mowi 'B klamie', B mowi 'C klamie', C mowi 'A i B klamia'. Dokladnie jedna osoba mowi prawde. Kto mowi prawde? Podaj: A / B / C.",
+          "raw": "\n\nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        },
+        {
+          "prompt": "A: 'B klamie'; B: 'C klamie'; C: 'A i B klamia'. Prawde mowi dokladnie jedna osoba. Ktora? A/B/C.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Wypowiedzi: A twierdzi ze B klamie, B ze C klamie, C ze A i B klamia. Tylko jedna prawdomowna. Kto? A/B/C.",
+          "raw": "\n\nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-03",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "3.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Kran A napelnia basen w 4 h, kran B w 6 h, odplyw C oprozznia w 12 h. Wszystkie otwarte naraz. W ile godzin basen sie napelni? Podaj do 0.1.",
+          "raw": "\n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        },
+        {
+          "prompt": "A napelnia w 4h, B w 6h, odplyw C oprozznia w 12h; wszystkie dzialaja jednoczesnie. Czas napelnienia (0.1)?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Dwa krany (4h, 6h) napelniaja, odplyw (12h) oprozznia, wszystko naraz. Ile godzin do pelna (0.1)?",
+          "raw": "\n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-01",
+      "poziom": 9,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "10:36",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Dwa miasta dzieli 300 km. Pociag X rusza z pierwszego o 8:00 z predkoscia 60 km/h. Pociag Y rusza z drugiego o 9:00 z predkoscia 90 km/h, jadac na przeciw. O ktorej sie miejaja? Podaj HH:MM.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Odleglosc 300 km. X: start 8:00, 60 km/h. Y: start 9:00 z naprzeciwka, 90 km/h. Godzina spotkania (HH:MM)?",
+          "raw": "\n\nWYNIK: 10:36",
+          "answer": "10:36",
+          "pass": true
+        },
+        {
+          "prompt": "Miasta 300 km od siebie. O 8:00 rusza X (60 km/h), o 9:00 z drugiej strony Y (90 km/h). Kiedy sie spotkaja? HH:MM.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-02",
+      "poziom": 9,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "2",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Cztery zadania A,B,C,D. B musi byc po A. C musi byc po B. D musi byc przed C ale po A. Ile jest mozliwych kolejnosci wykonania wszystkich czterech?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Zadania A,B,C,D z regulami: A<B, B<C, A<D, D<C. Ile roznych poprawnych kolejnosci?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Porzadki A,B,C,D spelniajace: B po A, C po B, D po A i przed C. Policz liczbe dopuszczalnych ustawien.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-03",
+      "poziom": 9,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "sprzecznosc",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Pieciu biegaczy: Tomek przed Ola, Ola przed Piotrem, Piotr przed Rafalem, Rafal przed Sara. Wiadomo tez, ze Sara nie jest ostatnia. Kto jest ostatni? Jesli warunki sie wykluczaja, odpowiedz 'sprzecznosc'.",
+          "raw": "\n\nWYNIK: sprzecznosc",
+          "answer": "sprzecznosc",
+          "pass": true
+        },
+        {
+          "prompt": "Tomek<Ola<Piotr<Rafal<Sara (x<y = x przed y), a jednoczesnie Sara nie ostatnia. Kto ostatni? Jesli niemozliwe: 'sprzecznosc'.",
+          "raw": "\n\nWYNIK: sprzecznosc",
+          "answer": "sprzecznosc",
+          "pass": true
+        },
+        {
+          "prompt": "Kolejnosc wymusza: Tomek, Ola, Piotr, Rafal, Sara. Ale podano, ze Sara nie jest ostatnia. Kto na koncu? Gdy sie wyklucza: 'sprzecznosc'.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-01",
+      "poziom": 10,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "9.1",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Cena akcji: +10% w poniedzialek, -20% we wtorek, +25% w srode. W czwartek spadla o pewien procent i wrocila DOKLADNIE do ceny sprzed poniedzialku. O ile procent spadla w czwartek? Podaj do 0.1.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Akcja: pon +10%, wt -20%, sr +25%, czw -x%. Po czwartku cena = cena poczatkowa. Podaj x (do 0.1).",
+          "raw": "\n\nWYNIK: 9.1",
+          "answer": "9.1",
+          "pass": true
+        },
+        {
+          "prompt": "Zmiany: +10, -20, +25 procent (pon-sr). W czwartek spadek o x% przywraca cene wyjsciowa. Ile x (0.1)?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-02",
+      "poziom": 10,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "3.2",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Suma wieku ojca, matki i dziecka = 70. Ojciec jest o 4 lata starszy od matki. Za 10 lat dziecko bedzie mialo polowe wieku, jaki matka miala 5 lat temu. Ile lat ma dziecko teraz? Podaj do 0.1.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "ojciec+matka+dziecko=70; ojciec=matka+4; za 10 lat dziecko = 1/2 wieku matki sprzed 5 lat. Wiek dziecka dzis (0.1)?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Razem 70 lat. Ojciec o 4 starszy od matki. Dziecko za 10 lat = polowa wieku matki z przed 5 lat. Ile ma dziecko (0.1)?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-03",
+      "poziom": 10,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "10.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Zespol 6 robotnikow buduje mur w 12 dni. Po 4 dniach dolaczylo 2 robotnikow. Ile dni LACZNIE trwala budowa (od poczatku)? Podaj do 0.1.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "6 robotnikow buduje mur w 12 dni. Po 4 dniach dochodzi 2 (razem 8). Ile dni od startu trwala calosc (0.1)?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Mur: 6 ludzi = 12 dni. Przez pierwsze 4 dni pracuje 6, potem 8. Laczny czas budowy od poczatku (0.1)?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}
