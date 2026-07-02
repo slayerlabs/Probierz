@@ -1,0 +1,332 @@
+{
+  "summary": {
+    "model": "google/gemma-3n-e4b",
+    "eval": "../benchmarks/d1-rozumowanie-hard-v1/eval.jsonl",
+    "n_items": 11,
+    "n_scored": 11,
+    "pass_median_count": 6,
+    "pass_median_rate": 0.545,
+    "items_wrazliwe": 5
+  },
+  "results": [
+    {
+      "id": "D1H-L7-01",
+      "poziom": 7,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "18",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ania jest 3 razy starsza od Bartka. Za 6 lat Ania bedzie 2 razy starsza od Bartka. Ile lat ma teraz Ania?",
+          "raw": "Oznaczmy wiek Ani jako A, a wiek Bartka jako B.\n\nZ treści zadania wiemy:\n1. Ania jest 3 razy starsza od Bartka:  A = 3B\n2. Za 6 lat Ania będzie 2 razy starsza od Bartka: A + 6 = 2(B + 6)\n\nTeraz możemy rozwiązać ten układ równań. Podstawimy pierwsze równanie do drugiego:\n3B + 6 = 2(B + 6)\n3B + 6 = 2B + 12\n3B - 2B = 12 - 6\nB = 6\n\nTeraz, gdy znamy wiek Bartka (B=6), możemy obliczyć wiek Ani:\nA = 3B = 3 * 6 = 18\n\nZatem Ania ma teraz 18 lat.\n\nWYNIK: 18",
+          "answer": "18",
+          "pass": true
+        },
+        {
+          "prompt": "Obecnie Ania ma trzykrotnosc wieku Bartka. Za 6 lat jej wiek bedzie dwukrotnoscia wieku Bartka. Podaj obecny wiek Ani.",
+          "raw": "Oznaczmy:\n* A - obecny wiek Ani\n* B - obecny wiek Bartka\n\nZ treści zadania możemy ułożyć dwa równania:\n\n1.  A = 3B (obecnie Ania ma trzykrotnosc wieku Bartka)\n2.  A + 6 = 2(B + 6) (za 6 lat jej wiek bedzie dwukrotnoscia wieku Bartka)\n\nTeraz możemy rozwiązać ten układ równań. Podstawimy pierwsze równanie do drugiego:\n\n3B + 6 = 2(B + 6)\n3B + 6 = 2B + 12\n3B - 2B = 12 - 6\nB = 6\n\nTeraz, gdy znamy wiek Bartka (B=6), możemy obliczyć wiek Ani:\n\nA = 3B = 3 * 6 = 18\n\nZatem obecny wiek Ani to 18 lat.\n\nWYNIK: 18",
+          "answer": "18",
+          "pass": true
+        },
+        {
+          "prompt": "Teraz wiek Ani = 3x wiek Bartka. Po 6 latach: wiek Ani = 2x wiek Bartka. Ile lat ma Ania dzis?",
+          "raw": "Oznaczmy:\n*  wiek Ani dzisiaj jako A\n*  wiek Bartka dzisiaj jako B\n\nZ treści zadania mamy następujące informacje:\n\n1. Wiek Ani jest 3 razy większy od wieku Bartka: A = 3B\n2. Po 6 latach, wiek Ani będzie równy 2 razy większy od wieku Bartka: A + 6 = 2(B + 6)\n\nTeraz możemy rozwiązać ten układ równań. Podstawimy pierwsze równanie (A = 3B) do drugiego równania:\n\n3B + 6 = 2(B + 6)\n3B + 6 = 2B + 12\n3B - 2B = 12 - 6\nB = 6\n\nTeraz, gdy znamy wiek Bartka (B = 6), możemy obliczyć wiek Ani:\n\nA = 3B = 3 * 6 = 18\n\nZatem Ania ma dzisiaj 18 lat.\n\nWYNIK: 18",
+          "answer": "18",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L7-02",
+      "poziom": 7,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "57",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Liczba dwucyfrowa: suma cyfr = 12. Po zamianie cyfr miejscami liczba rosnie o 18. Jaka to liczba?",
+          "raw": "Oznaczmy liczbę dwucyfrową jako $10a + b$, gdzie $a$ to cyfra dziesiątek, a $b$ to cyfra jedności.\n\nZ treści zadania wiemy, że suma cyfr wynosi 12, więc:\n$a + b = 12$ (równanie 1)\n\nPo zamianie cyfr miejscami liczba zmienia się na $10b + a$. Wiemy, że ta nowa liczba jest o 18 większa od pierwotnej liczby. Zatem:\n$10b + a = 10a + b + 18$ (równanie 2)\n\nPrzekształćmy równanie 2:\n$9b - 9a = 18$\n$b - a = 2$ (równanie 3)\n\nTeraz mamy układ dwóch równań z dwiema niewiadomymi:\n1. $a + b = 12$\n2. $b - a = 2$\n\nDodajmy równanie 1 i równanie 3:\n$(a + b) + (b - a) = 12 + 2$\n$2b = 14$\n$b = 7$\n\nPodstawmy wartość $b$ do równania 1:\n$a + 7 = 12$\n$a = 5$\n\nZatem liczba dwucyfrowa to $10a + b = 10(5) + 7 = 57$.\n\nSprawdźmy, czy rozwiązanie jest poprawne. Suma cyfr: $5 + 7 = 12$.\nPo zamianie cyfr miejscami otrzymujemy liczbę 75. Różnica między 75 a 57 wynosi $75 - 57 = 18$.\n\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        },
+        {
+          "prompt": "Dwucyfrowa liczba ma cyfry sumujace sie do 12; przestawienie cyfr zwieksza ja o 18. Podaj liczbe.",
+          "raw": "Oznaczmy dwucyfrową liczbę jako $10a + b$, gdzie $a$ to cyfra dziesiątek, a $b$ to cyfra jedności.\n\nZ treści zadania wiemy, że suma cyfr wynosi 12:\n$$a + b = 12 \\quad (1)$$\n\nPrzestawienie cyfr daje liczbę $10b + a$. Wiemy również, że przestawiona liczba jest większa o 18 od pierwotnej liczby:\n$$10b + a = 10a + b + 18 \\quad (2)$$\n\nPrzekształćmy równanie (2):\n$$9b - 9a = 18$$\n$$b - a = 2 \\quad (3)$$\n\nTeraz mamy układ dwóch równań z dwiema niewiadomymi:\n$$a + b = 12 \\quad (1)$$\n$$b - a = 2 \\quad (3)$$\n\nDodajmy równanie (1) i (3):\n$$(a + b) + (b - a) = 12 + 2$$\n$$2b = 14$$\n$$b = 7$$\n\nPodstawmy $b = 7$ do równania (1):\n$$a + 7 = 12$$\n$$a = 5$$\n\nZatem liczba to $10a + b = 10(5) + 7 = 57$.\n\nSprawdźmy, czy rozwiązanie jest poprawne:\nSuma cyfr: $5 + 7 = 12$ (zgadza się z warunkiem)\nPrzestawiona liczba: $75$. Różnica między przestawioną liczbą a pierwotną: $75 - 57 = 18$ (zgadza się z warunkiem)\n\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        },
+        {
+          "prompt": "Suma cyfr pewnej liczby dwucyfrowej to 12. Zamiana cyfr daje liczbe o 18 wieksza. Ktora to liczba?",
+          "raw": "Oznaczmy cyfry liczby dwucyfrowej jako a i b, gdzie a to cyfra dziesiątek, a b to cyfra jedności. Zatem liczba dwucyfrowa to 10a + b.\n\nZ treści zadania wiemy, że suma cyfr wynosi 12, czyli:\na + b = 12  (równanie 1)\n\nZamiana cyfr daje liczbę 10b + a. Z treści zadania wiemy, że ta liczba jest o 18 większa od pierwotnej liczby, czyli:\n10b + a = 10a + b + 18  (równanie 2)\n\nPrzekształćmy równanie 2:\n9b - 9a = 18\nb - a = 2  (równanie 3)\n\nTeraz mamy układ dwóch równań z dwiema niewiadomymi:\na + b = 12  (równanie 1)\nb - a = 2   (równanie 3)\n\nDodajmy równanie 1 i równanie 3:\n(a + b) + (b - a) = 12 + 2\n2b = 14\nb = 7\n\nPodstawmy wartość b do równania 1:\na + 7 = 12\na = 5\n\nZatem cyfry to a = 5 i b = 7. Liczba dwucyfrowa to 10a + b = 10 * 5 + 7 = 57.\n\nSprawdźmy, czy rozwiązanie jest poprawne:\nSuma cyfr: 5 + 7 = 12 (zgadza się)\nZamiana cyfr: 75 - 57 = 18 (zgadza się)\n\nWYNIK: 57",
+          "answer": "57",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-01",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "3",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Sklep miesza kawe: 3 kg po 40 zl/kg i pewna ilosc po 60 zl/kg. Mieszanka ma kosztowac 50 zl/kg. Ile kg drozszej kawy dodano?",
+          "raw": "Oznaczmy:\n* x - ilość kg kawy po 60 zł/kg\n* y - ilość kg kawy po 40 zł/kg\n\nWiemy, że mieszanka ma kosztować 50 zł/kg. Całkowita waga mieszanki to 3 kg + x kg = 3 + x kg.\n\nCałkowity koszt mieszanki to:\n(3 kg * 40 zł/kg) + (x kg * 60 zł/kg) = 120 zł + 60x zł\n\nKoszt mieszanki w kg to:\n(3 + x) kg * 50 zł/kg = 150 + 50x zł\n\nZatem:\n120 + 60x = 150 + 50x\n60x - 50x = 150 - 120\n10x = 30\nx = 3 kg\n\nIlość droższej kawy, którą dodano to x = 3 kg.\n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        },
+        {
+          "prompt": "Do 3 kg kawy po 40 zl/kg dosypano kawe po 60 zl/kg tak, ze srednia cena = 50 zl/kg. Ile kg drozszej?",
+          "raw": "Oznaczmy:\n* x - ilość kawy po 40 zł/kg (w kg)\n* y - ilość kawy po 60 zł/kg (w kg)\n\nWiemy, że x = 3 kg.\n\nCałkowity koszt kawy po 40 zł/kg to 3 kg * 40 zł/kg = 120 zł.\nCałkowity koszt kawy po 60 zł/kg to y kg * 60 zł/kg = 60y zł.\n\nCałkowita ilość kawy to x + y = 3 + y kg.\nŚrednia cena kawy to (całkowity koszt) / (całkowita ilość), czyli:\n(120 + 60y) / (3 + y) = 50\n\nTeraz rozwiązujemy równanie:\n120 + 60y = 50 * (3 + y)\n120 + 60y = 150 + 50y\n60y - 50y = 150 - 120\n10y = 30\ny = 3 kg\n\nIlość droższej kawy to y = 3 kg.\n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        },
+        {
+          "prompt": "3 kg taniej (40 zl/kg) + x kg drozszej (60 zl/kg) daje mieszanke 50 zl/kg. Podaj x.",
+          "raw": "Oto rozwiązanie zadania krok po kroku:\n\n1. **Zdefiniuj zmienne:**\n   *  `x` - masa droższej substancji w kg.\n\n2. **Oblicz koszt taniej substancji:**\n   * Koszt taniej substancji to 3 kg * 40 zł/kg = 120 zł.\n\n3. **Oblicz koszt droższej substancji:**\n   * Koszt droższej substancji to x kg * 60 zł/kg = 60x zł.\n\n4. **Oblicz całkowitą masę mieszanki:**\n   * Całkowita masa mieszanki to 3 kg + x kg = (3 + x) kg.\n\n5. **Oblicz całkowity koszt mieszanki:**\n   * Całkowity koszt mieszanki to 120 zł + 60x zł.\n\n6. **Użyj informacji o cenie mieszanki:**\n   * Cena mieszanki to 50 zł/kg, więc całkowity koszt mieszanki można obliczyć jako (3 + x) kg * 50 zł/kg = 150 + 50x zł.\n\n7. **Przyrównaj całkowity koszt mieszanki do dwóch różnych wyrażeń:**\n   *  120 + 60x = 150 + 50x\n\n8. **Rozwiąż równanie dla x:**\n   * 60x - 50x = 150 - 120\n   * 10x = 30\n   * x = 30 / 10\n   * x = 3\n\nWYNIK: 3",
+          "answer": "3",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-02",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "B",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Trzy osoby: A mowi 'B klamie', B mowi 'C klamie', C mowi 'A i B klamia'. Dokladnie jedna osoba mowi prawde. Kto mowi prawde? Podaj: A / B / C.",
+          "raw": "Rozwiążmy to zadanie krok po kroku, analizując każdą możliwość:\n\n**Założenie 1: A mówi prawdę.**\n\n*   Jeśli A mówi prawdę, to B kłamie.\n*   Skoro B kłamie, to C mówi prawdę.\n*   Ale jeśli C mówi prawdę, to zarówno A jak i B kłamią. To jest sprzeczność, ponieważ założyliśmy, że tylko jedna osoba mówi prawdę. Zatem A nie może mówić prawdy.\n\n**Założenie 2: B mówi prawdę.**\n\n*   Jeśli B mówi prawdę, to C kłamie.\n*   Skoro C kłamie, to albo A mówi prawdę, albo B mówi prawdę (lub oboje).\n*   Ale założyliśmy, że tylko jedna osoba mówi prawdę, więc jeśli B mówi prawdę, to A musi kłamać.\n*   Jeśli A kłamie, to B nie kłamie. To jest zgodne z naszym założeniem, że B mówi prawdę. Zatem możliwe rozwiązanie to: B mówi prawdę, a A i C kłamią.\n\n**Założenie 3: C mówi prawdę.**\n\n*   Jeśli C mówi prawdę, to zarówno A jak i B kłamią.\n*   Skoro A kłamie, to B nie kłamie. To jest sprzeczność, ponieważ założyliśmy, że B kłamie. Zatem C nie może mówić prawdy.\n\n**Wniosek:**\n\nJedynym możliwym rozwiązaniem jest to, że tylko B mówi prawdę.\n\nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        },
+        {
+          "prompt": "A: 'B klamie'; B: 'C klamie'; C: 'A i B klamia'. Prawde mowi dokladnie jedna osoba. Ktora? A/B/C.",
+          "raw": "Rozwiążmy to zadanie krok po kroku, analizując każdą możliwość:\n\n**Założenie 1: A mówi prawdę.**\n\n* Jeśli A mówi prawdę, to B kłamie.\n* Skoro B kłamie, to C mówi prawdę (bo B twierdził, że C kłamie).\n* Ale jeśli C mówi prawdę, to zarówno A jak i B kłamią. To jest sprzeczność, ponieważ założyliśmy, że tylko jedna osoba mówi prawdę. Zatem A nie może mówić prawdy.\n\n**Założenie 2: B mówi prawdę.**\n\n* Jeśli B mówi prawdę, to C kłamie.\n* Skoro C kłamie, to albo A mówi prawdę, albo B mówi prawdę (lub oboje).\n* Wiemy już, że B mówi prawdę, więc aby C kłamał, A musi kłamać.\n* Jeśli A kłamie, to B nie kłamie (bo A twierdził, że B kłamie). To jest zgodne z naszym założeniem, że B mówi prawdę. Zatem możliwe rozwiązanie to: A kłamie, B mówi prawdę, C kłamie.\n\n**Założenie 3: C mówi prawdę.**\n\n* Jeśli C mówi prawdę, to zarówno A jak i B kłamią.\n* Skoro A kłamie, to B nie kłamie (bo A twierdził, że B kłamie). To jest sprzeczność, ponieważ założyliśmy, że B kłamie. Zatem C nie może mówić prawdy.\n\n**Wniosek:** Jedynym możliwym rozwiązaniem jest to, że B mówi prawdę, a A i C kłamią.\n\nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        },
+        {
+          "prompt": "Wypowiedzi: A twierdzi ze B klamie, B ze C klamie, C ze A i B klamia. Tylko jedna prawdomowna. Kto? A/B/C.",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Założenie:** Tylko jedna osoba mówi prawdę.\n\n2. **Analiza wypowiedzi każdej osoby:**\n   * **A:** B kłamie.\n   * **B:** C kłamie.\n   * **C:** A i B kłamią.\n\n3. **Rozważmy przypadek, gdy A mówi prawdę:** Jeśli A mówi prawdę, to B kłamie. Skoro B kłamie, to C mówi prawdę (bo B twierdzi, że C kłamie). Ale wtedy zarówno A jak i C mówią prawdę, co jest sprzeczne z warunkiem zadania (tylko jedna osoba mówi prawdę). Zatem A nie może mówić prawdy.\n\n4. **Rozważmy przypadek, gdy B mówi prawdę:** Jeśli B mówi prawdę, to C kłamie. Skoro C kłamie, to albo A mówi prawdę, albo B mówi prawdę (lub oboje).  Wiemy już, że B mówi prawdę, więc aby C kłamał, A musi również kłamać. To jest spójne z założeniem, że tylko jedna osoba mówi prawdę (B).\n\n5. **Rozważmy przypadek, gdy C mówi prawdę:** Jeśli C mówi prawdę, to zarówno A jak i B kłamią. Skoro A kłamie, to B mówi prawdę. Ale jeśli B mówi prawdę, to C kłamie. To jest sprzeczność, więc C nie może mówić prawdy.\n\n6. **Wniosek:** Jedynym spójnym rozwiązaniem jest przypadek, gdy tylko B mówi prawdę.\n\nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L8-03",
+      "poziom": 8,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "3.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Kran A napelnia basen w 4 h, kran B w 6 h, odplyw C oprozznia w 12 h. Wszystkie otwarte naraz. W ile godzin basen sie napelni? Podaj do 0.1.",
+          "raw": "Oto rozwiązanie krok po kroku:\n\n1. **Oblicz szybkość napełniania każdego kranu:**\n   * Kran A: Napełnia 1/4 basenu w godzinę.\n   * Kran B: Napełnia 1/6 basenu w godzinę.\n   * Kran C: Opróżnia 1/12 basenu w godzinę (czyli napełnianie ujemne).\n\n2. **Oblicz łączną szybkość napełniania:**\n   * Łączna szybkość = Szybkość A + Szybkość B - Szybkość C\n   * Łączna szybkość = 1/4 + 1/6 - 1/12\n   * Łączna szybkość = (3/12) + (2/12) - (1/12)\n   * Łączna szybkość = 4/12 = 1/3 basenu w godzinę.\n\n3. **Oblicz czas napełniania całego basenu:**\n   * Czas = Praca / Szybkość\n   * Czas = 1 basen / (1/3 basenu/godzinę)\n   * Czas = 1 * 3 = 3 godziny\n\nWYNIK: 3.0",
+          "answer": "3.0",
+          "pass": true
+        },
+        {
+          "prompt": "A napelnia w 4h, B w 6h, odplyw C oprozznia w 12h; wszystkie dzialaja jednoczesnie. Czas napelnienia (0.1)?",
+          "raw": "Oto rozwiązanie zadania krok po kroku:\n\n1. **Obliczenie szybkości napełniania:**\n   * A napełnia 1/4 zbiornika w godzinę, więc jego szybkość to 1/4.\n   * B napełnia 1/6 zbiornika w godzinę, więc jego szybkość to 1/6.\n   * C opróżnia 1/12 zbiornika w godzinę, więc jego szybkość to -1/12 (ujemna, bo opróżnia).\n\n2. **Obliczenie łącznej szybkości:**\n   Łączna szybkość to suma szybkości napełniania minus szybkość opróżniania:\n   (1/4) + (1/6) + (-1/12) = (3/12) + (2/12) - (1/12) = 4/12 = 1/3\n\n3. **Obliczenie czasu napełniania:**\n   Jeśli łączna szybkość to 1/3 zbiornika w godzinę, to czas potrzebny do napełnienia całego zbiornika wynosi odwrotność tej szybkości:\n   Czas = 1 / (1/3) = 3 godziny\n\n4. **Obliczenie czasu napelnienia (0.1):**\n    Pytanie brzmi \"czas napelnienia (0.1)?\".  Zakładam, że chodzi o to, ile czasu zajmie na napełnienie zbiornika, jeśli tylko A i B pracują przez 0.1 godziny.\n\n    * Szybkość A: 1/4\n    * Szybkość B: 1/6\n    * Łączna szybkość w 0.1h: (1/4) * 0.1 + (1/6) * 0.1 = 0.1/4 + 0.1/6 = 0.025 + 0.016666... = 0.041666...\n    * Czas potrzebny na napełnienie całego zbiornika przy tej szybkości: 1 / 0.041666... = 24.074 horas\n\nPonieważ zadanie jest niejasne, a pytanie brzmi \"czas napelnienia (0.1)?\", zakładam że chodzi o czas potrzebny na napełnienie zbiornika przy użyciu tylko A i B przez 0.1 godziny. Wtedy obliczamy łączną szybkość w tym czasie i dzielimy 1 przez tę szybkość.\n\nWYNIK: 24.074\n",
+          "answer": "24.074",
+          "pass": false
+        },
+        {
+          "prompt": "Dwa krany (4h, 6h) napelniaja, odplyw (12h) oprozznia, wszystko naraz. Ile godzin do pelna (0.1)?",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Zrozumienie problemu:** Mamy dwa krany wlewające wodę i jeden odpływ ją wypuszczający. Chcemy obliczyć, ile czasu zajmie na napełnienie zbiornika o pojemności 0.1, gdy wszystkie trzy działają jednocześnie.\n\n2. **Obliczenie szybkości wlewania wody:**\n   * Krany: 4h (czyli 1/4 zbiornika na godzinę) i 6h (czyli 1/6 zbiornika na godzinę).\n   * Odpływ: 12h (czyli 1/12 zbiornika na godzinę).\n\n3. **Obliczenie łącznej szybkości wlewania wody:**\n   Łączna szybkość = Szybkość krana 1 + Szybkość krana 2 - Szybkość odpływu\n   Łączna szybkość = 1/4 + 1/6 - 1/12\n\n4. **Uproszczenie ułamków:**\n   Aby dodać ułamki, potrzebujemy wspólnego mianownika. Najmniejszym wspólnym mianownikiem dla 4, 6 i 12 jest 12.\n   Łączna szybkość = 3/12 + 2/12 - 1/12 = (3 + 2 - 1)/12 = 4/12 = 1/3\n\n5. **Obliczenie czasu napełnienia:**\n   Czas = Pojemność / Szybkość\n   Czas = 0.1 / (1/3) = 0.1 * 3 = 0.3 godziny\n\n6. **Przeliczenie na minuty (opcjonalne):**\n    0.3 godziny * 60 minut/godzinę = 18 minut\n\nWYNIK: 0.3",
+          "answer": "0.3",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-01",
+      "poziom": 9,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "10:36",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Dwa miasta dzieli 300 km. Pociag X rusza z pierwszego o 8:00 z predkoscia 60 km/h. Pociag Y rusza z drugiego o 9:00 z predkoscia 90 km/h, jadac na przeciw. O ktorej sie miejaja? Podaj HH:MM.",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Pociąg X:**\n   - Wyjeżdża o 8:00 z prędkością 60 km/h.\n   - W momencie wyjazdu pociągu Y (o 9:00) pociąg X jest w drodze przez 1 godzinę.\n   - Zatem pokonał dystans 60 km/h * 1 h = 60 km.\n   - Pozostała odległość do pokonania to 300 km - 60 km = 240 km.\n\n2. **Pociąg X i Y:**\n   - Pociągi jadą na siebie, więc ich prędkości się sumują. Ich prędkość względna wynosi 60 km/h + 90 km/h = 150 km/h.\n   - Czas potrzebny do pokonania pozostałego dystansu to czas = odległość / prędkość, czyli czas = 240 km / 150 km/h = 1.6 godziny.\n\n3. **Czas spotkania:**\n   - Pociąg Y wyjechał o 9:00.\n   - Spotkanie nastąpi po 1.6 godzinie od 9:00, czyli o 9:00 + 1.6 h = 9:00 + 1 godzina i 36 minut = 10:36.\n\nOdpowiedź:\nWYNIK: 10:36",
+          "answer": "10:36",
+          "pass": true
+        },
+        {
+          "prompt": "Odleglosc 300 km. X: start 8:00, 60 km/h. Y: start 9:00 z naprzeciwka, 90 km/h. Godzina spotkania (HH:MM)?",
+          "raw": "Oto rozwiązanie krok po kroku:\n\n1. **Obliczenie czasu podróży dla X przed spotkaniem:**\n   * Odległość do pokonania przez X to 60 km.\n   * Prędkość X to 60 km/h.\n   * Czas podróży X przed spotkaniem: 60 km / 60 km/h = 1 godzina.\n\n2. **Obliczenie odległości pokonanej przez Y w czasie, gdy X już podróżuje:**\n   * Y startuje o godzinę później (9:00) niż X (8:00).\n   * W momencie rozpoczęcia jazdy Y, X pokonał 60 km.\n   * Pozostała odległość do pokonania to 300 km - 60 km = 240 km.\n\n3. **Obliczenie czasu podróży dla obu kierowców po starcie Y:**\n   * Obaj kierowcy jadą w kierunku друг друга, więc ich prędkości się sumują.\n   * Łączna prędkość: 60 km/h + 90 km/h = 150 km/h.\n   * Czas potrzebny na pokonanie pozostałej odległości: 240 km / 150 km/h = 1,6 godzina (czyli 1 godzina i 36 minut).\n\n4. **Obliczenie czasu spotkania:**\n   * Y startuje o 9:00.\n   * Dodajemy czas podróży Y po starcie: 9:00 + 1 godzina 36 minut = 10:36.\n\nWYNIK: 10:36",
+          "answer": "10:36",
+          "pass": true
+        },
+        {
+          "prompt": "Miasta 300 km od siebie. O 8:00 rusza X (60 km/h), o 9:00 z drugiej strony Y (90 km/h). Kiedy sie spotkaja? HH:MM.",
+          "raw": "Oto rozwiązanie krok po kroku:\n\n1. **Rozważmy czas, który X ma na start.** X rusza o 8:00, a Y o 9:00, więc X jeździ samotnie przez godzinę. W tym czasie pokonuje dystans 60 km/h * 1 h = 60 km.\n\n2. **Pozostały dystans do pokonania.** Po godzinie jazdy X, odległość między miastami wynosi 300 km - 60 km = 240 km.\n\n3. **Obliczmy prędkość względną.**  X i Y jadą w kierunku siebie, więc ich prędkości się sumują. Prędkość względna to 60 km/h + 90 km/h = 150 km/h.\n\n4. **Czas do spotkania.** Aby pokonać pozostały dystans 240 km z prędkością 150 km/h, potrzebują czasu: czas = dystans / prędkość = 240 km / 150 km/h = 1.6 godziny.\n\n5. **Obliczmy godzinę spotkania.** Y rusza o 9:00. Spotkają się po 1.6 godziny jazdy Y, czyli o 9:00 + 1.6 godziny = 9:00 + 1 godzina i 36 minut = 10:36.\n\nWYNIK: 10:36",
+          "answer": "10:36",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-02",
+      "poziom": 9,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "2",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Cztery zadania A,B,C,D. B musi byc po A. C musi byc po B. D musi byc przed C ale po A. Ile jest mozliwych kolejnosci wykonania wszystkich czterech?",
+          "raw": "Rozwiążmy to krok po kroku:\n\n1. **Warunek 1: B musi być po A.** Oznacza to, że kolejność A...B musi występować.\n\n2. **Warunek 2: C musi być po B.**  Oznacza to, że kolejność ...B...C musi występować.\n\n3. **Warunek 3: D musi być przed C ale po A.** Oznacza to, że kolejność A...D...C musi występować.\n\nTeraz spróbujmy ułożyć możliwe sekwencje spełniające te warunki. Zaczynamy od A i dodajemy kolejne elementy zgodnie z ograniczeniami:\n\n*   Zaczynamy od A.\n*   B musi być po A, więc mamy A...B.\n*   D musi być przed C ale po A, więc kolejność to A...D...C.  Wstawiając B w odpowiednie miejsce otrzymujemy A...B...D...C lub A...D...B...C.\n\nRozważmy teraz możliwe rozmieszczenia D i B względem siebie:\n\n*   **A B D C:** Ta sekwencja spełnia wszystkie warunki.\n*   **A D B C:** Ta sekwencja również spełnia wszystkie warunki.\n\nCzy istnieją inne możliwości?  Zauważ, że A musi być na początku, a C na końcu (lub w przedostatnim miejscu). Kolejność B i D względem siebie jest jedynym zmiennym elementem. Ponieważ D musi być przed C, ale po A, to kolejność A...D...C jest stała.  B może znajdować się pomiędzy A i D lub pomiędzy D i C.\n\nZatem mamy tylko dwie możliwe sekwencje:\n\n1.  A B D C\n2.  A D B C\n\nWYNIK: 2",
+          "answer": "2",
+          "pass": true
+        },
+        {
+          "prompt": "Zadania A,B,C,D z regulami: A<B, B<C, A<D, D<C. Ile roznych poprawnych kolejnosci?",
+          "raw": "Rozwiążmy to zadanie krok po kroku. Mamy cztery elementy (A, B, C, D) i następujące zależności:\n\n1. A < B  (A jest przed B w kolejności)\n2. B < C  (B jest przed C w kolejności)\n3. A < D  (A jest przed D w kolejności)\n4. D < C  (D jest przed C w kolejności)\n\nZ zależności 1 i 2 wynika, że A < B < C. Z zależności 3 i 4 wynika, że A < D < C. Oznacza to, że wszystkie elementy muszą być w kolejności A, D, B, C.\n\nPonieważ mamy cztery elementy, a ich kolejność jest już określona (A, D, B, C), istnieje tylko jedna możliwa poprawna kolejność.  Możemy to sprawdzić:\n- A musi być pierwszy (zależność 1 i 3)\n- D musi być drugi (zależność 3 i 4)\n- B musi być trzeci (zależność 2)\n- C musi być czwarty (zależność 2 i 4)\n\nZatem istnieje tylko jedna poprawna kolejność: A, D, B, C.\n\nWYNIK: 1",
+          "answer": "1",
+          "pass": false
+        },
+        {
+          "prompt": "Porzadki A,B,C,D spelniajace: B po A, C po B, D po A i przed C. Policz liczbe dopuszczalnych ustawien.",
+          "raw": "Rozwiążmy to zadanie krok po kroku.\n\nMamy cztery elementy: A, B, C, D.  Muszą spełniać następujące warunki:\n\n1. B musi być po A (A...B)\n2. C musi być po B (A...B...C)\n3. D musi być po A i przed C (A...D...C)\n\nŁącząc te warunki, otrzymujemy kolejność: A...D...C...B.  Zauważmy, że to jest niemożliwe, ponieważ B musi być po A, a C po B, więc mamy A...B...C i D pomiędzy nimi. Zatem poprawna kolejność to A...D...C...B.\n\nTeraz musimy znaleźć wszystkie możliwe ustawienia tych czterech elementów spełniające te warunki.  Zauważmy, że skoro D musi być po A i przed C, a C musi być po B, to mamy następującą strukturę: A ... D ... C ... B.\nPonieważ kolejność jest ustalona, musimy tylko wybrać miejsca dla tych czterech elementów w ciągu.\n\nRozważmy wszystkie możliwe permutacje 4 elementów. Są to 4! = 24 możliwości.  Musimy znaleźć te, które spełniają warunki zadania.\n\nWarunek 1: B po A\nWarunek 2: C po B\nWarunek 3: D po A i przed C\n\nZ powyższego wynika, że kolejność musi być A...D...C...B. Jest tylko jedna taka możliwość.\n\nInny sposób myślenia:\nMamy cztery miejsca w ciągu.  Musimy umieścić elementy A, B, C, D tak, aby spełnione były warunki.\nWarunek 1 (B po A) oznacza, że A musi być przed B.\nWarunek 2 (C po B) oznacza, że B musi być przed C.\nWarunek 3 (D po A i przed C) oznacza, że A musi być przed D, a D musi być przed C.\n\nZatem kolejność elementów musi być A...D...C...B.  Jest tylko jedna taka możliwość.\n\nWYNIK: 1",
+          "answer": "1",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L9-03",
+      "poziom": 9,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "sprzecznosc",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Pieciu biegaczy: Tomek przed Ola, Ola przed Piotrem, Piotr przed Rafalem, Rafal przed Sara. Wiadomo tez, ze Sara nie jest ostatnia. Kto jest ostatni? Jesli warunki sie wykluczaja, odpowiedz 'sprzecznosc'.",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Tomek przed Olą:** Tomek -> Ola\n2. **Ola przed Piotrem:** Ola -> Piotr\n3. **Piotr przed Rafalem:** Piotr -> Rafal\n4. **Rafal przed Sarą:** Rafal -> Sara\n5. **Sara nie jest ostatnia:** Oznacza to, że ktoś biegnie za Sarą.\n\nŁącząc te informacje, otrzymujemy kolejność: Tomek -> Ola -> Piotr -> Rafal -> Sara.  Ponieważ Sara nie jest ostatnia, musi być ktoś za nią. Zatem pełna kolejność to: Tomek -> Ola -> Piotr -> Rafal -> Sara -> (Ktoś).\n\nOstatni w tej kolejności jest ktoś, kto biegnie za Sarą. Ponieważ zadanie pyta, *kto* jest ostatni, a nie *kto biegnie za Sarą*, musimy sprawdzić czy warunki się wykluczają. Warunki są spójne i pozwalają na określenie kolejności biegaczy.\n\nZatem osoba na samym końcu to ktoś inny niż Sara.  Nie możemy jednoznacznie wskazać, kto jest ostatni, tylko wiemy że nie jest to Sara. Jednakże, jeśli założymy, że mamy do czynienia z pięcioma biegaczami i wszystkie warunki muszą być spełnione, a Sara nie może być ostatnia, to oznacza sprzeczność w założeniach zadania.\n\nSprzeczność wynika z faktu, że mamy 5 biegaczy, ale kolejność jest ściśle określona. Jeśli Sara nie jest ostatnia, to musi być ktoś inny za nią.  To sugeruje, że albo brakuje informacji o kolejnym biegaczu, albo warunki są sprzeczne.\n\nPonieważ zadanie wymaga jednoznacznej odpowiedzi i mamy sprzeczność w założeniach (5 biegaczy a Sara nie może być ostatnia), odpowiedź to \"sprzeczność\".\n\nWYNIK: sprzeczność",
+          "answer": "sprzeczność",
+          "pass": false
+        },
+        {
+          "prompt": "Tomek<Ola<Piotr<Rafal<Sara (x<y = x przed y), a jednoczesnie Sara nie ostatnia. Kto ostatni? Jesli niemozliwe: 'sprzecznosc'.",
+          "raw": "Rozważmy podane informacje:\n\n1.  Tomek < Ola < Piotr < Rafal < Sara (x < y oznacza, że x jest przed y w kolejności). To znaczy, że kolejność osób to Tomek, Ola, Piotr, Rafal, Sara.\n2.  Sara nie jest ostatnia.\n\nZ punktu 1 wynika, że Sara jest na końcu tej sekwencji. Jednak z punktu 2 wiemy, że Sara nie może być na końcu. To prowadzi do sprzeczności.\n\nWYNIK: sprzecznosc",
+          "answer": "sprzecznosc",
+          "pass": true
+        },
+        {
+          "prompt": "Kolejnosc wymusza: Tomek, Ola, Piotr, Rafal, Sara. Ale podano, ze Sara nie jest ostatnia. Kto na koncu? Gdy sie wyklucza: 'sprzecznosc'.",
+          "raw": "Rozważmy dane:\n\n1. Kolejność: Tomek, Ola, Piotr, Rafał, Sara.\n2. Sara nie jest na końcu.\n\nZgodnie z punktem 1, jeśli kolejność musi być zachowana, to Sara powinna być na końcu. Jednak punkt 2 mówi, że tak nie jest. Oznacza to sprzeczność w danych. Nie można jednocześnie spełnić obu warunków.\n\nW takim przypadku, ponieważ mamy sprzeczność, a zadanie wymaga rozwiązania, musimy stwierdzić, że nie istnieje rozwiązanie zgodne z podanymi ograniczeniami.  Zatem odpowiedź to \"sprzeczność\".\n\nWYNIK: sprzeczność",
+          "answer": "sprzeczność",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-01",
+      "poziom": 10,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "9.1",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Cena akcji: +10% w poniedzialek, -20% we wtorek, +25% w srode. W czwartek spadla o pewien procent i wrocila DOKLADNIE do ceny sprzed poniedzialku. O ile procent spadla w czwartek? Podaj do 0.1.",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Cena początkowa:** Załóżmy, że cena akcji na początku (przed poniedziałkiem) wynosiła 100.\n\n2. **Poniedziałek:** Cena wzrosła o 10%, więc nowa cena to 100 + (10% * 100) = 100 + 10 = 110.\n\n3. **Wtorek:** Cena spadła o 20%, więc nowa cena to 110 - (20% * 110) = 110 - 22 = 88.\n\n4. **Środa:** Cena wzrosła o 25%, więc nowa cena to 88 + (25% * 88) = 88 + 22 = 110.\n\n5. **Czwartek:** Cena spadła o pewien procent, a następnie wróciła do ceny sprzed poniedziałku, czyli 110. Niech ten procent to x.  Zatem:\n   110 - (x * 110) = 100\n\n6. **Rozwiązanie równania:**\n   -110x = -10\n   x = (-10) / -110\n   x = 1/11\n\n7. **Obliczenie procenta:**  1/11 ≈ 0.0909\n\n8. **Zaokrąglenie do 0.1:** 0.0909 ≈ 0.09\n\nOdpowiedź: 0.09\n\nWYNIK: 0.09",
+          "answer": "0.09",
+          "pass": false
+        },
+        {
+          "prompt": "Akcja: pon +10%, wt -20%, sr +25%, czw -x%. Po czwartku cena = cena poczatkowa. Podaj x (do 0.1).",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Oznaczmy początkową cenę:** Załóżmy, że początkowa cena wynosi `C`.\n\n2. **Poniedziałek (+10%):** Cena po poniedziałku to `C * 1.10 = 1.1C`.\n\n3. **Wtorek (-20%):** Cena po wtorku to `1.1C * 0.80 = 0.88C`.\n\n4. **Środa (+25%):** Cena po środzie to `0.88C * 1.25 = 1.1C`.\n\n5. **Czwartek (-x%):** Cena po czwartku to `1.1C * (1 - x/100)`.\n\n6. **Warunek końcowy:** Po czwartku cena ma wrócić do początkowej wartości, czyli:\n   `1.1C * (1 - x/100) = C`\n\n7. **Rozwiążmy równanie dla x:**\n   `1.1 * (1 - x/100) = 1`\n   `1 - x/100 = 1 / 1.1`\n   `1 - x/100 = 0.909090...`\n   `x/100 = 1 - 0.909090...`\n   `x/100 = 0.090909...`\n   `x = 0.090909... * 100`\n   `x = 9.0909...`\n\n8. **Zaokrąglenie do 0.1:**  `x ≈ 9.09`\n\nWYNIK: 9.09",
+          "answer": "9.09",
+          "pass": false
+        },
+        {
+          "prompt": "Zmiany: +10, -20, +25 procent (pon-sr). W czwartek spadek o x% przywraca cene wyjsciowa. Ile x (0.1)?",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Zrozumienie zmian procentowych:**\n   * Poniedziałek-Środa: +10%, -20%, +25%  (to oznacza, że w ciągu tych trzech dni cena zmienia się o te wartości)\n   * Czwartek: Spadek o x% przywraca cenę początkową.\n\n2. **Obliczenie skumulowanego procentu zmian:**\n   Aby cena wróciła do punktu wyjścia po czwartku, suma wszystkich zmian w dniach pon-śr musi dać -100%.  Oznacza to, że suma tych zmian jest równa -100%.\n\n3. **Ustalenie zmiennych:**\n   * Niech cena początkowa wynosi 1 (ułatwia obliczenia procentowe).\n   * Cena po poniedziałku: 1 * (1 + 0.10) = 1.1\n   * Cena po śródzie: 1.1 * (1 - 0.20) = 1.1 * 0.8 = 0.88\n   * Cena po śródzie: 0.88 * (1 + 0.25) = 0.88 * 1.25 = 1.1\n\n4. **Obliczenie spadku w czwartek:**\n    Cena po śródzie wynosi 1.1.  Aby wrócić do ceny początkowej (1), cena musi spaść o x%. Możemy to zapisać jako:\n    1.1 * (1 - x) = 1\n\n5. **Rozwiązanie równania:**\n   * 1 - x = 1 / 1.1\n   * 1 - x = 0.909090...\n   * x = 1 - 0.909090...\n   * x = 0.090909...\n\n6. **Przeliczenie na procent:**\n    x = 0.090909... * 100% = 9.0909...%\n\n7. **Zaokrąglenie do odpowiedniej precyzji (0.1):**\n   x ≈ 0.1\n\nWYNIK: 0.1",
+          "answer": "0.1",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-02",
+      "poziom": 10,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "3.2",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Suma wieku ojca, matki i dziecka = 70. Ojciec jest o 4 lata starszy od matki. Za 10 lat dziecko bedzie mialo polowe wieku, jaki matka miala 5 lat temu. Ile lat ma dziecko teraz? Podaj do 0.1.",
+          "raw": "Oznaczmy:\n- wiek ojca jako O\n- wiek matki jako M\n- wiek dziecka jako D\n\nZ treści zadania mamy następujące równania:\n1. O + M + D = 70\n2. O = M + 4\n3. D + 10 = M / 2 - 10  (wiek dziecka za 10 lat = połowa wieku matki teraz - 10)\n\nZ równania 2 możemy wyznaczyć O:\nO = M + 4\n\nPodstawiamy O do równania 1:\nM + 4 + M + D = 70\n2M + D = 66\n\nZ równania 3:\nD + 10 = M/2 - 10\nD = M/2 - 20\n\nTeraz podstawiamy D do równania 2M + D = 66:\n2M + M/2 - 20 = 66\n2.5M = 86\nM = 86 / 2.5\nM = 34.4\n\nTeraz obliczamy wiek dziecka:\nD = M/2 - 20\nD = 34.4 / 2 - 20\nD = 17.2 - 20\nD = -2.8\n\nZauważmy, że wynik jest ujemny, co oznacza błąd w rozumowaniu lub w zapisaniu równań. Sprawdźmy jeszcze raz.\n\nRównania:\n1. O + M + D = 70\n2. O = M + 4\n3. D + 10 = M/2 - 10  => D = M/2 - 20\n\nPodstawiamy O do równania 1:\nM + 4 + M + D = 70\n2M + D = 66\n\nPodstawiamy D do powyższego równania:\n2M + (M/2 - 20) = 66\n2.5M = 86\nM = 34.4\n\nD = M/2 - 20 = 34.4/2 - 20 = 17.2 - 20 = -2.8\n\nBłąd w równaniu 3. Powinno być: D + 10 = (M+4)/2 - 10, czyli D + 10 = M/2 + 2 - 10 => D = M/2 - 22\nWtedy:\n2M + D = 66\n2M + M/2 - 22 = 66\n2.5M = 88\nM = 88 / 2.5 = 35.2\n\nD = M/2 - 22 = 35.2/2 - 22 = 17.6 - 22 = -4.4\n\nSpróbujmy jeszcze raz, zakładając że \"jak matka miała 5 lat temu\" oznacza wiek matki teraz minus 5 lat:\nD + 10 = M - 5\nD = M - 15\n\nPodstawiamy O do równania 1:\nM + 4 + M + D = 70\n2M + D = 66\n\nPodstawiamy D:\n2M + M - 15 = 66\n3M = 81\nM = 27\n\nO = M + 4 = 27 + 4 = 31\n\nD = M - 15 = 27 - 15 = 12\n\nSprawdzenie:\nO + M + D = 31 + 27 + 12 = 70 (OK)\nO = M + 4 => 31 = 27 + 4 (OK)\nD + 10 = M - 5 => 12 + 10 = 27 - 5 => 22 = 22 (OK)\n\nWYNIK: 12.0",
+          "answer": "12.0",
+          "pass": false
+        },
+        {
+          "prompt": "ojciec+matka+dziecko=70; ojciec=matka+4; za 10 lat dziecko = 1/2 wieku matki sprzed 5 lat. Wiek dziecka dzis (0.1)?",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n**Oznaczenia:**\n\n*   O - wiek ojca\n*   M - wiek matki\n*   D - wiek dziecka\n\n**Równania:**\n\n1.  O + M + D = 70\n2.  O = M + 4\n3.  D + 10 = (M - 5) / 2\n\n**Rozwiązanie:**\n\nZastąpmy O w równaniu 1 równaniem 2:\n\n(M + 4) + M + D = 70\n2M + D = 66\n\nTeraz mamy dwa równania z trzema niewiadomymi:\n\n*   2M + D = 66\n*   D + 10 = (M - 5) / 2\n\nWyraźmy D w drugim równaniu:\n\nD = (M - 5) / 2 - 10\nD = (M - 5 - 20) / 2\nD = (M - 25) / 2\n\nTeraz podstawmy to do pierwszego równania:\n\n2M + (M - 25) / 2 = 66\n4M + M - 25 = 132\n5M = 157\nM = 31.4\n\nTeraz obliczamy wiek dziecka D:\n\nD = (M - 25) / 2\nD = (31.4 - 25) / 2\nD = 6.4 / 2\nD = 3.2\n\n**Sprawdzenie:**\n\n*   O = M + 4 = 31.4 + 4 = 35.4\n*   O + M + D = 35.4 + 31.4 + 3.2 = 70 (zgadza się)\n*   D + 10 = 3.2 + 10 = 13.2\n*   (M - 5) / 2 = (31.4 - 5) / 2 = 26.4 / 2 = 13.2 (zgadza się)\n\nWiek dziecka dzisiaj to 3.2 lata.\n\nWYNIK: 3.2",
+          "answer": "3.2",
+          "pass": true
+        },
+        {
+          "prompt": "Razem 70 lat. Ojciec o 4 starszy od matki. Dziecko za 10 lat = polowa wieku matki z przed 5 lat. Ile ma dziecko (0.1)?",
+          "raw": "Oznaczmy:\n* Wiek ojca jako O\n* Wiek matki jako M\n* Wiek dziecka jako D\n\nZ treści zadania mamy następujące informacje:\n\n1.  O + M + D = 70  (Razem 70 lat)\n2.  O = M + 4   (Ojciec jest o 4 lata starszy od matki)\n3.  D + 10 = (M - 5) / 2  (Dziecko za 10 lat ma połowę wieku matki z przed 5 lat)\n\nTeraz rozwiążmy ten układ równań:\n\nZ równania 2 mamy O = M + 4. Podstawiamy to do równania 1:\nM + 4 + M + D = 70\n2M + D = 66  (Równanie 4)\n\nZ równania 3 mamy D + 10 = (M - 5) / 2. Pomnóżmy obie strony przez 2:\n2D + 20 = M - 5\nM = 2D + 25  (Równanie 5)\n\nPodstawiamy równanie 5 do równania 4:\n2(2D + 25) + D = 66\n4D + 50 + D = 66\n5D = 16\nD = 16/5 = 3.2\n\nWiek dziecka to 3.2 lata.\n\nSprawdzenie:\nD = 3.2\nM = 2 * 3.2 + 25 = 6.4 + 25 = 31.4\nO = M + 4 = 31.4 + 4 = 35.4\nO + M + D = 35.4 + 31.4 + 3.2 = 70\n\nD + 10 = 3.2 + 10 = 13.2\nM - 5 = 31.4 - 5 = 26.4\n(M - 5) / 2 = 26.4 / 2 = 13.2\n\nWYNIK: 3.2",
+          "answer": "3.2",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1H-L10-03",
+      "poziom": 10,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "10.0",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Zespol 6 robotnikow buduje mur w 12 dni. Po 4 dniach dolaczylo 2 robotnikow. Ile dni LACZNIE trwala budowa (od poczatku)? Podaj do 0.1.",
+          "raw": "Oto rozwiązanie krok po kroku:\n\n1. **Obliczenie całkowitej pracy:** Jeśli 6 robotników buduje mur w 12 dni, to całkowita praca potrzebna do zbudowania muru wynosi 6 * 12 = 72 jednostki pracy (robotnik-dzień).\n\n2. **Praca wykonana przez pierwszych 4 robotników:** W ciągu pierwszych 4 dni pracowało tylko 6 robotników. Praca wykonana w tym czasie to 6 * 4 = 24 jednostki pracy.\n\n3. **Pozostała praca:** Po 4 dniach pozostało do wykonania 72 - 24 = 48 jednostek pracy.\n\n4. **Praca wykonana przez wszystkich robotników:** Teraz pracuje 6 + 2 = 8 robotników.  Czas potrzebny na wykonanie pozostałej pracy to 48 / 8 = 6 dni.\n\n5. **Całkowity czas budowy:** Całkowity czas budowy to 4 (pierwsze 4 dni) + 6 (następne 6 dni) = 10 dni.\n\nWYNIK: 10.0",
+          "answer": "10.0",
+          "pass": true
+        },
+        {
+          "prompt": "6 robotnikow buduje mur w 12 dni. Po 4 dniach dochodzi 2 (razem 8). Ile dni od startu trwala calosc (0.1)?",
+          "raw": "Oto rozwiązanie krok po kroku:\n\n**Krok 1: Obliczenie całkowitej pracy.**\n\n* Jeśli 6 robotników buduje mur w 12 dni, to całkowita praca potrzebna do zbudowania muru wynosi 6 robotników * 12 dni = 72 jednostki pracy.\n\n**Krok 2: Obliczenie ilości wykonanej pracy po 4 dniach.**\n\n* Po 4 dniach pracowało 6 robotników + 2 robotników = 8 robotników.\n* Praca wykonana przez 8 robotników w ciągu 4 dni wynosi 8 robotników * 4 dni = 32 jednostki pracy.\n\n**Krok 3: Obliczenie pozostałej pracy.**\n\n* Pozostała praca do wykonania to całkowita praca minus praca już wykonana: 72 jednostki pracy - 32 jednostki pracy = 40 jednostek pracy.\n\n**Krok 4: Obliczenie czasu potrzebnego na wykonanie pozostałej pracy.**\n\n* Liczba robotników, którzy pracują w dalszym ciągu to 8 robotników.\n* Czas potrzebny na wykonanie pozostałej pracy wynosi 40 jednostek pracy / 8 robotników = 5 dni.\n\n**Krok 5: Obliczenie całkowitego czasu budowy.**\n\n* Całkowity czas budowy to czas, który minął (4 dni) plus czas potrzebny na wykonanie pozostałej pracy (5 dni): 4 dni + 5 dni = 9 dni.\n\nWYNIK: 9",
+          "answer": "9",
+          "pass": false
+        },
+        {
+          "prompt": "Mur: 6 ludzi = 12 dni. Przez pierwsze 4 dni pracuje 6, potem 8. Laczny czas budowy od poczatku (0.1)?",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n**Krok 1: Obliczenie całkowitej pracy.**\n\nJeśli 6 ludzi buduje mur w 12 dni, to całkowita praca potrzebna do zbudowania muru wynosi:\n\nPraca = Ludzie * Dni = 6 * 12 = 72 jednostki pracy.\n\n**Krok 2: Obliczenie pracy wykonanej w pierwszych 4 dniach.**\n\nW ciągu pierwszych 4 dni pracuje 6 osób.  Zatem praca wykonana w tym okresie to:\n\nPraca_pierwsze_4_dni = Ludzie * Dni = 6 * 4 = 24 jednostki pracy.\n\n**Krok 3: Obliczenie pozostałej pracy.**\n\nPo 4 dniach pozostała do wykonania praca to:\n\nPozostała_praca = Całkowita_praca - Praca_pierwsze_4_dni = 72 - 24 = 48 jednostek pracy.\n\n**Krok 4: Obliczenie czasu potrzebnego na wykonanie pozostałej pracy przez 8 osób.**\n\nTeraz pracują 8 osób, a do wykonania zostało 48 jednostek pracy. Czas potrzebny na wykonanie tej pracy to:\n\nDni_pozostałe = Praca_pozostała / (Ludzie * Tempo)\nPonieważ tempo jest stałe, możemy użyć proporcji:  (6 ludzi * 4 dni) : 24 jednostki pracy = (8 ludzi * x dni) : 48 jednostek pracy\n\nRozwiązując tę proporcję:\n\n6 * 4 = 8 * x\n24 = 8x\nx = 3\n\nZatem pozostała praca wymaga 3 dni.\n\n**Krok 5: Obliczenie całkowitego czasu budowy.**\n\nCałkowity czas budowy to suma czasu pracy w pierwszych 4 dniach i czasu potrzebnego na wykonanie pozostałej pracy:\n\nCałkowity_czas = 4 dni + 3 dni = 7 dni.\n\nW zadaniu podano, że początek to 0.1.  Zakładam, że chodzi o procent całkowitego czasu budowy w stosunku do jakiegoś punktu odniesienia (np. dnia 0). W takim przypadku:\n\nProcent_całkowity = (Całkowity_czas / Całkowity_czas) * 100% = 7/12 * 100% ≈ 58.33%\nJednakże, jeśli pytają o czas od początku budowy do zakończenia, to odpowiedź jest 7 dni.\n\nPonieważ w zadaniu użyto \"od poczatku (0.1)\", zakładam że chodzi o procent całkowitego czasu pracy.  Wtedy:\n\nCałkowity czas = 7 dni\nProcent całkowity = (7/12) * 100% ≈ 58.33%.  Ale to nie jest poprawna interpretacja pytania.\n\nPrawdopodobnie pytanie dotyczy tego, ile czasu minęło od początku budowy do zakończenia. Wtedy odpowiedź wynosi 7 dni.\nJednakże, jeśli \"od poczatku (0.1)\" oznacza procent całkowitego czasu pracy w stosunku do całego okresu budowy, to:\n\nCałkowity czas = 7 dni\nWięc od początku minęło 7/12 * 100% ≈ 58.33%.  To również nie jest poprawna interpretacja pytania.\n\nZatem zakładam że pytanie dotyczy czasu trwania budowy, czyli 7 dni.\n\nWYNIK: 7",
+          "answer": "7",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}
