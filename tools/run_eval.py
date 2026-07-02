@@ -9,16 +9,19 @@ Realizuje pomiar wg dokumentow Probierza:
 Odpornosc na przerwanie: zapis INKREMENTALNY po kazdym itemie (checkpoint) + WZNAWIANIE
 (pomija itemy juz obecne w pliku --out). Wolne endpointy (Slayer ~40s/wywolanie) nie traca postepu.
 
+Typy odpowiedzi (T5):
+- "liczba": porownanie numeryczne z tolerancja formatu.
+- "kanoniczny_tekst": jesli item ma `klasy_odpowiedzi` (zamkniety zbior, np. tak/nie/nie wiadomo),
+  wykrywana jest KLASA wybrana przez model (najdluzsza pasujaca fraza wygrywa, by 'nie wiadomo'
+  nie bylo mylone z 'nie'); inaczej dopasowanie frazy kanonicznej jako slowa.
+
 NIE klasyfikuje automatycznie trybu awarii (wymaga >=2 graderow roznego pochodzenia, S4) —
 zapisuje surowe wyjscia do reczej/pol-automatycznej klasyfikacji.
 
-Model: dowolny endpoint OpenAI-compatible (chat/completions). Dla Slayera uzyj proxy:
-  --base-url http://127.0.0.1:8799/v1  --model slayer-v49-qwen3.5-27b
-
 Uzycie:
-  python run_eval.py --eval ../benchmarks/d1-rozumowanie-v1/eval.jsonl \
+  python run_eval.py --eval ../benchmarks/d2-semantyka-v1/eval.jsonl \
     --base-url http://127.0.0.1:8799/v1 --model slayer-v49-qwen3.5-27b \
-    --api-key "$SLAYER_API_KEY" --out wyniki-slayer-d1.json
+    --api-key "$SLAYER_API_KEY" --out wyniki-slayer-d2.json
 """
 import argparse, json, os, re, sys, time, urllib.request, urllib.error
 
@@ -76,29 +79,70 @@ def normalize_text(s):
     return re.sub(r"\s+", " ", s.strip().lower()).rstrip(".")
 
 
-def judge(answer, kanon, typ):
+def detect_class(answer, klasy):
+    """Wykrywa, ktora KLASE z zamknietego zbioru wybral model.
+    Najdluzsza pasujaca fraza wygrywa (np. 'nie wiadomo' > 'nie'), by uniknac
+    falszywych trafien podlancuchow. Zwraca znormalizowana klase lub None."""
+    na = normalize_text(answer)
+    hits = []
+    for k in klasy:
+        nk = normalize_text(k)
+        if re.search(r"\b" + re.escape(nk) + r"\b", na):
+            hits.append(nk)
+    if not hits:
+        return None
+    return max(hits, key=len)  # najdluzsza pasujaca klasa
+
+
+def judge(answer, kanon, typ, klasy=None):
     """Deterministyczny pass/fail wg typu odpowiedzi (T5)."""
     if typ == "liczba":
         a, k = normalize_num(answer), normalize_num(kanon)
         if a is None or k is None:
             return False
         return abs(a - k) < 1e-6
-    else:
-        na, nk = normalize_text(answer), normalize_text(kanon)
-        return nk == na or re.search(r"\b" + re.escape(nk) + r"\b", na) is not None
+    # kanoniczny_tekst
+    if klasy:
+        chosen = detect_class(answer, klasy)
+        return chosen is not None and chosen == normalize_text(kanon)
+    na, nk = normalize_text(answer), normalize_text(kanon)
+    return nk == na or re.search(r"\b" + re.escape(nk) + r"\b", na) is not None
+
+
+def item_level(it):
+    """Elastyczny odczyt poziomu trudnosci (rozne wymiary: poziom_krokow / poziom_trudnosci)."""
+    for key in ("poziom_krokow", "poziom_trudnosci", "poziom"):
+        if key in it:
+            return it[key]
+    return None
+
+
+def default_classes(it):
+    """Zbior klas odpowiedzi: jawne pole `klasy_odpowiedzi` albo heurystyka dla typowych
+    odpowiedzi zamknietych (tak/nie/nie wiadomo/niejednoznaczne)."""
+    if it.get("klasy_odpowiedzi"):
+        return it["klasy_odpowiedzi"]
+    kanon = normalize_text(it["odpowiedz_kanoniczna"])
+    closed = {"tak", "nie", "nie wiadomo", "niejednoznaczne", "burmistrz", "demonstranci"}
+    if kanon in closed:
+        # domyslny zbior klas tak/nie/nie wiadomo/niejednoznaczne + wariant kanonu
+        base = ["nie wiadomo", "niejednoznaczne", "tak", "nie"]
+        return base if kanon in {"tak", "nie", "nie wiadomo", "niejednoznaczne"} else None
+    return None
 
 
 def score_item(it, base_url, model, api_key, max_tokens, temperature):
     kanon, typ = it["odpowiedz_kanoniczna"], it["typ_odpowiedzi"]
+    klasy = default_classes(it)
     per_para = []
     for p in it["spec_parafrazy"]:
         raw = call_model(base_url, model, api_key, SYSTEM, p, max_tokens, temperature)
         ans = extract_answer(raw)
-        per_para.append({"prompt": p, "raw": raw, "answer": ans, "pass": judge(ans, kanon, typ)})
+        per_para.append({"prompt": p, "raw": raw, "answer": ans, "pass": judge(ans, kanon, typ, klasy)})
     passes = [x["pass"] for x in per_para]
     pass_rate = sum(passes) / len(passes)
     return {
-        "id": it["id"], "poziom_krokow": it["poziom_krokow"],
+        "id": it["id"], "poziom": item_level(it),
         "pass_median": pass_rate >= 0.5,
         "pass_rate_parafraz": round(pass_rate, 3),
         "wrazliwosc_parafraza": 0 if all(passes) or not any(passes) else 1,
@@ -135,7 +179,6 @@ def main():
 
     items = [json.loads(l) for l in open(args.eval, encoding="utf-8") if l.strip()]
 
-    # WZNAWIANIE: wczytaj dotychczasowe wyniki, pomin juz zrobione itemy
     results, done = [], set()
     if os.path.exists(args.out):
         try:
@@ -153,7 +196,7 @@ def main():
         r = score_item(it, args.base_url, args.model, args.api_key, args.max_tokens, args.temperature)
         results.append(r)
         save(args.out, args.model, args.eval, items, results)  # CHECKPOINT po kazdym itemie
-        print(f"  {r['id']} (L{r['poziom_krokow']}): pass={r['pass_median']} "
+        print(f"  {r['id']} (poz. {r['poziom']}): pass={r['pass_median']} "
               f"({sum(x['pass'] for x in r['per_parafraza'])}/{len(r['per_parafraza'])} parafraz)"
               + ("  [WRAZLIWY na parafraze]" if r["wrazliwosc_parafraza"] else ""))
 
