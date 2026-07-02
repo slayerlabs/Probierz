@@ -1,0 +1,303 @@
+{
+  "summary": {
+    "model": "slayer-v49-qwen3.5-27b",
+    "eval": "../benchmarks/d2-semantyka-v1/eval.jsonl",
+    "n_items": 10,
+    "n_scored": 10,
+    "pass_median_count": 9,
+    "pass_median_rate": 0.9,
+    "items_wrazliwe": 2
+  },
+  "results": [
+    {
+      "id": "D2-L1-01",
+      "poziom": 1,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie: 'Nie każdy uczeń zdał egzamin.' Czy wynika z tego, że przynajmniej jeden uczeń NIE zdał? Odpowiedz tak lub nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy znaczenie logiczne zdania \"Nie każdy uczeń zdał egzamin\".\n\n1.  **Analiza logiczna zdania wyjściowego:**\n    Zdanie \"Każdy uczeń zdał egzamin\" to twierdzenie uniwersalne (dla każdego x, jeśli x jest uczniem, to x zdał egzamin).\n    Zdanie \"Nie każdy uczeń zdał egzamin\" jest zaprzeczeniem tego twierdzenia.\n\n2.  **Zasada zaprzeczenia kwantyfikatora:**\n    W logice zaprzeczenie zdania \"Dla każdego x zachodzi P(x)\" jest równoważne zdaniu \"Istnieje przynajmniej jeden x, dla którego nie zachodzi P(x)\".\n    Symbolicznie: $\\neg (\\forall x, P(x)) \\iff \\exists x, \\neg P(x)$.\n\n3.  **Zastosowanie do konkretnego przypadku:**\n    *   $P(x)$ oznacza \"uczeń x zdał egzamin\".\n    *   \"Nie każdy uczeń zdał egzamin\" oznacza, że nie jest prawdą, że wszyscy zdali.\n    *   Oznacza to, że w zbiorze uczniów musi istnieć przynajmniej jeden element, który nie spełnia warunku zdania, czyli przynajmniej jeden uczeń nie zdał egzaminu.\n\n4.  **Weryfikacja:**\n    Gdyby wszyscy uczniowie zdali egzamin, zdanie \"Nie każdy uczeń zdał egzamin\" byłoby fałszywe. Ponieważ zdanie to jest prawdziwe (z założenia zadania), musi istnieć choćby jeden uczeń, który nie zdał.\n\nWniosek: Tak, z faktu, że nie każdy uczeń zdał egzamin, wynika, że przynajmniej jeden uczeń nie zdał.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "'Nie każdy uczeń zdał egzamin.' Czy to znaczy, że co najmniej jeden uczeń nie zdał? Tak czy nie?",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy znaczenie zdania logicznego \"Nie każdy uczeń zdał egzamin\".\n\n1.  **Analiza zdania wyjściowego**:\n    Zdanie \"Każdy uczeń zdał egzamin\" jest twierdzeniem uniwersalnym (oznaczanym jako $\\forall x, P(x)$), które mówi, że dla każdego ucznia zachodzi warunek zdania egzaminu.\n    Zdanie \"Nie każdy uczeń zdał egzamin\" jest zaprzeczeniem tego twierdzenia ($\\neg \\forall x, P(x)$).\n\n2.  **Zasada zaprzeczenia kwantyfikatora**:\n    W logice klasycznej zaprzeczenie zdania \"dla każdego $x$ zachodzi $P(x)$\" jest równoważne zdaniu \"istnieje przynajmniej jedno $x$, dla którego nie zachodzi $P(x)$\".\n    Symbolicznie: $\\neg \\forall x, P(x) \\iff \\exists x, \\neg P(x)$.\n\n3.  **Interpretacja w kontekście zadania**:\n    *   \"Nie każdy uczeń zdał\" oznacza, że nie jest prawdą, że wszyscy zdali.\n    *   Aby stwierdzenie \"wszyscy zdali\" było fałszywe, musi istnieć przynajmniej jeden przypadek, w którym uczeń nie zdał.\n    *   Gdyby wszyscy zdali, zdanie \"Nie każdy uczeń zdał\" byłoby fałszywe.\n    *   Gdyby nikt nie zdał, zdanie \"Nie każdy uczeń zdał\" byłoby prawdziwe (bo nie każdy zdał, bo nikt nie zdał).\n    *   Gdyby część zdała, a część nie, zdanie również byłoby prawdziwe.\n\n    W każdym przypadku, w którym zdanie \"Nie każdy uczeń zdał egzamin\" jest prawdziwe, musi istnieć przynajmniej jeden uczeń, który nie zdał egzaminu.\n\n4.  **Wniosek**:\n    Pytanie brzmi: \"Czy to znaczy, że co najmniej jeden uczeń nie zdał?\".\n    Odpowiedź na podstawie powyższej analizy logicznej jest twierdząca.\n\nWYNIK: Tak",
+          "answer": "Tak",
+          "pass": true
+        },
+        {
+          "prompt": "Ze zdania 'nie każdy uczeń zdał egzamin' — czy wynika, że jest uczeń, który nie zdał? Podaj tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy znaczenie logiczne zdania „nie każdy uczeń zdał egzamin\".\n\n1.  **Analiza struktury zdania**:\n    *   Zdanie „każdy uczeń zdał egzamin\" to zdanie uniwersalne (dla każdego x, jeśli x jest uczniem, to x zdał egzamin).\n    *   Zdanie „nie każdy uczeń zdał egzamin\" jest zaprzeczeniem zdania uniwersalnego.\n\n2.  **Zasada logiczna zaprzeczenia kwantyfikatora**:\n    *   W logice klasycznej zaprzeczenie zdania „dla każdego x zachodzi P(x)\" jest równoważne zdaniu „istnieje takie x, dla którego nie zachodzi P(x)\".\n    *   Symbolicznie: $\\neg (\\forall x, P(x)) \\iff \\exists x, \\neg P(x)$.\n\n3.  **Zastosowanie do konkretnego przykładu**:\n    *   Jeśli nie jest prawdą, że *wszyscy* uczniowie zdali egzamin, oznacza to, że w zbiorze uczniów musi znajdować się przynajmniej jedna osoba, która nie zdała egzaminu. Gdyby wszyscy zdali, zdanie „nie każdy zdał\" byłoby fałszywe.\n    *   Zatem z faktu, że „nie każdy uczeń zdał\", wynika bezpośrednio, że „jest (istnieje) uczeń, który nie zdał\".\n\n4.  **Wniosek**:\n    *   Pytanie brzmi: czy wynika, że jest uczeń, który nie zdał?\n    *   Odpowiedź na to pytanie to „tak\".\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L1-02",
+      "poziom": 1,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiadomo",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie: 'Nikt nie powiedział, że to niemożliwe.' Czy ktoś twierdził, że to jest możliwe? Odpowiedz: tak / nie / nie wiadomo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy logiczną strukturę podanego zdania:\n\n1.  **Analiza zdania:** \"Nikt nie powiedział, że to niemożliwe.\"\n    *   Zdanie to informuje nas wyłącznie o braku wypowiedzi określonej treści (czyli braku stwierdzenia, że coś jest niemożliwe).\n    *   Oznacza to, że w dyskusji lub kontekście nie padło zdanie: \"To jest niemożliwe\".\n\n2.  **Analiza pytania:** \"Czy ktoś twierdził, że to jest możliwe?\"\n    *   Pytanie dotyczy istnienia twierdzenia o *możliwości* (pozytywne stwierdzenie).\n\n3.  **Wnioskowanie logiczne:**\n    *   Brak twierdzenia, że coś jest *niemożliwe*, nie jest równoznaczny z twierdzeniem, że coś jest *możliwe*.\n    *   Może istnieć sytuacja, w której nikt nic nie powiedział na ten temat (ani że to możliwe, ani że to niemożliwe).\n    *   Może też istnieć sytuacja, w której ktoś twierdził, że to możliwe, ale zdanie źródłowe tego nie potwierdza ani nie zaprzecza.\n    *   Fakt, że nikt nie zaprzeczył możliwości (nie nazwał tego niemożliwym), nie dowodzi, że ktoś aktywnie potwierdził możliwość.\n\n4.  **Wniosek:** Na podstawie samego zdania \"Nikt nie powiedział, że to niemożliwe\" nie możemy ustalić, czy ktoś twierdził, że to jest możliwe. Informacja jest niewystarczająca.\n\nWYNIK: nie wiadomo",
+          "answer": "nie wiadomo",
+          "pass": true
+        },
+        {
+          "prompt": "'Nikt nie powiedział, że to niemożliwe.' Czy z tego wynika, że ktoś uznał to za możliwe? tak/nie/nie wiadomo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy logiczną strukturę podanego zdania i wnioskowanie.\n\n1.  **Analiza zdania:** \"Nikt nie powiedział, że to niemożliwe.\"\n    *   Zdanie to informuje wyłącznie o braku wypowiedzi negującej możliwość zdarzenia.\n    *   Oznacza to, że w zbiorze osób, o których mowa, nie znalazł się nikt, kto wypowiedziałby zdanie: \"To jest niemożliwe\".\n\n2.  **Analiza wnioskowania:** \"Czy z tego wynika, że ktoś uznał to za możliwe?\"\n    *   Aby ktoś \"uznał to za możliwe\", musiałby wyrazić taką opinię (np. powiedzieć \"To jest możliwe\") lub zachować się w sposób jednoznacznie wskazujący na taką wiarę.\n    *   Brak wypowiedzi \"To jest niemożliwe\" nie jest równoznaczny z wypowiedzią \"To jest możliwe\".\n    *   Istnieje wiele innych stanów, które spełniają warunek \"nikt nie powiedział, że to niemożliwe\", a jednocześnie nie oznaczają, że ktoś uznał to za możliwe:\n        *   Nikt nie wypowiedział się w ogóle na ten temat (milczenie).\n        *   Ktoś uznał to za mało prawdopodobne, ale nie niemożliwe, i nie wypowiedział się.\n        *   Ktoś uznał to za pewne, ale nie wypowiedział się.\n        *   Ktoś uznał to za możliwe, ale nie wypowiedział się.\n\n3.  **Weryfikacja implikacji:**\n    *   Czy z faktu, że nikt nie zaprzeczył możliwości, wynika automatycznie, że ktoś ją potwierdził? Nie.\n    *   Czy z faktu, że nikt nie zaprzeczył możliwości, wynika automatycznie, że nikt jej nie potwierdził? Nie.\n    *   Ponieważ zdanie wyjściowe nie dostarcza informacji o tym, co ludzie *myślą* lub co *potwierdzili*, a jedynie o tym, czego *nie powiedzieli*, nie możemy jednoznacznie stwierdzić, czy ktoś uznał to za możliwe.\n\n4.  **Wniosek:**\n    *   Brak negacji nie jest dowodem na akceptację.\n    *   Nie mamy wystarczających danych, by stwierdzić, czy ktoś uznał to za możliwe, czy też nikt się nie wypowiedział.\n    *   Odpowiedź musi brzmieć \"nie wiadomo\".\n\nWYNIK: nie wiadomo",
+          "answer": "nie wiadomo",
+          "pass": true
+        },
+        {
+          "prompt": "Ze zdania 'nikt nie powiedział, że to niemożliwe' — czy wynika, że ktoś nazwał to możliwym? tak/nie/nie wiadomo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy logiczną strukturę podanego zdania i jego implikacje.\n\n1.  **Analiza zdania**: \"nikt nie powiedział, że to niemożliwe\".\n    *   Oznacza to, że w zbiorze wszystkich wypowiedzi nie ma żadnej, która stwierdzałaby: \"to jest niemożliwe\".\n    *   Jest to zaprzeczenie faktu wypowiedzenia konkretnego zdania (zaprzeczenie negacji możliwości).\n\n2.  **Analiza pytania**: \"czy wynika, że ktoś nazwał to możliwym?\"\n    *   Pytanie dotyczy faktu, czy ktoś wypowiedział zdanie: \"to jest możliwe\".\n\n3.  **Weryfikacja związku logicznego**:\n    *   Brak wypowiedzi \"to jest niemożliwe\" nie jest równoznaczny z wypowiedzeniem \"to jest możliwe\".\n    *   Istnieje wiele innych stanów:\n        *   Nikt nic nie powiedział na ten temat (milczenie).\n        *   Ktoś powiedział, że to \"prawdopodobne\", \"wątpliwe\", \"trudne\", ale nie użył słowa \"możliwe\" ani \"niemożliwe\".\n        *   Ktoś powiedział, że to \"niemożliwe\", ale zdanie w zadaniu mówi, że nikt tego *nie* powiedział, więc ten przypadek odpada, ale nie potwierdza on automatycznie, że ktoś powiedział \"możliwe\".\n    *   Logicznie: $\\neg (\\exists x: P(x, \\text{niemożliwe}))$ nie implikuje $\\exists x: P(x, \\text{możliwe})$.\n    *   Fakt, że nikt nie zaprzeczył możliwości, nie oznacza, że ktoś ją potwierdził. Może po prostu nikt nie wyraził żadnego zdania na ten temat.\n\n4.  **Wniosek**: Na podstawie samego faktu, że nikt nie nazwał czegoś niemożliwym, nie możemy jednoznacznie stwierdzić, że ktoś nazwał to możliwym. Brak negacji nie jest równoznaczny z potwierdzeniem.\n\nWYNIK: nie wiadomo",
+          "answer": "nie wiadomo",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-01",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Wszyscy studenci lubią kawę' oraz 'Anna jest studentką'. Czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy podane przesłanki logiczne krok po kroku:\n\n1.  **Przesłanka ogólna:** \"Wszyscy studenci lubią kawę\".\n    *   Oznacza to, że jeśli dana osoba jest studentem, to koniecznie lubi kawę. Jest to reguła uniwersalna dla całej grupy \"studenci\".\n\n2.  **Przesłanka konkretna:** \"Anna jest studentką\".\n    *   Oznacza to, że Anna należy do grupy \"studenci\".\n\n3.  **Wnioskowanie:**\n    *   Skoro Anna jest studentką (należy do grupy), a wszyscy studenci lubią kawę (reguła dla całej grupy), to logicznie wynika stąd, że Anna również musi lubić kawę.\n\nWniosek jest jednoznaczny i wynika bezpośrednio z połączenia obu zdań.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Dane: każdy student lubi kawę; Anna to studentka. Czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "Oto rozwiązanie zadania krok po kroku:\n\n1.  **Analiza przesłanek:**\n    *   Przesłanka ogólna: Każdy student lubi kawę. (Jeśli ktoś jest studentem, to lubi kawę).\n    *   Przesłanka konkretna: Anna to studentka. (Anna należy do zbioru studentów).\n\n2.  **Wnioskowanie logiczne:**\n    *   Skoro Anna jest studentką, a każdy student (bez wyjątku) lubi kawę, to cecha \"lubić kawę\" musi dotyczyć również Anny.\n    *   Jest to klasyczny przykład syllogizmu:\n        *   Wszystkie A (studenci) są B (lubią kawę).\n        *   C (Anna) jest A (studentką).\n        *   Zatem C (Anna) jest B (lubi kawę).\n\n3.  **Weryfikacja odpowiedzi:**\n    *   Pytanie brzmi: Czy Anna lubi kawę?\n    *   Na podstawie powyższego rozumowania odpowiedź jest twierdząca.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Skoro wszyscy studenci lubią kawę, a Anna jest studentką — czy Anna lubi kawę? tak/nie/nie wiadomo.",
+          "raw": "Oto rozwiązanie zadania krok po kroku:\n\n1.  **Zidentyfikujmy przesłanki:**\n    *   Przesłanka ogólna: Wszyscy studenci lubią kawę.\n    *   Przesłanka szczegółowa: Anna jest studentką.\n\n2.  **Zastosujmy logikę dedukcyjną (syllogizm):**\n    *   Jeśli grupa \"studenci\" jest w całości zawarta w grupie \"ludzie, którzy lubią kawę\", to każdy element należący do grupy \"studenci\" musi również należeć do grupy \"ludzie, którzy lubią kawę\".\n    *   Ponieważ Anna należy do grupy \"studenci\" (zgodnie z drugą przesłanką), musi ona również należeć do grupy \"ludzie, którzy lubią kawę\".\n\n3.  **Wyciągnijmy wniosek:**\n    *   Z faktu, że Anna jest studentką, a wszyscy studenci lubią kawę, wynika nieuchronnie, że Anna lubi kawę.\n\n4.  **Odpowiedź na pytanie:**\n    *   Pytanie brzmi: \"Czy Anna lubi kawę?\".\n    *   Odpowiedź logiczna to: tak.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-02",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "nie wiadomo",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Niektóre ptaki nie latają.' Czy wynika z tego, że niektóre ptaki latają? tak/nie/nie wiadomo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy logikę zdania krok po kroku:\n\n1.  **Analiza przesłanki**: Zdanie \"Niektóre ptaki nie latają\" oznacza, że istnieje przynajmniej jeden ptak (lub grupa ptaków), który nie posiada zdolności do latania. Przykładami są pingwiny czy strusie.\n2.  **Analiza wnioskowanej tezy**: Pytanie brzmi, czy z faktu, że *niektóre* ptaki nie latają, wynika, że *niektóre* ptaki latają.\n3.  **Sprawdzenie logicznej implikacji**:\n    *   W logice klasycznej stwierdzenie \"niektóre X nie są Y\" nie wyklucza możliwości, że \"żadne X nie są Y\" (choć w rzeczywistości wiemy, że ptaki latają, musimy opierać się tylko na samej strukturze logicznej zdania).\n    *   Jednakże, nawet jeśli przyjmiemy wiedzę o świecie, sama informacja o istnieniu ptaków nienolotnych nie dowodzi automatycznie istnienia ptaków latających. Teoretycznie w pewnym świecie możliwym logicznie wszystkie ptaki mogłyby nie latać, a zdanie \"niektóre ptaki nie latają\" nadal byłoby prawdziwe (gdyby \"niektóre\" oznaczało \"przynajmniej jeden\", a w tym świecie wszystkie nie latały).\n    *   Bardziej precyzyjnie: Zdanie \"niektóre S nie są P\" jest prawdziwe, jeśli zbiór S nie jest podzbiorem P. Nie mówi ono nic o tym, czy część S jest w P. Może się zdarzyć, że cały zbiór S jest poza P (żadne ptaki nie latają), a zdanie \"niektóre ptaki nie latają\" nadal jest prawdziwe.\n    *   Zatem z samego faktu, że istnieją ptaki nienolotne, nie wynika logicznie, że istnieją ptaki latające. Aby to stwierdzić, potrzebna byłaby dodatkowa informacja (np. \"niektóre ptaki latają\" lub \"nie wszystkie ptaki nie latają\").\n\nW logice formalnej przejście od \"niektóre S nie są P\" do \"niektóre S są P\" jest błędem logicznym (chyba że mamy dodatkową wiedzę o tym, że zbiór S jest podzielony na te, które są P, i te, które nie są, co nie wynika z samej pierwszej premisy).\n\nZatem odpowiedź brzmi: nie wiadomo (na podstawie samej tej przesłanki nie można tego wywnioskować).\n\nWYNIK: nie wiadomo",
+          "answer": "nie wiadomo",
+          "pass": true
+        },
+        {
+          "prompt": "Zdanie 'niektóre ptaki nie latają' — czy pozwala wnioskować, że niektóre ptaki latają? tak/nie/nie wiadomo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy logikę zdania i relacje między pojęciami.\n\n1.  **Analiza przesłanki**: Zdanie \"niektóre ptaki nie latają\" jest zdaniem typu \"niektóre S nie są P\" (w logice tradycyjnej oznaczane jako O). Oznacza to, że istnieje przynajmniej jeden element w zbiorze ptaków, który nie posiada cechy latania. Przykładem mogą być pingwiny lub strusie.\n\n2.  **Analiza wnioskowanej tezy**: Pytanie brzmi, czy z faktu, że \"niektóre ptaki nie latają\", wynika, że \"niektóre ptaki latają\". To zdanie jest typu \"niektóre S są P\" (w logice tradycyjnej oznaczane jako I).\n\n3.  **Sprawdzenie związku logicznego**:\n    *   W logice klasycznej (kwadrat logiczny) zdania typu O (\"niektóre nie\") i typu I (\"niektóre są\") są ze sobą w relacji **podkontraryjności**.\n    *   Z podkontraryjności wynika, że oba zdania mogą być prawdziwe jednocześnie, ale **nie mogą być oba fałszywe**.\n    *   Jednakże, z prawdziwości jednego z nich (np. O) **nie wynika automatycznie** prawdziwości drugiego (I).\n    *   Aby to zobrazować, wyobraźmy sobie hipotetyczny świat, w którym **żaden** ptak nie lata (np. wszystkie ptaki wymarły lub utraciły zdolność lotu). W takim świecie zdanie \"niektóre ptaki nie latają\" byłoby prawdziwe (gdyż wszystkie nie latają, to tym bardziej niektóre nie latają), ale zdanie \"niektóre ptaki latają\" byłoby fałszywe.\n    *   Ponieważ istnieje możliwy scenariusz, w którym przesłanka jest prawdziwa, a wniosek fałszywy, wniosek ten nie jest logicznie konieczny.\n\n4.  **Wniosek**: Z faktu, że istnieją ptaki, które nie latają, nie możemy logicznie wyprowadzić faktu, że istnieją ptaki, które latają. Wymagałoby to dodatkowej wiedzy o świecie (faktu, że istnieją latające ptaki), a nie samej struktury logicznej zdania.\n\nOdpowiedź na pytanie \"czy pozwala wnioskować\" to: nie wiadomo (na podstawie samej tej przesłanki nie da się tego udowodnić).\n\nWYNIK: nie wiadomo",
+          "answer": "nie wiadomo",
+          "pass": true
+        },
+        {
+          "prompt": "Z 'niektóre ptaki nie latają' — czy logicznie wynika, że część ptaków lata? tak/nie/nie wiadomo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy strukturę logiczną podanego zdania i jego konsekwencje.\n\n1.  **Analiza przesłanki**:\n    Zdanie „niektóre ptaki nie latają\" jest zdaniem typu **O** w tradycyjnej logice (zdanie szczegółowe przeczące).\n    Oznacza to, że istnieje przynajmniej jeden element w zbiorze „ptaki\", który nie należy do zbioru „latających\".\n    Formalnie: $\\exists x (Ptak(x) \\land \\neg Lata(x))$.\n\n2.  **Analiza wnioskowanej tezy**:\n    Pytanie brzmi, czy z tego wynika, że „część ptaków lata\".\n    Jest to zdanie typu **I** (zdanie szczegółowe twierdzące).\n    Oznacza to, że istnieje przynajmniej jeden element w zbiorze „ptaki\", który należy do zbioru „latających\".\n    Formalnie: $\\exists x (Ptak(x) \\land Lata(x))$.\n\n3.  **Sprawdzenie związku logicznego**:\n    W klasycznej logice (kwadrat logiczny Arystotelesa) zdania typu O („niektóre S nie są P\") i typu I („niektóre S są P\") są ze sobą w relacji **podkontraryjności**.\n    Oznacza to, że oba zdania mogą być prawdziwe jednocześnie, ale **nie muszą**.\n    Fakt, że „niektóre ptaki nie latają\", nie wyklucza możliwości, że *żaden* ptak nie lata.\n\n4.  **Przykład kontrfaktyczny (test spójności)**:\n    Wyobraźmy sobie świat, w którym istnieją tylko ptaki, które nie latają (np. świat składający się wyłącznie z pingwinów, emu i kiwi, a wszystkie inne ptaki wymarły lub nigdy nie istniały).\n    W takim świecie:\n    *   Zdanie „niektóre ptaki nie latają\" jest **prawdziwe** (bo wszystkie ptaki nie latają, więc tym bardziej niektóre).\n    *   Zdanie „część ptaków lata\" jest **fałszywe** (bo żaden ptak nie lata).\n\n    Ponieważ istnieje sytuacja, w której przesłanka jest prawdziwa, a wniosek fałszywy, wniosek ten **nie wynika logicznie** z przesłanki.\n\n5.  **Wniosek**:\n    Z faktu, że istnieją ptaki nie latające, nie możemy jednoznacznie wywnioskować, że istnieją ptaki latające. Mogą one istnieć, ale mogą też nie istnieć. W logice formalnej, bez dodatkowych założeń o istnieniu latających ptaków, odpowiedź jest negatywna co do konieczności tego wniosku.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L2-03",
+      "poziom": 2,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Zdanie A: 'Piotr kupił czerwony samochód.' Zdanie B: 'Piotr kupił samochód.' Czy A pociąga za sobą B? tak/nie.",
+          "raw": "Aby określić, czy zdanie A pociąga za sobą zdanie B, przeanalizujmy ich znaczenie:\n\n1.  **Zdanie A**: \"Piotr kupił czerwony samochód.\"\n    *   Informuje nas, że Piotr dokonał zakupu pojazdu, a jego cechą jest kolor czerwony.\n    *   Struktura logiczna: Piotr kupił [czerwony samochód].\n\n2.  **Zdanie B**: \"Piotr kupił samochód.\"\n    *   Informuje nas, że Piotr dokonał zakupu pojazdu, bez określania jego koloru.\n    *   Struktura logiczna: Piotr kupił [samochód].\n\n3.  **Analiza implikacji**:\n    *   Jeśli ktoś kupił \"czerwony samochód\", to automatycznie kupił \"samochód\". Cecha \"czerwony\" jest dodatkowym modyfikatorem, który nie zmienia faktu zakupu samego pojazdu.\n    *   W logice i semantyce, jeśli prawdziwe jest zdanie szczegółowe (A), to prawdziwe musi być również zdanie ogólne (B), które jest jego podzbiorem znaczeniowym.\n\nWniosek: Zdanie A logicznie pociąga za sobą zdanie B.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "A: 'Piotr kupił czerwony samochód.' B: 'Piotr kupił samochód.' Czy z A wynika B? tak/nie.",
+          "raw": "Aby określić, czy zdanie B wynika ze zdania A, przeanalizujmy ich znaczenie:\n\n1.  **Zdanie A:** \"Piotr kupił czerwony samochód.\"\n    *   Informuje nas, że Piotr dokonał zakupu pojazdu, a jego cechą jest kolor czerwony.\n    *   Fakt zakupu \"czerwonego samochodu\" automatycznie implikuje fakt zakupu \"samochodu\" (niezależnie od koloru).\n\n2.  **Zdanie B:** \"Piotr kupił samochód.\"\n    *   Jest to ogólniejsze stwierdzenie, które jest prawdziwe, jeśli Piotr kupił jakikolwiek samochód.\n\n3.  **Wniosek:**\n    *   Jeśli prawdziwe jest, że Piotr kupił czerwony samochód, to musi być również prawdziwe, że Piotr kupił samochód.\n    *   Zdanie B jest logiczną konsekwencją (ogólnieniem) zdania A.\n\nOdpowiedź brzmi: tak.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Czy ze zdania 'Piotr kupił czerwony samochód' wynika 'Piotr kupił samochód'? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy logiczną zależność między dwoma zdaniami:\n\n1.  **Zdanie przesłankowe:** \"Piotr kupił czerwony samochód\".\n    *   Oznacza to, że Piotr dokonał zakupu pojazdu, który ma cechę bycia czerwonym.\n    *   W logice, jeśli ktoś kupił obiekt o określonej właściwości (czerwony samochód), to automatycznie kupił on ten obiekt w ogóle (samochód).\n\n2.  **Zdanie wnioskowe:** \"Piotr kupił samochód\".\n    *   Jest to ogólniejsze stwierdzenie, które nie precyzuje koloru, ale potwierdza sam fakt zakupu samochodu.\n\n3.  **Weryfikacja implikacji:**\n    *   Czy fakt posiadania czerwonego samochodu wyklucza posiadanie samochodu? Nie.\n    *   Czy każdy czerwony samochód jest samochodem? Tak.\n    *   Zatem, jeśli zdanie \"Piotr kupił czerwony samochód\" jest prawdziwe, to zdanie \"Piotr kupił samochód\" musi być również prawdziwe. Jest to klasyczny przykład relacji hyponimii (podrzędności), gdzie konkretny przypadek implikuje przypadek ogólny.\n\nWniosek: Ze zdania pierwszego wynika zdanie drugie.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L3-01",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Każdy chłopiec kocha jakąś dziewczynę.' Czy to zdanie MUSI znaczyć, że istnieje jedna dziewczyna kochana przez wszystkich chłopców? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy strukturę logiczną zdania \"Każdy chłopiec kocha jakąś dziewczynę\".\n\n1.  **Analiza logiczna zdania:**\n    Zdanie to można zapisać za pomocą kwantyfikatorów logicznych.\n    Niech $C(x)$ oznacza \"x jest chłopcem\", a $D(y)$ oznacza \"y jest dziewczyną\".\n    Niech $L(x, y)$ oznacza \"x kocha y\".\n    \n    Zdanie \"Każdy chłopiec kocha jakąś dziewczynę\" oznacza, że dla każdego elementu $x$, który jest chłopcem, istnieje przynajmniej jeden element $y$, który jest dziewczyną, taki że $x$ kocha $y$.\n    W notacji logicznej: $\\forall x (C(x) \\rightarrow \\exists y (D(y) \\land L(x, y)))$.\n\n2.  **Znaczenie kolejności kwantyfikatorów:**\n    W powyższym zapisie kwantyfikator egzystencjalny ($\\exists y$) znajduje się wewnątrz zakresu kwantyfikatora uniwersalnego ($\\forall x$). Oznacza to, że wybór dziewczyny $y$ może zależeć od konkretnego chłopca $x$.\n    Innymi słowy:\n    - Chłopiec A może kochać dziewczynę X.\n    - Chłopiec B może kochać dziewczynę Y.\n    - Chłopiec C może kochać dziewczynę Z.\n    Dziewczyny X, Y i Z mogą być zupełnie różnymi osobami.\n\n3.  **Analiza alternatywnej interpretacji (czy musi istnieć jedna dziewczyna?):**\n    Aby zdanie oznaczało, że istnieje jedna dziewczyna kochana przez wszystkich chłopców, kolejność kwantyfikatorów musiałaby być odwrócona: \"Istnieje dziewczyna, taką że każdy chłopiec ją kocha\".\n    W notacji logicznej: $\\exists y (D(y) \\land \\forall x (C(x) \\rightarrow L(x, y)))$.\n\n4.  **Porównanie:**\n    Z logicznego punktu widzenia, implikacja $\\forall x \\exists y P(x, y)$ **nie** jest równoważna $\\exists y \\forall x P(x, y)$.\n    Pierwsze zdanie (zadane w pytaniu) pozwala na to, że każdy chłopiec kocha inną dziewczynę. Nie wymusza ono, aby wszyscy kochali tę samą osobę.\n\n5.  **Wniosek:**\n    Zdanie \"Każdy chłopiec kocha jakąś dziewczynę\" nie musi znaczyć, że istnieje jedna dziewczyna kochana przez wszystkich. Może to oznaczać, że każdy ma swoją własną ukochaną, a te ukochane są różne.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Zdanie 'każdy chłopiec kocha jakąś dziewczynę' — czy koniecznie oznacza jedną wspólną dziewczynę dla wszystkich? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy strukturę logiczną zdania „każdy chłopiec kocha jakąś dziewczynę\".\n\n1.  **Analiza kwantyfikatorów**:\n    *   „Każdy chłopiec\" to kwantyfikator uniwersalny ($\\forall x$), który odnosi się do każdego elementu zbioru chłopców.\n    *   „Jakąś dziewczynę\" to kwantyfikator egzystencjalny ($\\exists y$), który odnosi się do istnienia przynajmniej jednej dziewczyny.\n\n2.  **Zakres działania kwantyfikatorów (Zakres kwantyfikatora)**:\n    *   W języku naturalnym, gdy zdanie ma strukturę „Każdy X robi coś z jakimś Y\" (gdzie kwantyfikator egzystencjalny znajduje się w zdaniu podrzędnym lub po głównym), zazwyczaj przyjmuje się **wąski zakres** (narrow scope).\n    *   Oznacza to, że dla każdego konkretnego chłopca istnieje przynajmniej jedna dziewczyna, którą on kocha. Ta dziewczyna może być inna dla każdego chłopca.\n    *   Schemat logiczny: $\\forall x (\\text{chłopiec}(x) \\rightarrow \\exists y (\\text{dziewczyna}(y) \\land \\text{kocha}(x, y)))$.\n\n3.  **Alternatywna interpretacja (szeroki zakres)**:\n    *   Istnieje interpretacja, w której „jakąś dziewczynę\" ma szeroki zakres, co oznaczałoby: „Istnieje jedna dziewczyna, którą kocha każdy chłopiec\".\n    *   Schemat logiczny: $\\exists y (\\text{dziewczyna}(y) \\land \\forall x (\\text{chłopiec}(x) \\rightarrow \\text{kocha}(x, y)))$.\n    *   Jednakże w standardowej interpretacji języka polskiego (i logiki predykatów bez dodatkowych kontekstów wymuszających szeroki zakres), zdanie to **nie implikuje** konieczności istnienia jednej wspólnej dziewczyny. Jest to tylko jedna z możliwych, ale nie koniecznych, interpretacji.\n\n4.  **Wniosek**:\n    *   Zdanie to pozwala na sytuację, w której chłopiec A kocha dziewczynę X, a chłopiec B kocha dziewczynę Y (gdzie $X \\neq Y$).\n    *   Ponieważ taka sytuacja jest zgodna ze zdaniem, a nie wymaga istnienia jednej wspólnej dziewczyny, odpowiedź na pytanie „czy koniecznie oznacza jedną wspólną dziewczynę\" jest negatywna.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'każdy chłopiec kocha jakąś dziewczynę' wymusza istnienie jednej dziewczyny kochanej przez każdego? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy strukturę logiczną zdania \"każdy chłopiec kocha jakąś dziewczynę\".\n\n1.  **Tłumaczenie na logikę predykatów:**\n    *   Niech $C(x)$ oznacza \"x jest chłopcem\".\n    *   Niech $D(y)$ oznacza \"y jest dziewczyną\".\n    *   Niech $L(x, y)$ oznacza \"x kocha y\".\n    *   Zdanie \"każdy chłopiec kocha jakąś dziewczynę\" można zapisać jako:\n        $\\forall x (C(x) \\rightarrow \\exists y (D(y) \\land L(x, y)))$\n        Oznacza to: Dla każdego $x$, jeśli $x$ jest chłopcem, to istnieje takie $y$, że $y$ jest dziewczyną i $x$ kocha $y$.\n\n2.  **Analiza zakresu kwantyfikatorów:**\n    *   Kwantyfikator egzystencjalny ($\\exists y$) znajduje się wewnątrz zakresu kwantyfikatora uniwersalnego ($\\forall x$).\n    *   Oznacza to, że wybór dziewczyny $y$ może zależeć od konkretnego chłopca $x$.\n    *   Dla chłopca $x_1$ może istnieć dziewczyna $y_1$, którą kocha.\n    *   Dla chłopca $x_2$ może istnieć dziewczyna $y_2$, którą kocha.\n    *   Nie ma żadnego wymogu, aby $y_1$ i $y_2$ były tą samą osobą.\n\n3.  **Porównanie z pytaniem:**\n    *   Pytanie brzmi: Czy to wymusza istnienie **jednej** dziewczyny kochanej przez **każdego**?\n    *   Taka sytuacja zostałaby opisana wzorem: $\\exists y (D(y) \\land \\forall x (C(x) \\rightarrow L(x, y)))$.\n    *   W tym wzorze kwantyfikator egzystencjalny ($\\exists y$) jest na zewnątrz, co oznacza, że jedna konkretna dziewczyna musi być kochana przez wszystkich chłopców.\n\n4.  **Wniosek:**\n    *   Z faktu, że każdy chłopiec ma swoją ukochaną (która może być inna dla każdego), nie wynika, że istnieje jedna wspólna dziewczyna dla wszystkich.\n    *   Przykład: Chłopiec A kocha Annę, Chłopiec B kocha Beatę. Warunek \"każdy chłopiec kocha jakąś dziewczynę\" jest spełniony, ale nie ma jednej dziewczyny kochanej przez obu.\n\nZatem zdanie nie wymusza istnienia jednej wspólnej dziewczyny.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L3-02",
+      "poziom": 3,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tak",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Żaden student nie przeczytał wszystkich lektur.' Czy wynika, że każdy student pominął przynajmniej jedną lekturę? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy znaczenie logiczne obu zdań:\n\n1.  **Analiza zdania wyjściowego:** \"Żaden student nie przeczytał wszystkich lektur.\"\n    *   Oznacza to, że dla każdego studenta z grupy, nie zachodzi sytuacja, w której przeczytał on *każdą* z dostępnych lektur.\n    *   W logice jest to równoważne stwierdzeniu: Dla każdego studenta $x$, nieprawda jest, że $x$ przeczytał wszystkie lektury.\n\n2.  **Analiza konsekwencji:**\n    *   Jeśli ktoś nie przeczytał *wszystkich* lektur, oznacza to, że w zbiorze wszystkich lektur istnieje przynajmniej jedna, której ta osoba nie przeczytała.\n    *   \"Nie przeczytać wszystkich\" jest logicznie równoważne \"pominąć przynajmniej jedną\".\n\n3.  **Analiza zdania wnioskowanego:** \"Każdy student pominął przynajmniej jedną lekturę.\"\n    *   Ponieważ żaden student nie przeczytał kompletu (wszystkich), to każdy student musi mieć w swoim zestawie przeczytanych lektur brakującą pozycję (przynajmniej jedną).\n    *   Zatem stwierdzenie, że każdy student pominął przynajmniej jedną lekturę, jest bezpośrednim logicznym skutkiem pierwszego zdania.\n\n**Wniosek:**\nZdanie \"Żaden student nie przeczytał wszystkich lektur\" implikuje zdanie \"Każdy student pominął przynajmniej jedną lekturę\". Odpowiedź brzmi \"tak\".\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Ze zdania 'żaden student nie przeczytał wszystkich lektur' — czy każdy student opuścił co najmniej jedną? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy znaczenie logiczne podanego zdania krok po kroku:\n\n1.  **Analiza zdania wyjściowego**: \"żaden student nie przeczytał wszystkich lektur\".\n    *   Oznacza to, że dla każdego studenta z grupy, nie zachodzi sytuacja, w której przeczytał on *każdą* z lektur.\n    *   W logice jest to równoważne stwierdzeniu: \"Dla każdego studenta, istnieje przynajmniej jedna lektura, której nie przeczytał\".\n\n2.  **Analiza pytania**: \"czy każdy student opuścił co najmniej jedną?\"\n    *   W kontekście czytania lektur, \"opuścić\" lekturę oznacza \"nie przeczytać\" jej.\n    *   Pytanie brzmi więc: Czy dla każdego studenta istnieje przynajmniej jedna lektura, której nie przeczytał?\n\n3.  **Porównanie**:\n    *   Zdanie wyjściowe mówi: Dla każdego studenta $S$, zbiór przeczytanych przez niego lektur jest właściwym podzbiorem wszystkich lektur (lub inaczej: nie jest równy zbiorowi wszystkich lektur).\n    *   To implikuje, że w zbiorze wszystkich lektur znajduje się przynajmniej jedna, która nie należy do zbioru przeczytanych przez studenta $S$.\n    *   Zatem każdy student nie przeczytał (opuścił) co najmniej jednej lektury.\n\n4.  **Wniosek**:\n    *   Stwierdzenie w pytaniu jest logiczną konsekwencją zdania wyjściowego.\n    *   Odpowiedź brzmi: tak.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'żaden student nie przeczytał wszystkich lektur' znaczy, że dla każdego studenta istnieje nieprzeczytana lektura? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy znaczenie obu zdań w języku logiki predykatów.\n\n1.  **Analiza pierwszego zdania:** \"żaden student nie przeczytał wszystkich lektur\".\n    *   Oznacza to, że nie istnieje żaden student, który przeczytałby każdą lekturę.\n    *   W logice zapisujemy to jako: $\\neg \\exists x (Student(x) \\land \\forall y (Lektura(y) \\rightarrow Przeczytał(x, y)))$.\n    *   Równoważnie (przez zaprzeczenie kwantyfikatora egzystencjalnego): Dla każdego studenta $x$, nieprawda jest, że przeczytał wszystkie lektury.\n    *   $\\forall x (Student(x) \\rightarrow \\neg \\forall y (Lektura(y) \\rightarrow Przeczytał(x, y)))$.\n\n2.  **Analiza drugiego zdania:** \"dla każdego studenta istnieje nieprzeczytana lektura\".\n    *   Oznacza to, że biorąc dowolnego studenta, znajdziemy przynajmniej jedną lekturę, której ten student nie przeczytał.\n    *   W logice zapisujemy to jako: $\\forall x (Student(x) \\rightarrow \\exists y (Lektura(y) \\land \\neg Przeczytał(x, y)))$.\n\n3.  **Porównanie i wnioskowanie:**\n    *   Weźmy fragment dotyczący jednego studenta $x$ z pierwszego zdania: $\\neg \\forall y (Lektura(y) \\rightarrow Przeczytał(x, y))$.\n    *   Zgodnie z prawami logiki, zaprzeczenie zdania \"dla każdego $y$, jeśli $y$ jest lekturą, to $x$ ją przeczytał\" jest równoważne zdaniu \"istnieje takie $y$, że $y$ jest lekturą i $x$ jej nie przeczytał\".\n    *   Formalnie: $\\neg \\forall y (P(y) \\rightarrow Q(y)) \\iff \\exists y (P(y) \\land \\neg Q(y))$.\n    *   Zatem stwierdzenie, że student nie przeczytał *wszystkich* lektur, jest logicznie równoważne stwierdzeniu, że istnieje *przynajmniej jedna* lektura, której student nie przeczytał.\n    *   Ponieważ to zachodzi dla każdego studenta (zgodnie z kwantyfikatorem ogólnym w obu zdaniach), oba zdania są logicznie równoważne.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-01",
+      "poziom": 4,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Pytanie: 'Czy przestałeś już spóźniać się do pracy?' Jeśli ktoś NIGDY się nie spóźniał, czy może odpowiedzieć samym 'tak' lub 'nie' zgodnie z prawdą? tak/nie.",
+          "raw": "To pytanie jest klasycznym przykładem tzw. **pytania podwójnego** (lub błędu logicznego zwanego *presupozycją*), które zawiera ukryte założenie.\n\nOto analiza krok po kroku:\n\n1.  **Struktura pytania:** Pytanie \"Czy przestałeś już spóźniać się do pracy?\" zakłada, że osoba pytana **w przeszłości spóźniała się** do pracy. Słowo \"przestałeś\" implikuje zmianę stanu z \"spóźniania się\" na \"nie spóźnianie się\".\n2.  **Sytuacja osoby pytanej:** Zgodnie z założeniem zadania, osoba ta **nigdy** się nie spóźniała. Oznacza to, że nie ma stanu \"spóźniania się\", z którego mogłaby \"przestać\".\n3.  **Analiza odpowiedzi \"Tak\":**\n    *   Jeśli osoba odpowie \"Tak\", oznacza to: \"Tak, przestałem się spóźniać\".\n    *   To potwierdza ukryte założenie, że wcześniej się spóźniała.\n    *   Ponieważ osoba nigdy się nie spóźniała, odpowiedź \"Tak\" byłaby **nieprawdziwa**.\n4.  **Analiza odpowiedzi \"Nie\":**\n    *   Jeśli osoba odpowie \"Nie\", oznacza to: \"Nie, nie przestałem się spóźniać\" (czyli nadal się spóźniam).\n    *   To również potwierdza ukryte założenie, że wcześniej się spóźniała i nadal to robi.\n    *   Ponieważ osoba nigdy się nie spóźniała, odpowiedź \"Nie\" również byłaby **nieprawdziwa**.\n5.  **Wniosek:** Żadna z odpowiedzi jednoznacznych (\"tak\" lub \"nie\") nie pozwala na zachowanie prawdy, ponieważ obie odpowiedzi akceptują fałszywe założenie zawarte w pytaniu. Aby odpowiedzieć zgodnie z prawdą, osoba musiałaby zaprzeczyć założeniu (np. \"Nigdy się nie spóźniałem\"), a nie wybrać opcji tak/nie.\n\nZatem, czy może odpowiedzieć samym \"tak\" lub \"nie\" zgodnie z prawdą? Nie.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "'Czy przestałeś się spóźniać do pracy?' — osoba, która nigdy się nie spóźniała: czy 'tak'/'nie' będzie prawdziwe? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy logikę pytania i sytuację osoby, o której mowa.\n\n1.  **Analiza pytania:** Pytanie brzmi: „Czy przestałeś się spóźniać do pracy?\".\n    *   To pytanie zakłada, że osoba w przeszłości spóźniała się do pracy, a teraz pyta się, czy ta sytuacja się zmieniła (czy spóźnianie ustało).\n    *   Aby odpowiedź „tak\" była prawdziwa, osoba musiałaby wcześniej się spóźniać, a teraz przestać.\n    *   Aby odpowiedź „nie\" była prawdziwa, osoba musiałaby nadal się spóźniać (lub nigdy nie przestać, jeśli wcześniej się spóźniała).\n\n2.  **Analiza sytuacji osoby:** Osoba „nigdy się nie spóźniała\".\n    *   Oznacza to, że w przeszłości nie było żadnych spóźnień.\n    *   Skoro nigdy nie spóźniała się, to nie mogła „przestać\" się spóźniać. Nie ma czegoś, co można by zakończyć, jeśli to coś nigdy nie miało miejsca.\n\n3.  **Weryfikacja odpowiedzi:**\n    *   Jeśli osoba odpowie „tak\" (czyli „tak, przestałem się spóźniać\"), kłamie lub wprowadza w błąd, ponieważ sugeruje to, że wcześniej się spóźniała.\n    *   Jeśli osoba odpowie „nie\" (czyli „nie, nie przestałem się spóźniać\"), w kontekście potocznym może to być mylące, ale logicznie jest to jedyna poprawna odpowiedź negująca przesłankę pytania. W logice predykatów, jeśli warunek „spóźniałem się w przeszłości\" jest fałszywy, to stwierdzenie „przestałem się spóźniać\" jest również fałszywe.\n    *   Jednakże, w kontekście pytania typu „Czy przestałeś X?\", jeśli nigdy nie robiłeś X, odpowiedź „nie\" jest logicznie poprawna, ponieważ nie nastąpiła zmiana stanu z „spóźniania się\" na „nie spóźnianie się\". Stan „nie spóźniania się\" był stały.\n    *   Często w takich zagadkach logicznych chodzi o to, że odpowiedź „tak\" implikuje winę w przeszłości. Ponieważ osoba jest niewinna (nigdy się nie spóźniała), odpowiedź „tak\" jest fałszywa. Odpowiedź „nie\" jest prawdziwa w sensie: „Nie, nie przestałem się spóźniać, bo nigdy się nie spóźniałem\" (lub po prostu negacja faktu, że nastąpiła zmiana).\n\n    Rozważmy to prościej:\n    *   Pytanie: Czy nastąpiło przejście ze stanu A (spóźnianie) do stanu B (nie spóźnianie)?\n    *   Rzeczywistość: Osoba była cały czas w stanie B.\n    *   Czy nastąpiło przejście? Nie.\n    *   Zatem odpowiedź na pytanie „Czy przestałeś...?\" to **nie**.\n\n    Gdyby odpowiedzieć „tak\", oznaczałoby to przyznanie się do wcześniejszych spóźnień, co jest kłamstwem w tym scenariuszu. Zatem prawdziwa odpowiedź to „nie\".\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Gdy ktoś nigdy się nie spóźniał, czy na pytanie 'czy przestałeś się spóźniać?' może zgodnie z prawdą rzec samo tak lub nie? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy logikę pytania i sytuację opisaną w treści.\n\n1.  **Analiza sytuacji**: Osoba „nigdy się nie spóźniała\". Oznacza to, że w przeszłości nie miała żadnych przypadków spóźniania się.\n2.  **Analiza pytania**: Pytanie brzmi: „Czy przestałeś się spóźniać?\".\n    *   To pytanie jest tzw. pytaniem z fałszywym założeniem (presupozycja). Zakłada ono, że osoba w przeszłości spóźniała się, a teraz to zakończyła.\n    *   Aby odpowiedzieć „tak\" (czyli „tak, przestałem się spóźniać\"), musiałoby to oznaczać, że wcześniej się spóźniałem, a teraz nie. To byłoby kłamstwo, ponieważ osoba nigdy się nie spóźniała.\n    *   Aby odpowiedzieć „nie\" (czyli „nie, nie przestałem się spóźniać\"), musiałoby to oznaczać, że nadal się spóźniam. To również byłoby kłamstwo, ponieważ osoba nigdy się nie spóźniała (a więc teraz też się nie spóźnia).\n3.  **Wniosek**: Ponieważ żadna z odpowiedzi („tak\" ani „nie\") nie jest zgodna z prawdą w kontekście osoby, która nigdy nie spóźniała się, taka osoba nie może zgodnie z prawdą rzec samego „tak\" ani samego „nie\". Musiałaby wyjaśnić, że nigdy nie spóźniała się, więc nie mogła „przestać\" tego robić.\n\nPytanie brzmi: „czy ... może zgodnie z prawdą rzec samo tak lub nie?\".\nOdpowiedź na to pytanie to: nie.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-02",
+      "poziom": 4,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Ktoś mówi: 'Zjadłem część ciasta.' Czy z tego LOGICZNIE wynika, że nie zjadł całego ciasta? (logicznie, nie potocznie) tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy znaczenie słowa \"część\" w kontekście logiki formalnej i teorii mnogości, odróżniając je od znaczenia potocznego.\n\n1.  **Definicja logiczna \"części\":**\n    W logice i matematyce (teoria mnogości), jeśli mówimy, że zbiór $A$ jest częścią zbioru $B$ (oznaczane jako $A \\subseteq B$), oznacza to, że każdy element $A$ należy do $B$. Definicja ta obejmuje dwa przypadki:\n    *   $A$ jest **częścią właściwą** ($A \\subset B$), co oznacza, że $A$ jest zawarte w $B$, ale $A \\neq B$ (czyli $A$ jest mniejsze niż $B$).\n    *   $A$ jest **częścią niewłaściwą** (lub równą), co oznacza, że $A = B$.\n\n    W ścisłym sensie logicznym, całość jest również częścią samej siebie. Zbiór jest podzbiorem samego siebie.\n\n2.  **Analiza zdania:**\n    Zdanie brzmi: \"Zjadłem część ciasta\".\n    Oznacza to, że ilość zjedzonego ciasta ($X$) jest podzbiorem całego ciasta ($C$).\n    Warunek logiczny: $X \\subseteq C$.\n\n3.  **Sprawdzenie implikacji:**\n    Pytanie brzmi: Czy z faktu $X \\subseteq C$ logicznie wynika, że $X \\neq C$ (czyli że nie zjadł całego ciasta)?\n    *   Jeśli $X$ jest częścią właściwą, to $X \\neq C$ (nie zjadł całego).\n    *   Jeśli $X$ jest częścią niewłaściwą (równą), to $X = C$ (zjadł całe).\n\n    Ponieważ definicja \"części\" w logice nie wyklucza przypadku, w którym część jest równa całości, stwierdzenie \"zjadłem część ciasta\" jest prawdziwe również w sytuacji, gdy zjadłem całe ciasto.\n\n4.  **Różnica między logiką a potocznością:**\n    *   **Potocznie:** Słowo \"część\" często implikuje \"część właściwą\" (coś mniej niż całość). W mowie codziennej, gdyby ktoś zjadł całe ciasto, rzadko powiedziałby \"zjadłem część ciasta\", a raczej \"zjadłem całe ciasto\".\n    *   **Logicznie:** Nie stosujemy domyślnych implikacji konwersacyjnych (jak zasada Grice'a), które sugerują, że mówca nie powiedziałby \"całe\", gdyby tak było. Logika opiera się na ścisłych definicjach. Skoro całość jest podzbiorem samej siebie, to \"zjedzenie części\" nie wyklucza \"zjedzenia całości\".\n\n5.  **Wniosek:**\n    Z faktu, że ktoś zjadł część ciasta, **nie wynika logicznie**, że nie zjadł całego ciasta. Możliwe jest, że zjadł całe ciasto, a zdanie \"zjadłem część ciasta\" pozostaje logicznie prawdziwe (gdyż całość jest częścią całości).\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Wypowiedź 'zjadłem część ciasta' — czy ściśle logicznie wyklucza zjedzenie całości? tak/nie.",
+          "raw": "Aby odpowiedzieć na to pytanie, przeanalizujmy znaczenie logiczne zdania „zjadłem część ciasta\" w kontekście relacji między częścią a całością.\n\n1.  **Definicja pojęcia „część\"**: W logice i matematyce, jeśli obiekt $X$ jest częścią obiektu $Y$, to zazwyczaj oznacza to, że $X$ jest podzbiorem $Y$ ($X \\subseteq Y$). W języku potocznym słowo „część\" często sugeruje „część właściwą\" (czyli $X \\subset Y$, gdzie $X \\neq Y$), co implikowałoby, że coś zostało zostawione. Jednak w ścisłym sensie logicznym i matematycznym, całość jest również częścią samej siebie (część niewłaściwa).\n\n2.  **Analiza zdania**: Zdanie „zjadłem część ciasta\" stwierdza fakt, że ilość zjedzona jest podzbiorem całego ciasta.\n    *   Scenariusz A: Zjadłem połowę ciasta. Jest to prawda, zjadłem część.\n    *   Scenariusz B: Zjadłem całe ciasto. Czy całe ciasto jest częścią ciasta? Tak, w sensie zbiorowym całość jest zawarta w sobie.\n\n3.  **Kwestia wykluczenia**: Pytanie brzmi, czy wypowiedź ta *ściśle logicznie wyklucza* zjedzenie całości.\n    *   Gdybyśmy przyjęli definicję potoczną („część\" = „nie całość\"), to tak, wykluczałoby to całość.\n    *   Jednak w logice formalnej stwierdzenie „zjadłem część\" jest prawdziwe, nawet jeśli zjadłem wszystko, ponieważ całość jest przypadkiem szczególnym części (częścią niewłaściwą). Stwierdzenie „zjadłem część\" nie zawiera negacji „nie zjadłem całości\".\n    *   Przykład analogiczny: „Zjadłem jabłko\" nie wyklucza „zjedzenia owocu\", ponieważ jabłko jest owocem. Podobnie „zjadłem całość\" jest przypadkiem „zjedzenia części\" (gdzie część = całość).\n\n4.  **Wniosek**: Ponieważ zjedzenie całości jest logicznie zgodne z byciem „częścią\" (w sensie inkluzji zbiorów), wypowiedź „zjadłem część ciasta\" nie wyklucza logicznie możliwości, że zjedzono całość. Wykluczenie następuje tylko w wyniku konwencji językowych (implicatury Grice'owskiej), a nie ścisłej logiki.\n\nZatem, ściśle logicznie, nie wyklucza to zjedzenia całości.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Czy 'zjadłem część ciasta' logicznie (nie w mowie potocznej) oznacza, że nie zjadł całego? tak/nie.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy znaczenie słowa \"część\" w kontekście logiki i semantyki, odrzucając potoczne użycie, które może być nieprecyzyjne.\n\n1.  **Definicja logiczna \"części\":** W logice i teorii mnogości, jeśli mówimy, że obiekt $A$ jest częścią obiektu $B$, zazwyczaj oznacza to, że $A$ jest podzbiorem $B$ ($A \\subseteq B$). Jednak w języku naturalnym, gdy używamy słowa \"część\" w kontekście ilościowym (np. \"zjadłem część ciasta\"), implikuje to zazwyczaj relację **właściwego podzbioru** ($A \\subset B$), gdzie $A$ jest mniejsze niż $B$.\n2.  **Zasada komunikacji (Implikatura konwersacyjna):** Zgodnie z zasadami Grice'a, jeśli mówca chciałby przekazać, że zjadł całe ciasto, użyłby sformułowania \"zjadłem całe ciasto\". Użycie słabszego określenia \"część\" w sytuacji, gdy \"całość\" jest prawdziwa, naruszałoby zasadę ilości (mówca powinien dostarczyć tyle informacji, ile jest potrzebne). Dlatego stwierdzenie \"zjadłem część\" logicznie implikuje, że nie zjadłem całości.\n3.  **Analiza przeciwstawna:** Gdyby \"zjadłem część ciasta\" oznaczało również \"zjadłem całe ciasto\", to zdanie to byłoby prawdziwe w obu przypadkach. Jednak w precyzyjnym rozumowaniu, jeśli ktoś zjadł całe ciasto, stwierdzenie \"zjadłem część\" jest mylące i nieodpowiednie, ponieważ sugeruje, że coś zostało. W logice predykatów, jeśli $x$ jest częścią $y$, to zazwyczaj zakłada się, że $x \\neq y$ (część właściwa), chyba że zdefiniowano inaczej. W kontekście pytania o to, czy \"zjadłem część\" oznacza, że \"nie zjadłem całego\", odpowiedź opiera się na tym, że użycie słowa \"część\" wyklucza \"całość\" w sensie komunikatywnym i logicznym (jako informacja o niekompletności działania).\n\nPodsumowując: Stwierdzenie \"zjadłem część ciasta\" w precyzyjnym rozumieniu (nie w mowie potocznej, gdzie czasem można używać tego luźno) niesie ze sobą implikację, że reszta ciasta pozostała, czyli nie zjadłem go w całości. Gdyby zjadłem całe, użyłbym słowa \"całość\". Zatem zdanie to logicznie oznacza, że nie zjadłem całego.\n\nWYNIK: tak",
+          "answer": "tak",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D2-L4-03",
+      "poziom": 4,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "niejednoznaczne",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "'Burmistrz odmówił demonstrantom pozwolenia, bo oni obawiali się przemocy.' Kto obawiał się przemocy — burmistrz czy demonstranci? Odpowiedz: burmistrz / demonstranci / niejednoznaczne.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy strukturę zdania i relacje między jego częściami:\n\n1.  **Analiza zdania:** \"Burmistrz odmówił demonstrantom pozwolenia, bo oni obawiali się przemocy.\"\n2.  **Identyfikacja podmiotów:**\n    *   Podmiot zdania głównego: \"Burmistrz\".\n    *   Podmiot zdania podrzędnego (współrzeczne): \"oni\".\n3.  **Interpretacja zaimka \"oni\":** W języku polskim w konstrukcjach tego typu, gdzie podmiot zdania głównego (burmistrz) wykonuje działanie wobec grupy (demonstranci), a zdanie podrzędne wyjaśnia przyczynę tego działania, zaimki osobowe w zdaniu podrzędnym często odnoszą się do podmiotu zdania głównego, jeśli to on podejmuje decyzję opartą na własnych obawach.\n    *   Scenariusz A: Burmistrz odmówił, ponieważ *burmistrz* obawiał się przemocy. (Logika: Decydent boi się konsekwencji, więc blokuje wydarzenie).\n    *   Scenariusz B: Burmistrz odmówił, ponieważ *demonstranci* obawiali się przemocy. (Logika: Jeśli demonstranci się boją, dlaczego burmistrz miałby im odmawiać? Zazwyczaj obawa demonstrantów skłoniłaby ich do odwołania, a nie do prośby o pozwolenie, lub burmistrz by im pozwolił, by uniknąć napięcia, chyba że obawa dotyczyła czegoś innego).\n4.  **Kontekst logiczny:** Przyczyną odmowy pozwolenia przez władze (burmistrza) jest zazwyczaj obawa władz o porządek publiczny i bezpieczeństwo (przemoc). Gdyby to demonstranci się obawiali, nie byłoby to bezpośrednim powodem, dla którego burmistrz *odmawia* im pozwolenia (chyba że interpretujemy to jako \"burmistrz uznał, że demonstranci są zbyt przerażeni, by bezpiecznie demonstrować\", co jest mniej prawdopodobne niż standardowa obawa władz o wybuch przemocy).\n5.  **Zasada gramatyczna i stylistyczna:** W zdaniach typu \"X zrobił Y, bo oni...\", zaimki \"oni\" w języku polskim w tym kontekście najczęściej odnoszą się do podmiotu zdania głównego (X), czyli burmistrza, sugerując, że to on (lub jego administracja) miał obawy. Gdyby chodziło o demonstrantów, zdanie brzmiłoby naturalniej: \"Burmistrz odmówił demonstrantom pozwolenia, bo *ci* obawiali się przemocy\" lub \"bo *demonstranci* obawiali się...\". Użycie \"oni\" w odniesieniu do \"demonstrantów\" w tym konkretnym szyku jest mylące, ale w standardowych testach językowych (tzw. Winograd Schema) zdanie to jest konstruowane tak, że \"oni\" odnosi się do podmiotu, który podejmuje decyzję opartą na obawie.\n\nJednakże, przyjrzyjmy się bliżej logice przyczynowo-skutkowej.\nJeśli burmistrz odmawia, to zazwyczaj dlatego, że *on* (lub jego urzędnicy) boi się, że dojdzie do przemocy.\nJeśli demonstranci by się obawiali, to oni by nie chcieli demonstracji, a nie burmistrz by im odmawiał.\nZatem przyczyną odmowy jest obawa burmistrza.\n\nWYNIK: burmistrz",
+          "answer": "burmistrz",
+          "pass": false
+        },
+        {
+          "prompt": "W zdaniu 'burmistrz odmówił demonstrantom pozwolenia, bo oni obawiali się przemocy' — kto się bał? burmistrz/demonstranci/niejednoznaczne.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy strukturę zdania i relacje między jego częściami:\n\n1.  **Analiza zdania**: \"burmistrz odmówił demonstrantom pozwolenia, bo oni obawiali się przemocy\".\n2.  **Identyfikacja podmiotów**:\n    *   Podmiotem pierwszej części zdania jest \"burmistrz\".\n    *   Dopełnieniem pośrednim (osoba, której odmówiono) są \"demonstranci\".\n    *   W drugiej części zdania (przyczynowej) występuje zaimek \"oni\".\n3.  **Interpretacja zaimka \"oni\"**:\n    *   Zaimek \"oni\" odnosi się do grupy osób wymienionych wcześniej. W tym kontekście są to \"demonstranci\".\n    *   Gramatycznie i logicznie zdanie sugeruje, że to demonstranci obawiali się przemocy, co mogło być powodem odmowy (np. burmistrz uznał, że demonstracja jest niebezpieczna, ponieważ sami demonstranci boją się eskalacji, lub w kontekście szerszym: burmistrz odmówił, ponieważ *oni* (demonstranci) obawiali się przemocy, co mogło wpłynąć na decyzję, choć w tym konkretnym sformułowaniu \"oni\" jednoznacznie wskazuje na demonstrantów jako podmiot obawiający się).\n    *   Gdyby chodziło o burmistrza, użyto by zaimka \"on\" (w liczbie pojedynczej) lub sformułowania \"bo obawiał się przemocy\". Użycie \"oni\" wskazuje na grupę, czyli demonstrantów.\n4.  **Wniosek**: To demonstranci obawiali się przemocy.\n\nWYNIK: demonstranci",
+          "answer": "demonstranci",
+          "pass": false
+        },
+        {
+          "prompt": "'Burmistrz odmówił demonstrantom, bo oni bali się przemocy' — 'oni' to kto? burmistrz/demonstranci/niejednoznaczne.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy strukturę zdania i kontekst logiczny:\n\n1.  **Analiza zdania:** \"Burmistrz odmówił demonstrantom, bo oni bali się przemocy\".\n2.  **Identyfikacja podmiotów:**\n    *   \"Burmistrz\" – podmiot wykonujący czynność odmówienia.\n    *   \"Demonstrantom\" – grupa, której odmówiono (dopełnienie).\n    *   \"Oni\" – zaimek wskazujący na grupę, która \"bała się przemocy\".\n3.  **Analiza przyczynowo-skutkowa:**\n    *   Dlaczego burmistrz odmówił? Zazwyczaj władze odmawiają zgody na demonstracje, gdy obawiają się, że dojdzie do przemocy lub że demonstranci nie są w stanie jej kontrolować.\n    *   Kto w tym kontekście \"boi się przemocy\"?\n        *   Jeśli \"oni\" to **demonstranci**: Oznaczałoby to, że burmistrz odmówił zgody, ponieważ sami demonstranci bali się przemocy (np. ze strony kontrdemonstrantów). Jest to logiczne – burmistrz może odmówić, aby chronić demonstrantów przed zagrożeniem, o którym sami wyrazili obawę.\n        *   Jeśli \"oni\" to **burmistrz**: W języku polskim zaimki osobowe w liczbie mnogiej (\"oni\") nie mogą odnosić się do podmiotu w liczbie pojedynczej (\"burmistrz\"). Gdyby chodziło o burmistrza, użyto by zaimka \"on\" (w liczbie pojedynczej) lub sformułowania \"bo bał się\". Ponieważ użyto \"oni\", zaimek ten musi odnosić się do grupy w liczbie mnogiej.\n4.  **Wniosek:** Jedyną grupą w liczbie mnogiej wymienioną w zdaniu są \"demonstranci\". Zaimki w języku polskim dążą do odniesienia się do najbliższego lub najbardziej logicznego podmiotu w liczbie mnogiej. W tym przypadku \"oni\" logicznie i gramatycznie odnosi się do demonstrantów.\n\nWYNIK: demonstranci",
+          "answer": "demonstranci",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}
