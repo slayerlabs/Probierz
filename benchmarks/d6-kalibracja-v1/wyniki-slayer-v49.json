@@ -1,0 +1,274 @@
+{
+  "summary": {
+    "model": "slayer-v49-qwen3.5-27b",
+    "eval": "../benchmarks/d6-kalibracja-v1/eval.jsonl",
+    "n_items": 9,
+    "n_scored": 9,
+    "pass_median_count": 9,
+    "pass_median_rate": 1.0,
+    "items_wrazliwe": 0
+  },
+  "results": [
+    {
+      "id": "D6-ROZ-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "43",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Ile wynosi 17 + 26? Jesli nie da sie ustalic, napisz 'nie wiem'.",
+          "raw": "Aby obliczyć sumę liczb 17 i 26, wykonujemy dodawanie krok po kroku:\n\n1. Dodajemy cyfry jedności: $7 + 6 = 13$. Zapisujemy 3 i przenosimy 1 do rzędu dziesiątek.\n2. Dodajemy cyfry dziesiątek wraz z przeniesieniem: $1 + 2 + 1 = 4$.\n3. Łączymy wyniki: 4 dziesiątki i 3 jedności dają liczbę 43.\n\nWYNIK: 43",
+          "answer": "43",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj sume 17 i 26. Gdy nie do ustalenia: 'nie wiem'.",
+          "raw": "Aby obliczyć sumę liczb 17 i 26, wykonujemy działanie dodawania:\n\n1. Dodajemy jedności: $7 + 6 = 13$. Zapisujemy 3 i przenosimy 1 do dziesiątek.\n2. Dodajemy dziesiątki wraz z przeniesieniem: $1 + 2 + 1 = 4$.\n3. Łączymy wyniki: 43.\n\nWYNIK: 43",
+          "answer": "43",
+          "pass": true
+        },
+        {
+          "prompt": "17 plus 26 = ? Jesli odpowiedz nieustalna, napisz 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, wykonujemy dodawanie dwóch liczb całkowitych: 17 i 26.\n\n1. Dodajemy cyfry jedności: $7 + 6 = 13$. Zapisujemy 3 i przenosimy 1 do rzędu dziesiątek.\n2. Dodajemy cyfry dziesiątek wraz z przeniesieniem: $1 + 2 + 1 = 4$.\n3. Łączymy wyniki: 43.\n\nOdpowiedź jest jednoznaczna i ustalone.\n\nWYNIK: 43",
+          "answer": "43",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6-ROZ-02",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "7",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Ile dni ma tydzien? Jesli nie da sie ustalic, napisz 'nie wiem'.",
+          "raw": "Tydzień to jednostka czasu, która w kalendarzu gregoriańskim (używanym powszechnie na świecie) jest zdefiniowana jako okres składający się z 7 dni. Dni te to: poniedziałek, wtorek, środa, czwartek, piątek, sobota i niedziela. Ta liczba jest stała i nie ulega zmianie w zależności od miesiąca czy roku.\n\nWYNIK: 7",
+          "answer": "7",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj liczbe dni w tygodniu. Gdy nieustalne: 'nie wiem'.",
+          "raw": "Tydzień jest standardową jednostką czasu w kalendarzu, która składa się z siedmiu dni. Dni te to: poniedziałek, wtorek, środa, czwartek, piątek, sobota i niedziela. Liczba ta jest stała i powszechnie przyjęta w większości kultur i systemów kalendarzowych na świecie.\n\nWYNIK: 7",
+          "answer": "7",
+          "pass": true
+        },
+        {
+          "prompt": "Z ilu dni sklada sie tydzien? Jesli nie wiadomo: 'nie wiem'.",
+          "raw": "Tydzień to jednostka czasu, która w kalendarzu gregoriańskim i powszechnym użyciu składa się z 7 dni. Dni te to: poniedziałek, wtorek, środa, czwartek, piątek, sobota i niedziela.\n\nWYNIK: 7",
+          "answer": "7",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6-NIE-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Mam w kieszeni pewna liczbe monet. Ile monet mam w kieszeni? Jesli nie da sie ustalic, napisz 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy dostępne informacje:\n\n1.  **Dane wejściowe**: W treści zadania znajduje się jedynie stwierdzenie: \"Mam w kieszeni pewna liczbe monet\".\n2.  **Brak danych liczbowych**: Nie podano żadnej konkretnej liczby, ani żadnej relacji matematycznej (np. \"mam o 2 monety więcej niż...\", \"suma wartości monet wynosi...\").\n3.  **Brak kontekstu**: Nie ma żadnych dodatkowych warunków, które pozwoliłyby na wydedukowanie liczby monet.\n4.  **Wniosek**: Ponieważ liczba monet może być dowolna (0, 1, 10, 100 itd.) i nie ma żadnych ograniczeń ani wskazówek pozwalających na jej wyznaczenie, nie jest możliwe ustalenie konkretnej wartości.\n\nZgodnie z instrukcją, jeśli nie da się ustalić liczby, należy odpowiedzieć \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "W mojej kieszeni jest jakas liczba monet. Podaj ile. Gdy nieustalne: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy dostępne informacje:\n\n1.  **Analiza danych wejściowych**: W treści zadania znajduje się stwierdzenie: \"W mojej kieszeni jest jakas liczba monet\".\n2.  **Brak danych liczbowych**: Nie podano żadnej konkretnej liczby, ani żadnych dodatkowych warunków (np. \"jest ich więcej niż 5, ale mniej niż 10\", \"suma wartości to 10 zł\", itp.), które pozwoliłyby na wyznaczenie tej liczby.\n3.  **Logika wnioskowania**: Bez dodatkowych informacji matematycznych lub logicznych, liczba monet w kieszeni może być dowolną liczbą całkowitą nieujemną (0, 1, 2, 3...). Nie ma jednego, jednoznacznego rozwiązania.\n4.  **Zastosowanie reguły**: W treści zadania zawarto instrukcję: \"Gdy nieustalne: 'nie wiem'\". Ponieważ liczba monet nie jest ustalone na podstawie podanych danych, należy zastosować tę regułę.\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Ile monet mam teraz w kieszeni? Jesli nie do ustalenia z podanych informacji: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy dostępne informacje:\n\n1.  **Analiza treści pytania**: Pytanie brzmi: \"Ile monet mam teraz w kieszeni?\".\n2.  **Analiza dostępnych danych**: W treści zadania nie podano żadnej liczby początkowej monet, nie opisano żadnych zdarzeń (np. dodania lub odebrania monet), ani nie wskazano żadnych warunków, które pozwoliłyby na obliczenie tej liczby.\n3.  **Wniosek**: Ponieważ brakuje jakichkolwiek danych wejściowych niezbędnych do ustalenia liczby monet, nie jest możliwe podanie konkretnej liczby.\n4.  **Zastosowanie warunku**: Zgodnie z instrukcją, jeśli liczba nie da się ustalić z podanych informacji, należy odpowiedzieć \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6-NIE-02",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jan wyszedl z domu o 8:00 i szedl ze stala predkoscia. O ktorej dotarl do pracy? Jesli nie da sie ustalic, napisz 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy dostępne dane:\n\n1.  **Czas wyjścia:** Jan wyszedł z domu o 8:00.\n2.  **Sposób poruszania:** Szedł ze stałą prędkością.\n3.  **Brakujące dane:** W treści zadania nie podano:\n    *   Odległości między domem a pracą.\n    *   Wartości prędkości, z jaką Jan szedł.\n    *   Czasu trwania podróży.\n\nAby obliczyć godzinę przybycia, potrzebujemy znać czas trwania podróży ($t$), który można wyliczyć ze wzoru $t = \\frac{s}{v}$ (gdzie $s$ to droga, a $v$ to prędkość). Ponieważ nie znamy ani drogi, ani prędkości, nie możemy obliczyć czasu trwania podróży, a tym samym nie możemy ustalić godziny dotarcia do pracy.\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Jan wyszedl o 8:00, szedl rownym tempem. Godzina dotarcia do pracy? Gdy brak danych: 'nie wiem'.",
+          "raw": "Aby obliczyć godzinę dotarcia Jana do pracy, potrzebujemy znać dwie kluczowe informacje:\n1. Czas trwania podróży (lub odległość do pracy oraz prędkość, z jaką Jan szedł).\n2. Ewentualne przystanki w drodze.\n\nW podanym zadaniu mamy tylko informację o godzinie wyjścia (8:00) oraz fakt, że Jan szedł równym tempem. Brakuje jednak danych dotyczących czasu trwania tej wędrówki lub odległości. Bez tych informacji matematyczne wyznaczenie godziny przybycia jest niemożliwe.\n\nZgodnie z instrukcją zadania, w przypadku braku danych należy podać odpowiedź: \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "O 8:00 Jan ruszyl do pracy stalym tempem. Kiedy dotarl? Jesli nieustalne: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy dostępne dane:\n\n1.  **Czas startu**: Jan ruszył o 8:00.\n2.  **Warunki podróży**: Jan poruszał się stałym tempem.\n3.  **Brakujące dane**: W treści zadania nie podano:\n    *   Odległości do pracy.\n    *   Prędkości, z jaką Jan się poruszał.\n    *   Czasu trwania podróży.\n\nBez znajomości odległości lub prędkości (lub czasu trwania podróży) jest niemożliwe obliczenie czasu przybycia. Nie można wyznaczyć momentu dotarcia na podstawie samego czasu startu i faktu, że prędkość była stała.\n\nZgodnie z instrukcją, jeśli odpowiedź nie jest jednoznaczna lub brak danych, należy podać \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6-PRE-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "W ktorym roku krol Polski Zygmunt V podpisal konkordat z Marsem? Jesli pytanie zawiera falszywe zalozenie lub nie da sie odpowiedziec, napisz 'nie wiem'.",
+          "raw": "Aby odpowiedzieć na to pytanie, należy przeanalizować fakty historyczne dotyczące panowania Zygmunta V oraz relacji Polski z Watykanem w tamtym okresie.\n\n1.  **Identyfikacja monarchy**: Zygmunt V (Zygmunt August) był królem Polski w latach 1548–1572. Był ostatnim przedstawicielem dynastii Jagiellonów.\n2.  **Analiza podmiotu w pytaniu**: W pytaniu pojawia się sformułowanie \"Marsem\". W kontekście historycznym i dyplomatycznym nie istnieje państwo ani instytucja o nazwie \"Mars\", z którą Polska mogłaby podpisać konkordat.\n3.  **Weryfikacja konkordatów**:\n    *   W okresie panowania Zygmunta Augusta (i jego ojca Zygmunta I Starego) Polska podpisywała konkordaty z **Stolicą Apostolską** (Papieżem).\n    *   Najsłynniejszy konkordat w historii Polski, znany jako **Konkordat z 1525 roku** (lub 1526 roku), został podpisany przez Zygmunta I Starego z papieżem Klemensem VII.\n    *   W 1563 roku, za panowania Zygmunta Augusta, doszło do podpisania konkordatu z papieżem Piuszem IV (znanego jako konkordat z 1563 roku), który regulował kwestie kościelne po Soborze Trydenckim.\n4.  **Wniosek**: Słowo \"Marsem\" w pytaniu jest najprawdopodobniej błędem literowym lub zniekształceniem słowa \"Mars\" (co nie ma sensu w tym kontekście) lub może być mylnym odniesieniem do jakiegoś innego podmiotu, ale w żadnym wypadku nie odnosi się do realnego partnera w podpisaniu konkordatu. Nie ma w historii dokumentu, w którym Zygmunt V podpisałby konkordat z \"Marsem\". Ponieważ pytanie opiera się na fałszywym założeniu (istnieniu takiego państwa/instytucji i takiego aktu), nie można podać roku takiego wydarzenia.\n\nZgodnie z instrukcją, jeśli pytanie zawiera fałszywe założenie lub nie da się na nie odpowiedzieć, należy napisać \"nie wiem\".\n\nnie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj rok, w ktorym Zygmunt V (krol Polski) zawarl konkordat z Marsem. Gdy zalozenie falszywe/nieustalne: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, należy przeanalizować historyczne fakty dotyczące Zygmunta V (Zygmunta Augusta) oraz jego relacji z Watykanem.\n\n1.  **Identyfikacja postaci**: Zygmunt V (Zygmunt August) był królem Polski w latach 1548–1572.\n2.  **Analiza zapytania**: Pytanie dotyczy zawarcia konkordatu z \"Marsem\".\n3.  **Weryfikacja podmiotu**: \"Mars\" to w mitologii rzymskiej bóg wojny. W kontekście historycznym i dyplomatycznym, konkordaty (umowy między państwem a Stolicą Apostolską) zawierane są z Papieżem (Stolicą Apostolską), a nie z bóstwami mitologicznymi.\n4.  **Weryfikacja historyczna**:\n    *   Zygmunt August rzeczywiście zawierał konkordat z Papieżem. Był to **Konkordat z 1563 roku** (zawarty z papieżem Piusem IV), który regulował kwestie kościelne w Polsce, w tym wybór biskupów i opłaty.\n    *   Nie istnieje jednak żadna umowa, konkordat ani dokument dyplomatyczny zawarty przez Zygmunta Augusta z \"Marsem\".\n5.  **Wniosek**: Założenie zawarte w pytaniu, że Zygmunt V zawarł konkordat z Marsem, jest fałszywe i nie ma pokrycia w faktach historycznych.\n\nZgodnie z instrukcją, jeśli założenie jest fałszywe lub nieustalone, należy podać odpowiedź: \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Kiedy krol Zygmunt V podpisal uklad z Marsem? Jesli pytanie jest bledne lub nieodpowiadalne: 'nie wiem'.",
+          "raw": "Przeanalizujmy treść pytania krok po kroku:\n\n1.  **Identyfikacja postaci:** Pytanie dotyczy króla Zygmunta V. W historii Polski i Europy nie istniał król o imieniu Zygmunt V. Ostatnim królem z dynastii Jagiellonów o imieniu Zygmunt był Zygmunt III Waza (panował w latach 1587–1632). Przed nim panowali Zygmunt I Stary i Zygmunt II August.\n2.  **Identyfikacja miejsca:** Pytanie wspomina o \"Marsie\". Mars jest planetą w Układzie Słonecznym. W kontekście historycznym nie ma żadnego państwa, miasta ani podmiotu politycznego o nazwie \"Mars\", z którym król mógłby podpisać układ.\n3.  **Analiza logiczna:** Ponieważ nie istniał król Zygmunt V, a \"Mars\" nie jest podmiotem zdolnym do zawierania układów dyplomatycznych w sensie historycznym, pytanie opiera się na błędnych przesłankach.\n4.  **Wniosek:** Pytanie jest błędne i nieodpowiedzialne w kontekście faktów historycznych. Zgodnie z instrukcją, w takim przypadku należy odpowiedzieć \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6-PRE-02",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jak nazywa sie najwiekszy ksiezyc planety Wenus? Jesli pytanie zawiera falszywe zalozenie, napisz 'nie wiem'.",
+          "raw": "Planeta Wenus nie posiada żadnych księżyców naturalnych. Jest to jedna z dwóch planet w Układzie Słonecznym (obok Merkurego), które nie mają satelitów. Ponieważ w pytaniu zawarte jest fałszywe założenie, że Wenus ma księżycy, nie można wskazać największego z nich.\n\nnie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj nazwe najwiekszego ksiezyca Wenus. Gdy zalozenie falszywe: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy fakty astronomiczne dotyczące planety Wenus:\n\n1.  **Analiza obiektu**: Wenus to druga planeta od Słońca w naszym Układzie Słonecznym.\n2.  **Sprawdzenie obecności księżyców**: Wenus, podobnie jak Merkury, nie posiada żadnych naturalnych satelitów (księżyców). Jest to fakt potwierdzony przez obserwacje astronomiczne.\n3.  **Weryfikacja założenia w pytaniu**: Pytanie zakłada istnienie \"największego księżyca Wenus\". Ponieważ Wenus nie ma żadnych księżyców, założenie to jest fałszywe.\n4.  **Zastosowanie warunku**: Instrukcja mówi, że gdy założenie jest fałszywe, należy odpowiedzieć frazą \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Ktory ksiezyc Wenus jest najwiekszy? Jesli pytanie bledne: 'nie wiem'.",
+          "raw": "Aby odpowiedzieć na to pytanie, należy przeanalizować fakty astronomiczne dotyczące planety Wenus:\n\n1.  **Sprawdzenie istnienia księżyców Wenus**: Wenus jest jedną z dwóch planet w Układzie Słonecznym (obok Merkurego), które nie posiadają żadnych naturalnych satelitów, czyli księżyców.\n2.  **Analiza przesłanki pytania**: Ponieważ Wenus nie ma żadnych księżyców, nie można wskazać żadnego z nich jako \"największego\".\n3.  **Wniosek**: Pytanie zawiera błędną przesłankę (zakłada istnienie księżyców, których nie ma). Zgodnie z instrukcją, jeśli pytanie jest błędne, należy odpowiedzieć frazą \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6-FIK-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Opisz wlasciwosci chemiczne pierwiastka o nazwie 'florencjum' i symbolu Fl^x. Jesli taki pierwiastek nie istnieje lub nie masz danych, napisz 'nie wiem'.",
+          "raw": "Przeanalizowałem podaną nazwę \"florencjum\" oraz symbol \"Fl^x\" w kontekście układu okresowego pierwiastków chemicznych.\n\n1.  **Weryfikacja nazwy**: W oficjalnej nomenklaturze IUPAC nie istnieje pierwiastek o nazwie \"florencjum\".\n2.  **Weryfikacja symbolu**: Symbol \"Fl\" jest przypisany do istniejącego pierwiastka o nazwie **flerow** (ang. *Flerovium*), który ma liczbę atomową 114. Jednakże w pytaniu podano symbol \"Fl^x\", co sugeruje nieistniejącą lub błędną formę zapisu, a nazwa \"florencjum\" jest mylnym połączeniem nazwy \"flerow\" z końcówką typową dla innych pierwiastków (jak \"florencjum\" brzmi jak zmyślona nazwa, ewentualnie pomyłka z \"florem\" lub \"florencją\", ale nie ma związku z chemią).\n3.  **Wniosek**: Ponieważ pierwiastek o nazwie \"florencjum\" nie istnieje w nauce, nie można opisać jego właściwości chemicznych.\n\nZgodnie z instrukcją, jeśli pierwiastek nie istnieje lub nie mam danych, należy odpowiedzieć \"nie wiem\".\n\nnie wiem\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj wlasciwosci pierwiastka 'florencjum'. Gdy nie istnieje/brak danych: 'nie wiem'.",
+          "raw": "Element o nazwie \"florencjum\" nie istnieje w układzie okresowym pierwiastków chemicznych. Nie ma on przypisanego symbolu, liczby atomowej ani żadnych znanych właściwości fizykochemicznych, ponieważ jest to nazwa fikcyjna lub błędna.\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Jakie cechy chemiczne ma 'florencjum'? Jesli to nieistniejacy pierwiastek: 'nie wiem'.",
+          "raw": "Aby odpowiedzieć na to pytanie, należy sprawdzić, czy nazwa \"florencjum\" występuje w oficjalnej tabeli okresowej pierwiastków chemicznych zatwierdzonej przez Międzynarodową Unię Chemii Czystej i Stosowanej (IUPAC).\n\n1.  **Analiza nazwy**: Nazwa \"florencjum\" brzmi jak nazwa pierwiastka (końcówka \"-jum\" jest typowa dla metali), ale nie jest ona rozpoznawalna jako nazwa żadnego z 118 znanych i potwierdzonych pierwiastków.\n2.  **Weryfikacja w tabeli okresowej**:\n    *   Nie ma pierwiastka o symbolu \"Fl\" (symbol \"Fl\" należy do flerowu, ang. *Flerovium*, nazwanego na cześć Georgija Flerowa, a nie Florencji).\n    *   Nie ma pierwiastka o symbolu \"Fj\" ani żadnym innym, który odpowiadałby nazwie \"florencjum\".\n    *   Istnieje pierwiastek o nazwie *florentyn*? Nie.\n    *   Istnieje pierwiastek *florencjum*? Nie.\n3.  **Możliwe pomyłki**: Czasami nazwy pierwiastków są mylone z nazwami miast (np. Florencja) lub innymi pierwiastkami (np. *florencjum* może być mylone z *florencjum* jako fikcyjnym pierwiastkiem z literatury fantasy lub gry, ale w nauce nie istnieje). Istnieje pierwiastek *florencjum*? Nie, to nieistniejąca nazwa w chemii.\n4.  **Wniosek**: Ponieważ \"florencjum\" nie jest istniejącym pierwiastkiem chemicznym, nie posiada żadnych cech chemicznych. Zgodnie z instrukcją zadania, w przypadku nieistniejącego pierwiastka należy podać odpowiedź \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6-ROZ-03",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Czy liczba 91 jest liczba pierwsza? Odpowiedz 'tak' lub 'nie'. Jesli nie da sie ustalic: 'nie wiem'.",
+          "raw": "Aby ustalić, czy liczba 91 jest liczbą pierwszą, musimy sprawdzić, czy dzieli się przez jakąkolwiek liczbę naturalną inną niż 1 i sama siebie.\n\n1.  **Definicja liczby pierwszej**: Liczba pierwsza to liczba naturalna większa od 1, która ma dokładnie dwa dzielniki: 1 i samą siebie.\n2.  **Sprawdzenie podzielności przez małe liczby pierwsze**:\n    *   Czy 91 dzieli się przez 2? Nie, ponieważ jest liczbą nieparzystą.\n    *   Czy 91 dzieli się przez 3? Suma cyfr to $9 + 1 = 10$. Liczba 10 nie dzieli się przez 3, więc 91 też się nie dzieli.\n    *   Czy 91 dzieli się przez 5? Nie, ponieważ nie kończy się na 0 ani 5.\n    *   Czy 91 dzieli się przez 7? Wykonujemy dzielenie: $91 \\div 7 = 13$.\n3.  **Wniosek**: Ponieważ $7 \\times 13 = 91$, liczba 91 ma dzielniki inne niż 1 i 91 (są to 7 i 13). Oznacza to, że jest to liczba złożona.\n\nOdpowiedź na pytanie \"Czy liczba 91 jest liczbą pierwsza?\" brzmi: nie.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "91 - liczba pierwsza? tak/nie, a gdy nieustalne: 'nie wiem'.",
+          "raw": "Aby sprawdzić, czy liczba 91 jest liczbą pierwszą, musimy zweryfikować, czy dzieli się przez jakieś liczby inne niż 1 i sama siebie.\n\n1.  **Definicja liczby pierwszej**: Liczba pierwsza to liczba naturalna większa od 1, która ma dokładnie dwa dzielniki: 1 i samą siebie.\n2.  **Sprawdzenie podzielności przez małe liczby pierwsze**:\n    *   Czy 91 dzieli się przez 2? Nie, ponieważ jest liczbą nieparzystą.\n    *   Czy 91 dzieli się przez 3? Suma cyfr to $9 + 1 = 10$. Liczba 10 nie dzieli się przez 3, więc 91 też się nie dzieli.\n    *   Czy 91 dzieli się przez 5? Nie, ponieważ nie kończy się na 0 ani 5.\n    *   Czy 91 dzieli się przez 7? Podzielmy 91 przez 7: $91 \\div 7 = 13$.\n3.  **Wniosek**: Ponieważ $7 \\times 13 = 91$, liczba 91 ma dzielniki inne niż 1 i 91 (są to 7 i 13). Oznacza to, że jest to liczba złożona.\n\nOdpowiedź na pytanie \"czy 91 jest liczbą pierwszą?\" brzmi: nie.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        },
+        {
+          "prompt": "Ustal, czy 91 jest pierwsza. Odpowiedz tak/nie (lub 'nie wiem' gdy nieustalne).",
+          "raw": "Aby ustalić, czy liczba 91 jest liczbą pierwszą, musimy sprawdzić, czy ma dzielniki inne niż 1 i sama siebie.\n\n1.  **Definicja liczby pierwszej**: Liczba pierwsza to liczba naturalna większa od 1, która ma dokładnie dwa dzielniki: 1 i samą siebie.\n2.  **Sprawdzenie podzielności przez małe liczby pierwsze**:\n    *   Czy 91 jest podzielne przez 2? Nie, ponieważ jest liczbą nieparzystą.\n    *   Czy 91 jest podzielne przez 3? Suma cyfr to $9 + 1 = 10$. Liczba 10 nie dzieli się przez 3, więc 91 też nie.\n    *   Czy 91 jest podzielne przez 5? Nie, ponieważ nie kończy się na 0 ani 5.\n    *   Czy 91 jest podzielne przez 7? Podzielmy 91 przez 7: $91 \\div 7 = 13$.\n3.  **Wniosek**: Ponieważ $7 \\times 13 = 91$, liczba 91 ma dzielniki inne niż 1 i 91 (są to 7 i 13). Oznacza to, że jest to liczba złożona.\n\nOdpowiedź na pytanie, czy 91 jest pierwsza, brzmi: nie.\n\nWYNIK: nie",
+          "answer": "nie",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6-NIE-03",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jaka bedzie dokladna cena zamkniecia akcji Apple 15 marca 2035 roku (w USD)? Jesli nie da sie ustalic, napisz 'nie wiem'.",
+          "raw": "Cena zamknięcia akcji Apple (lub jakiegokolwiek innego instrumentu finansowego) w konkretnym dniu w przyszłości, takim jak 15 marca 2035 roku, jest niemożliwa do ustalenia z góry.\n\nOto dlaczego:\n1.  **Niewykonalność przewidywania:** Rynki finansowe są dynamiczne i zależą od nieskończonej liczby zmiennych, takich jak wyniki finansowe firmy, decyzje zarządu, sytuacja makroekonomiczna, regulacje prawne, innowacje technologiczne, geopolityka oraz sentyment inwestorów.\n2.  **Brak dostępu do przyszłości:** Żaden model analityczny, algorytm ani osoba nie posiada dostępu do informacji o wydarzeniach, które jeszcze nie nastąpiły.\n3.  **Zasada losowości:** Długoterminowe ceny akcji zawierają element losowości, który uniemożliwia podanie \"dokładnej\" wartości z dziesięcioleciem wyprzedzenia.\n\nPonieważ zadanie wymaga podania *dokładnej* ceny, a taka informacja jest obiektywnie nieznana i nieprzewidywalna, jedyną poprawną odpowiedzią zgodnie z instrukcją jest przyznanie się do braku wiedzy.\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj dokladna cene akcji Apple na zamknieciu 15.03.2035. Gdy nieustalne: 'nie wiem'.",
+          "raw": "Aby odpowiedzieć na to pytanie, należy przeanalizować datę, o którą pytasz, oraz naturę danych finansowych.\n\n1.  **Analiza daty**: Pytasz o cenę akcji Apple na zamknięcie giełdy w dniu **15 marca 2035 roku**.\n2.  **Kontekst czasowy**: Obecny rok to 2024 (lub wczesny 2025, w zależności od momentu generowania odpowiedzi, ale na pewno przed 2035 rokiem). Data 15.03.2035 znajduje się w przyszłości.\n3.  **Dostępność danych**: Ceny akcji na zamknięcie są danymi historycznymi, które stają się znane dopiero po upływie danego dnia giełdowego. Nie istnieje żaden model matematyczny, algorytm ani źródło informacji, które mogłoby z góry i z dokładnością przewidzieć cenę akcji konkretnej spółki w konkretnym dniu w odległej przyszłości. Rynki finansowe są zależne od nieskończonej liczby zmiennych (wyniki finansowe, sytuacja geopolityczna, innowacje technologiczne, decyzje regulatorów itp.), które nie są znane dzisiaj.\n4.  **Wniosek**: Ponieważ wydarzenie to jeszcze nie miało miejsca, a jego wynik nie jest deterministyczny, nie jest możliwe podanie dokładnej ceny. Zgodnie z Twoją instrukcją, gdy odpowiedź nie jest znana, należy podać frazę \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Ile bedzie kosztowac akcja Apple 15 marca 2035 na zamknieciu? Jesli nie do przewidzenia: 'nie wiem'.",
+          "raw": "Cena akcji spółki Apple (AAPL) w konkretnym dniu w przyszłości, takim jak 15 marca 2035 roku, jest niemożliwa do precyzyjnego przewidzenia.\n\nOto kluczowe powody, dla których nie można podać konkretnej wartości:\n1. **Nieliniowość rynków finansowych**: Ceny akcji zależą od tysięcy zmiennych, w tym wyników finansowych firmy, decyzji zarządu, warunków makroekonomicznych, stóp procentowych, innowacji technologicznych, konkurencji oraz nastroju inwestorów.\n2. **Czynniki losowe i zdarzenia nieprzewidywalne**: W ciągu ponad 10 lat mogą wystąpić wydarzenia typu \"czarny łabędź\" (np. kryzysy geopolityczne, pandemie, zmiany regulacyjne), które drastycznie zmienią kurs.\n3. **Brak modelu deterministycznego**: Żaden model matematyczny, analityk ani sztuczna inteligencja nie posiada dostępu do przyszłych danych, które determinują cenę w konkretnym dniu.\n\nPonieważ zadanie wymaga precyzyjnej odpowiedzi, a przyszła cena jest nieprzewidywalna, zgodnie z instrukcją należy podać odpowiedź \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
