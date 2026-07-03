@@ -1,0 +1,42 @@
+{
+  "summary": {
+    "model": "slayer-v49-qwen3.5-27b",
+    "eval": "../benchmarks/d1-czysta-dlugosc-v1/eval.jsonl",
+    "n_items": 8,
+    "n_scored": 1,
+    "pass_median_count": 0,
+    "pass_median_rate": 0.0,
+    "items_wrazliwe": 0
+  },
+  "results": [
+    {
+      "id": "CDL-01",
+      "poziom": null,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "107",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Collatz: parzyste n/2, nieparzyste 3n+1. Ile krokow z n=63 do 1?",
+          "raw": "Aby rozwiązać to zadanie, zastosujemy reguły ciągu Collatza do liczby początkowej $n = 63$ i policzymy liczbę kroków (operacji) potrzebnych do osiągnięcia liczby 1.\n\nReguły:\n1. Jeśli liczba jest parzysta: podziel ją przez 2 ($n/2$).\n2. Jeśli liczba jest nieparzysta: pomnóż przez 3 i dodaj 1 ($3n+1$).\n\nRozpoczynamy od $n = 63$.\n\n**Krok 1:** 63 jest nieparzyste.\n$3 \\times 63 + 1 = 189 + 1 = 190$\n\n**Krok 2:** 190 jest parzyste.\n$190 / 2 = 95$\n\n**Krok 3:** 95 jest nieparzyste.\n$3 \\times 95 + 1 = 285 + 1 = 286$\n\n**Krok 4:** 286 jest parzyste.\n$286 / 2 = 143$\n\n**Krok 5:** 143 jest nieparzyste.\n$3 \\times 143 + 1 = 429 + 1 = 430$\n\n**Krok 6:** 430 jest parzyste.\n$430 / 2 = 215$\n\n**Krok 7:** 215 jest nieparzyste.\n$3 \\times 215 + 1 = 645 + 1 = 646$\n\n**Krok 8:** 646 jest parzyste.\n$646 / 2 = 323$\n\n**Krok 9:** 323 jest nieparzyste.\n$3 \\times 323 + 1 = 969 + 1 = 970$\n\n**Krok 10:** 970 jest parzyste.\n$970 / 2 = 485$\n\n**Krok 11:** 485 jest nieparzyste.\n$3 \\times 485 + 1 = 1455 + 1 = 1456$\n\n**Krok 12:** 1456 jest parzyste.\n$1456 / 2 = 728$\n\n**Krok 13:** 728 jest parzyste.\n$728 / 2 = 364$\n\n**Krok 14:** 364 jest parzyste.\n$364 / 2 = 182$\n\n**Krok 15:** 182 jest parzyste.\n$182 / 2 = 91$\n\n**Krok 16:** 91 jest nieparzyste.\n$3 \\times 91 + 1 = 273 + 1 = 274$\n\n**Krok 17:** 274 jest parzyste.\n$274 / 2 = 137$\n\n**Krok 18:** 137 jest nieparzyste.\n$3 \\times 137 + 1 = 411 + 1 = 412$\n\n**Krok 19:** 412 jest parzyste.\n$412 / 2 = 206$\n\n**Krok 20:** 206 jest parzyste.\n$206 / 2 = 103$\n\n**Krok 21:** 103 jest nieparzyste.\n$3 \\times 103 + 1 = 309 + 1 = 310$\n\n**Krok 22:** 310 jest parzyste.\n$310 / 2 = 155$\n\n**Krok 23:** 155 jest nieparzyste.\n$3 \\times 155 + 1 = 465 + 1 = 466$\n\n**Krok 24:** 466 jest parzyste.\n$466 / 2 = 233$\n\n**Krok 25:** 233 jest nieparzyste.\n$3 \\times 233 + 1 = 699 + 1 =",
+          "answer": "$3 \\times 233 + 1 = 699 + 1 =",
+          "pass": false
+        },
+        {
+          "prompt": "Od 63 iteruj Collatza (parzyste->polowa, nieparzyste->3n+1) do 1. Liczba krokow?",
+          "raw": "Aby rozwiązać to zadanie, prześledźmy sekwencję Collatza zaczynając od liczby 63, aż dojdziemy do 1, licząc przy tym każdy krok (iterację).\n\nZasady:\n- Jeśli liczba jest parzysta: $n \\rightarrow n / 2$\n- Jeśli liczba jest nieparzysta: $n \\rightarrow 3n + 1$\n\n**Rozpoczęcie od 63:**\n\n1.  63 (nieparzysta) $\\rightarrow 3 \\times 63 + 1 = 190$ (krok 1)\n2.  190 (parzysta) $\\rightarrow 190 / 2 = 95$ (krok 2)\n3.  95 (nieparzysta) $\\rightarrow 3 \\times 95 + 1 = 286$ (krok 3)\n4.  286 (parzysta) $\\rightarrow 286 / 2 = 143$ (krok 4)\n5.  143 (nieparzysta) $\\rightarrow 3 \\times 143 + 1 = 430$ (krok 5)\n6.  430 (parzysta) $\\rightarrow 430 / 2 = 215$ (krok 6)\n7.  215 (nieparzysta) $\\rightarrow 3 \\times 215 + 1 = 646$ (krok 7)\n8.  646 (parzysta) $\\rightarrow 646 / 2 = 323$ (krok 8)\n9.  323 (nieparzysta) $\\rightarrow 3 \\times 323 + 1 = 970$ (krok 9)\n10. 970 (parzysta) $\\rightarrow 970 / 2 = 485$ (krok 10)\n11. 485 (nieparzysta) $\\rightarrow 3 \\times 485 + 1 = 1456$ (krok 11)\n12. 1456 (parzysta) $\\rightarrow 1456 / 2 = 728$ (krok 12)\n13. 728 (parzysta) $\\rightarrow 728 / 2 = 364$ (krok 13)\n14. 364 (parzysta) $\\rightarrow 364 / 2 = 182$ (krok 14)\n15. 182 (parzysta) $\\rightarrow 182 / 2 = 91$ (krok 15)\n16. 91 (nieparzysta) $\\rightarrow 3 \\times 91 + 1 = 274$ (krok 16)\n17. 274 (parzysta) $\\rightarrow 274 / 2 = 137$ (krok 17)\n18. 137 (nieparzysta) $\\rightarrow 3 \\times 137 + 1 = 412$ (krok 18)\n19. 412 (parzysta) $\\rightarrow 412 / 2 = 206$ (krok 19)\n20. 206 (parzysta) $\\rightarrow 206 / 2 = 103$ (krok 20)\n21. 103 (nieparzysta) $\\rightarrow 3 \\times 103 + 1 = 310$ (krok 21)\n22. 310 (parzysta) $\\rightarrow 310 / 2 = 155$ (krok 22)\n23. 155 (nieparzysta) $\\rightarrow 3 \\times 155 + 1 = 466$ (krok 23)\n24. 466 (parzysta) $\\rightarrow 466 / 2 = 233$ (krok 24)\n25. 233 (nieparzysta) $\\rightarrow 3 \\times 233 + 1 = 700$ (krok 25)\n26. 700 (parzysta) $\\rightarrow 700 / 2 = 350$ (",
+          "answer": "26. 700 (parzysta) $\\rightarrow 700 / 2 = 350$ (",
+          "pass": false
+        },
+        {
+          "prompt": "Ile iteracji Collatza potrzeba od 63 do osiagniecia 1?",
+          "raw": "Aby obliczyć liczbę iteracji sekwencji Collatza (znanej również jako problem 3n+1) dla liczby początkowej 63, musimy zastosować reguły sekwencji krok po kroku, aż do osiągnięcia liczby 1.\n\nReguły są następujące:\n- Jeśli liczba jest parzysta, dzielimy ją przez 2 ($n \\to n/2$).\n- Jeśli liczba jest nieparzysta, mnożymy ją przez 3 i dodajemy 1 ($n \\to 3n + 1$).\n\nZaczynamy od $n = 63$.\n\n1.  **Iteracja 1**: 63 jest nieparzyste. $3 \\times 63 + 1 = 189 + 1 = 190$.\n2.  **Iteracja 2**: 190 jest parzyste. $190 / 2 = 95$.\n3.  **Iteracja 3**: 95 jest nieparzyste. $3 \\times 95 + 1 = 285 + 1 = 286$.\n4.  **Iteracja 4**: 286 jest parzyste. $286 / 2 = 143$.\n5.  **Iteracja 5**: 143 jest nieparzyste. $3 \\times 143 + 1 = 429 + 1 = 430$.\n6.  **Iteracja 6**: 430 jest parzyste. $430 / 2 = 215$.\n7.  **Iteracja 7**: 215 jest nieparzyste. $3 \\times 215 + 1 = 645 + 1 = 646$.\n8.  **Iteracja 8**: 646 jest parzyste. $646 / 2 = 323$.\n9.  **Iteracja 9**: 323 jest nieparzyste. $3 \\times 323 + 1 = 969 + 1 = 970$.\n10. **Iteracja 10**: 970 jest parzyste. $970 / 2 = 485$.\n11. **Iteracja 11**: 485 jest nieparzyste. $3 \\times 485 + 1 = 1455 + 1 = 1456$.\n12. **Iteracja 12**: 1456 jest parzyste. $1456 / 2 = 728$.\n13. **Iteracja 13**: 728 jest parzyste. $728 / 2 = 364$.\n14. **Iteracja 14**: 364 jest parzyste. $364 / 2 = 182$.\n15. **Iteracja 15**: 182 jest parzyste. $182 / 2 = 91$.\n16. **Iteracja 16**: 91 jest nieparzyste. $3 \\times 91 + 1 = 273 + 1 = 274$.\n17. **Iteracja 17**: 274 jest parzyste. $274 / 2 = 137$.\n18. **Iteracja 18**: 137 jest nieparzyste. $3 \\times 137 + 1 = 411 + 1 = 412$.\n19. **Iteracja 19**: 412 jest parzyste. $412 / 2 = 206$.\n20. **Iteracja 20**: 206 jest parzyste. $206 / 2 = 103$.\n21. **Iteracja 21**: 103 jest nieparzyste. $3 \\times 103 + 1 = 309 + 1 = 310$.\n22. **Iteracja 22**: 310 jest parzyste. $310 / 2 = 155$.\n23. **Iteracja 23**: 155 jest nieparzyste. $3 \\times 155 + 1 = 465 + 1 = 466$.\n2",
+          "answer": "2",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

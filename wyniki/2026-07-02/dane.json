@@ -1,0 +1,294 @@
+{
+  "data_raportu": "2026-07-02",
+  "model_glowny": "slayer-v49-qwen3.5-27b",
+  "benchmarki": {
+    "d1-czysta-dlugosc-v1": {
+      "slayer-v49": {
+        "pass": 0,
+        "n": 8,
+        "rate": 0.0,
+        "wrazliwe": 0,
+        "faile": [
+          "CDL-01"
+        ]
+      }
+    },
+    "d1-glebia-rozumowania-v1": {
+      "slayer-v49": {
+        "pass": 5,
+        "n": 6,
+        "rate": 0.833,
+        "wrazliwe": 4,
+        "faile": [
+          "GLEB-03"
+        ]
+      }
+    },
+    "d1-rozumowanie-extreme-v1": {
+      "gemma-3n-e4b": {
+        "pass": 3,
+        "n": 6,
+        "rate": 0.5,
+        "wrazliwe": 2,
+        "faile": [
+          "D1X-L11-01",
+          "D1X-L11-02",
+          "D1X-L13-02"
+        ]
+      },
+      "nemotron-3-nano-4b": {
+        "pass": 5,
+        "n": 6,
+        "rate": 0.833,
+        "wrazliwe": 2,
+        "faile": [
+          "D1X-L13-02"
+        ]
+      },
+      "slayer-v49": {
+        "pass": 5,
+        "n": 6,
+        "rate": 0.833,
+        "wrazliwe": 3,
+        "faile": [
+          "D1X-L13-02"
+        ]
+      }
+    },
+    "d1-rozumowanie-hard-v1": {
+      "bielik-1.5b": {
+        "pass": 1,
+        "n": 11,
+        "rate": 0.091,
+        "wrazliwe": 5,
+        "faile": [
+          "D1H-L7-01",
+          "D1H-L8-01",
+          "D1H-L8-02",
+          "D1H-L8-03",
+          "D1H-L9-01",
+          "D1H-L9-02",
+          "D1H-L9-03",
+          "D1H-L10-01",
+          "D1H-L10-02",
+          "D1H-L10-03"
+        ]
+      },
+      "gemma-3n-e4b": {
+        "pass": 6,
+        "n": 11,
+        "rate": 0.545,
+        "wrazliwe": 5,
+        "faile": [
+          "D1H-L8-03",
+          "D1H-L9-02",
+          "D1H-L9-03",
+          "D1H-L10-01",
+          "D1H-L10-03"
+        ]
+      },
+      "nemotron-3-nano-4b": {
+        "pass": 10,
+        "n": 11,
+        "rate": 0.909,
+        "wrazliwe": 4,
+        "faile": [
+          "D1H-L10-02"
+        ]
+      },
+      "qwen3-1.7b": {
+        "pass": 6,
+        "n": 11,
+        "rate": 0.545,
+        "wrazliwe": 5,
+        "faile": [
+          "D1H-L9-01",
+          "D1H-L9-02",
+          "D1H-L10-01",
+          "D1H-L10-02",
+          "D1H-L10-03"
+        ]
+      },
+      "slayer-v49": {
+        "pass": 10,
+        "n": 11,
+        "rate": 0.909,
+        "wrazliwe": 1,
+        "faile": [
+          "D1H-L9-03"
+        ]
+      }
+    },
+    "d1-rozumowanie-v1": {
+      "bielik-1.5b": {
+        "pass": 2,
+        "n": 10,
+        "rate": 0.2,
+        "wrazliwe": 5,
+        "faile": [
+          "D1-L2-02",
+          "D1-L3-02",
+          "D1-L4-01",
+          "D1-L4-02",
+          "D1-L5-01",
+          "D1-L5-02",
+          "D1-L6-01",
+          "D1-L6-02"
+        ]
+      },
+      "gemma-3n-e4b": {
+        "pass": 10,
+        "n": 10,
+        "rate": 1.0,
+        "wrazliwe": 2,
+        "faile": []
+      },
+      "nemotron-3-nano-4b": {
+        "pass": 8,
+        "n": 10,
+        "rate": 0.8,
+        "wrazliwe": 3,
+        "faile": [
+          "D1-L3-02",
+          "D1-L5-01"
+        ]
+      },
+      "qwen3-1.7b": {
+        "pass": 8,
+        "n": 10,
+        "rate": 0.8,
+        "wrazliwe": 3,
+        "faile": [
+          "D1-L4-02",
+          "D1-L5-01"
+        ]
+      },
+      "slayer-v49": {
+        "pass": 9,
+        "n": 10,
+        "rate": 0.9,
+        "wrazliwe": 1,
+        "faile": [
+          "D1-L4-02"
+        ]
+      }
+    },
+    "d1-wytrzymalosc-obliczeniowa-v1": {
+      "slayer-v49": {
+        "pass": 6,
+        "n": 8,
+        "rate": 0.75,
+        "wrazliwe": 1,
+        "faile": [
+          "WYT-03",
+          "WYT-06"
+        ]
+      }
+    },
+    "d2-semantyka-v1": {
+      "bielik-1.5b": {
+        "pass": 5,
+        "n": 10,
+        "rate": 0.5,
+        "wrazliwe": 4,
+        "faile": [
+          "D2-L1-02",
+          "D2-L2-02",
+          "D2-L4-01",
+          "D2-L4-02",
+          "D2-L4-03"
+        ]
+      },
+      "gemma-3n-e4b": {
+        "pass": 7,
+        "n": 10,
+        "rate": 0.7,
+        "wrazliwe": 3,
+        "faile": [
+          "D2-L4-01",
+          "D2-L4-02",
+          "D2-L4-03"
+        ]
+      },
+      "nemotron-3-nano-4b": {
+        "pass": 5,
+        "n": 10,
+        "rate": 0.5,
+        "wrazliwe": 3,
+        "faile": [
+          "D2-L1-02",
+          "D2-L2-02",
+          "D2-L4-01",
+          "D2-L4-02",
+          "D2-L4-03"
+        ]
+      },
+      "qwen3-1.7b": {
+        "pass": 6,
+        "n": 10,
+        "rate": 0.6,
+        "wrazliwe": 3,
+        "faile": [
+          "D2-L1-02",
+          "D2-L2-02",
+          "D2-L4-01",
+          "D2-L4-03"
+        ]
+      },
+      "slayer-v49": {
+        "pass": 9,
+        "n": 10,
+        "rate": 0.9,
+        "wrazliwe": 2,
+        "faile": [
+          "D2-L4-03"
+        ]
+      }
+    },
+    "d5-orkiestracja-hard-v1": {
+      "slayer-v49": {
+        "pass": 6,
+        "n": 6,
+        "rate": 1.0,
+        "wrazliwe": 1,
+        "faile": []
+      }
+    },
+    "d5-orkiestracja-v1": {
+      "slayer-v49": {
+        "pass": 6,
+        "n": 6,
+        "rate": 1.0,
+        "wrazliwe": 1,
+        "faile": []
+      }
+    },
+    "d5-wiernosc-instrukcji-v1": {
+      "slayer-v49": {
+        "pass": 8,
+        "n": 8,
+        "rate": 1.0,
+        "wrazliwe": 2,
+        "faile": []
+      }
+    },
+    "d6-kalibracja-hard-v1": {
+      "slayer-v49": {
+        "pass": 7,
+        "n": 7,
+        "rate": 1.0,
+        "wrazliwe": 1,
+        "faile": []
+      }
+    },
+    "d6-kalibracja-v1": {
+      "slayer-v49": {
+        "pass": 9,
+        "n": 9,
+        "rate": 1.0,
+        "wrazliwe": 0,
+        "faile": []
+      }
+    }
+  }
+}
