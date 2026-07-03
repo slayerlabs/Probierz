@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "model": "slayer-v49-qwen3.5-27b",
+    "eval": "../benchmarks/d5-orkiestracja-hard-v1/eval.jsonl",
+    "n_items": 6,
+    "n_scored": 6,
+    "pass_median_count": 6,
+    "pass_median_rate": 1.0,
+    "items_wrazliwe": 1
+  },
+  "results": [
+    {
+      "id": "D5BH-SEQ3-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "json_seq_order:['search', 'write', 'read']",
+      "typ": "programowa",
+      "per_parafraza": [
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Wyszukaj cene bitcoina, zapisz wynik wyszukiwania do ceny.txt, potem odczytaj ceny.txt. Podaj pelny plan.",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"cena bitcoina\"}},{\"tool\":\"write\",\"args\":{\"path\":\"ceny.txt\",\"content\":\"wynik_wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"ceny.txt\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"cena bitcoina\"}},{\"tool\":\"write\",\"args\":{\"path\":\"ceny.txt\",\"content\":\"wynik_wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"ceny.txt\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: 1) znajdz cene bitcoina w sieci 2) zapisz do pliku ceny.txt 3) odczytaj ceny.txt. Pelny plan krokow.",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"cena bitcoina\"}},{\"tool\":\"write\",\"args\":{\"path\":\"ceny.txt\",\"content\":\"cena bitcoina\"}},{\"tool\":\"read\",\"args\":{\"path\":\"ceny.txt\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"cena bitcoina\"}},{\"tool\":\"write\",\"args\":{\"path\":\"ceny.txt\",\"content\":\"cena bitcoina\"}},{\"tool\":\"read\",\"args\":{\"path\":\"ceny.txt\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Trzeba: wyszukac cene bitcoina, zapisac ja w ceny.txt, na koniec wczytac ceny.txt. Plan?",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"cena bitcoina\"}},{\"tool\":\"write\",\"args\":{\"path\":\"ceny.txt\",\"content\":\"cena_znaleziona_w_wynikach_wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"ceny.txt\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"cena bitcoina\"}},{\"tool\":\"write\",\"args\":{\"path\":\"ceny.txt\",\"content\":\"cena_znaleziona_w_wynikach_wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"ceny.txt\"}}]",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D5BH-SEQ4-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "json_seq_order:['read', 'search', 'write', 'run']",
+      "typ": "programowa",
+      "per_parafraza": [
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Odczytaj konfiguracje z config.txt, wyszukaj aktualizacje online, zapisz nowa wersje do config.txt, uruchom komende \"reload\". Pelny plan.",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"config.txt\"}},{\"tool\":\"search\",\"args\":{\"query\":\"aktualizacje konfiguracji\"}},{\"tool\":\"write\",\"args\":{\"path\":\"config.txt\",\"content\":\"nowa_wersja_konfiguracji\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"reload\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"config.txt\"}},{\"tool\":\"search\",\"args\":{\"query\":\"aktualizacje konfiguracji\"}},{\"tool\":\"write\",\"args\":{\"path\":\"config.txt\",\"content\":\"nowa_wersja_konfiguracji\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"reload\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: 1) wczytaj config.txt 2) sprawdz aktualizacje w sieci 3) zapisz nowy config.txt 4) wykonaj \"reload\". Plan krokow.",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"config.txt\"}},{\"tool\":\"search\",\"args\":{\"query\":\"aktualizacje config.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"config.txt\",\"content\":\"nowa zawartosc\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"reload\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"config.txt\"}},{\"tool\":\"search\",\"args\":{\"query\":\"aktualizacje config.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"config.txt\",\"content\":\"nowa zawartosc\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"reload\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Kolejno: odczyt config.txt, wyszukanie aktualizacji, zapis config.txt, uruchomienie \"reload\". Podaj plan.",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"config.txt\"}},{\"tool\":\"search\",\"args\":{\"query\":\"aktualizacje\"}},{\"tool\":\"write\",\"args\":{\"path\":\"config.txt\",\"content\":\"\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"reload\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"config.txt\"}},{\"tool\":\"search\",\"args\":{\"query\":\"aktualizacje\"}},{\"tool\":\"write\",\"args\":{\"path\":\"config.txt\",\"content\":\"\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"reload\"}}]",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D5BH-SEQ5-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "json_seq_len_order:{'len': 5, 'order': ['search', 'write', 'read', 'write', 'run']}",
+      "typ": "programowa",
+      "per_parafraza": [
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: 1) wyszukaj dokumentacje API 2) zapisz do api.txt 3) odczytaj api.txt 4) zapisz podsumowanie do summary.txt 5) uruchom \"deploy\". Pelny plan.",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"dokumentacja API\"}},{\"tool\":\"write\",\"args\":{\"path\":\"api.txt\",\"content\":\"wyniki wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"api.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"summary.txt\",\"content\":\"podsumowanie\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"deploy\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"dokumentacja API\"}},{\"tool\":\"write\",\"args\":{\"path\":\"api.txt\",\"content\":\"wyniki wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"api.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"summary.txt\",\"content\":\"podsumowanie\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"deploy\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: search dokumentacji API, write api.txt, read api.txt, write summary.txt, run \"deploy\" - w tej kolejnosci. Plan.",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"dokumentacja API\"}},{\"tool\":\"write\",\"args\":{\"path\":\"api.txt\",\"content\":\"wyniki wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"api.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"summary.txt\",\"content\":\"podsumowanie\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"deploy\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"dokumentacja API\"}},{\"tool\":\"write\",\"args\":{\"path\":\"api.txt\",\"content\":\"wyniki wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"api.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"summary.txt\",\"content\":\"podsumowanie\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"deploy\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Piec krokow po kolei: znajdz dokumentacje API, zapisz api.txt, wczytaj api.txt, zapisz summary.txt, wykonaj \"deploy\". Podaj plan.",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"dokumentacja API\"}},{\"tool\":\"write\",\"args\":{\"path\":\"api.txt\",\"content\":\"wyniki wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"api.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"summary.txt\",\"content\":\"podsumowanie\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"deploy\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"dokumentacja API\"}},{\"tool\":\"write\",\"args\":{\"path\":\"api.txt\",\"content\":\"wyniki wyszukiwania\"}},{\"tool\":\"read\",\"args\":{\"path\":\"api.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"summary.txt\",\"content\":\"podsumowanie\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"deploy\"}}]",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D5BH-COND-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "json_seq_order:['read', 'run']",
+      "typ": "programowa",
+      "per_parafraza": [
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Sprawdz czy plik dane.txt istnieje (read). Jesli TAK - odczytaj i uruchom \"process\". Podaj plan zakladajac ze plik istnieje.",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"dane.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"process\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"dane.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"process\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Zaloz ze dane.txt istnieje. Plan: odczytaj dane.txt, nastepnie uruchom komende \"process\". Podaj kroki.",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"dane.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"process\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"dane.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"process\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Przy zalozeniu istnienia dane.txt: read dane.txt potem run \"process\". Plan.",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"dane.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"process\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"dane.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"process\"}}]",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D5BH-DEP-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "json_seq_dep:{'order': ['search', 'write'], 'ref_in_last': True}",
+      "typ": "programowa",
+      "per_parafraza": [
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Wyszukaj nazwe stolicy Japonii, a nastepnie zapisz TA nazwe do pliku stolica.txt. Krok zapisu musi uzywac wyniku wyszukiwania (np. referencja typu {{step1}} lub placeholder). Pelny plan.",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"stolica Japonii\"}},{\"tool\":\"write\",\"args\":{\"path\":\"stolica.txt\",\"content\":\"{{step1}}\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"stolica Japonii\"}},{\"tool\":\"write\",\"args\":{\"path\":\"stolica.txt\",\"content\":\"{{step1}}\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: 1) search stolicy Japonii 2) write stolica.txt z wynikiem z kroku 1 (uzyj referencji do poprzedniego wyniku). Plan.",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"stolica Japonii\"}},{\"tool\":\"write\",\"args\":{\"path\":\"stolica.txt\",\"content\":\"{{search_result}}\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"stolica Japonii\"}},{\"tool\":\"write\",\"args\":{\"path\":\"stolica.txt\",\"content\":\"{{search_result}}\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Znajdz stolice Japonii i zapisz JA do stolica.txt (zapis ma odwolywac sie do wyniku wyszukiwania). Plan krokow.",
+          "raw": "[{\"tool\":\"search\",\"args\":{\"query\":\"stolica Japonii\"}},{\"tool\":\"write\",\"args\":{\"path\":\"stolica.txt\",\"content\":\"Tokio\"}}]",
+          "answer": "[{\"tool\":\"search\",\"args\":{\"query\":\"stolica Japonii\"}},{\"tool\":\"write\",\"args\":{\"path\":\"stolica.txt\",\"content\":\"Tokio\"}}]",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D5BH-SEQ4-02",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "json_seq_no_tool:{'order': ['read', 'write', 'read', 'run'], 'forbidden': 'search'}",
+      "typ": "programowa",
+      "per_parafraza": [
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Nie uzywaj wyszukiwania. Wykonaj: odczytaj in.txt, zapisz kopie do out.txt, odczytaj out.txt, uruchom \"verify\". Pelny plan (bez search!).",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"in.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"out.txt\",\"content\":\"{{read_result}}\"}},{\"tool\":\"read\",\"args\":{\"path\":\"out.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"verify\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"in.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"out.txt\",\"content\":\"{{read_result}}\"}},{\"tool\":\"read\",\"args\":{\"path\":\"out.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"verify\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: BEZ search. Kroki: read in.txt, write out.txt, read out.txt, run \"verify\". Plan.",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"in.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"out.txt\",\"content\":\"\"}},{\"tool\":\"read\",\"args\":{\"path\":\"out.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"verify\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"in.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"out.txt\",\"content\":\"\"}},{\"tool\":\"read\",\"args\":{\"path\":\"out.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"verify\"}}]",
+          "pass": true
+        },
+        {
+          "prompt": "Jestes orkiestratorem w systemie agentycznym. Dostepne narzedzia:\n- search(query): wyszukiwanie w sieci\n- read(path): odczyt pliku\n- write(path, content): zapis pliku\n- run(cmd): wykonanie komendy\nZASADY: (1) Odpowiadasz WYLACZNIE tablica JSON obiektow [{\"tool\":...,\"args\":...}, ...]. (2) Podajesz PELNY plan wszystkich krokow w poprawnej kolejnosci. (3) Zero tekstu poza tablica JSON.\n\nZADANIE: Zakaz uzycia search. Po kolei: wczytaj in.txt, zapisz out.txt, wczytaj out.txt, wykonaj \"verify\". Podaj plan.",
+          "raw": "[{\"tool\":\"read\",\"args\":{\"path\":\"in.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"out.txt\",\"content\":\"\"}},{\"tool\":\"read\",\"args\":{\"path\":\"out.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"verify\"}}]",
+          "answer": "[{\"tool\":\"read\",\"args\":{\"path\":\"in.txt\"}},{\"tool\":\"write\",\"args\":{\"path\":\"out.txt\",\"content\":\"\"}},{\"tool\":\"read\",\"args\":{\"path\":\"out.txt\"}},{\"tool\":\"run\",\"args\":{\"cmd\":\"verify\"}}]",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

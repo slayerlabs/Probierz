@@ -14,46 +14,56 @@ date: 2026-07-02
 | Zestaw | Wynik | Wrażliwe | Charakter |
 |---|---|---|---|
 | `d5-wiernosc-instrukcji-v1` (twarde ograniczenia) | **8/8 (100%)** | 2 | pojedyncze ograniczenia formatu |
-| `d5-orkiestracja-v1` (agentyczna) | **5/6 (83%)** | 1 | orkiestracja, ograniczenia skumulowane |
+| `d5-orkiestracja-v1` (agentyczna, 1 krok) | **6/6 (100%)** | 1 | orkiestracja 1 krok (po naprawie D5B-SEQ-01) |
+| `d5-orkiestracja-hard-v1` (workflow 3–5 kroków) | **6/6 (100%)** | 1 | pełne wieloetapowe workflow |
 
 ## D5a — twarde ograniczenia formatu: sufit
-Slayer opanował wszystkie pojedyncze ograniczenia: dokładna liczba słów, zakaz litery „a", tylko wielkie
-litery, dokładna liczba linii, JSON z kluczami, prefiks, zakaz słowa, **odporność na wstrzyknięcie**
-(nie dał się zbić na „HACKED"). Wrażliwe 2/8 (zakaz litery, zakaz słowa — bywa niestabilny przy parafrazie).
+Slayer opanował wszystkie pojedyncze ograniczenia: dokładna liczba słów, zakaz litery/słowa, wielkość
+liter, liczba linii, JSON z kluczami, prefiks, **odporność na wstrzyknięcie** (nie dał się zbić na
+„HACKED"). Wrażliwe 2/8.
 
-## D5b — orkiestracja: pierwsza realna słabość
-Slayer jako orkiestrator (narzędzia + zasady + zadanie → wywołanie JSON):
-- **Zdał:** wybór właściwego narzędzia (search vs read), kompletność argumentów (write z path+content),
-  **odmowa niedozwolonej akcji** (rm-rf → refuse), **czysty JSON bez komentarzy**.
-- **Oblał — D5B-SEQ-01 (sekwencja wieloetapowa read→write), 1/3 parafraz:**
+## D5b — orkiestracja: mocna strona (nawet długie workflow)
+Slayer jako orkiestrator jest **solidny na całej długości workflow**:
+- 1 krok: wybór narzędzia (search vs read), kompletność args, **odmowa rm-rf** (refuse), czysty JSON.
+- 3, 4, 5 kroków: **pełne poprawne sekwencje** (search→write→read; read→search→write→run; 5-krokowy
+  deploy) — wszystkie 3/3 parafraz.
+- warunkowe (ścieżka gdy plik istnieje): pass.
+- dystraktor („nie używaj search"): pominął zbędne narzędzie — pass.
+- zależność danych (wynik→zapis): 2/3 (raz bez referencji do wyniku) — jedyna niestabilność.
 
-| Parafraza | Odpowiedź | Pass |
-|---|---|---|
-| 1 | `[{read a.txt},{write b.txt, content:"{{result}}"}]` — pełny workflow, elegancki placeholder | ✓ |
-| 2 | `[{read a.txt}]` — **zatrzymał się na 1. kroku** | ✗ |
-| 3 | `[{read a.txt}]` — **tylko odczyt, brak write** | ✗ |
+## KOREKTA: „fail sekwencji" z D5b-v1 był artefaktem itemu, nie słabością modelu
+Wcześniejsza analiza wskazywała słabość Slayera w sekwencji 2-krokowej (D5B-SEQ-01, 1/3). **Audyt
+przyczyny obala ten wniosek — to był błąd konstrukcji itemu:**
+- SYSTEM prompt D5b-v1 zawierał zasadę „**Wybierasz DOKŁADNIE JEDNO narzędzie — to pierwszy krok**".
+- ZADANIE D5B-SEQ-01 prosiło o „**PEŁNĄ sekwencję kroków**".
+- To **sprzeczność w promcie**. Slayer przy 2 parafrazach trzymał się zasady systemowej (jeden krok
+  = `read`), przy 1 — zadania (pełna sekwencja). Obie reakcje są racjonalne wobec sprzecznej instrukcji.
+- Gdy instrukcje są **spójne** (D5b-hard: SYSTEM „podaj PEŁNY plan"), Slayer planuje 3–5 kroków bezbłędnie.
 
-## Wniosek (uczciwie)
-1. **Slayer jest solidnym orkiestratorem na poziomie pojedynczego kroku** — poprawnie mapuje intencję
-   na narzędzie, trzyma format JSON, egzekwuje zasady (odmowa), nie ulega wstrzyknięciu. To realna,
-   praktyczna mocna strona (istotna dla użycia w systemie typu Omp).
-2. **Słabość: planowanie wieloetapowej sekwencji.** Przy zadaniu wymagającym łańcucha kroków
-   (read→write) Slayer **niestabilnie** podaje pełny workflow — częściej zatrzymuje się na pierwszym
-   kroku. To zależne od sformułowania (1/3 parafraz poprawnych).
-3. **Spójne z D1:** ta sama oś słabości — **głęboka wieloetapowość**. D1 pokazał to na rozumowaniu
-   (extreme 0.83), D5b na orkiestracji. Hipoteza robocza: **Slayer jest mocny w pojedynczych krokach
-   (rozumowanie, format, kalibracja), słabszy w utrzymaniu długich, wieloetapowych łańcuchów** —
-   niezależnie czy to kroki wnioskowania czy kroki workflow.
+**Wniosek metodologiczny:** to znalezisko o **nas**, nie o modelu — item z wewnętrznie sprzecznym
+promptem nie mierzy zdolności, tylko którą sprzeczną instrukcję model wybierze. D5B-SEQ-01 oznaczony
+jako wadliwy (patrz niżej); wynik nie liczy się jako słabość Slayera.
 
-## Konsekwencja praktyczna (dla użycia jako orkiestrator)
-Jeśli Slayer ma orkiestrować w systemie agentycznym: **bezpieczniej dawać mu jeden krok naraz**
-(pętla: zaplanuj następny krok → wykonaj → zaplanuj kolejny) niż prosić o pełny plan wieloetapowy
-z góry. Architektura „krok po kroku" gra pod jego mocną stronę i omija słabość sekwencyjną.
+## Zrewidowany wniosek o Slayerze (uczciwie)
+1. **Wierność instrukcji to mocna strona Slayera** — zarówno twarde ograniczenia formatu (8/8), jak i
+   orkiestracja wieloetapowa (workflow 3–5 kroków, warunki, dystraktor, odmowa). Praktycznie: **nadaje
+   się na orkiestratora** w systemie agentycznym, również do planów wieloetapowych z góry.
+2. **Hipoteza „mocny krok, słaby łańcuch" — ODRZUCONA dla orkiestracji.** Slayer planuje pełne
+   sekwencje. (Dla D1-rozumowania słabość głębi pozostaje — ale to inna oś: głębia wnioskowania ≠
+   długość planu narzędziowego.)
+3. Jedyna realna niestabilność: **zależność danych między krokami** (referencja wyniku kroku N w kroku
+   M) — 2/3. Wart osobnego, celowanego testu.
+
+## Działania naprawcze
+- **D5B-SEQ-01:** wadliwy (sprzeczny prompt) — do usunięcia lub naprawy (usunąć zasadę „jedno
+  narzędzie" z SYSTEM albo przeformułować zadanie na 1 krok). Wynik z niego wykluczony z wniosków.
+- **Lekcja ogólna:** przy itemach orkiestracji SYSTEM i ZADANIE muszą być spójne co do „jeden krok vs
+  pełny plan". Dodać do reguł konstrukcji zestawów.
 
 ## Następne kierunki
-- **D5b-hard:** dłuższe workflow (3–5 kroków), warunki (if/else), zależności między krokami — sprawdzić,
-  gdzie dokładnie łamie się planowanie sekwencji.
-- Weryfikacja hipotezy „mocny krok, słaby łańcuch" na jeszcze jednej osi.
+- **Zależność danych** — celowany zestaw (przepływ wyniku między krokami, wiele referencji) — jedyna
+  wykryta niestabilność orkiestracyjna.
+- D1 pozostaje osią, gdzie Slayer realnie się łamie (głęboka wieloetapowość wnioskowania).
 
 ## Powiązania
-[[../../benchmarks/d5-wiernosc-instrukcji-v1/README|d5-wiernosc-instrukcji-v1]] · [[../../benchmarks/d5-orkiestracja-v1/README|d5-orkiestracja-v1]] · [[Analiza-D1-Hard-Sufit|analiza D1]] · [[../20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]]
+[[../../benchmarks/d5-wiernosc-instrukcji-v1/README|d5-wiernosc-instrukcji-v1]] · [[../../benchmarks/d5-orkiestracja-v1/README|d5-orkiestracja-v1]] · [[../../benchmarks/d5-orkiestracja-hard-v1/README|d5-orkiestracja-hard-v1]] · [[Analiza-D1-Hard-Sufit|analiza D1]] · [[../20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]]
