@@ -150,6 +150,56 @@ def pred_json_has_keys(raw, arg):
 def pred_regex(raw, arg):
     return re.search(arg, _clean(raw)) is not None
 
+def _extract_json(raw):
+    """Wyciaga pierwszy obiekt {...} lub tablice [...] z odpowiedzi (toleruje ``` i tekst)."""
+    t = _clean(raw)
+    m = re.search(r"(\{.*\}|\[.*\])", t, flags=re.DOTALL)
+    if not m:
+        return None
+    try:
+        return json.loads(m.group(1))
+    except Exception:
+        return None
+
+
+def pred_json_tool_is(raw, arg):
+    """JSON obiekt z polem tool == arg."""
+    o = _extract_json(raw)
+    return isinstance(o, dict) and str(o.get("tool", "")).strip().lower() == str(arg).lower()
+
+
+def pred_json_tool_args(raw, arg):
+    """JSON tool==arg['tool'] ORAZ args zawiera wszystkie arg['keys']."""
+    o = _extract_json(raw)
+    if not isinstance(o, dict):
+        return False
+    if str(o.get("tool", "")).strip().lower() != str(arg["tool"]).lower():
+        return False
+    a = o.get("args")
+    return isinstance(a, dict) and all(k in a for k in arg["keys"])
+
+
+def pred_json_only_tool(raw, arg):
+    """CALA odpowiedz (po oczyszczeniu) parsuje sie jako JSON obiekt z tool==arg (zero tekstu poza)."""
+    t = _clean(raw)
+    try:
+        o = json.loads(t)
+    except Exception:
+        return False
+    return isinstance(o, dict) and str(o.get("tool", "")).strip().lower() == str(arg).lower()
+
+
+def pred_json_seq_order(raw, arg):
+    """Tablica JSON obiektow; sekwencja pol 'tool' zawiera arg jako podciag w kolejnosci."""
+    o = _extract_json(raw)
+    if not isinstance(o, list) or not o:
+        return False
+    tools = [str(x.get("tool", "")).strip().lower() for x in o if isinstance(x, dict)]
+    # arg musi wystapic jako podciag zachowujacy kolejnosc
+    it = iter(tools)
+    return all(any(t == want.lower() for t in it) for want in arg)
+
+
 PREDICATES = {
     "exact_word_count": pred_exact_word_count,
     "max_word_count": pred_max_word_count,
@@ -163,6 +213,10 @@ PREDICATES = {
     "contains": pred_contains,
     "json_has_keys": pred_json_has_keys,
     "regex": pred_regex,
+    "json_tool_is": pred_json_tool_is,
+    "json_tool_args": pred_json_tool_args,
+    "json_only_tool": pred_json_only_tool,
+    "json_seq_order": pred_json_seq_order,
 }
 
 
