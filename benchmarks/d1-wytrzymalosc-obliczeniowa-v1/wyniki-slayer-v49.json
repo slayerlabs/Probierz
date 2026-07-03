@@ -1,0 +1,245 @@
+{
+  "summary": {
+    "model": "slayer-v49-qwen3.5-27b",
+    "eval": "../benchmarks/d1-wytrzymalosc-obliczeniowa-v1/eval.jsonl",
+    "n_items": 8,
+    "n_scored": 8,
+    "pass_median_count": 6,
+    "pass_median_rate": 0.75,
+    "items_wrazliwe": 1
+  },
+  "results": [
+    {
+      "id": "WYT-01",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "55",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ciag Fibonacciego F(1)=1,F(2)=1,F(n)=F(n-1)+F(n-2). Podaj F(10).",
+          "raw": "Aby obliczyć dziesiąty wyraz ciągu Fibonacciego $F(10)$, wykorzystamy zdefiniowaną rekurencyjnie regułę: $F(n) = F(n-1) + F(n-2)$, zaczynając od podanych wartości początkowych $F(1) = 1$ i $F(2) = 1$.\n\nObliczmy kolejne wyrazy krok po kroku:\n\n1.  $F(1) = 1$\n2.  $F(2) = 1$\n3.  $F(3) = F(2) + F(1) = 1 + 1 = 2$\n4.  $F(4) = F(3) + F(2) = 2 + 1 = 3$\n5.  $F(5) = F(4) + F(3) = 3 + 2 = 5$\n6.  $F(6) = F(5) + F(4) = 5 + 3 = 8$\n7.  $F(7) = F(6) + F(5) = 8 + 5 = 13$\n8.  $F(8) = F(7) + F(6) = 13 + 8 = 21$\n9.  $F(9) = F(8) + F(7) = 21 + 13 = 34$\n10. $F(10) = F(9) + F(8) = 34 + 21 = 55$\n\nOtrzymany wynik to 55.\n\nWYNIK: 55",
+          "answer": "55",
+          "pass": true
+        },
+        {
+          "prompt": "F1=1,F2=1, kazdy kolejny to suma dwoch poprzednich. Ile wynosi F(10)?",
+          "raw": "Aby obliczyć wartość $F(10)$ dla ciągu Fibonacciego, gdzie $F_1 = 1$, $F_2 = 1$ oraz każdy kolejny wyraz jest sumą dwóch poprzednich ($F_n = F_{n-1} + F_{n-2}$), obliczmy kolejne wyrazy krok po kroku:\n\n1.  $F_1 = 1$ (dane)\n2.  $F_2 = 1$ (dane)\n3.  $F_3 = F_2 + F_1 = 1 + 1 = 2$\n4.  $F_4 = F_3 + F_2 = 2 + 1 = 3$\n5.  $F_5 = F_4 + F_3 = 3 + 2 = 5$\n6.  $F_6 = F_5 + F_4 = 5 + 3 = 8$\n7.  $F_7 = F_6 + F_5 = 8 + 5 = 13$\n8.  $F_8 = F_7 + F_6 = 13 + 8 = 21$\n9.  $F_9 = F_8 + F_7 = 21 + 13 = 34$\n10. $F_{10} = F_9 + F_8 = 34 + 21 = 55$\n\nWartość dziesiątego wyrazu tego ciągu wynosi 55.\n\nWYNIK: 55",
+          "answer": "55",
+          "pass": true
+        },
+        {
+          "prompt": "Dziesiaty wyraz ciagu Fibonacciego (1,1,2,3,5,...)?",
+          "raw": "Aby znaleźć dziesiąty wyraz ciągu Fibonacciego, musimy wygenerować kolejne wyrazy tego ciągu, zaczynając od dwóch pierwszych, zgodnie z regułą, że każdy następny wyraz jest sumą dwóch poprzednich.\n\nZdefiniujmy ciąg $F_n$, gdzie:\n$F_1 = 1$\n$F_2 = 1$\n$F_n = F_{n-1} + F_{n-2}$ dla $n > 2$.\n\nObliczmy wyrazy krok po kroku:\n\n1.  **1. wyraz ($F_1$):** 1\n2.  **2. wyraz ($F_2$):** 1\n3.  **3. wyraz ($F_3$):** $1 + 1 = 2$\n4.  **4. wyraz ($F_4$):** $1 + 2 = 3$\n5.  **5. wyraz ($F_5$):** $2 + 3 = 5$\n6.  **6. wyraz ($F_6$):** $3 + 5 = 8$\n7.  **7. wyraz ($F_7$):** $5 + 8 = 13$\n8.  **8. wyraz ($F_8$):** $8 + 13 = 21$\n9.  **9. wyraz ($F_9$):** $13 + 21 = 34$\n10. **10. wyraz ($F_{10}$):** $21 + 34 = 55$\n\nDziesiąty wyraz ciągu wynosi 55.\n\nWYNIK: 55",
+          "answer": "55",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WYT-02",
+      "poziom": 8,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "256",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Start: 2. Trzy razy podnies liczbe do kwadratu. Wynik?",
+          "raw": "Rozwiązanie zadania krok po kroku:\n\n1.  **Wartość początkowa**: Liczba startowa to $2$.\n2.  **Pierwsze podniesienie do kwadratu**:\n    $2^2 = 2 \\times 2 = 4$.\n3.  **Drugie podniesienie do kwadratu** (podnosimy wynik poprzedniego kroku):\n    $4^2 = 4 \\times 4 = 16$.\n4.  **Trzecie podniesienie do kwadratu** (podnosimy wynik poprzedniego kroku):\n    $16^2 = 16 \\times 16 = 256$.\n\nAlternatywnie, można to zapisać jako potęgę potęgi: $2^{(2 \\times 2 \\times 2)} = 2^8 = 256$.\n\nWYNIK: 256",
+          "answer": "256",
+          "pass": true
+        },
+        {
+          "prompt": "Liczba 2, kwadrat trzykrotnie z rzedu. Podaj wynik.",
+          "raw": "Rozwiązanie zadania krok po kroku:\n\n1.  **Zrozumienie polecenia**: Należy wziąć liczbę 2 i podnieść ją do kwadratu trzykrotnie z rzędu. Oznacza to, że wynik każdej operacji jest podstawą do kolejnej operacji podnoszenia do kwadratu.\n\n2.  **Pierwsza operacja**:\n    *   Baza: 2\n    *   Działanie: $2^2$\n    *   Wynik: $2 \\times 2 = 4$\n\n3.  **Druga operacja**:\n    *   Baza: 4 (wynik z poprzedniego kroku)\n    *   Działanie: $4^2$\n    *   Wynik: $4 \\times 4 = 16$\n\n4.  **Trzecia operacja**:\n    *   Baza: 16 (wynik z poprzedniego kroku)\n    *   Działanie: $16^2$\n    *   Wynik: $16 \\times 16 = 256$\n\nAlternatywnie, można to zapisać jako potęgę potęgi:\n$((2^2)^2)^2 = 2^{(2 \\times 2 \\times 2)} = 2^6 = 64$?\nSprawdźmy logikę \"z rzędu\":\n- Krok 1: $2^2 = 4$\n- Krok 2: $4^2 = 16$\n- Krok 3: $16^2 = 256$\n\nCzyli obliczamy $2^{2 \\times 2 \\times 2}$? Nie.\nPierwsze podniesienie: $2^2$.\nDrugie podniesienie wyniku do kwadratu: $(2^2)^2 = 2^4$.\nTrzecie podniesienie wyniku do kwadratu: $((2^2)^2)^2 = (2^4)^2 = 2^8$.\n\nSprawdźmy obliczenia ponownie:\n1. $2^2 = 4$\n2. $4^2 = 16$\n3. $16^2 = 256$\n\nCzy $2^8 = 256$?\n$2^1 = 2$\n$2^2 = 4$\n$2^3 = 8$\n$2^4 = 16$\n$2^5 = 32$\n$2^6 = 64$\n$2^7 = 128$\n$2^8 = 256$\n\nTak, obliczenia są poprawne. Wynik to 256.\n\nWYNIK: 256",
+          "answer": "256",
+          "pass": true
+        },
+        {
+          "prompt": "2, potem kwadrat, kwadrat, kwadrat. Ile wynosi?",
+          "raw": "Rozwiązanie zadania krok po kroku:\n\n1.  **Wartość początkowa**: Mamy liczbę **2**.\n2.  **Pierwsza operacja (kwadrat)**: Podnosimy liczbę 2 do potęgi drugiej.\n    $2^2 = 4$\n3.  **Druga operacja (kwadrat)**: Podnosimy wynik poprzedni (4) do potęgi drugiej.\n    $4^2 = 16$\n4.  **Trzecia operacja (kwadrat)**: Podnosimy wynik poprzedni (16) do potęgi drugiej.\n    $16^2 = 256$\n\nMożna to również zapisać jako potęgę potęgi: $2^{(2 \\cdot 2 \\cdot 2)} = 2^8 = 256$.\n\nWYNIK: 256",
+          "answer": "256",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WYT-03",
+      "poziom": 11,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "800",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ile wynosi 10! modulo 1000? Podaj reszte.",
+          "raw": "Aby obliczyć resztę z dzielenia $10!$ przez $1000$, przeanalizujmy najpierw definicję silni i rozkład liczby $1000$ na czynniki pierwsze.\n\n1.  **Definicja silni:**\n    $10! = 10 \\times 9 \\times 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1$.\n\n2.  **Rozkład modułu na czynniki pierwsze:**\n    Liczba $1000$ może być zapisana jako:\n    $1000 = 10^3 = (2 \\times 5)^3 = 2^3 \\times 5^3 = 8 \\times 125$.\n\n3.  **Analiza czynników w $10!$:**\n    Aby $10!$ było podzielne przez $1000$, musi zawierać w swoim rozkładzie na czynniki pierwsze co najmniej trzy czynniki $2$ i trzy czynniki $5$.\n\n    Sprawdźmy występowanie czynnika $5$ w iloczynie $10!$:\n    - Liczba $5$ występuje jako czynnik w liczbie $5$.\n    - Liczba $10$ jest równa $2 \\times 5$, więc zawiera czynnik $5$.\n    - Żadne inne liczby w zbiorze $\\{1, 2, 3, 4, 6, 7, 8, 9\\}$ nie są podzielne przez $5$.\n    \n    Zatem w rozkładzie $10!$ występują dokładnie dwa czynniki $5$ (jeden z liczby $5$ i jeden z liczby $10$).\n    Ilość czynników $5$ w $10!$ wynosi $2$.\n\n    Sprawdźmy występowanie czynnika $2$ w iloczynie $10!$:\n    - $2$ (jeden czynnik)\n    - $4 = 2^2$ (dwa czynniki)\n    - $6 = 2 \\times 3$ (jeden czynnik)\n    - $8 = 2^3$ (trzy czynniki)\n    - $10 = 2 \\times 5$ (jeden czynnik)\n    Łącznie mamy $1 + 2 + 1 + 3 + 1 = 8$ czynników $2$.\n\n4.  **Wniosek dotyczący podzielności:**\n    Aby liczba była podzielna przez $1000 = 2^3 \\times 5^3$, musi mieć w rozkładzie co najmniej trzy czynniki $5$.\n    W $10!$ mamy tylko dwa czynniki $5$.\n    Oznacza to, że $10!$ **nie jest** podzielne przez $1000$.\n\n    Jednakże, sprawdźmy, czy jest podzielne przez mniejsze potęgi dziesiątki.\n    Mamy dwa czynniki $5$ i osiem czynników $2$.\n    Możemy utworzyć $5^2 \\times 2^2 = 25 \\times 4 = 100$.\n    Zatem $10!$ jest podzielne przez $100$.\n    Czyli $10! = k \\times 100$ dla pewnej liczby całkowitej $k$.\n\n    Obliczmy wartość $10!$ modulo $1000$ bezpośrednio, aby upewnić się co do reszty.\n    $10! = 3628800$.\n\n    Sprawdźmy dzielenie:\n    $3628800 / 1000 = 3628$ z resztą $800$.\n\n    Alternatywnie, bez obliczania pełnej wartości:\n    $10! = 10 \\times 9 \\times 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1$\n    Grupujmy czynniki, aby uzyskać $1000$ lub jego wielokrotności:\n    $10! = (10 \\times 5 \\times 2) \\times (9 \\times 8 \\times 7 \\times 6 \\times 4 \\times 3 \\times 1)$\n    $10! = 100",
+          "answer": "$10! = 100",
+          "pass": false
+        },
+        {
+          "prompt": "Reszta z dzielenia silni z 10 przez 1000?",
+          "raw": "Aby obliczyć resztę z dzielenia silni z 10 ($10!$) przez 1000, wykonamy następujące kroki:\n\n1.  **Zdefiniujmy silnię z 10**:\n    $10! = 10 \\times 9 \\times 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1$.\n\n2.  **Obliczmy wartość $10!$**:\n    Możemy to zrobić, grupując mnożenie:\n    *   $1 \\times 2 = 2$\n    *   $2 \\times 3 = 6$\n    *   $6 \\times 4 = 24$\n    *   $24 \\times 5 = 120$\n    *   $120 \\times 6 = 720$\n    *   $720 \\times 7 = 5040$\n    *   $5040 \\times 8 = 40320$\n    *   $40320 \\times 9 = 362880$\n    *   $362880 \\times 10 = 3628800$\n\n    Zatem $10! = 3\\,628\\,800$.\n\n3.  **Obliczmy resztę z dzielenia przez 1000**:\n    Szukamy $3\\,628\\,800 \\pmod{1000}$.\n    Dzielenie przez 1000 odpowiada wycięciu trzech ostatnich cyfr liczby.\n    Liczba $3\\,628\\,800$ kończy się cyframi $800$.\n    \n    Możemy to zapisać jako:\n    $3\\,628\\,800 = 3628 \\times 1000 + 800$.\n    \n    Reszta z dzielenia to $800$.\n\n    *Alternatywne podejście (analiza czynników):*\n    $10! = 10 \\times 9 \\times 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1$.\n    Aby znaleźć resztę z dzielenia przez $1000 = 10^3 = 2^3 \\times 5^3$, sprawdzamy, ile czynników 2 i 5 zawiera $10!$.\n    *   Czynniki 5: występują w liczbach 5 i 10. Razem mamy $5^2$.\n    *   Czynniki 2: występują w 2, 4, 6, 8, 10. Jest ich znacznie więcej niż 3.\n    \n    Ponieważ mamy tylko $5^2$ (czyli 25), a do podzielenia przez 1000 potrzebujemy $5^3$ (czyli 125), liczba $10!$ nie jest podzielna przez 1000.\n    Jednakże, $10!$ zawiera czynnik $10 \\times 5 \\times 2 \\times 4 \\times ...$.\n    Zauważmy, że $10! = 3628800$.\n    Ostatnie trzy cyfry to 800.\n    $3628800 / 1000 = 3628$ reszta $800$.\n\nWYNIK: 800",
+          "answer": "800",
+          "pass": true
+        },
+        {
+          "prompt": "10! mod 1000 = ?",
+          "raw": "Aby obliczyć wartość $10! \\pmod{1000}$, przeanalizujmy krok po kroku rozkład silni i dzielnika.\n\n**Krok 1: Zdefiniowanie wyrażenia**\nSzukamy reszty z dzielenia $10!$ przez $1000$.\n$10! = 10 \\times 9 \\times 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1$.\nDzielnik to $1000 = 10^3 = 2^3 \\times 5^3 = 8 \\times 125$.\n\n**Krok 2: Obliczenie wartości $10!$**\nObliczmy wartość silni:\n$10! = 3\\,628\\,800$.\n\n**Krok 3: Sprawdzenie podzielności przez 1000**\nAby liczba była podzielna przez $1000$, musi zawierać w swoim rozkładzie na czynniki pierwsze co najmniej trzy czynniki $2$ i trzy czynniki $5$ (ponieważ $1000 = 2^3 \\times 5^3$).\n\nSprawdźmy liczbę czynników $5$ w $10!$:\nWielokrotności $5$ w zakresie od $1$ do $10$ to: $5$ i $10$.\n- Liczba $5$ dostarcza jeden czynnik $5$.\n- Liczba $10$ ($2 \\times 5$) dostarcza jeden czynnik $5$.\nRazem mamy $1 + 1 = 2$ czynniki $5$.\n\nSprawdźmy liczbę czynników $2$ w $10!$:\nWielokrotności $2$: $2, 4, 6, 8, 10$.\n- $2 = 2^1$\n- $4 = 2^2$\n- $6 = 2^1 \\times 3$\n- $8 = 2^3$\n- $10 = 2^1 \\times 5$\nSuma wykładników: $1 + 2 + 1 + 3 + 1 = 8$. Mamy więc $2^8$.\n\nMamy $2^8 \\times 5^2 \\times \\dots$\nAby liczba była podzielna przez $1000 = 2^3 \\times 5^3$, potrzebujemy trzech czynników $5$. Mamy tylko dwa.\nZatem $10!$ **nie jest** podzielne przez $1000$.\n\n**Krok 4: Bezpośrednie obliczenie reszty**\nPonieważ $10! = 3\\,628\\,800$, możemy podzielić tę liczbę przez $1000$.\nDzielenie przez $1000$ polega na odrzuceniu trzech ostatnich cyfr.\n$3\\,628\\,800 = 3628 \\times 1000 + 800$.\n\nReszta z dzielenia to $800$.\n\nAlternatywna weryfikacja przez uproszczenie:\n$10! = 10 \\times 9 \\times 8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1$\nGrupujmy czynniki tworzące $1000$:\n$10 \\times 5 \\times 2 = 100$.\nPozostałe czynniki: $9 \\times 8 \\times 7 \\times 6 \\times 4 \\times 3 \\times 1$.\n$10! = 100 \\times (9 \\times 8 \\times 7 \\times 6 \\times 4 \\times 3)$.\nObliczmy nawias:\n$9 \\times 8 = 72$\n$72 \\times 7 = 504$\n$504 \\times 6 = 3024$\n$3024 \\times 4 = 12096$\n$12096 \\times 3 = 36288$\nZatem $10! = 100 \\times 36288 = 3\\,628",
+          "answer": "Zatem $10! = 100 \\times 36288 = 3\\,628",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "WYT-04",
+      "poziom": 12,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "6765",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ciag Fibonacciego F(1)=1,F(2)=1. Podaj F(20).",
+          "raw": "Aby obliczyć 20. wyraz ciągu Fibonacciego ($F_{20}$), wykorzystamy definicję rekurencyjną tego ciągu:\n$F_1 = 1$\n$F_2 = 1$\n$F_n = F_{n-1} + F_{n-2}$ dla $n > 2$.\n\nObliczmy kolejne wyrazy krok po kroku:\n\n1.  $F_1 = 1$\n2.  $F_2 = 1$\n3.  $F_3 = F_2 + F_1 = 1 + 1 = 2$\n4.  $F_4 = F_3 + F_2 = 2 + 1 = 3$\n5.  $F_5 = F_4 + F_3 = 3 + 2 = 5$\n6.  $F_6 = F_5 + F_4 = 5 + 3 = 8$\n7.  $F_7 = F_6 + F_5 = 8 + 5 = 13$\n8.  $F_8 = F_7 + F_6 = 13 + 8 = 21$\n9.  $F_9 = F_8 + F_7 = 21 + 13 = 34$\n10. $F_{10} = F_9 + F_8 = 34 + 21 = 55$\n11. $F_{11} = F_{10} + F_9 = 55 + 34 = 89$\n12. $F_{12} = F_{11} + F_{10} = 89 + 55 = 144$\n13. $F_{13} = F_{12} + F_{11} = 144 + 89 = 233$\n14. $F_{14} = F_{13} + F_{12} = 233 + 144 = 377$\n15. $F_{15} = F_{14} + F_{13} = 377 + 233 = 610$\n16. $F_{16} = F_{15} + F_{14} = 610 + 377 = 987$\n17. $F_{17} = F_{16} + F_{15} = 987 + 610 = 1597$\n18. $F_{18} = F_{17} + F_{16} = 1597 + 987 = 2584$\n19. $F_{19} = F_{18} + F_{17} = 2584 + 1597 = 4181$\n20. $F_{20} = F_{19} + F_{18} = 4181 + 2584 = 6765$\n\nWYNIK: 6765",
+          "answer": "6765",
+          "pass": true
+        },
+        {
+          "prompt": "Dwudziesty wyraz Fibonacciego (start 1,1)?",
+          "raw": "Aby znaleźć dwudziesty wyraz ciągu Fibonacciego, zaczynając od wyrazów $F_1 = 1$ i $F_2 = 1$, musimy zastosować regułę rekurencyjną: każdy kolejny wyraz jest sumą dwóch poprzednich ($F_n = F_{n-1} + F_{n-2}$).\n\nObliczmy wyrazy krok po kroku:\n\n1.  $F_1 = 1$\n2.  $F_2 = 1$\n3.  $F_3 = 1 + 1 = 2$\n4.  $F_4 = 1 + 2 = 3$\n5.  $F_5 = 2 + 3 = 5$\n6.  $F_6 = 3 + 5 = 8$\n7.  $F_7 = 5 + 8 = 13$\n8.  $F_8 = 8 + 13 = 21$\n9.  $F_9 = 13 + 21 = 34$\n10. $F_{10} = 21 + 34 = 55$\n11. $F_{11} = 34 + 55 = 89$\n12. $F_{12} = 55 + 89 = 144$\n13. $F_{13} = 89 + 144 = 233$\n14. $F_{14} = 144 + 233 = 377$\n15. $F_{15} = 233 + 377 = 610$\n16. $F_{16} = 377 + 610 = 987$\n17. $F_{17} = 610 + 987 = 1597$\n18. $F_{18} = 987 + 1597 = 2584$\n19. $F_{19} = 1597 + 2584 = 4181$\n20. $F_{20} = 2584 + 4181 = 6765$\n\nDwudziesty wyraz ciągu wynosi 6765.\n\nWYNIK: 6765",
+          "answer": "6765",
+          "pass": true
+        },
+        {
+          "prompt": "F(20) ciagu Fibonacciego = ?",
+          "raw": "Aby obliczyć 20. wyraz ciągu Fibonacciego ($F_{20}$), musimy znać definicję tego ciągu. Ciąg Fibonacciego jest zdefiniowany rekurencyjnie następująco:\n*   $F_0 = 0$\n*   $F_1 = 1$\n*   $F_n = F_{n-1} + F_{n-2}$ dla $n \\ge 2$\n\nCzasami w zadaniach szkolnych liczenie zaczyna się od $F_1 = 1, F_2 = 1$. W obu przypadkach 20. wyraz (licząc od pierwszego wyrazu równego 1) będzie ten sam. Przyjmijmy standardową numerację, gdzie $F_1 = 1$ i $F_2 = 1$.\n\nObliczmy kolejne wyrazy krok po kroku:\n\n1.  $F_1 = 1$\n2.  $F_2 = 1$\n3.  $F_3 = 1 + 1 = 2$\n4.  $F_4 = 1 + 2 = 3$\n5.  $F_5 = 2 + 3 = 5$\n6.  $F_6 = 3 + 5 = 8$\n7.  $F_7 = 5 + 8 = 13$\n8.  $F_8 = 8 + 13 = 21$\n9.  $F_9 = 13 + 21 = 34$\n10. $F_{10} = 21 + 34 = 55$\n11. $F_{11} = 34 + 55 = 89$\n12. $F_{12} = 55 + 89 = 144$\n13. $F_{13} = 89 + 144 = 233$\n14. $F_{14} = 144 + 233 = 377$\n15. $F_{15} = 233 + 377 = 610$\n16. $F_{16} = 377 + 610 = 987$\n17. $F_{17} = 610 + 987 = 1597$\n18. $F_{18} = 987 + 1597 = 2584$\n19. $F_{19} = 1597 + 2584 = 4181$\n20. $F_{20} = 2584 + 4181 = 6765$\n\nSprawdzenie obliczeń dla ostatnich kroków:\n$F_{18} = 2584$\n$F_{19} = 4181$\n$F_{20} = 2584 + 4181 = 6765$\n\nWYNIK: 6765",
+          "answer": "6765",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WYT-05",
+      "poziom": 13,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "10",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ile wynosi 7^50 modulo 13? Podaj reszte (0-12).",
+          "raw": "Aby obliczyć resztę z dzielenia $7^{50}$ przez $13$, czyli $7^{50} \\pmod{13}$, możemy skorzystać z małego twierdzenia Fermata.\n\n**Krok 1: Zastosowanie małego twierdzenia Fermata**\nMałe twierdzenie Fermata mówi, że jeśli $p$ jest liczbą pierwszą, a $a$ jest liczbą całkowitą niepodzielną przez $p$, to:\n$$a^{p-1} \\equiv 1 \\pmod{p}$$\n\nW naszym przypadku:\n*   $a = 7$\n*   $p = 13$ (liczba pierwsza)\n*   $7$ nie dzieli się przez $13$.\n\nZatem:\n$$7^{13-1} \\equiv 1 \\pmod{13}$$\n$$7^{12} \\equiv 1 \\pmod{13}$$\n\n**Krok 2: Uproszczenie wykładnika**\nMamy wykładnik $50$. Chcemy go przedstawić w postaci wielokrotności $12$ (z twierdzenia Fermata) plus reszta.\nDzielimy $50$ przez $12$:\n$$50 = 12 \\times 4 + 2$$\n\nOznacza to, że:\n$$7^{50} = 7^{12 \\times 4 + 2} = (7^{12})^4 \\times 7^2$$\n\n**Krok 3: Obliczenie modulo**\nPodstawiamy wynik z twierdzenia Fermata ($7^{12} \\equiv 1 \\pmod{13}$):\n$$(7^{12})^4 \\times 7^2 \\equiv (1)^4 \\times 7^2 \\pmod{13}$$\n$$\\equiv 1 \\times 7^2 \\pmod{13}$$\n$$\\equiv 49 \\pmod{13}$$\n\n**Krok 4: Obliczenie ostatecznej reszty**\nTeraz dzielimy $49$ przez $13$, aby znaleźć resztę:\n$$49 = 13 \\times 3 + 10$$\n$$13 \\times 3 = 39$$\n$$49 - 39 = 10$$\n\nZatem:\n$$49 \\equiv 10 \\pmod{13}$$\n\nWYNIK: 10",
+          "answer": "10",
+          "pass": true
+        },
+        {
+          "prompt": "Reszta z dzielenia 7 do potegi 50 przez 13?",
+          "raw": "Aby znaleźć resztę z dzielenia $7^{50}$ przez $13$, skorzystamy z małego twierdzenia Fermata oraz własności potęgowania w arytmetyce modularnej.\n\n**Krok 1: Zastosowanie małego twierdzenia Fermata**\nMałe twierdzenie Fermata mówi, że jeśli $p$ jest liczbą pierwszą, a $a$ jest liczbą całkowitą niepodzielną przez $p$, to:\n$$a^{p-1} \\equiv 1 \\pmod{p}$$\n\nW naszym przypadku:\n*   $a = 7$\n*   $p = 13$ (liczba pierwsza)\n*   $7$ nie dzieli się przez $13$.\n\nZatem:\n$$7^{13-1} \\equiv 1 \\pmod{13}$$\n$$7^{12} \\equiv 1 \\pmod{13}$$\n\n**Krok 2: Rozkład wykładnika**\nChcemy obliczyć $7^{50} \\pmod{13}$. Podzielimy wykładnik $50$ przez $12$ (z twierdzenia Fermata), aby wyodrębnić pełne cykle, które dają resztę $1$.\n\n$$50 = 12 \\cdot 4 + 2$$\n\nOznacza to, że możemy zapisać potęgę jako:\n$$7^{50} = 7^{12 \\cdot 4 + 2} = (7^{12})^4 \\cdot 7^2$$\n\n**Krok 3: Obliczenie reszty**\nPodstawiamy wynik z Kroku 1 ($7^{12} \\equiv 1 \\pmod{13}$) do równania z Kroku 2:\n$$(7^{12})^4 \\cdot 7^2 \\equiv (1)^4 \\cdot 7^2 \\pmod{13}$$\n$$1 \\cdot 7^2 \\equiv 49 \\pmod{13}$$\n\nTeraz musimy znaleźć resztę z dzielenia $49$ przez $13$.\nDzielimy $49$ przez $13$:\n$$13 \\cdot 3 = 39$$\n$$13 \\cdot 4 = 52$$\n\nNajbliższa wielokrotność $13$ mniejsza od $49$ to $39$.\n$$49 - 39 = 10$$\n\nZatem:\n$$49 \\equiv 10 \\pmod{13}$$\n\n**Alternatywna weryfikacja (metoda potęgowania):**\nMożna też obliczyć kolejne potęgi $7$ modulo $13$:\n*   $7^1 \\equiv 7$\n*   $7^2 = 49 = 3 \\cdot 13 + 10 \\equiv 10 \\equiv -3$\n*   $7^3 \\equiv 7 \\cdot (-3) = -21 \\equiv -21 + 26 = 5$\n*   $7^4 \\equiv 7 \\cdot 5 = 35 \\equiv 35 - 26 = 9 \\equiv -4$\n*   $7^6 = (7^3)^2 \\equiv 5^2 = 25 \\equiv 12 \\equiv -1$\n*   $7^{12} = (7^6)^2 \\equiv (-1)^2 = 1$ (potwierdza twierdzenie Fermata)\n\nPotrzebujemy $7^{50}$.\n$50 = 6 \\cdot 8 + 2$.\n$7^{50} = (7^6)^8 \\cdot 7^2 \\equiv (-1)^8 \\cdot 7^2 \\equiv 1 \\cdot 49 \\equiv 10$.\n\nObie metody prowadzą do tego samego wyniku.\n\nWYNIK: 10",
+          "answer": "10",
+          "pass": true
+        },
+        {
+          "prompt": "7^50 mod 13 = ?",
+          "raw": "Aby obliczyć wartość $7^{50} \\pmod{13}$, skorzystamy z małego twierdzenia Fermata oraz własności potęgowania w arytmetyce modularnej.\n\n**Krok 1: Zastosowanie małego twierdzenia Fermata**\nMałe twierdzenie Fermata mówi, że jeśli $p$ jest liczbą pierwszą, a $a$ jest liczbą całkowitą niepodzielną przez $p$, to:\n$$a^{p-1} \\equiv 1 \\pmod{p}$$\n\nW naszym przypadku:\n*   $a = 7$\n*   $p = 13$ (liczba pierwsza)\n*   $7$ nie dzieli się przez $13$.\n\nZatem:\n$$7^{13-1} \\equiv 1 \\pmod{13}$$\n$$7^{12} \\equiv 1 \\pmod{13}$$\n\n**Krok 2: Uproszczenie wykładnika**\nChcemy obliczyć $7^{50} \\pmod{13}$. Możemy podzielić wykładnik $50$ przez $12$ (z twierdzenia Fermata), aby wyodrębnić pełne cykle, które dają wynik $1$.\n\nDzielimy $50$ przez $12$:\n$$50 = 12 \\cdot 4 + 2$$\n\nOznacza to, że:\n$$7^{50} = 7^{12 \\cdot 4 + 2} = (7^{12})^4 \\cdot 7^2$$\n\n**Krok 3: Podstawienie wyniku z twierdzenia Fermata**\nPonieważ $7^{12} \\equiv 1 \\pmod{13}$, to:\n$$(7^{12})^4 \\equiv 1^4 \\equiv 1 \\pmod{13}$$\n\nZatem całe wyrażenie upraszcza się do:\n$$7^{50} \\equiv 1 \\cdot 7^2 \\pmod{13}$$\n$$7^{50} \\equiv 7^2 \\pmod{13}$$\n\n**Krok 4: Obliczenie ostatecznej wartości**\nObliczamy $7^2$:\n$$7^2 = 49$$\n\nTeraz obliczamy resztę z dzielenia $49$ przez $13$:\n$$49 = 13 \\cdot 3 + 10$$\n$$49 \\equiv 10 \\pmod{13}$$\n\nAlternatywnie, można to sprawdzić przez redukcję wcześniej:\n$7 \\equiv -6 \\pmod{13}$ (nie pomaga tu szczególnie)\nLub: $7^2 = 49$. $13 \\times 3 = 39$. $49 - 39 = 10$.\n\nWynik to $10$.\n\nWYNIK: 10",
+          "answer": "10",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WYT-06",
+      "poziom": 15,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "111",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Collatz: parzyste n/2, nieparzyste 3n+1. Ile krokow z n=27 do 1?",
+          "raw": "Aby rozwiązać to zadanie, prześledzimy sekwencję Collatza zaczynając od liczby $n = 27$, stosując podane reguły aż do osiągnięcia liczby 1.\n\n**Reguły:**\n1. Jeśli liczba jest parzysta: podziel ją przez 2 ($n/2$).\n2. Jeśli liczba jest nieparzysta: pomnóż przez 3 i dodaj 1 ($3n+1$).\n\n**Cel:** Zliczyć liczbę kroków (operacji) potrzebnych do przejścia od 27 do 1.\n\n**Przebieg obliczeń:**\n\n1.  Start: **27** (nieparzysta) $\\rightarrow 3 \\times 27 + 1 = 82$ (krok 1)\n2.  82 (parzysta) $\\rightarrow 82 / 2 = 41$ (krok 2)\n3.  41 (nieparzysta) $\\rightarrow 3 \\times 41 + 1 = 124$ (krok 3)\n4.  124 (parzysta) $\\rightarrow 124 / 2 = 62$ (krok 4)\n5.  62 (parzysta) $\\rightarrow 62 / 2 = 31$ (krok 5)\n6.  31 (nieparzysta) $\\rightarrow 3 \\times 31 + 1 = 94$ (krok 6)\n7.  94 (parzysta) $\\rightarrow 94 / 2 = 47$ (krok 7)\n8.  47 (nieparzysta) $\\rightarrow 3 \\times 47 + 1 = 142$ (krok 8)\n9.  142 (parzysta) $\\rightarrow 142 / 2 = 71$ (krok 9)\n10. 71 (nieparzysta) $\\rightarrow 3 \\times 71 + 1 = 214$ (krok 10)\n11. 214 (parzysta) $\\rightarrow 214 / 2 = 107$ (krok 11)\n12. 107 (nieparzysta) $\\rightarrow 3 \\times 107 + 1 = 322$ (krok 12)\n13. 322 (parzysta) $\\rightarrow 322 / 2 = 161$ (krok 13)\n14. 161 (nieparzysta) $\\rightarrow 3 \\times 161 + 1 = 484$ (krok 14)\n15. 484 (parzysta) $\\rightarrow 484 / 2 = 242$ (krok 15)\n16. 242 (parzysta) $\\rightarrow 242 / 2 = 121$ (krok 16)\n17. 121 (nieparzysta) $\\rightarrow 3 \\times 121 + 1 = 364$ (krok 17)\n18. 364 (parzysta) $\\rightarrow 364 / 2 = 182$ (krok 18)\n19. 182 (parzysta) $\\rightarrow 182 / 2 = 91$ (krok 19)\n20. 91 (nieparzysta) $\\rightarrow 3 \\times 91 + 1 = 274$ (krok 20)\n21. 274 (parzysta) $\\rightarrow 274 / 2 = 137$ (krok 21)\n22. 137 (nieparzysta) $\\rightarrow 3 \\times 137 + 1 = 412$ (krok 22)\n23. 412 (parzysta) $\\rightarrow 412 / 2 = 206$ (krok 23)\n24. 206 (parzysta) $\\rightarrow 206 / 2 = 103$ (krok 24)\n25. 103 (nieparzysta) $\\rightarrow 3 \\times 103 + 1 = 310$ (krok 25)\n26. 3",
+          "answer": "26. 3",
+          "pass": false
+        },
+        {
+          "prompt": "Od 27 iteruj Collatza do 1. Liczba krokow?",
+          "raw": "Aby rozwiązać to zadanie, zastosujemy reguły ciągu Collatza (znane też jako problem 3n+1) dla liczby początkowej 27.\n\n**Zasady:**\n1. Jeśli liczba jest parzysta, dzielimy ją przez 2 ($n \\to n/2$).\n2. Jeśli liczba jest nieparzysta, mnożymy ją przez 3 i dodajemy 1 ($n \\to 3n + 1$).\n3. Proces kończymy, gdy osiągniemy liczbę 1.\n4. Liczymy liczbę wykonanych kroków (iteracji).\n\n**Rozpoczynamy od $n = 27$:**\n\n1. 27 (nieparzysta) $\\to 3 \\times 27 + 1 = 82$ (krok 1)\n2. 82 (parzysta) $\\to 82 / 2 = 41$ (krok 2)\n3. 41 (nieparzysta) $\\to 3 \\times 41 + 1 = 124$ (krok 3)\n4. 124 (parzysta) $\\to 124 / 2 = 62$ (krok 4)\n5. 62 (parzysta) $\\to 62 / 2 = 31$ (krok 5)\n6. 31 (nieparzysta) $\\to 3 \\times 31 + 1 = 94$ (krok 6)\n7. 94 (parzysta) $\\to 94 / 2 = 47$ (krok 7)\n8. 47 (nieparzysta) $\\to 3 \\times 47 + 1 = 142$ (krok 8)\n9. 142 (parzysta) $\\to 142 / 2 = 71$ (krok 9)\n10. 71 (nieparzysta) $\\to 3 \\times 71 + 1 = 214$ (krok 10)\n11. 214 (parzysta) $\\to 214 / 2 = 107$ (krok 11)\n12. 107 (nieparzysta) $\\to 3 \\times 107 + 1 = 322$ (krok 12)\n13. 322 (parzysta) $\\to 322 / 2 = 161$ (krok 13)\n14. 161 (nieparzysta) $\\to 3 \\times 161 + 1 = 484$ (krok 14)\n15. 484 (parzysta) $\\to 484 / 2 = 242$ (krok 15)\n16. 242 (parzysta) $\\to 242 / 2 = 121$ (krok 16)\n17. 121 (nieparzysta) $\\to 3 \\times 121 + 1 = 364$ (krok 17)\n18. 364 (parzysta) $\\to 364 / 2 = 182$ (krok 18)\n19. 182 (parzysta) $\\to 182 / 2 = 91$ (krok 19)\n20. 91 (nieparzysta) $\\to 3 \\times 91 + 1 = 274$ (krok 20)\n21. 274 (parzysta) $\\to 274 / 2 = 137$ (krok 21)\n22. 137 (nieparzysta) $\\to 3 \\times 137 + 1 = 412$ (krok 22)\n23. 412 (parzysta) $\\to 412 / 2 = 206$ (krok 23)\n24. 206 (parzysta) $\\to 206 / 2 = 103$ (krok 24)\n25. 103 (nieparzysta) $\\to 3 \\times 103 + 1 = 310$ (krok 25)\n26",
+          "answer": "26",
+          "pass": false
+        },
+        {
+          "prompt": "Ile iteracji Collatza od 27 do osiagniecia 1?",
+          "raw": "Aby rozwiązać to zadanie, musimy zastosować reguły ciągu Collatza (znanego również jako problem 3n+1) dla liczby początkowej $n = 27$.\n\n**Reguły ciągu Collatza:**\n1. Jeśli liczba jest parzysta, dzielimy ją przez 2 ($n \\to n/2$).\n2. Jeśli liczba jest nieparzysta, mnożymy ją przez 3 i dodajemy 1 ($n \\to 3n + 1$).\n3. Proces powtarzamy, aż osiągniemy liczbę 1.\n4. Liczymy liczbę wykonanych kroków (iteracji).\n\n**Rozpoczynamy od $n = 27$:**\n\n1.  27 (nieparzysta) $\\to 3 \\times 27 + 1 = 82$\n2.  82 (parzysta) $\\to 82 / 2 = 41$\n3.  41 (nieparzysta) $\\to 3 \\times 41 + 1 = 124$\n4.  124 (parzysta) $\\to 124 / 2 = 62$\n5.  62 (parzysta) $\\to 62 / 2 = 31$\n6.  31 (nieparzysta) $\\to 3 \\times 31 + 1 = 94$\n7.  94 (parzysta) $\\to 94 / 2 = 47$\n8.  47 (nieparzysta) $\\to 3 \\times 47 + 1 = 142$\n9.  142 (parzysta) $\\to 142 / 2 = 71$\n10. 71 (nieparzysta) $\\to 3 \\times 71 + 1 = 214$\n11. 214 (parzysta) $\\to 214 / 2 = 107$\n12. 107 (nieparzysta) $\\to 3 \\times 107 + 1 = 322$\n13. 322 (parzysta) $\\to 322 / 2 = 161$\n14. 161 (nieparzysta) $\\to 3 \\times 161 + 1 = 484$\n15. 484 (parzysta) $\\to 484 / 2 = 242$\n16. 242 (parzysta) $\\to 242 / 2 = 121$\n17. 121 (nieparzysta) $\\to 3 \\times 121 + 1 = 364$\n18. 364 (parzysta) $\\to 364 / 2 = 182$\n19. 182 (parzysta) $\\to 182 / 2 = 91$\n20. 91 (nieparzysta) $\\to 3 \\times 91 + 1 = 274$\n21. 274 (parzysta) $\\to 274 / 2 = 137$\n22. 137 (nieparzysta) $\\to 3 \\times 137 + 1 = 412$\n23. 412 (parzysta) $\\to 412 / 2 = 206$\n24. 206 (parzysta) $\\to 206 / 2 = 103$\n25. 103 (nieparzysta) $\\to 3 \\times 103 + 1 = 310$\n26. 310 (parzysta) $\\to 310 / 2 = 155$\n27. 155 (nieparzysta) $\\to 3 \\times 155 + 1 = 466$\n28. 466 (parzysta) $\\to 466 / 2 = 233$\n29. 233 (nieparzysta) $\\to 3 \\times 233 + 1 = 700$\n30. 700 (parzysta) $\\to 700 / 2 = 350$\n31.",
+          "answer": "31.",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "WYT-07",
+      "poziom": 15,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "9",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Ile wynosi 7^100 modulo 13? Reszta (0-12).",
+          "raw": "Aby obliczyć resztę z dzielenia $7^{100}$ przez $13$, skorzystamy z małego twierdzenia Fermata oraz własności potęgowania w arytmetyce modularnej.\n\n**Krok 1: Zastosowanie małego twierdzenia Fermata**\nMałe twierdzenie Fermata mówi, że jeśli $p$ jest liczbą pierwszą, a $a$ jest liczbą całkowitą niepodzielną przez $p$, to:\n$$a^{p-1} \\equiv 1 \\pmod{p}$$\n\nW naszym przypadku:\n*   $a = 7$\n*   $p = 13$ (liczba pierwsza)\n*   $7$ nie dzieli się przez $13$.\n\nZatem:\n$$7^{13-1} \\equiv 1 \\pmod{13}$$\n$$7^{12} \\equiv 1 \\pmod{13}$$\n\n**Krok 2: Uproszczenie wykładnika**\nChcemy obliczyć $7^{100} \\pmod{13}$. Podzielimy wykładnik $100$ przez $12$ (zgodnie z wynikiem z kroku 1), aby wyodrębnić pełne cykle, które dają resztę 1.\n\nDzielenie $100$ przez $12$:\n$$100 = 12 \\times 8 + 4$$\n\nOznacza to, że:\n$$7^{100} = 7^{12 \\times 8 + 4} = (7^{12})^8 \\times 7^4$$\n\n**Krok 3: Podstawienie i obliczenie reszty**\nPonieważ $7^{12} \\equiv 1 \\pmod{13}$, to:\n$$(7^{12})^8 \\equiv 1^8 \\equiv 1 \\pmod{13}$$\n\nZatem całe wyrażenie sprowadza się do:\n$$7^{100} \\equiv 1 \\times 7^4 \\equiv 7^4 \\pmod{13}$$\n\nTeraz musimy obliczyć $7^4 \\pmod{13}$.\nObliczmy kolejne potęgi liczby 7 modulo 13:\n1.  $7^1 = 7$\n2.  $7^2 = 49$\n    $$49 = 13 \\times 3 + 10 \\implies 49 \\equiv 10 \\pmod{13}$$\n    (Można też zapisać $10 \\equiv -3 \\pmod{13}$, co może ułatwić dalsze obliczenia).\n\nUżyjmy postaci $-3$:\n$$7^2 \\equiv -3 \\pmod{13}$$\n\nTeraz obliczmy $7^4$:\n$$7^4 = (7^2)^2 \\equiv (-3)^2 \\pmod{13}$$\n$$(-3)^2 = 9$$\n\nZatem:\n$$7^4 \\equiv 9 \\pmod{13}$$\n\nDla pewności sprawdźmy obliczenia bez użycia liczb ujemnych:\n$7^2 = 49 \\equiv 10 \\pmod{13}$\n$7^4 = 10^2 = 100$\n$100 = 13 \\times 7 + 9$ (ponieważ $13 \\times 7 = 91$)\n$100 - 91 = 9$\nWynik jest ten sam: $9$.\n\n**Wniosek**\nReszta z dzielenia $7^{100}$ przez $13$ wynosi $9$.\n\nWYNIK: 9",
+          "answer": "9",
+          "pass": true
+        },
+        {
+          "prompt": "Reszta z dzielenia 7^100 przez 13?",
+          "raw": "Aby znaleźć resztę z dzielenia $7^{100}$ przez $13$, możemy skorzystać z małego twierdzenia Fermata lub poszukać wzoru w potęgach liczby 7 modulo 13.\n\n**Krok 1: Zastosowanie małego twierdzenia Fermata**\nMałe twierdzenie Fermata mówi, że jeśli $p$ jest liczbą pierwszą, a $a$ jest liczbą całkowitą niepodzielną przez $p$, to:\n$$a^{p-1} \\equiv 1 \\pmod{p}$$\n\nW naszym przypadku:\n*   $a = 7$\n*   $p = 13$ (liczba pierwsza)\n*   $7$ nie dzieli się przez $13$.\n\nZatem:\n$$7^{13-1} \\equiv 1 \\pmod{13}$$\n$$7^{12} \\equiv 1 \\pmod{13}$$\n\n**Krok 2: Rozkład wykładnika**\nMusimy obliczyć $7^{100} \\pmod{13}$. Wykorzystamy fakt, że $7^{12} \\equiv 1 \\pmod{13}$. Podzielimy wykładnik 100 przez 12, aby wyodrębnić pełne cykle:\n$$100 = 12 \\times 8 + 4$$\n\nOznacza to, że:\n$$7^{100} = 7^{12 \\times 8 + 4} = (7^{12})^8 \\times 7^4$$\n\n**Krok 3: Uproszczenie wyrażenia**\nPonieważ $7^{12} \\equiv 1 \\pmod{13}$, to:\n$$(7^{12})^8 \\equiv 1^8 \\equiv 1 \\pmod{13}$$\n\nZatem całe wyrażenie sprowadza się do:\n$$7^{100} \\equiv 1 \\times 7^4 \\equiv 7^4 \\pmod{13}$$\n\n**Krok 4: Obliczenie $7^4 \\pmod{13}$**\nObliczmy kolejne potęgi liczby 7 modulo 13:\n1.  $7^1 = 7$\n2.  $7^2 = 49$\n    Dzielimy 49 przez 13: $49 = 13 \\times 3 + 10$.\n    Zatem $7^2 \\equiv 10 \\pmod{13}$.\n    (Uwaga: $10 \\equiv -3 \\pmod{13}$, co może ułatwić obliczenia).\n\n3.  $7^4 = (7^2)^2 \\equiv 10^2 \\pmod{13}$\n    $10^2 = 100$\n    Dzielimy 100 przez 13: $100 = 13 \\times 7 + 9$ (ponieważ $13 \\times 7 = 91$).\n    Zatem $100 \\equiv 9 \\pmod{13}$.\n\nAlternatywnie, używając $-3$:\n$7^2 \\equiv -3 \\pmod{13}$\n$7^4 \\equiv (-3)^2 = 9 \\pmod{13}$\n\n**Weryfikacja:**\n$7^4 = 2401$.\n$2401 / 13$:\n$13 \\times 100 = 1300$\n$2401 - 1300 = 1101$\n$13 \\times 80 = 1040$\n$1101 - 1040 = 61$\n$13 \\times 4 = 52$\n$61 - 52 = 9$\nReszta wynosi 9.\n\nWYNIK: 9",
+          "answer": "9",
+          "pass": true
+        },
+        {
+          "prompt": "7^100 mod 13 = ?",
+          "raw": "Aby obliczyć wartość $7^{100} \\pmod{13}$, skorzystamy z Małego Twierdzenia Fermata.\n\n**Krok 1: Sprawdzenie warunków Małego Twierdzenia Fermata**\nMałe Twierdzenie Fermata mówi, że jeśli $p$ jest liczbą pierwszą, a $a$ jest liczbą całkowitą niepodzielną przez $p$, to:\n$$a^{p-1} \\equiv 1 \\pmod{p}$$\n\nW naszym przypadku:\n*   $a = 7$\n*   $p = 13$ (liczba pierwsza)\n*   $7$ nie dzieli się przez $13$.\n\nZatem zgodnie z twierdzeniem:\n$$7^{13-1} \\equiv 1 \\pmod{13}$$\n$$7^{12} \\equiv 1 \\pmod{13}$$\n\n**Krok 2: Podzielenie wykładnika przez okres**\nChcemy obliczyć $7^{100} \\pmod{13}$. Wykorzystamy fakt, że $7^{12} \\equiv 1 \\pmod{13}$.\nPodzielmy wykładnik $100$ przez $12$, aby wyznaczyć resztę:\n$$100 = 12 \\times 8 + 4$$\n\nOznacza to, że:\n$$7^{100} = 7^{12 \\times 8 + 4} = (7^{12})^8 \\times 7^4$$\n\n**Krok 3: Uproszczenie wyrażenia**\nPonieważ $7^{12} \\equiv 1 \\pmod{13}$, to:\n$$(7^{12})^8 \\equiv 1^8 \\equiv 1 \\pmod{13}$$\n\nZatem:\n$$7^{100} \\equiv 1 \\times 7^4 \\equiv 7^4 \\pmod{13}$$\n\n**Krok 4: Obliczenie $7^4 \\pmod{13}$**\nObliczmy potęgi $7$ modulo $13$ krok po kroku:\n1.  $7^1 = 7$\n2.  $7^2 = 49$\n    $$49 \\div 13 = 3 \\text{ reszty } 10$$\n    $$49 \\equiv 10 \\pmod{13}$$\n    (Można też zapisać $10 \\equiv -3 \\pmod{13}$, co ułatwi dalsze obliczenia).\n\n3.  $7^4 = (7^2)^2 \\equiv 10^2 \\pmod{13}$\n    $$10^2 = 100$$\n    $$100 \\div 13 = 7 \\text{ reszty } 9$$\n    ($13 \\times 7 = 91$, a $100 - 91 = 9$)\n\nAlternatywnie, używając $-3$:\n$$7^2 \\equiv -3 \\pmod{13}$$\n$$7^4 \\equiv (-3)^2 \\pmod{13}$$\n$$(-3)^2 = 9$$\n$$9 \\equiv 9 \\pmod{13}$$\n\n**Wniosek**\nWartość $7^{100} \\pmod{13}$ wynosi $9$.\n\nWYNIK: 9",
+          "answer": "9",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WYT-08",
+      "poziom": 14,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "4294967297",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "a(1)=3, a(n)=a(n-1)^2-2*a(n-1)+2. Podaj a(6).",
+          "raw": "Aby obliczyć wartość $a(6)$, musimy wyznaczyć kolejne wyrazy ciągu, zaczynając od $a(1)$, korzystając z podanego wzoru rekurencyjnego:\n$a(n) = a(n-1)^2 - 2a(n-1) + 2$.\n\nZauważmy najpierw, że wyrażenie na prawo można zapisać w postaci kwadratu różnicy:\n$a(n) = (a(n-1) - 1)^2 + 1$.\nUproszczenie to ułatwi obliczenia.\n\n**Krok 1: Obliczenie $a(2)$**\nMamy dane $a(1) = 3$.\nPodstawiamy do wzoru:\n$a(2) = (3 - 1)^2 + 1$\n$a(2) = 2^2 + 1$\n$a(2) = 4 + 1 = 5$\n\n**Krok 2: Obliczenie $a(3)$**\nMamy $a(2) = 5$.\n$a(3) = (5 - 1)^2 + 1$\n$a(3) = 4^2 + 1$\n$a(3) = 16 + 1 = 17$\n\n**Krok 3: Obliczenie $a(4)$**\nMamy $a(3) = 17$.\n$a(4) = (17 - 1)^2 + 1$\n$a(4) = 16^2 + 1$\n$a(4) = 256 + 1 = 257$\n\n**Krok 4: Obliczenie $a(5)$**\nMamy $a(4) = 257$.\n$a(5) = (257 - 1)^2 + 1$\n$a(5) = 256^2 + 1$\nObliczamy $256^2$:\n$256 \\times 256 = 65536$\n$a(5) = 65536 + 1 = 65537$\n\n**Krok 5: Obliczenie $a(6)$**\nMamy $a(5) = 65537$.\n$a(6) = (65537 - 1)^2 + 1$\n$a(6) = 65536^2 + 1$\n\nTeraz musimy obliczyć $65536^2$.\nWiemy, że $65536 = 2^{16}$.\nZatem $65536^2 = (2^{16})^2 = 2^{32}$.\nWartość $2^{32}$ wynosi $4\\,294\\,967\\,296$.\n\nDodajemy 1:\n$a(6) = 4\\,294\\,967\\,296 + 1$\n$a(6) = 4\\,294\\,967\\,297$\n\nWYNIK: 4294967297",
+          "answer": "4294967297",
+          "pass": true
+        },
+        {
+          "prompt": "Ciag: a1=3, kazdy = poprzedni^2 - 2*poprzedni + 2. Ile a(6)?",
+          "raw": "Aby rozwiązać to zadanie, obliczymy kolejne wyrazy ciągu, zaczynając od $a_1$, aż do $a_6$, stosując podany wzór rekurencyjny:\n$a_{n} = a_{n-1}^2 - 2 \\cdot a_{n-1} + 2$\n\nDla ułatwienia obliczeń można zauważyć, że wzór można zapisać w postaci:\n$a_{n} = (a_{n-1} - 1)^2 + 1$\n\n**Krok 1: Obliczenie $a_1$**\nZ treści zadania:\n$a_1 = 3$\n\n**Krok 2: Obliczenie $a_2$**\nPodstawiamy $a_1 = 3$ do wzoru:\n$a_2 = 3^2 - 2 \\cdot 3 + 2$\n$a_2 = 9 - 6 + 2$\n$a_2 = 5$\n*(Sprawdzenie przez uproszczony wzór: $(3-1)^2 + 1 = 2^2 + 1 = 5$)*\n\n**Krok 3: Obliczenie $a_3$**\nPodstawiamy $a_2 = 5$ do wzoru:\n$a_3 = 5^2 - 2 \\cdot 5 + 2$\n$a_3 = 25 - 10 + 2$\n$a_3 = 17$\n*(Sprawdzenie: $(5-1)^2 + 1 = 4^2 + 1 = 17$)*\n\n**Krok 4: Obliczenie $a_4$**\nPodstawiamy $a_3 = 17$ do wzoru:\n$a_4 = 17^2 - 2 \\cdot 17 + 2$\n$a_4 = 289 - 34 + 2$\n$a_4 = 255 + 2$\n$a_4 = 257$\n*(Sprawdzenie: $(17-1)^2 + 1 = 16^2 + 1 = 256 + 1 = 257$)*\n\n**Krok 5: Obliczenie $a_5$**\nPodstawiamy $a_4 = 257$ do wzoru:\n$a_5 = 257^2 - 2 \\cdot 257 + 2$\nUżywając uproszczonej postaci $(a_{n-1}-1)^2 + 1$:\n$a_5 = (257 - 1)^2 + 1$\n$a_5 = 256^2 + 1$\nObliczamy $256^2$:\n$256 \\cdot 256 = 65536$\n$a_5 = 65536 + 1$\n$a_5 = 65537$\n\n**Krok 6: Obliczenie $a_6$**\nPodstawiamy $a_5 = 65537$ do wzoru:\n$a_6 = (65537 - 1)^2 + 1$\n$a_6 = 65536^2 + 1$\n\nTeraz musimy obliczyć $65536^2$.\nWiemy, że $65536 = 2^{16}$.\nZatem $65536^2 = (2^{16})^2 = 2^{32}$.\nWartość $2^{32}$ wynosi $4\\,294\\,967\\,296$.\n\nDodajemy 1:\n$a_6 = 4\\,294\\,967\\,296 + 1$\n$a_6 = 4\\,294\\,967\\,297$\n\nWYNIK: 4294967297",
+          "answer": "4294967297",
+          "pass": true
+        },
+        {
+          "prompt": "a(1)=3, a(n)=a(n-1)^2-2a(n-1)+2. Oblicz a(6).",
+          "raw": "Aby obliczyć wartość $a(6)$ dla podanego ciągu, wykorzystamy zdefiniowaną rekurencyjnie regułę:\n$a(1) = 3$\n$a(n) = a(n-1)^2 - 2a(n-1) + 2$\n\nZauważmy, że wyrażenie $x^2 - 2x + 2$ można zapisać jako $(x-1)^2 + 1$. Uproszczenie to ułatwi obliczenia, choć nie jest konieczne.\n\n**Krok 1: Obliczenie $a(2)$**\nPodstawiamy $n=2$:\n$a(2) = a(1)^2 - 2a(1) + 2$\n$a(2) = 3^2 - 2 \\cdot 3 + 2$\n$a(2) = 9 - 6 + 2$\n$a(2) = 5$\n\nAlternatywnie: $(3-1)^2 + 1 = 2^2 + 1 = 5$.\n\n**Krok 2: Obliczenie $a(3)$**\nPodstawiamy $n=3$ i $a(2)=5$:\n$a(3) = 5^2 - 2 \\cdot 5 + 2$\n$a(3) = 25 - 10 + 2$\n$a(3) = 17$\n\nAlternatywnie: $(5-1)^2 + 1 = 4^2 + 1 = 17$.\n\n**Krok 3: Obliczenie $a(4)$**\nPodstawiamy $n=4$ i $a(3)=17$:\n$a(4) = 17^2 - 2 \\cdot 17 + 2$\n$a(4) = 289 - 34 + 2$\n$a(4) = 257$\n\nAlternatywnie: $(17-1)^2 + 1 = 16^2 + 1 = 256 + 1 = 257$.\n\n**Krok 4: Obliczenie $a(5)$**\nPodstawiamy $n=5$ i $a(4)=257$:\n$a(5) = 257^2 - 2 \\cdot 257 + 2$\nUżywając uproszczonej formy: $(257-1)^2 + 1 = 256^2 + 1$.\nObliczamy $256^2$:\n$256 \\cdot 256 = 65536$\n$a(5) = 65536 + 1$\n$a(5) = 65537$\n\n**Krok 5: Obliczenie $a(6)$**\nPodstawiamy $n=6$ i $a(5)=65537$:\n$a(6) = 65537^2 - 2 \\cdot 65537 + 2$\nUżywając uproszczonej formy: $(65537-1)^2 + 1 = 65536^2 + 1$.\n\nObliczamy $65536^2$:\nWiemy, że $65536 = 2^{16}$.\nZatem $65536^2 = (2^{16})^2 = 2^{32}$.\nWartość $2^{32}$ wynosi $4\\,294\\,967\\,296$.\n\nDodajemy 1:\n$a(6) = 4\\,294\\,967\\,296 + 1$\n$a(6) = 4\\,294\\,967\\,297$\n\nWYNIK: 4294967297",
+          "answer": "4294967297",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
