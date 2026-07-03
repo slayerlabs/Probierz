@@ -2,26 +2,21 @@
 
 Realizuje pomiar wg dokumentow Probierza:
 - odpytuje model na KAZDEJ parafrazie polecenia (AT5: test niezmienniczosci promptu),
-- weryfikuje odpowiedz koncowa deterministycznie wzgledem `odpowiedz_kanoniczna` (T5),
+- weryfikuje odpowiedz deterministycznie (T5),
 - liczy wynik itemu jako statystyke odporna (mediana pass po parafrazach) + wariancje (wrazliwosc),
-- zapisuje odpowiedzi surowe do audytu (grader trybu awarii = osobny krok, S3/S4).
+- zapisuje odpowiedzi surowe do audytu.
 
-Odpornosc na przerwanie: zapis INKREMENTALNY po kazdym itemie (checkpoint) + WZNAWIANIE
-(pomija itemy juz obecne w pliku --out). Wolne endpointy (Slayer ~40s/wywolanie) nie traca postepu.
+Typy odpowiedzi (typ_odpowiedzi):
+- "liczba": porownanie numeryczne z tolerancja formatu (extract po 'WYNIK:').
+- "kanoniczny_tekst": dopasowanie do `klasy_odpowiedzi` (najdluzsza fraza) lub frazy kanonicznej.
+- "programowa": weryfikacja SUROWEJ odpowiedzi predykatem z pola `regula` {pred, arg}. Uzywane dla
+  D5 (wiernosc instrukcji) - grader sprawdza format programowo (liczba slow, brak znaku, JSON, ...).
+  Nie uzywa 'WYNIK:'; system prompt neutralny (model ma wykonac polecenie doslownie).
 
-Typy odpowiedzi (T5):
-- "liczba": porownanie numeryczne z tolerancja formatu.
-- "kanoniczny_tekst": jesli item ma `klasy_odpowiedzi` (zamkniety zbior, np. tak/nie/nie wiadomo),
-  wykrywana jest KLASA wybrana przez model (najdluzsza pasujaca fraza wygrywa, by 'nie wiadomo'
-  nie bylo mylone z 'nie'); inaczej dopasowanie frazy kanonicznej jako slowa.
-
-NIE klasyfikuje automatycznie trybu awarii (wymaga >=2 graderow roznego pochodzenia, S4) —
-zapisuje surowe wyjscia do reczej/pol-automatycznej klasyfikacji.
+Odpornosc: checkpoint per item + wznawianie (pomija itemy z pliku --out).
 
 Uzycie:
-  python run_eval.py --eval ../benchmarks/d2-semantyka-v1/eval.jsonl \
-    --base-url http://127.0.0.1:8799/v1 --model slayer-v49-qwen3.5-27b \
-    --api-key "$SLAYER_API_KEY" --out wyniki-slayer-d2.json
+  python run_eval.py --eval <zestaw>/eval.jsonl --base-url <url> --model <id> --out wyniki.json
 """
 import argparse, json, os, re, sys, time, urllib.request, urllib.error
 
@@ -30,8 +25,12 @@ try:
 except Exception:
     pass
 
-SYSTEM = ("Jesteś precyzyjnym solverem. Rozwiąż zadanie krok po kroku, a na końcu podaj "
-          "wynik końcowy w osobnej linii dokładnie w formacie: WYNIK: <odpowiedź>")
+SYSTEM_SOLVER = ("Jesteś precyzyjnym solverem. Rozwiąż zadanie krok po kroku, a na końcu podaj "
+                 "wynik końcowy w osobnej linii dokładnie w formacie: WYNIK: <odpowiedź>")
+# Dla typu 'programowa' (D5): model ma wykonac polecenie DOSLOWNIE, bez doklejania 'WYNIK:'.
+SYSTEM_INSTRUCT = ("Jesteś asystentem wykonującym polecenia dokładnie. Wykonaj polecenie użytkownika "
+                   "ściśle według podanych ograniczeń formatu. Zwróć wyłącznie żądaną treść, bez "
+                   "komentarzy, wyjaśnień ani dodatkowego tekstu.")
 
 
 def call_model(base_url, model, api_key, system, user, max_tokens=1024, temperature=0.0, retries=3):
@@ -80,9 +79,6 @@ def normalize_text(s):
 
 
 def detect_class(answer, klasy):
-    """Wykrywa, ktora KLASE z zamknietego zbioru wybral model.
-    Najdluzsza pasujaca fraza wygrywa (np. 'nie wiadomo' > 'nie'), by uniknac
-    falszywych trafien podlancuchow. Zwraca znormalizowana klase lub None."""
     na = normalize_text(answer)
     hits = []
     for k in klasy:
@@ -91,17 +87,102 @@ def detect_class(answer, klasy):
             hits.append(nk)
     if not hits:
         return None
-    return max(hits, key=len)  # najdluzsza pasujaca klasa
+    return max(hits, key=len)
+
+
+# ---- Predykaty D5 (typ 'programowa') — weryfikacja formatu na SUROWEJ odpowiedzi ----
+def _clean(raw):
+    """Odpowiedz oczyszczona: bez otaczajacych bialych znakow i ewentualnych ogranicznikow ```."""
+    t = (raw or "").strip()
+    t = re.sub(r"^```[a-zA-Z]*\n?", "", t)
+    t = re.sub(r"\n?```$", "", t)
+    return t.strip()
+
+
+def _words(t):
+    return re.findall(r"\b[\wąćęłńóśźżÀ-ÿ]+\b", t, flags=re.UNICODE)
+
+
+def pred_exact_word_count(raw, arg):
+    return len(_words(_clean(raw))) == int(arg)
+
+def pred_max_word_count(raw, arg):
+    return len(_words(_clean(raw))) <= int(arg)
+
+def pred_forbidden_char(raw, arg):
+    return arg.lower() not in _clean(raw).lower()
+
+def pred_forbidden_word(raw, arg):
+    return re.search(r"\b" + re.escape(arg.lower()), _clean(raw).lower()) is None
+
+def pred_uppercase_only(raw, arg):
+    t = _clean(raw)
+    letters = [c for c in t if c.isalpha()]
+    return len(letters) > 0 and all(c.isupper() for c in letters)
+
+def pred_exact_line_count(raw, arg):
+    lines = [l for l in _clean(raw).splitlines() if l.strip()]
+    return len(lines) == int(arg)
+
+def pred_starts_with(raw, arg):
+    return _clean(raw).startswith(arg)
+
+def pred_ends_with(raw, arg):
+    return _clean(raw).rstrip().endswith(arg)
+
+def pred_contains_not(raw, arg):
+    return arg.lower() not in _clean(raw).lower()
+
+def pred_contains(raw, arg):
+    return arg.lower() in _clean(raw).lower()
+
+def pred_json_has_keys(raw, arg):
+    t = _clean(raw)
+    m = re.search(r"\{.*\}", t, flags=re.DOTALL)
+    if not m:
+        return False
+    try:
+        obj = json.loads(m.group(0))
+    except Exception:
+        return False
+    return isinstance(obj, dict) and all(k in obj for k in arg)
+
+def pred_regex(raw, arg):
+    return re.search(arg, _clean(raw)) is not None
+
+PREDICATES = {
+    "exact_word_count": pred_exact_word_count,
+    "max_word_count": pred_max_word_count,
+    "forbidden_char": pred_forbidden_char,
+    "forbidden_word": pred_forbidden_word,
+    "uppercase_only": pred_uppercase_only,
+    "exact_line_count": pred_exact_line_count,
+    "starts_with": pred_starts_with,
+    "ends_with": pred_ends_with,
+    "contains_not": pred_contains_not,
+    "contains": pred_contains,
+    "json_has_keys": pred_json_has_keys,
+    "regex": pred_regex,
+}
+
+
+def check_predicate(raw, regula):
+    fn = PREDICATES.get(regula.get("pred"))
+    if fn is None:
+        return False
+    try:
+        return bool(fn(raw, regula.get("arg")))
+    except Exception:
+        return False
 
 
 def judge(answer, kanon, typ, klasy=None):
-    """Deterministyczny pass/fail wg typu odpowiedzi (T5)."""
+    """Deterministyczny pass/fail dla typow 'liczba' i 'kanoniczny_tekst' (T5)."""
     if typ == "liczba":
         a, k = normalize_num(answer), normalize_num(kanon)
         if a is None or k is None:
             return False
         return abs(a - k) < 1e-6
-    # kanoniczny_tekst
     if klasy:
         chosen = detect_class(answer, klasy)
         return chosen is not None and chosen == normalize_text(kanon)
@@ -110,7 +191,6 @@ def judge(answer, kanon, typ, klasy=None):
 
 
 def item_level(it):
-    """Elastyczny odczyt poziomu trudnosci (rozne wymiary: poziom_krokow / poziom_trudnosci)."""
     for key in ("poziom_krokow", "poziom_trudnosci", "poziom"):
         if key in it:
             return it[key]
@@ -118,27 +198,33 @@ def item_level(it):
 
 
 def default_classes(it):
-    """Zbior klas odpowiedzi: jawne pole `klasy_odpowiedzi` albo heurystyka dla typowych
-    odpowiedzi zamknietych (tak/nie/nie wiadomo/niejednoznaczne)."""
     if it.get("klasy_odpowiedzi"):
         return it["klasy_odpowiedzi"]
-    kanon = normalize_text(it["odpowiedz_kanoniczna"])
+    kanon = normalize_text(it.get("odpowiedz_kanoniczna", ""))
     closed = {"tak", "nie", "nie wiadomo", "niejednoznaczne", "burmistrz", "demonstranci"}
     if kanon in closed:
-        # domyslny zbior klas tak/nie/nie wiadomo/niejednoznaczne + wariant kanonu
         base = ["nie wiadomo", "niejednoznaczne", "tak", "nie"]
         return base if kanon in {"tak", "nie", "nie wiadomo", "niejednoznaczne"} else None
     return None
 
 
 def score_item(it, base_url, model, api_key, max_tokens, temperature):
-    kanon, typ = it["odpowiedz_kanoniczna"], it["typ_odpowiedzi"]
-    klasy = default_classes(it)
+    typ = it["typ_odpowiedzi"]
     per_para = []
-    for p in it["spec_parafrazy"]:
-        raw = call_model(base_url, model, api_key, SYSTEM, p, max_tokens, temperature)
-        ans = extract_answer(raw)
-        per_para.append({"prompt": p, "raw": raw, "answer": ans, "pass": judge(ans, kanon, typ, klasy)})
+    if typ == "programowa":
+        regula = it["regula"]
+        for p in it["spec_parafrazy"]:
+            raw = call_model(base_url, model, api_key, SYSTEM_INSTRUCT, p, max_tokens, temperature)
+            ok = check_predicate(raw, regula)
+            per_para.append({"prompt": p, "raw": raw, "answer": _clean(raw), "pass": ok})
+        kanon = f"{regula.get('pred')}:{regula.get('arg')}"
+    else:
+        kanon = it["odpowiedz_kanoniczna"]
+        klasy = default_classes(it)
+        for p in it["spec_parafrazy"]:
+            raw = call_model(base_url, model, api_key, SYSTEM_SOLVER, p, max_tokens, temperature)
+            ans = extract_answer(raw)
+            per_para.append({"prompt": p, "raw": raw, "answer": ans, "pass": judge(ans, kanon, typ, klasy)})
     passes = [x["pass"] for x in per_para]
     pass_rate = sum(passes) / len(passes)
     return {
@@ -195,7 +281,7 @@ def main():
             continue
         r = score_item(it, args.base_url, args.model, args.api_key, args.max_tokens, args.temperature)
         results.append(r)
-        save(args.out, args.model, args.eval, items, results)  # CHECKPOINT po kazdym itemie
+        save(args.out, args.model, args.eval, items, results)
         print(f"  {r['id']} (poz. {r['poziom']}): pass={r['pass_median']} "
               f"({sum(x['pass'] for x in r['per_parafraza'])}/{len(r['per_parafraza'])} parafraz)"
               + ("  [WRAZLIWY na parafraze]" if r["wrazliwosc_parafraza"] else ""))
