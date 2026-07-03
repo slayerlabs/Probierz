@@ -200,6 +200,45 @@ def pred_json_seq_order(raw, arg):
     return all(any(t == want.lower() for t in it) for want in arg)
 
 
+def pred_json_seq_len_order(raw, arg):
+    """Tablica JSON o DOKLADNEJ dlugosci arg['len'] i dokladnej sekwencji tool==arg['order']."""
+    o = _extract_json(raw)
+    if not isinstance(o, list):
+        return False
+    tools = [str(x.get("tool", "")).strip().lower() for x in o if isinstance(x, dict)]
+    want = [w.lower() for w in arg["order"]]
+    return len(tools) == int(arg["len"]) and tools == want
+
+
+def pred_json_seq_dep(raw, arg):
+    """Sekwencja tool w kolejnosci arg['order']; jesli ref_in_last, ostatni krok ma w args
+    referencje do wczesniejszego wyniku (placeholder {{...}}, 'step', 'result', '$')."""
+    o = _extract_json(raw)
+    if not isinstance(o, list) or not o:
+        return False
+    tools = [str(x.get("tool", "")).strip().lower() for x in o if isinstance(x, dict)]
+    it = iter(tools)
+    if not all(any(t == w.lower() for t in it) for w in arg["order"]):
+        return False
+    if arg.get("ref_in_last"):
+        last = o[-1]
+        blob = json.dumps(last.get("args", {}), ensure_ascii=False).lower()
+        return bool(re.search(r"\{\{.*\}\}|step|result|wynik|\$", blob))
+    return True
+
+
+def pred_json_seq_no_tool(raw, arg):
+    """Sekwencja tool == arg['order'] (podciag w kolejnosci) ORAZ zaden krok nie uzywa arg['forbidden']."""
+    o = _extract_json(raw)
+    if not isinstance(o, list) or not o:
+        return False
+    tools = [str(x.get("tool", "")).strip().lower() for x in o if isinstance(x, dict)]
+    if arg["forbidden"].lower() in tools:
+        return False
+    it = iter(tools)
+    return all(any(t == w.lower() for t in it) for w in arg["order"])
+
+
 PREDICATES = {
     "exact_word_count": pred_exact_word_count,
     "max_word_count": pred_max_word_count,
@@ -217,6 +256,9 @@ PREDICATES = {
     "json_tool_args": pred_json_tool_args,
     "json_only_tool": pred_json_only_tool,
     "json_seq_order": pred_json_seq_order,
+    "json_seq_len_order": pred_json_seq_len_order,
+    "json_seq_dep": pred_json_seq_dep,
+    "json_seq_no_tool": pred_json_seq_no_tool,
 }
 
 
