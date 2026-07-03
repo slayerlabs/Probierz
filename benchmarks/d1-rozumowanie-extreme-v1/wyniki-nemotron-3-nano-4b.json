@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "model": "nvidia/nemotron-3-nano-4b",
+    "eval": "../benchmarks/d1-rozumowanie-extreme-v1/eval.jsonl",
+    "n_items": 6,
+    "n_scored": 6,
+    "pass_median_count": 5,
+    "pass_median_rate": 0.833,
+    "items_wrazliwe": 2
+  },
+  "results": [
+    {
+      "id": "D1X-L11-01",
+      "poziom": 11,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "sprzecznosc",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Prostokat ma obwod 20 cm, pole 24 cm2, a jeden bok ma 8 cm. Podaj dlugosc drugiego boku w cm. Jesli dane sa wzajemnie sprzeczne, odpowiedz 'sprzecznosc'.",
+          "raw": "\nsprzecznosc  \nWYNIK: sprzecznosc",
+          "answer": "sprzecznosc",
+          "pass": true
+        },
+        {
+          "prompt": "Obwod prostokata=20, pole=24, jeden bok=8. Drugi bok (cm)? Gdy dane sie wykluczaja: 'sprzecznosc'.",
+          "raw": "\n**Rozwiązanie krok po kroku**\n\n1. Niech boków prostokąta będą \\(a\\) i \\(b\\).  \n2. Z podanych danych:  \n   - Obwód: \\(P = 20\\ \\text{cm}\\) → \\(2(a+b)=20\\) → \\(a+b=10\\).  \n   - Pole: \\(S = 24\\ \\text{cm}^2\\) → \\(ab = 24\\).  \n3. Podano, że jeden bok wynosi \\(a = 8\\ \\text{cm}\\).  \n4. Z równania obwodu: \\(b = 10 - a = 10 - 8 = 2\\ \\text{cm}\\).  \n5. Sprawdźmy pole przy tym wyniku: \\(ab = 8 \\times 2 = 16\\ \\text{cm}^2\\), co **nie** zgadza się z podanym polem \\(24\\ \\text{cm}^2\\).  \n\nPonieważ dane (obwód, pole i jeden bok) nie mogą być jednocześnie prawdziwe – istnieje sprzeczność w danych.\n\n**WYNIK: sprzecznosc**",
+          "answer": "sprzecznosc**",
+          "pass": true
+        },
+        {
+          "prompt": "Prostokat: obwod 20 cm, pole 24 cm2, bok 8 cm. Ile ma drugi bok? Jesli niespojne: 'sprzecznosc'.",
+          "raw": "\n**Rozwiązanie krok po kroku**\n\n1. Niech boków prostokąta będą \\(a\\) i \\(b\\).  \n2. Z podanych danych:  \n   - Obwód: \\(P = 20\\ \\text{cm}\\) → \\(2(a+b)=20\\) → \\(a+b=10\\).  \n   - Pole: \\(S = 24\\ \\text{cm}^2\\) → \\(ab = 24\\).  \n3. Podano, że jeden bok ma długość \\(a = 8\\ \\text{cm}\\).  \n4. Z równania obwodu: \\(b = 10 - a = 10 - 8 = 2\\ \\text{cm}\\).  \n5. Sprawdźmy pole przy tym wyniku: \\(ab = 8 \\times 2 = 16\\ \\text{cm}^2\\).  \n6. To nie zgadza się z podanym polem \\(24\\ \\text{cm}^2\\).  \n\nPonieważ warunki (obwód i pole) są niespójne przy podanej długości boku, odpowiedź jest **sprzecznosc**.\n\nWYNIK: sprzecznosc",
+          "answer": "sprzecznosc",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1X-L11-02",
+      "poziom": 11,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "4",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Zestaw 5 zdan, kazde mowi ile zdan w zestawie jest FALSZYWYCH: (1) 'dokladnie 1 falszywe' (2) 'dokladnie 2 falszywe' (3) 'dokladnie 3 falszywe' (4) 'dokladnie 4 falszywe' (5) 'dokladnie 5 falszywych'. Ile zdan jest falszywych? Podaj liczbe 0-5.",
+          "raw": "\nWYNIK: 4",
+          "answer": "4",
+          "pass": true
+        },
+        {
+          "prompt": "5 zdan: zdanie i twierdzi 'dokladnie i zdan jest falszywych' (i=1..5). Ile faktycznie jest falszywych (0-5)?",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Kazde z 5 zdan podaje liczbe falszywych: (1)=1, (2)=2, (3)=3, (4)=4, (5)=5 falszywych. Ile zdan jest naprawde falszywych (0-5)?",
+          "raw": "\nWYNIK: 4",
+          "answer": "4",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1X-L12-01",
+      "poziom": 12,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "8",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Liczba n: jesli n parzyste, podziel przez 2; jesli nieparzyste, pomnoz przez 3 i dodaj 1. Powtarzaj az dojdziesz do 1. Startujac od n=6, ile KROKOW potrzeba, by dojsc do 1?",
+          "raw": "\nWYNIK: 8",
+          "answer": "8",
+          "pass": true
+        },
+        {
+          "prompt": "Regula: n parzyste -> n/2; n nieparzyste -> 3n+1. Powtarzaj do 1. Ile krokow od n=6 do 1?",
+          "raw": "\nWYNIK: 8",
+          "answer": "8",
+          "pass": true
+        },
+        {
+          "prompt": "Od n=6 stosuj: parzyste dziel przez 2, nieparzyste razy 3 plus 1, az bedzie 1. Podaj liczbe krokow.",
+          "raw": "\nWYNIK: 8",
+          "answer": "8",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1X-L12-02",
+      "poziom": 12,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "27.5",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Matka jest 4 razy starsza od corki. 20 lat temu matka byla 12 razy starsza od corki. Ile lat ma teraz corka?",
+          "raw": "\nMatka ma wiek \\(M\\), corka – \\(D\\).\n\nZadanie mówi:\n\\[\n\\begin{cases}\nM = 4D \\\\\nM-20 = 12(D-20)\n\\end{cases}\n\\]\n\nRozwiązujemy drugie równanie:\n\\[\nM - 20 = 12D - 240 \\;\\Longrightarrow\\; M = 12D - 220.\n\\]\n\nPodstawiamy do pierwszego równania:\n\\[\n4D = 12D - 220 \\;\\Longrightarrow\\; 8D = 220 \\;\\Longrightarrow\\; D = \\frac{220}{8}=27.5.\n\\]\n\nZatem corka ma obecnie **27,5 roku** (czyli 27 lat i 30 dni).\n\nWYNIK: 27.5",
+          "answer": "27.5",
+          "pass": true
+        },
+        {
+          "prompt": "Matka=4x corka. 20 lat temu matka byla 12x corka. Wiek corki dzis?",
+          "raw": "\nWYNIK: 27.5",
+          "answer": "27.5",
+          "pass": true
+        },
+        {
+          "prompt": "Obecnie matka ma czterokrotnosc wieku corki; 20 lat temu dwunastokrotnosc. Ile lat ma corka teraz?",
+          "raw": "\nLet the mother’s current age be \\(M\\) and the cat’s current age be \\(C\\).\n\n- Now the cat is four times older than the mother:\n\\[\nC = 4M.\n\\]\n\n- Twenty years ago the cat was twelve times older than the mother:\n\\[\nC - 20 = 12\\,(M - 20).\n\\]\n\nSubstitute \\(C = 4M\\) into the second equation:\n\n\\[\n4M - 20 = 12(M - 20) \\\\\n4M - 20 = 12M - 240.\n\\]\n\nBring like terms together:\n\n\\[\n-20 + 240 = 12M - 4M \\\\\n220 = 8M \\\\\nM = \\frac{220}{8} = 27.5.\n\\]\n\nNow find the cat’s age:\n\n\\[\nC = 4M = 4 \\times 27.5 = 110.\n\\]\n\nThus, the cat is currently **110 years old**.\n\nWYNIK: 110",
+          "answer": "110",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1X-L13-01",
+      "poziom": 13,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "12",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Na ile sposobow mozna ustawic 4 osoby (A,B,C,D) w rzedzie, jesli A i B NIE moga stac obok siebie?",
+          "raw": "\nWYNIK: 12",
+          "answer": "12",
+          "pass": true
+        },
+        {
+          "prompt": "Ile ustawien 4 osob w rzedzie, gdy A i B nie sasiaduja?",
+          "raw": "\nWYNIK: 12",
+          "answer": "12",
+          "pass": true
+        },
+        {
+          "prompt": "4 osoby A,B,C,D w rzedzie; A i B nie moga byc obok siebie. Liczba mozliwych ustawien?",
+          "raw": "\nLiczba wszystkich możliwych ułożenia 4 osób to \\(4! = 24\\).\n\nUstawienia w których A i B są obok siebie:\n- Rozważmy AB jako jedną „blok”. Wtedy mamy blok + C + D → 3 przedmioty, które mogą być ułożone w \\(3! = 6\\) sposób.\n- W wewnętrznej kolejności bloku AB może się pojawić jako AB lub BA → 2 możliwości.\n\nZatem liczba ułożenia z A i B obok siebie to \\(6 \\times 2 = 12\\).\n\nUstawienia, w których A i B **nie** są obok siebie:\n\\[\n24 - 12 = 12.\n\\]\n\nWYNIK: 12",
+          "answer": "12",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1X-L13-02",
+      "poziom": 13,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "B",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Czterech podejrzanych: dokladnie jeden klamie. Adam: 'Bartek jest winny'. Bartek: 'Cezary jest winny'. Cezary: 'Bartek klamie'. Dawid: 'Ja jestem niewinny'. Wiadomo, ze winny jest dokladnie jeden i to on (i tylko on) klamie. Kto jest winny? A/B/C/D. Jesli niemozliwe: 'sprzecznosc'.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "4 podejrzanych, winny=dokladnie jeden=jedyny klamca. Adam:'Bartek winny', Bartek:'Cezary winny', Cezary:'Bartek klamie', Dawid:'jestem niewinny'. Kto winny? A/B/C/D lub 'sprzecznosc'.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        },
+        {
+          "prompt": "Winny to jedyny klamca (dokladnie jeden). Adam twierdzi Bartek winny; Bartek: Cezary winny; Cezary: Bartek klamie; Dawid: jestem niewinny. Ustal winnego (A/B/C/D) lub 'sprzecznosc'.",
+          "raw": "",
+          "answer": "",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

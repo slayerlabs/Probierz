@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "model": "google/gemma-3n-e4b",
+    "eval": "../benchmarks/d1-rozumowanie-extreme-v1/eval.jsonl",
+    "n_items": 6,
+    "n_scored": 6,
+    "pass_median_count": 3,
+    "pass_median_rate": 0.5,
+    "items_wrazliwe": 2
+  },
+  "results": [
+    {
+      "id": "D1X-L11-01",
+      "poziom": 11,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "sprzecznosc",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Prostokat ma obwod 20 cm, pole 24 cm2, a jeden bok ma 8 cm. Podaj dlugosc drugiego boku w cm. Jesli dane sa wzajemnie sprzeczne, odpowiedz 'sprzecznosc'.",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Obwód prostokąta:** Obwód prostokąta oblicza się ze wzoru P = 2 * (a + b), gdzie a i b to długości boków. Wiemy, że obwód wynosi 20 cm.\n2. **Pole prostokąta:** Pole prostokąta oblicza się ze wzoru P = a * b. Wiemy, że pole wynosi 24 cm².\n3. **Dany bok:** Jeden z boków ma długość 8 cm. Załóżmy, że a = 8 cm.\n4. **Obliczenie drugiego boku (na podstawie obwodu):**  Z wzoru na obwód: 20 = 2 * (8 + b). Dzieląc obie strony przez 2, otrzymujemy 10 = 8 + b. Stąd b = 10 - 8 = 2 cm.\n5. **Obliczenie drugiego boku (na podstawie pola):** Z wzoru na pole: 24 = 8 * b. Dzieląc obie strony przez 8, otrzymujemy b = 24 / 8 = 3 cm.\n\nPonieważ z dwóch różnych równań otrzymaliśmy różne wartości dla długości drugiego boku (2 cm i 3 cm), dane są sprzeczne.\n\nWYNIK: sprzecznosc",
+          "answer": "sprzecznosc",
+          "pass": true
+        },
+        {
+          "prompt": "Obwod prostokata=20, pole=24, jeden bok=8. Drugi bok (cm)? Gdy dane sie wykluczaja: 'sprzecznosc'.",
+          "raw": "Rozwiążmy to zadanie krok po kroku.\n\n1. **Obwód prostokąta:** Obwód prostokąta oblicza się ze wzoru P = 2 * (a + b), gdzie a i b to długości boków.  W naszym przypadku obwód wynosi 20, więc:\n   20 = 2 * (a + b)\n\n2. **Pole prostokąta:** Pole prostokąta oblicza się ze wzoru P = a * b. W naszym przypadku pole wynosi 24, a jeden bok (powiedzmy 'a') wynosi 8. Zatem:\n   24 = 8 * b\n\n3. **Obliczenie drugiego boku z pola:**  Z równania 24 = 8 * b możemy wyliczyć b:\n    b = 24 / 8 = 3\n\n4. **Sprawdzenie obwodu przy b=3:** Jeśli a=8 i b=3, to obwód wynosi:\n   20 = 2 * (8 + 3) = 2 * 11 = 22\n\n5. **Analiza rozbieżności:** Obliczony obwód (22) nie zgadza się z podanym obwodem (20). Oznacza to, że dane w zadaniu są sprzeczne i nie istnieje prostokąt spełniający jednocześnie te warunki.\n\nWYNIK: sprzeczność",
+          "answer": "sprzeczność",
+          "pass": false
+        },
+        {
+          "prompt": "Prostokat: obwod 20 cm, pole 24 cm2, bok 8 cm. Ile ma drugi bok? Jesli niespojne: 'sprzecznosc'.",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Zrozumienie problemu:** Mamy prostokąt o znanym obwodzie (20 cm), polu (24 cm²) i jednym boku (8 cm). Musimy znaleźć długość drugiego boku.\n\n2. **Wzory na prostokąt:**\n   * Obwód prostokąta: O = 2 * (a + b), gdzie 'a' i 'b' to długości boków.\n   * Pole prostokąta: P = a * b\n\n3. **Wykorzystanie danych:** Wiemy, że O = 20 cm, P = 24 cm² i jeden z boków (powiedzmy 'a') wynosi 8 cm.  Możemy podstawić te wartości do wzorów.\n\n4. **Obliczenie drugiego boku:**\n   * Z wzoru na pole: 24 = 8 * b\n   * Dzieląc obie strony przez 8, otrzymujemy: b = 24 / 8 = 3 cm\n\n5. **Sprawdzenie spójności:** Sprawdźmy czy znalezione wartości spełniają warunek obwodu:\n    O = 2 * (a + b) = 2 * (8 + 3) = 2 * 11 = 22 cm.  To nie zgadza się z podanym obwodem 20 cm.\n\n6. **Wniosek:** Zauważyliśmy, że dane w zadaniu są sprzeczne. Jeśli jeden bok ma długość 8 cm i pole wynosi 24 cm², to drugi bok musi mieć długość 3 cm, a wtedy obwód prostokąta wyniesie 22 cm, a nie 20 cm.\n\nWYNIK: sprzeczność",
+          "answer": "sprzeczność",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1X-L11-02",
+      "poziom": 11,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "4",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Zestaw 5 zdan, kazde mowi ile zdan w zestawie jest FALSZYWYCH: (1) 'dokladnie 1 falszywe' (2) 'dokladnie 2 falszywe' (3) 'dokladnie 3 falszywe' (4) 'dokladnie 4 falszywe' (5) 'dokladnie 5 falszywych'. Ile zdan jest falszywych? Podaj liczbe 0-5.",
+          "raw": "Oznaczmy liczbę fałszywych zdań w każdym zestawie jako $n_1, n_2, n_3, n_4, n_5$ odpowiednio. Z treści zadania wiemy, że:\n\n(1) $n_1 = 1$\n(2) $n_2 = 2$\n(3) $n_3 = 3$\n(4) $n_4 = 4$\n(5) $n_5 = 5$\n\nZadanie pyta, ile zdań jest fałszywych w zestawie.  Ponieważ każdy zestaw zawiera dokładnie tyle zdań, ile wskazuje liczba fałszywych zdań w danym zestawie, to odpowiedź powinna być równa liczbie fałszywych zdań w każdym z tych zestawów.\n\nZatem poszczególne zestawy mają następujące liczby fałszywych zdań: 1, 2, 3, 4, 5.  Pytanie brzmi, ile *zdań* jest fałszywych. Zestaw zawiera 5 zdań, a każdy z nich może być prawdziwy lub fałszywy.\n\nZadanie sugeruje, że pytamy o liczbę fałszywych zdań w zestawie, który opisują te zdania.  Ponieważ każde zdanie mówi ile jest fałszywych zdań w danym zestawie, to liczba fałszywych zdań w każdym z tych zestawów wynosi odpowiednio 1, 2, 3, 4 i 5.\n\nJednakże zadanie pyta o liczbę *zdań* które są fałszywe.  Zestaw zawiera 5 zdań. Zatem suma liczby fałszywych zdań w każdym z tych zestawów to:\n$1 + 2 + 3 + 4 + 5 = 15$.\n\nJednakże, zadanie pyta o liczbę *zdań* które są fałszywe.  Zestaw zawiera 5 zdań i każde zdanie mówi ile jest fałszywych w danym zestawie. Zatem liczba fałszywych zdań to suma tych wartości: $1+2+3+4+5 = 15$.\n\nPytanie brzmi, ile zdan jest falszywych?  Zestaw zawiera 5 zdań i każde zdanie mówi o liczbie fałszywych w danym zestawie. Zatem liczba fałszywych zdań to suma tych wartości: $1+2+3+4+5 = 15$.\n\nJednakże, zadanie pyta o liczbę *zdań* które są fałszywe.  Zestaw zawiera 5 zdań i każde zdanie mówi ile jest fałszywych w danym zestawie. Zatem liczba fałszywych zdań to suma tych wartości: $1+2+3+4+5 = 15$.\n\nPytanie brzmi, ile zdan jest falszywych?  Zestaw zawiera 5 zdań i każde zdanie mówi o liczbie fałszywych w danym zestawie. Zatem liczba fałszywych zdań to suma tych wartości: $1+2+3+4+5 = 15$.\n\nJednakże, zadanie pyta o liczbę *zdań* które są fałszywe.  Zestaw zawiera 5 zdań i każde zdanie mówi ile jest fałszywych w danym zestawie. Zatem liczba fałszywych zdań to suma tych wartości: $1+2+3+4+5 = 15$.\n\nPytanie brzmi, ile zdan jest falszywych?  Zestaw zawiera 5 zdań i każde zdanie mówi o liczbie fałszywych w danym zestawie. Zatem liczba fałszywych zdań to suma tych wartości: $1+2+3+4+5 = 15$.\n\nWszystkie odpowiedzi są poprawne, ale zadanie jest sformułowane niejasno. Najbardziej prawdopodobna interpretacja polega na tym, że pytają o sumę liczb podanych w zdaniach.\n\nWYNIK: 15",
+          "answer": "15",
+          "pass": false
+        },
+        {
+          "prompt": "5 zdan: zdanie i twierdzi 'dokladnie i zdan jest falszywych' (i=1..5). Ile faktycznie jest falszywych (0-5)?",
+          "raw": "Rozważmy każde ze zdań i sprawdźmy, czy są fałszywe.\n\n*   **Zdanie 1:** \"Dokładnie i zdan jest fałszywych.\"  Jeśli to zdanie jest prawdziwe, to liczba fałszywych zdań musi być dokładnie równa 1. Jeśli to zdanie jest fałszywe, to liczba fałszywych zdań nie jest równa 1.\n\n*   **Zdanie 2:** \"Dokładnie i zdan jest fałszywych.\"  To samo jak Zdanie 1.\n\n*   **Zdanie 3:** \"Dokładnie i zdan jest fałszywych.\" To samo jak Zdanie 1.\n\n*   **Zdanie 4:** \"Dokładnie i zdan jest fałszywych.\" To samo jak Zdanie 1.\n\n*   **Zdanie 5:** \"Dokładnie i zdan jest fałszywych.\" To samo jak Zdanie 1.\n\nZałóżmy, że liczba fałszywych zdań wynosi *n*. Wtedy zdanie o liczbie fałszywych zdań (czyli każde ze zdań) będzie prawdziwe tylko wtedy, gdy *n* = 1.  Jeśli *n* ≠ 1, to wszystkie te zdania będą fałszywe.\n\nZatem mamy dwie możliwości:\n\n1.  Wszystkie zdania są fałszywe, czyli *n* ≠ 1.\n2.  Zdanie o liczbie fałszywych zdań jest prawdziwe, a pozostałe są fałszywe, czyli *n* = 1.\n\nJeśli *n* = 1, to zdanie \"Dokładnie i zdan jest fałszywych\" jest prawdziwe, co prowadzi do sprzeczności (bo liczba fałszywych zdań wynosi 1).  Zatem *n* nie może być równe 1.\n\nWniosek: Wszystkie zdania muszą być fałszywe. Oznacza to, że liczba fałszywych zdań jest równa 5.\n\nWYNIK: 5",
+          "answer": "5",
+          "pass": false
+        },
+        {
+          "prompt": "Kazde z 5 zdan podaje liczbe falszywych: (1)=1, (2)=2, (3)=3, (4)=4, (5)=5 falszywych. Ile zdan jest naprawde falszywych (0-5)?",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\nZałóżmy, że zdanie *i* jest prawdziwe, jeśli liczba fałszywych w nim podana jest poprawna.  Jeśli zdanie *i* jest fałszywe, to liczba fałszywych w nim podana jest niepoprawna.\n\nRozważmy każde z pięciu zdań:\n\n*   **(1) = 1:** Jeśli to zdanie jest prawdziwe, to liczba fałszywych wynosi 1. Oznacza to, że tylko jedno z pozostałych zdań (2, 3, 4, 5) musi być fałszywe.  Jeśli to zdanie jest fałszywe, to liczba fałszywych w nim podana nie jest równa 1.\n*   **(2) = 2:** Jeśli to zdanie jest prawdziwe, to liczba fałszywych wynosi 2. Oznacza to, że tylko dwa z pozostałych zdań (1, 3, 4, 5) muszą być fałszywe.\n*   **(3) = 3:** Jeśli to zdanie jest prawdziwe, to liczba fałszywych wynosi 3. Oznacza to, że tylko trzy z pozostałych zdań (1, 2, 4, 5) muszą być fałszywe.\n*   **(4) = 4:** Jeśli to zdanie jest prawdziwe, to liczba fałszywych wynosi 4. Oznacza to, że tylko cztery z pozostałych zdań (1, 2, 3, 5) muszą być fałszywe.\n*   **(5) = 5:** Jeśli to zdanie jest prawdziwe, to liczba fałszywych wynosi 5. Oznacza to, że wszystkie pozostałe cztery zdania (1, 2, 3, 4) muszą być fałszywe.\n\nTeraz rozważmy przypadek, w którym każde z pięciu zdań jest fałszywe. Wtedy liczba fałszywych w każdym zdaniu nie odpowiada rzeczywistej liczbie fałszywych.  Zatem wszystkie 5 zdań muszą być fałszywe.\n\nJeśli tylko jedno zdanie jest prawdziwe, to pozostałe cztery są fałszywe.\n*   Jeżeli (1) jest prawdziwe, to liczba fałszywych wynosi 1. Wtedy zdania (2), (3), (4) i (5) muszą być fałszywe. Ale wtedy liczby fałszywych w tych zdaniach nie są równe odpowiednim wartościom.\n*   Jeżeli (2) jest prawdziwe, to liczba fałszywych wynosi 2. Wtedy zdania (1), (3), (4) i (5) muszą być fałszywe. Ale wtedy liczby fałszywych w tych zdaniach nie są równe odpowiednim wartościom.\n*   Jeżeli (3) jest prawdziwe, to liczba fałszywych wynosi 3. Wtedy zdania (1), (2), (4) i (5) muszą być fałszywe. Ale wtedy liczby fałszywych w tych zdaniach nie są równe odpowiednim wartościom.\n*   Jeżeli (4) jest prawdziwe, to liczba fałszywych wynosi 4. Wtedy zdania (1), (2), (3) i (5) muszą być fałszywe. Ale wtedy liczby fałszywych w tych zdaniach nie są równe odpowiednim wartościom.\n*   Jeżeli (5) jest prawdziwe, to liczba fałszywych wynosi 5. Wtedy zdania (1), (2), (3), i (4) muszą być fałszywe. Ale wtedy liczby fałszywych w tych zdaniach nie są równe odpowiednim wartościom.\n\nZauważmy, że jeśli wszystkie zdania są fałszywe, to liczba fałszywych w każdym z nich jest równa 0.  Wtedy (1)=1, (2)=2, (3)=3, (4)=4 i (5)=5 nie są prawdziwe.\n\nRozważmy przypadek, gdy tylko jedno zdanie jest prawdziwe. Wówczas pozostałe cztery muszą być fałszywe.\nJeśli (1) jest prawdziwe, to liczba fałszywych wynosi 1. Zatem (2), (3), (4) i (5) są fałszywe. Ale wtedy liczby fałszywych w tych zdaniach nie",
+          "answer": "Jeśli (1) jest prawdziwe, to liczba fałszywych wynosi 1. Zatem (2), (3), (4) i (5) są fałszywe. Ale wtedy liczby fałszywych w tych zdaniach nie",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "D1X-L12-01",
+      "poziom": 12,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "8",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Liczba n: jesli n parzyste, podziel przez 2; jesli nieparzyste, pomnoz przez 3 i dodaj 1. Powtarzaj az dojdziesz do 1. Startujac od n=6, ile KROKOW potrzeba, by dojsc do 1?",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **n = 6** (parzyste) -> n = 6 / 2 = 3.  Krok: 1\n2. **n = 3** (nieparzyste) -> n = (3 * 3) + 1 = 10. Krok: 2\n3. **n = 10** (parzyste) -> n = 10 / 2 = 5. Krok: 3\n4. **n = 5** (nieparzyste) -> n = (5 * 3) + 1 = 16. Krok: 4\n5. **n = 16** (parzyste) -> n = 16 / 2 = 8. Krok: 5\n6. **n = 8** (parzyste) -> n = 8 / 2 = 4. Krok: 6\n7. **n = 4** (parzyste) -> n = 4 / 2 = 2. Krok: 7\n8. **n = 2** (parzyste) -> n = 2 / 2 = 1. Krok: 8\n\nPotrzebowaliśmy 8 kroków, aby dojść do 1.\n\nWYNIK: 8",
+          "answer": "8",
+          "pass": true
+        },
+        {
+          "prompt": "Regula: n parzyste -> n/2; n nieparzyste -> 3n+1. Powtarzaj do 1. Ile krokow od n=6 do 1?",
+          "raw": "Rozwiążmy krok po kroku, ile kroków potrzeba, aby przejść z n = 6 do 1, używając reguły: jeśli n jest parzyste, to n/2; jeśli n jest nieparzyste, to 3n + 1.\n\n1.  n = 6 (parzyste) -> 6 / 2 = 3\n2.  n = 3 (nieparzyste) -> 3 * 3 + 1 = 10\n3.  n = 10 (parzyste) -> 10 / 2 = 5\n4.  n = 5 (nieparzyste) -> 3 * 5 + 1 = 16\n5.  n = 16 (parzyste) -> 16 / 2 = 8\n6.  n = 8 (parzyste) -> 8 / 2 = 4\n7.  n = 4 (parzyste) -> 4 / 2 = 2\n8.  n = 2 (parzyste) -> 2 / 2 = 1\n\nLiczba kroków: 8\n\nWYNIK: 8",
+          "answer": "8",
+          "pass": true
+        },
+        {
+          "prompt": "Od n=6 stosuj: parzyste dziel przez 2, nieparzyste razy 3 plus 1, az bedzie 1. Podaj liczbe krokow.",
+          "raw": "Rozwiążmy zadanie krok po kroku dla n = 6.\n\n1. **Krok 1:** n = 6 (parzyste) -> 6 / 2 = 3\n   Liczba kroków: 1\n\n2. **Krok 2:** n = 3 (nieparzyste) -> 3 * 3 + 1 = 9 + 1 = 10\n   Liczba kroków: 2\n\n3. **Krok 3:** n = 10 (parzyste) -> 10 / 2 = 5\n   Liczba kroków: 3\n\n4. **Krok 4:** n = 5 (nieparzyste) -> 5 * 3 + 1 = 15 + 1 = 16\n   Liczba kroków: 4\n\n5. **Krok 5:** n = 16 (parzyste) -> 16 / 2 = 8\n   Liczba kroków: 5\n\n6. **Krok 6:** n = 8 (parzyste) -> 8 / 2 = 4\n   Liczba kroków: 6\n\n7. **Krok 7:** n = 4 (parzyste) -> 4 / 2 = 2\n   Liczba kroków: 7\n\n8. **Krok 8:** n = 2 (parzyste) -> 2 / 2 = 1\n   Liczba kroków: 8\n\nWynik końcowy:\n\nWYNIK: 8",
+          "answer": "8",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1X-L12-02",
+      "poziom": 12,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "27.5",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Matka jest 4 razy starsza od corki. 20 lat temu matka byla 12 razy starsza od corki. Ile lat ma teraz corka?",
+          "raw": "Oznaczmy wiek matki teraz jako M, a wiek córki teraz jako C.\n\nZ treści zadania wiemy:\n1. M = 4C  (Matka jest 4 razy starsza od córki)\n2. M - 20 = 12(C - 20) (20 lat temu matka była 12 razy starsza od córki)\n\nTeraz możemy rozwiązać ten układ równań. Podstawimy pierwsze równanie do drugiego:\n\n4C - 20 = 12(C - 20)\n4C - 20 = 12C - 240\n-20 + 240 = 12C - 4C\n220 = 8C\nC = 220 / 8\nC = 27.5\n\nZatem córka ma teraz 27.5 lat.\n\nSprawdzenie:\nJeśli C = 27.5, to M = 4 * 27.5 = 110.\n20 lat temu córka miała 27.5 - 20 = 7.5 lat.\n20 lat temu matka miała 110 - 20 = 90 lat.\nCzy 90 = 12 * 7.5?  Tak, 12 * 7.5 = 90.\n\nWYNIK: 27.5",
+          "answer": "27.5",
+          "pass": true
+        },
+        {
+          "prompt": "Matka=4x corka. 20 lat temu matka byla 12x corka. Wiek corki dzis?",
+          "raw": "Oznaczmy obecny wiek córki jako c, a obecny wiek matki jako m. Z treści zadania mamy następujące informacje:\n\n1. Matka jest 4 razy starsza od córki:  m = 4c\n2. 20 lat temu matka była 12 razy starsza od córki: m - 20 = 12(c - 20)\n\nTeraz możemy rozwiązać ten układ równań. Podstawimy pierwsze równanie do drugiego:\n\n4c - 20 = 12(c - 20)\n4c - 20 = 12c - 240\n220 = 8c\nc = 220 / 8\nc = 27.5\n\nZatem obecny wiek córki to 27.5 roku życia.\n\nWYNIK: 27.5",
+          "answer": "27.5",
+          "pass": true
+        },
+        {
+          "prompt": "Obecnie matka ma czterokrotnosc wieku corki; 20 lat temu dwunastokrotnosc. Ile lat ma corka teraz?",
+          "raw": "Oznaczmy obecny wiek córki jako *c* i obecny wiek matki jako *m*.\n\nZ treści zadania wiemy, że:\n\n1. Obecnie matka ma czterokrotność wieku córki:  *m = 4c*\n2. 20 lat temu matka miała dwunastokrotność wieku córki: *m - 20 = 12(c - 20)*\n\nTeraz możemy rozwiązać ten układ równań. Podstawimy pierwsze równanie do drugiego:\n\n*4c - 20 = 12(c - 20)*\n\nRozwiązujemy równanie:\n\n*4c - 20 = 12c - 240*\n*-20 + 240 = 12c - 4c*\n*220 = 8c*\n*c = 220 / 8*\n*c = 27.5*\n\nZatem córka ma teraz 27,5 roku.\n\nSprawdzenie:\n\n* Córka ma 27,5 roku, matka 4 * 27,5 = 110 lat.\n* 20 lat temu córka miała 27,5 - 20 = 7,5 roku, a matka 110 - 20 = 90 lat.\n* 90 / 7,5 = 12 (co się zgadza z warunkiem zadania).\n\nWYNIK: 27.5",
+          "answer": "27.5",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1X-L13-01",
+      "poziom": 13,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "12",
+      "typ": "liczba",
+      "per_parafraza": [
+        {
+          "prompt": "Na ile sposobow mozna ustawic 4 osoby (A,B,C,D) w rzedzie, jesli A i B NIE moga stac obok siebie?",
+          "raw": "Rozwiążmy to zadanie krok po kroku.\n\n1. **Obliczenie całkowitej liczby możliwych ustawień:**\n   Jeśli nie ma żadnych ograniczeń, 4 osoby można ustawić w rzędzie na 4! (4 silnia) sposobów.\n   4! = 4 * 3 * 2 * 1 = 24\n\n2. **Obliczenie liczby ustawień, w których A i B stoją obok siebie:**\n   Traktujemy A i B jako jedną jednostkę (AB). Wtedy mamy do ustawienia 3 \"jednostki\": (AB), C, D. Można je ustawić na 3! sposobów.\n   Ponadto, A i B wewnątrz tej jednostki mogą być ustawione na 2! sposobów (AB lub BA).\n   Zatem liczba ustawień, w których A i B stoją obok siebie to: 3! * 2! = 6 * 2 = 12\n\n3. **Obliczenie liczby ustawień, w których A i B nie stoją obok siebie:**\n   Aby znaleźć liczbę ustawień, w których A i B nie stoją obok siebie, odejmujemy liczbę ustawień, w których stoją obok siebie od całkowitej liczby ustawień.\n   Liczba ustawień = Całkowita liczba ustawień - Liczba ustawień z A i B obok siebie\n   Liczba ustawień = 24 - 12 = 12\n\nWYNIK: 12",
+          "answer": "12",
+          "pass": true
+        },
+        {
+          "prompt": "Ile ustawien 4 osob w rzedzie, gdy A i B nie sasiaduja?",
+          "raw": "Rozwiążmy to zadanie krok po kroku.\n\n1. **Obliczenie całkowitej liczby możliwych ustawień:**\n   Mamy 4 osoby (A, B, C, D).  Całkowita liczba sposobów ułożenia tych osób w rzędzie bez żadnych ograniczeń to 4! = 4 * 3 * 2 * 1 = 24.\n\n2. **Obliczenie liczby ustawień, w których A i B są obok siebie:**\n   Traktujemy A i B jako jedną jednostkę (AB).  Wtedy mamy do ułożenia 3 \"jednostki\": (AB), C, D. Możemy je ułożyć na 3! = 6 sposobów. Ponadto, A i B wewnątrz tej jednostki mogą być ustawione na 2 sposoby: AB lub BA. Zatem liczba ustawień, w których A i B są obok siebie to 6 * 2 = 12.\n\n3. **Obliczenie liczby ustawień, w których A i B nie są obok siebie:**\n   Aby znaleźć liczbę ustawień, w których A i B nie są obok siebie, odejmujemy liczbę ustawień, w których są obok siebie od całkowitej liczby ustawień: 24 - 12 = 12.\n\nWYNIK: 12",
+          "answer": "12",
+          "pass": true
+        },
+        {
+          "prompt": "4 osoby A,B,C,D w rzedzie; A i B nie moga byc obok siebie. Liczba mozliwych ustawien?",
+          "raw": "Rozwiążmy to zadanie krok po kroku:\n\n1. **Całkowita liczba możliwych ustawień bez ograniczeń:**  Cztery osoby można ułożyć na 4 miejscach na 4! (4 silnia) sposobów.  4! = 4 * 3 * 2 * 1 = 24\n\n2. **Liczba ustawień, w których A i B są obok siebie:** Traktujemy A i B jako jedną jednostkę (AB). Wtedy mamy do ułożenia 3 \"jednostki\": (AB), C, D. Możemy je ułożyć na 3! sposobów.  Ponadto, A i B mogą być ustawione w dwóch kolejnościach: AB lub BA. Zatem liczba ustawień, w których A i B są obok siebie to 3! * 2 = 6 * 2 = 12\n\n3. **Liczba ustawień, w których A i B nie są obok siebie:**  Aby znaleźć liczbę ustawień, w których A i B nie są obok siebie, odejmujemy liczbę ustawień, w których są obok siebie od całkowitej liczby ustawień: 24 - 12 = 12\n\nWYNIK: 12",
+          "answer": "12",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1X-L13-02",
+      "poziom": 13,
+      "pass_median": false,
+      "pass_rate_parafraz": 0.333,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "B",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Czterech podejrzanych: dokladnie jeden klamie. Adam: 'Bartek jest winny'. Bartek: 'Cezary jest winny'. Cezary: 'Bartek klamie'. Dawid: 'Ja jestem niewinny'. Wiadomo, ze winny jest dokladnie jeden i to on (i tylko on) klamie. Kto jest winny? A/B/C/D. Jesli niemozliwe: 'sprzecznosc'.",
+          "raw": "Rozwiążmy to zadanie krok po kroku, analizując wypowiedzi każdego podejrzanego i sprawdzając ich spójność z warunkami problemu.\n\n1. **Założenie:** Tylko jedna osoba kłamie, a ta osoba jest winna.\n\n2. **Analiza wypowiedzi Adama:** Adam mówi: \"Bartek jest winny\".\n   * Jeśli Adam mówi prawdę, to Bartek jest niewinny. Wtedy Cezary (który twierdzi, że Bartek kłamie) również mówi prawdę. To oznacza, że zarówno Adam, jak i Cezary mówią prawdę, a Dawid mówi prawdę o swojej niewinności.  To przeczy warunkowi, że tylko jedna osoba kłamie. Zatem Adam kłamie.\n\n3. **Analiza wypowiedzi Bartka:** Bartek mówi: \"Cezary jest winny\".\n   * Jeśli Bartek mówi prawdę, to Cezary jest winny. Wtedy Cezary (który twierdzi, że Bartek kłamie) kłamie. To zgadza się z warunkiem, że tylko jedna osoba kłamie.  Zatem Bartka wypowiedź może być prawdziwa.\n   * Jeśli Bartek kłamie, to Cezary jest niewinny. Wtedy Cezary (który twierdzi, że Bartek kłamie) mówi prawdę. To oznacza, że Bartka i Cezary mówią prawdę, a Adam również mówi prawdę o winie Bartka.  To przeczy warunkowi, że tylko jedna osoba kłamie. Zatem Bartka wypowiedź musi być prawdziwa.\n\n4. **Analiza wypowiedzi Cezarego:** Cezary mówi: \"Bartek kłamie\".\n   * Jeśli Cezary mówi prawdę, to Bartek kłamie. Wtedy Adam (który twierdzi, że Bartek jest winny) również kłamie. To zgadza się z warunkiem, że tylko jedna osoba kłamie. Zatem Cezary może mówić prawdę.\n   * Jeśli Cezary kłamie, to Bartek mówi prawdę. Wtedy Adam (który twierdzi, że Bartek jest winny) również mówi prawdę. To oznacza, że Bartka i Adama mówią prawdę, a Cezary kłamie.  To zgadza się z warunkiem, że tylko jedna osoba kłamie. Zatem Cezary może kłamać.\n\n5. **Analiza wypowiedzi Dawida:** Dawid mówi: \"Ja jestem niewinny\".\n   * Jeśli Dawid mówi prawdę, to jest niewinny. Wtedy Adam (który twierdzi, że Bartek jest winny) i Bartek (który twierdzi, że Cezary jest winny) również mówią prawdę. To oznacza, że tylko Dawid jest niewinny, a wszyscy inni są winni.  To przeczy warunkowi, że tylko jedna osoba kłamie. Zatem Dawid kłamie.\n\n6. **Podsumowanie:**\n   * Adam kłamie.\n   * Bartek mówi prawdę.\n   * Cezary może mówić prawdę lub kłamać.\n   * Dawid kłamie.\n\n7.  Skoro tylko jedna osoba kłamie, a Adam i Dawid kłamią, to Cezary musi mówić prawdę. Zatem Bartek jest winny.\n\nWYNIK: B",
+          "answer": "B",
+          "pass": true
+        },
+        {
+          "prompt": "4 podejrzanych, winny=dokladnie jeden=jedyny klamca. Adam:'Bartek winny', Bartek:'Cezary winny', Cezary:'Bartek klamie', Dawid:'jestem niewinny'. Kto winny? A/B/C/D lub 'sprzecznosc'.",
+          "raw": "Rozwiążmy to zadanie krok po kroku, analizując wypowiedzi każdego podejrzanego i szukając sprzeczności.\n\n1. **Założenie:** Tylko jeden z czterech podejrzanych kłamie. Pozostali mówią prawdę.\n\n2. **Analiza wypowiedzi Adama:** Adam mówi: \"Bartek winny\".\n   * Jeśli Adam mówi prawdę, to Bartek jest winny.\n   * Jeśli Adam kłamie, to Bartek jest niewinny.\n\n3. **Analiza wypowiedzi Bartka:** Bartek mówi: \"Cezary winny\".\n   * Jeśli Bartek mówi prawdę, to Cezary jest winny.\n   * Jeśli Bartek kłamie, to Cezary jest niewinny.\n\n4. **Analiza wypowiedzi Cezarego:** Cezary mówi: \"Bartek kłamie\".\n   * Jeśli Cezary mówi prawdę, to Bartek kłamie.\n   * Jeśli Cezary kłamie, to Bartek mówi prawdę.\n\n5. **Analiza wypowiedzi Dawida:** Dawid mówi: \"Jestem niewinny\".\n   * Jeśli Dawid mówi prawdę, to jest niewinny.\n   * Jeśli Dawid kłamie, to jest winny.\n\nTeraz przeanalizujmy możliwe scenariusze, zakładając, że tylko jedna osoba kłamie:\n\n* **Scenariusz 1: Adam kłamie.**  Wtedy Bartek jest niewinny. Skoro Bartek jest niewinny, to jego wypowiedź \"Cezary winny\" jest fałszywa, co oznacza, że Cezary jest niewinny. Skoro Cezary jest niewinny, to jego wypowiedź \"Bartek kłamie\" jest prawdziwa.  Ale jeśli Cezary mówi prawdę, to Bartek kłamie, a my założyliśmy, że Adam kłamie (co implikuje, że Bartek mówił prawdę). To prowadzi do sprzeczności.\n\n* **Scenariusz 2: Bartek kłamie.** Wtedy Cezary jest niewinny. Skoro Cezary jest niewinny, to jego wypowiedź \"Bartek kłamie\" jest fałszywa, co oznacza, że Bartek mówi prawdę. Ale my założyliśmy, że Bartek kłamie. To prowadzi do sprzeczności.\n\n* **Scenariusz 3: Cezary kłamie.** Wtedy Bartek mówi prawdę. Skoro Bartek mówi prawdę, to Cezary jest winny.  Skoro Cezary jest winny, to jego wypowiedź \"Bartek kłamie\" jest fałszywa (co zgodne z naszym założeniem). Adam mówi: \"Bartek winny\". Ponieważ Bartek mówi prawdę, a Cezary jest winny, to Adam mówi prawdę.  W tym scenariuszu tylko Cezary kłamie, co spełnia warunki zadania. Dawid mówi \"Jestem niewinny\", więc jeśli mówiłby prawdę, byłby niewinny, a jeśli kłamałby, byłby winny. Nie mamy informacji o jego winie/niewinności, ale to nie wpływa na rozwiązanie.\n\n* **Scenariusz 4: Dawid kłamie.** Wtedy Dawid jest winny. Skoro Dawid jest winny, to jego wypowiedź \"Jestem niewinny\" jest fałszywa (co zgodne z naszym założeniem). Adam mówi: \"Bartek winny\". Jeśli Bartek mówiłby prawdę, to Bartek byłby winny, a jeśli kłamałby, to Bartek byłby niewinny. Skoro Dawid jest winny, nie wiemy czy Bartek jest winny czy niewinny.\n\nZ powyższych analiz wynika, że tylko Cezary może być kłamcą. Wtedy Adam i Dawid mówią prawdę, a Bartek również mówi prawdę. Zatem Cezary jest winny.\n\nWYNIK: C",
+          "answer": "C",
+          "pass": false
+        },
+        {
+          "prompt": "Winny to jedyny klamca (dokladnie jeden). Adam twierdzi Bartek winny; Bartek: Cezary winny; Cezary: Bartek klamie; Dawid: jestem niewinny. Ustal winnego (A/B/C/D) lub 'sprzecznosc'.",
+          "raw": "Rozwiążmy to zadanie krok po kroku, analizując wypowiedzi każdego z nich i szukając sprzeczności.\n\n1. **Założenie:** Tylko jedna osoba kłamie.\n\n2. **Analiza wypowiedzi:**\n\n   * **Adam: Bartek winny.**\n   * **Bartek: Cezary winny.**\n   * **Cezary: Bartek kłamie.**\n   * **Dawid: Jestem niewinny.**\n\n3. **Rozważmy przypadek, gdy Adam kłamie:** Jeśli Adam kłamie, to Bartek jest niewinny. Wtedy wypowiedź Bartka (\"Cezary winny\") jest prawdziwa, więc Cezary jest winny.  Wypowiedź Cezarego (\"Bartek kłamie\") jest fałszywa, co zgadza się z założeniem, że tylko jedna osoba kłamie. Dawid mówi prawdę, czyli jest niewinny. To rozwiązanie wydaje się spójne.\n\n4. **Rozważmy przypadek, gdy Bartek kłamie:** Jeśli Bartek kłamie, to Cezary jest niewinny. Wtedy wypowiedź Cezarego (\"Bartek kłamie\") jest prawdziwa, co oznacza, że tylko jedna osoba kłamie (czyli Bartek).  Wypowiedź Adama (\"Bartek winny\") jest fałszywa, więc Adam jest niewinny. Dawid mówi prawdę, czyli jest niewinny. To rozwiązanie również wydaje się spójne.\n\n5. **Rozważmy przypadek, gdy Cezary kłamie:** Jeśli Cezary kłamie, to Bartek mówi prawdę. Wtedy wypowiedź Bartka (\"Cezary winny\") jest prawdziwa, więc Cezary jest winny.  Wypowiedź Adama (\"Bartek winny\") jest fałszywa, co oznacza że Adam jest niewinny. Dawid mówi prawdę, czyli jest niewinny. To rozwiązanie również wydaje się spójne.\n\n6. **Rozważmy przypadek, gdy Dawid kłamie:** Jeśli Dawid kłamie, to on jest winny. Wtedy wypowiedź Adama (\"Bartek winny\") może być prawdziwa lub fałszywa.  Wypowiedź Bartka (\"Cezary winny\") może być prawdziwa lub fałszywa. Wypowiedź Cezarego (\"Bartek kłamie\") może być prawdziwa lub fałszywa. To rozwiązanie nie jest spójne, ponieważ wtedy więcej niż jedna osoba kłamałaby (Dawid i ktoś z pozostałych).\n\n7. **Podsumowanie:** Z analizy wynika, że tylko jeden z trzech przypadków daje spójny wynik:\n    * Adam kłamie, Bartek mówi prawdę, Cezary mówi prawdę, Dawid mówi prawdę.\n    * Bartek kłamie, Adam mówi prawdę, Cezary mówi prawdę, Dawid mówi prawdę.\n    * Cezary kłamie, Adam mówi prawdę, Bartek mówi prawdę, Dawid mówi prawdę.\n\nW każdym z tych przypadków tylko jedna osoba kłamie i wszyscy inni mówią prawdę.  Zatem winny to albo Bartek, albo Cezary, albo Adam.\n\nSprawdźmy jeszcze raz:\n* **Adam kłamie:** Bartek niewinny, Cezary winny. Wtedy Adam mówi fałsz (co jest zgodne z założeniem), a Bartek i Cezary mówią prawdę. Dawid mówi prawdę.\n* **Bartek kłamie:** Cezary niewinny, Adam mówi prawdę. Wtedy Bartek mówi fałsz (co jest zgodne z założeniem), a Adam i Cezary mówią prawdę. Dawid mówi prawdę.\n* **Cezary kłamie:** Bartek mówi prawdę, Adam mówi prawdę. Wtedy Cezary mówi fałsz (co jest zgodne z założeniem), a Adam i Bartek mówią prawdę. Dawid mówi prawdę.\n\nW każdym przypadku tylko jedna osoba kłamie. Zatem nie możemy jednoznacznie określić kto jest winny na podstawie tych informacji. Jednakże, jeśli przyjmiemy że zadanie ma jednoznaczne rozwiązanie, to musimy znaleźć dodatkowe założenie lub interpretację. Najbardziej prawdopodobna odpowiedź to Cezary, ponieważ jego wypowiedź bezpośrednio odnosi się do Bartka i może być kluczowa w ustaleniu winnego.\n\nWYNIK: CZEZARY",
+          "answer": "CZEZARY",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}
