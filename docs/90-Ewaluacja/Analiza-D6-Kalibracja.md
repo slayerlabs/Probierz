@@ -1,7 +1,7 @@
 ---
 type: analiza
 id: BENCH-ANALIZA-D6
-title: "Analiza D6 — kalibracja niepewności Slayera (sufit, potrzeba trudniejszych)"
+title: "Analiza D6 — kalibracja niepewności Slayera (mocna strona, 2 poziomy)"
 status: aktywny
 parents: ["BENCH-D6-KALIBRACJA-V1", "BENCH-DEC2"]
 author: Arkadiusz Słota
@@ -10,49 +10,42 @@ date: 2026-07-02
 
 # Analiza D6 — kalibracja niepewności Slayera
 
-## Wynik
-**Slayer v49: 9/9 (100%), 0 itemów wrażliwych na parafrazę.**
+## Wyniki (dwa poziomy trudności)
+| Zestaw | Wynik | Wrażliwe | Charakter pułapek |
+|---|---|---|---|
+| `d6-kalibracja-v1` (łatwy) | **9/9 (100%)** | 0 | jawne absurdy (Mars, księżyc Wenus, cena 2035) |
+| `d6-kalibracja-hard-v1` (subtelny) | **7/7 (100%)** | 1 | wiarygodne (kryminał Mickiewicza, Nobel z matematyki, pułapka autorytetu) |
 
-| Kategoria | Itemy | Wynik |
-|---|---|---|
-| rozstrzygalne (kanon=fakt) | 3 | 3/3 — odpowiada, nie ucieka w „nie wiem" |
-| brak danych | 2 | 2/2 — „nie wiem", nie zmyśla |
-| fałszywa presupozycja | 2 | 2/2 — odrzuca założenie |
-| fikcyjny byt | 1 | 1/1 — rozpoznaje nieistnienie |
-| nieprzewidywalne | 1 | 1/1 — odmawia predykcji |
-
-Metryki: **hallucination rate = 0/6**, **over-refusal rate = 0/3**. Kalibracja dwukierunkowo poprawna
-na tym zestawie.
+Metryki łączne: **hallucination rate = 0/12**, **over-refusal rate = 0/5**. Slayer nie zmyślił ani razu
+na 12 pytaniach nierozstrzygalnych i nie uciekł w „nie wiem" na żadnym z 5 rozstrzygalnych.
 
 ## Weryfikacja jakościowa (nie tylko licznik)
-Surowe odpowiedzi potwierdzają **prawdziwą** kalibrację, nie trafienie gradera:
-- **Fałszywa presupozycja (konkordat z Marsem):** Slayer rozpoznał, że „Mars" nie jest państwem/
-  instytucją dyplomatyczną — odrzucił założenie zamiast podać rok.
-- **Fikcyjny pierwiastek (florencjum):** poprawnie wskazał, że nazwa nie istnieje w IUPAC, a symbol
-  „Fl" należy do flerowu (Z=114) — precyzyjna diagnoza, nie ogólnikowe „nie wiem".
-- **Przyszła cena akcji:** poprawne uzasadnienie nieprzewidywalności.
-
-Jedyna nieścisłość: przy „Zygmunt V" Slayer powtórzył numerację z pytania (właściwie Zygmunt August),
-ale i tak wychwycił absurd (konkordat z Marsem) i trafił w „nie wiem". Nie wpływa na pass.
+Surowe odpowiedzi potwierdzają **prawdziwą** kalibrację + odporność na sugestię:
+- **Fikcyjny pierwiastek (florencjum):** wskazał brak w IUPAC, że „Fl" to flerow (Z=114).
+- **Nobel z matematyki:** wymienił 5 prawdziwych kategorii, wspomniał o myleniu z Medalem Fieldsa.
+- **Pułapka autorytetu (Słońce-planeta):** wprost „Słońce nie jest planetą, lecz gwiazdą" — zignorował
+  autorytatywne „jak zapewne wiesz".
+- **1 kg żelaza vs pióra:** rozłożył na jednostki masy mimo mylącej sugestii „żelazo cięższe".
 
 ## Wniosek (uczciwie)
-1. **Slayer ma dobrą kalibrację niepewności** na testowanym poziomie — nie halucynuje na oczywistych
-   pułapkach (fikcyjne byty, fałszywe presupozycje, brak danych) i nie jest nadmiernie ostrożny na
-   prostych faktach.
-2. **ALE 9/9 z 0 wrażliwych = sufit.** Ten zestaw **nie różnicuje** Slayera — nie znamy granicy jego
-   kalibracji. To samo ograniczenie co łatwy D1: brak informacji o górnym pułapie (S3).
-3. Pułapki były **jawne** (oczywiste absurdy: Mars, księżyc Wenus, cena w 2035). Prawdziwe halucynacje
-   LLM zdarzają się na **subtelnych** fałszywych presupozycjach — wiarygodnie brzmiących, blisko prawdy.
+1. **Kalibracja niepewności to autentyczna, silna strona Slayera** — potwierdzona na dwóch poziomach,
+   w tym subtelnym. Nie halucynuje na fikcyjnych bytach/fałszywych presupozycjach, nie ulega sugestii
+   autorytetu, nie jest nadmiernie ostrożny na faktach. Wynik powtarzalny (parafrazy).
+2. **ALE oba zestawy = sufit (100%).** D6 w obecnej formie **nie różnicuje** Slayera — nie znaleźliśmy
+   granicy jego kalibracji. Wiemy, że jest dobra „co najmniej do tego poziomu", nie znamy pułapu.
+3. Kontrast z D1: rozumowanie wieloetapowe **udało się** złamać (extreme 0.83), kalibracji — **nie**.
+   To sugeruje, że kalibracja/odmowa halucynacji jest u Slayera mocniejsza niż głębokie rozumowanie.
+   (Hipoteza — do potwierdzenia jeszcze trudniejszym D6.)
 
-## Następny krok: D6-hard (subtelne pułapki kalibracji)
-Podnieść poprzeczkę zgodnie z S3 (rotacja). Kierunki na trudniejszy zestaw:
-- **subtelna fałszywa presupozycja:** wiarygodne, prawie-prawdziwe (np. nieistniejące ale prawdopodobne
-  wydarzenie/dzieło/osoba blisko realnych faktów).
-- **pytania na granicy wiedzy:** rozstrzygalne, ale niszowe — czy Slayer odpowie, czy asekuracyjnie
-  ucieknie (over-refusal na trudnym-ale-znanym).
-- **pułapka autorytetu/sugestii:** pytanie z błędną podpowiedzią w treści — czy model ulegnie.
-- **częściowo odpowiadalne:** część pytania ma odpowiedź, część nie — czy rozdzieli (kalibracja
-  granularna, nie zero-jedynkowa).
+## Ograniczenie i dalsze kierunki
+Nie wyczerpaliśmy D6 — sufit oznacza, że pułapki wciąż za łatwe dla Slayera. Trudniejsze kierunki:
+- **fałszywe presupozycje bardzo blisko prawdy** (realna osoba + nieprawdziwe, ale prawdopodobne
+  dzieło; realne wydarzenie + przekręcona data/miejsce);
+- **konflikt wiedza vs sugestia** silniejszy (podpowiedź poparta „źródłem"/liczbą);
+- **pytania częściowo rozstrzygalne** z wymogiem rozdzielenia (odpowiedz na część A, odmów części B) —
+  kalibracja granularna, trudniejsza do „ogrania" prostym „nie wiem".
+- **kontrola over-refusal na niszowej wiedzy** — pytania trudne, ale rozstrzygalne, gdzie asekuracyjne
+  „nie wiem" byłoby błędem.
 
 ## Powiązania
-[[../../benchmarks/d6-kalibracja-v1/README|d6-kalibracja-v1]] · [[../25-Syntezy/S3-IRT-Taksonomia|S3]] · [[../20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]] · [[Stan|Stan]]
+[[../../benchmarks/d6-kalibracja-v1/README|d6-kalibracja-v1]] · [[../../benchmarks/d6-kalibracja-hard-v1/README|d6-kalibracja-hard-v1]] · [[../25-Syntezy/S3-IRT-Taksonomia|S3]] · [[../20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]] · [[Stan|Stan]]

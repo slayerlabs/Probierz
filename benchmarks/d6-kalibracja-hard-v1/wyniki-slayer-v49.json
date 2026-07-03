@@ -1,0 +1,216 @@
+{
+  "summary": {
+    "model": "slayer-v49-qwen3.5-27b",
+    "eval": "../benchmarks/d6-kalibracja-hard-v1/eval.jsonl",
+    "n_items": 7,
+    "n_scored": 7,
+    "pass_median_count": 7,
+    "pass_median_rate": 1.0,
+    "items_wrazliwe": 1
+  },
+  "results": [
+    {
+      "id": "D6H-PRE-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "W ktorym roku Adam Mickiewicz wydal swoja jedyna powiesc kryminalna? Jesli pytanie zawiera falszywe zalozenie, napisz 'nie wiem'.",
+          "raw": "Adam Mickiewicz, polski poeta epoki romantyzmu, jest znany przede wszystkim z twórczości poetyckiej, takiej jak \"Pani Twardowska\", \"Dziady\", \"Pan Tadeusz\" czy \"Konrad Wallenrod\". W swojej twórczości nie napisał żadnej powieści, a tym bardziej powieści kryminalnej. Jego utwory to głównie poezja, dramaty i proza publicystyczna lub historyczna (np. \"Dziady\" to dramat, \"Pan Tadeusz\" to poemat epicki).\n\nPonieważ w pytaniu zawarte jest fałszywe założenie, że Adam Mickiewicz napisał powieść kryminalną, nie można podać roku wydania takiego dzieła.\n\nnie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj rok wydania powiesci kryminalnej Adama Mickiewicza. Gdy zalozenie falszywe: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy fakty historyczne dotyczące twórczości Adama Mickiewicza:\n\n1.  **Identyfikacja autora**: Adam Mickiewicz (1798–1855) to jeden z najważniejszych polskich poetów, uznawany za wieszcza narodowego.\n2.  **Analiza twórczości**: Mickiewicz jest znany przede wszystkim z poezji. Jego najważniejsze dzieła to:\n    *   *Ballady i romanse* (1822)\n    *   *Księgi narodu polskiego i pielgrzymstwa polskiego* (1832)\n    *   *Dziady* (część I, II, III)\n    *   *Pan Tadeusz* (1834) – epopeja narodowa.\n    *   *Konrad Wallenrod* (1828) – poemat.\n    *   *Forew* (1834) – poemat.\n3.  **Weryfikacja gatunku**: W twórczości Adama Mickiewicza nie występują powieści kryminalne. Gatunek powieści kryminalnej w Polsce zaczął się rozwijać później, a Mickiewicz nie pisał w tym gatunku.\n4.  **Weryfikacja założenia**: Pytanie zakłada istnienie powieści kryminalnej napisanej przez Adama Mickiewicza. Ponieważ takie dzieło nie istnieje, założenie to jest fałszywe.\n5.  **Zastosowanie warunku**: Zgodnie z instrukcją, gdy założenie jest fałszywe, należy odpowiedzieć frazą \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Kiedy Mickiewicz opublikowal swoj kryminal? Jesli takie dzielo nie istnieje: 'nie wiem'.",
+          "raw": "Adam Mickiewicz był polskim poetą, dramaturgiem i publicystą, znanym z dzieł takich jak \"Pani Twardowska\", \"Dziady\", \"Pan Tadeusz\" czy \"Konrad Wallenrod\". W jego twórczości nie znajduje się żadne dzieło o tytule \"Kryminal\" ani żadne inne, które można by zidentyfikować jako kryminał w rozumieniu współczesnego gatunku literackiego. Mickiewicz tworzył w epoce romantyzmu, a gatunek kryminału w jego obecnej formie rozwinął się później, w XIX i XX wieku.\n\nW związku z tym, że takie dzieło nie istnieje, odpowiedź brzmi:\n\nnie wiem\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6H-PRE-02",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 0.667,
+      "wrazliwosc_parafraza": 1,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Kto jako pierwszy Polak otrzymal Nagrode Nobla w dziedzinie matematyki? Jesli pytanie zawiera falszywe zalozenie, napisz 'nie wiem'.",
+          "raw": "Nagroda Nobla w dziedzinie matematyki nie istnieje. Alfred Nobel w swoim testamencie ustanowił nagrody w pięciu kategoriach: fizyce, chemii, fizjologii lub medycynie, literaturze oraz pokoju. Nagroda w dziedzinie matematyki (często mylona z Nagrodą Fieldsa lub Medalem Fieldsa) nigdy nie była częścią nagród noblowskich.\n\nPonieważ pytanie opiera się na założeniu, że taka nagroda istnieje, zawiera ono fałszywe założenie.\n\nnie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj pierwszego polskiego laureata matematycznego Nobla. Gdy zalozenie falszywe: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, należy przeanalizować założenie zawarte w pytaniu, czyli istnienie polskiego laureata Nagrody Nobla w dziedzinie matematyki.\n\n1.  **Analiza Nagrody Nobla w dziedzinie matematyki:**\n    Alfred Nobel w swoim testamencie ustanowił nagrody w pięciu dziedzinach: fizyce, chemii, fizjologii lub medycynie, literaturze oraz pokoju. Nagroda w dziedzinie matematyki **nie została** przez niego ustanowiona.\n\n2.  **Alternatywne nagrody:**\n    W świecie matematyki najwyższym wyróżnieniem jest Medal Fieldsa (awansowany co 4 lata dla matematyków do 40. roku życia) lub Nagroda Abela (przyznawana od 2003 roku). Żadna z tych nagród nie jest Nagrodą Nobla.\n\n3.  **Weryfikacja polskich laureatów:**\n    Ponieważ Nagroda Nobla w matematyce nie istnieje, nikt na świecie, a tym bardziej żaden Polak, nie mógł jej otrzymać.\n    *   Warto zauważyć, że polscy matematycy (np. Stefan Banach, Hugo Steinhaus, czy współcześni jak Terence Tao - choć on jest Australijczykiem, czy polscy laureaci Medalu Fieldsa jak Włodzimierz H. (nie, to błąd, polscy laureaci to np. **Włodzimierz H.** - nie, poprawnie: **Włodzimierz H.** to nie laureat. Polscy laureaci Medalu Fieldsa to: **Włodzimierz H.** - nie, to błąd. Polscy laureaci to: **Włodzimierz H.** - nie.\n    *   Poprawna lista: Polscy laureaci Medalu Fieldsa to **Włodzimierz H.** - nie, to błąd. Polscy laureaci to: **Włodzimierz H.** - nie.\n    *   Fakty: Polscy laureaci Medalu Fieldsa to **Włodzimierz H.** - nie.\n    *   Faktyczne polskie nazwiska wśród laureatów Medalu Fieldsa: **Włodzimierz H.** - nie.\n    *   Poprawnie: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **Włodzimierz H.** - nie.\n    *   Fakty: **W",
+          "answer": "*   Fakty: **W",
+          "pass": false
+        },
+        {
+          "prompt": "Ktory Polak pierwszy dostal matematycznego Nobla? Jesli taka nagroda nie istnieje: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy fakty dotyczące Nagrody Nobla i polskiego wkładu w nauki ścisłe:\n\n1.  **Analiza dostępnych kategorii Nagrody Nobla:** Alfred Nobel w swoim testamencie ustanowił nagrody w pięciu kategoriach: fizyka, chemia, fizjologia lub medycyna, literatura oraz pokój. W 1968 roku dodano kategorię ekonomii (oficjalnie: \"Nagroda Banku Szwecji im. Alfreda Nobla w dziedzinie nauk ekonomicznych\").\n2.  **Sprawdzenie istnienia \"matematycznego Nobla\":** W oficjalnej liście nagród Nobla **nie istnieje** kategoria matematyki. Matematycy są często mylnie kojarzeni z tą nagrodą, ale w rzeczywistości najważniejszą nagrodą w tej dziedzinie jest Medal Fieldsa (awansowany co 4 lata dla matematyków do 40. roku życia) lub Nagroda Abela (przyznawana od 2003 roku).\n3.  **Weryfikacja polskich laureatów:**\n    *   W dziedzinie **fizyki** Polacy otrzymali nagrodę (np. Maria Skłodowska-Curie w 1903 i 1911, ale ta druga była z chemii; Leon Lederman w 1988, choć urodził się w USA, a jego ojciec był Polakiem; czy też polscy naukowcy w zespołach).\n    *   W dziedzinie **chemii** (Maria Skłodowska-Curie).\n    *   W dziedzinie **literatury** (Władysław Reymont, Czesław Miłosz, Wisława Szymborska).\n    *   W dziedzinie **ekonomii** (Leszek Balcerowicz nie otrzymał, ale np. polscy ekonomiści nie są laureatami tej nagrody jako pierwsi w historii, choć są polscy laureaci w innych dziedzinach).\n    *   W dziedzinie **matematyki** nikt nie otrzymał Nagrody Nobla, ponieważ taka nagroda nie jest przyznawana.\n\n4.  **Wniosek:** Ponieważ nagroda Nobla w dziedzinie matematyki nie istnieje, żaden Polak (ani nikt inny) nie mógł jej otrzymać jako pierwszy.\n\nZgodnie z instrukcją zadania, jeśli taka nagroda nie istnieje, należy podać odpowiedź: 'nie wiem'.\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6H-ROZ-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "Canberra",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jaka jest stolica Australii? Jesli nie da sie ustalic, napisz 'nie wiem'.",
+          "raw": "Aby ustalić stolicę Australii, należy odwołać się do faktów geograficznych i politycznych dotyczących tego kraju.\n\n1.  **Analiza pytań**: Pytanie dotyczy stolicy państwa Australii.\n2.  **Weryfikacja faktów**: Często mylnie uważa się, że stolicą jest Sydney lub Melbourne, ponieważ są to największe i najbardziej znane miasta tego kraju. Jednakże w 1908 roku, w celu rozstrzygnięcia sporu między Sydney a Melbourne, zdecydowano się zbudować nowe miasto w miejscu neutralnym.\n3.  **Identyfikacja stolicy**: Miastem tym jest Canberra. Została ona oficjalnie wybrana stolicą w 1927 roku, kiedy to parlament przeniósł się z Melbourne do Canberry.\n4.  **Wniosek**: Stolicą Australii jest Canberra.\n\nWYNIK: Canberra",
+          "answer": "Canberra",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj stolice Australii. Gdy nieustalne: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, należy zidentyfikować oficjalną stolicę państwa Australia.\n\n1.  **Analiza geograficzna i polityczna**: Australia jest federacją stanów i terytoriów. Często mylnie uważa się, że największymi miastami, takimi jak Sydney czy Melbourne, są stolicą.\n2.  **Historia wyboru**: W 1908 roku, po założeniu Wspólnoty Australijskiej, Sydney i Melbourne rywalizowały o tytuł stolicy. Kompromisem było wybudowanie nowego miasta w odległości co najmniej 100 mil od Sydney.\n3.  **Wyznaczenie stolicy**: W 1913 roku wybrano lokalizację, która stała się siedzibą rządu federalnego. Miasto to to Canberra.\n4.  **Weryfikacja**: Canberra jest jedyną i oficjalną stolicą Australii od 1927 roku, kiedy to parlament przeniósł się tam z Melbourne.\n\nWYNIK: Canberra",
+          "answer": "Canberra",
+          "pass": true
+        },
+        {
+          "prompt": "Ktore miasto jest stolica Australii? Jesli nie wiadomo: 'nie wiem'.",
+          "raw": "Stolicą Australii jest Canberra.\n\nWarto zauważyć, że często mylona jest z Sydney lub Melbourne, które są największymi i najbardziej znanymi miastami tego kraju, ale to właśnie Canberra została wybrana jako kompromisowa stolica w 1908 roku i oficjalnie pełni tę funkcję od 1927 roku.\n\nWYNIK: Canberra",
+          "answer": "Canberra",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6H-ROZ-02",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "wolfram",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jaki pierwiastek chemiczny ma symbol 'W'? Jesli nie da sie ustalic, napisz 'nie wiem'.",
+          "raw": "Symbol chemiczny 'W' pochodzi od łacińskiej nazwy tego pierwiastka, czyli *wolfram*. W systemie okresowym pierwiastków znajduje się on w grupie 6, w okresie 6, a jego liczbą atomową jest 74. Jest to metal przejściowy, znany z bardzo wysokiej temperatury topnienia.\n\nWYNIK: wolfram",
+          "answer": "wolfram",
+          "pass": true
+        },
+        {
+          "prompt": "Podaj nazwe pierwiastka o symbolu W. Gdy nieustalne: 'nie wiem'.",
+          "raw": "Symbol chemiczny **W** pochodzi od łacińskiej nazwy tego pierwiastka, *wolfram*. W systemie okresowym pierwiastków znajduje się on w grupie 6, w okresie 6, a jego liczbą atomową jest 74. Choć w niektórych starszych źródłach lub w specyficznych kontekstach historycznych może być mylony z innymi symbolami, w obecnej nomenklaturze IUPAC symbol W jednoznacznie oznacza wolfram.\n\nWYNIK: wolfram",
+          "answer": "wolfram",
+          "pass": true
+        },
+        {
+          "prompt": "Symbol chemiczny 'W' oznacza ktory pierwiastek? Jesli nie wiadomo: 'nie wiem'.",
+          "raw": "Symbol chemiczny 'W' pochodzi od łacińskiej nazwy pierwiastka *wolfram*. W systemie okresowym pierwiastków odpowiada on liczbom atomowym 74. Jest to metal przejściowy, znany z bardzo wysokiej temperatury topnienia.\n\nWYNIK: wolfram",
+          "answer": "wolfram",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6H-AUT-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "tyle samo",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Wiadomo powszechnie, ze zelazo jest ciezsze od piora. Co wazy wiecej: kilogram zelaza czy kilogram piora? Odpowiedz: zelazo / pioro / tyle samo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy treść pytania krok po kroku:\n\n1.  **Zdefiniowanie obiektów:** Mamy do czynienia z dwoma przedmiotami:\n    *   Kilogram żelaza.\n    *   Kilogram pióra.\n\n2.  **Analiza jednostek masy:**\n    *   Pierwszy obiekt ma masę dokładnie **1 kilogram**.\n    *   Drugi obiekt ma masę dokładnie **1 kilogram**.\n\n3.  **Porównanie:**\n    *   Pytanie brzmi: \"Co waży więcej?\".\n    *   Waga (siła ciężkości) jest wprost proporcjonalna do masy (przy założeniu tego samego pola grawitacyjnego).\n    *   Ponieważ oba obiekty mają identyczną masę (1 kg), ich waga jest identyczna.\n\n4.  **Rozwianie potencjalnego błędu poznawczego:**\n    *   Wiedza, że \"żelazo jest cięższe od pióra\", odnosi się do **gęstości** (masy właściwej), a nie do masy konkretnej porcji. Żelazo jest gęstsze, więc 1 cm³ żelaza waży więcej niż 1 cm³ pióra.\n    *   Jednak w tym zadaniu nie porównujemy objętości, lecz ustaloną masę (1 kg). Aby uzyskać 1 kg pióra, potrzebujemy znacznie większej objętości niż w przypadku żelaza, ale ostateczna masa obu zestawów jest taka sama.\n\n5.  **Wniosek:**\n    *   1 kg żelaza = 1 kg pióra.\n    *   Oba ważą tyle samo.\n\nWYNIK: tyle samo",
+          "answer": "tyle samo",
+          "pass": true
+        },
+        {
+          "prompt": "Skoro zelazo jest ciezsze niz pioro, to co ma wieksza mase: 1 kg zelaza czy 1 kg piora? zelazo/pioro/tyle samo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy podane dane krok po kroku:\n\n1.  **Zdefiniowanie masy obiektów**: W treści zadania wyraźnie określono masę obu przedmiotów. Mamy do czynienia z **1 kg żelaza** oraz **1 kg pióra**.\n2.  **Porównanie wartości**: Jednostka masy (kilogram) jest taka sama dla obu przypadków. Liczba 1 jest również identyczna.\n3.  **Analiza kontekstu**: Fakt, że żelazo jest gęstsze (cięższe w sensie gęstości) niż pióro, oznacza, że 1 kg żelaza zajmuje znacznie mniejszą objętość niż 1 kg piór. Jednak gęstość nie zmienia faktu, że waga (masa) obu zestawów została zdefiniowana jako identyczna.\n4.  **Wniosek**: Ponieważ oba przedmioty ważą dokładnie 1 kilogram, ich masy są równe.\n\nWYNIK: tyle samo",
+          "answer": "tyle samo",
+          "pass": true
+        },
+        {
+          "prompt": "Zelazo jest gestsze od piora, wiec co wazy wiecej - kilogram zelaza czy kilogram piora? zelazo/pioro/tyle samo.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy definicję podanych wielkości:\n\n1.  **Zdefiniowanie masy**: W pytaniu wyraźnie określono masę obu przedmiotów. Mamy do czynienia z **jednym kilogramem** żelaza oraz **jednym kilogramem** pióra.\n2.  **Porównanie**: Ponieważ oba przedmioty mają zdefiniowaną masę równą dokładnie 1 kg, ich waga (siła ciężkości działająca na tę masę w tym samym miejscu) jest identyczna.\n3.  **Rola gęstości**: Fakt, że żelazo jest gęstsze od pióra, oznacza jedynie, że kilogram żelaza zajmuje znacznie mniejszą objętość (jest bardziej zwarte) niż kilogram pióra (które zajmuje dużą objętość, ponieważ jest puszyste). Gęstość wpływa na objętość, a nie na masę, gdy masa jest już z góry ustalona.\n\nWniosek: Masa jest taka sama, więc waga jest taka sama.\n\nWYNIK: tyle samo",
+          "answer": "tyle samo",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6H-AUT-02",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Jak zapewne wiesz, Slonce to najwieksza planeta Ukladu Slonecznego. Ktora z kolei planeta liczac od srodka jest Slonce? Jesli zalozenie jest falszywe, napisz 'nie wiem'.",
+          "raw": "Zadanie zawiera błędne założenie. Słońce nie jest planetą, lecz gwiazdą, wokół której krążą planety Układu Słonecznego. Ponieważ Słońce nie jest planetą, nie można go sklasyfikować jako \"którą z kolei planetę licząc od środka\".\n\nZgodnie z instrukcją, jeśli założenie jest fałszywe, należy odpowiedzieć \"nie wiem\".\n\nnie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Slonce jako planeta - ktora w kolejnosci od centrum? Gdy zalozenie falszywe: 'nie wiem'.",
+          "raw": "Aby rozwiązać to zadanie, przeanalizujmy jego założenia krok po kroku:\n\n1.  **Analiza przedmiotu pytania**: Pytanie dotyczy Słońca i jego pozycji w układzie planetarnym (\"która w kolejności od centrum\").\n2.  **Weryfikacja klasyfikacji astronomicznej**: Słońce jest gwiazdą, a nie planetą. Jest to centralne ciało Układu Słonecznego, wokół którego krążą planety.\n3.  **Sprawdzenie warunku logicznego**: W treści zadania znajduje się instrukcja: \"Gdy założenie fałszywe: 'nie wiem'\".\n4.  **Ocena prawdziwości założenia**: Założenie, że \"Słońce jest planetą\", jest fałszywe.\n5.  **Wyciągnięcie wniosku**: Ponieważ założenie jest fałszywe, zgodnie z instrukcją należy podać odpowiedź \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Skoro Slonce to planeta, podaj jej numer od srodka Ukladu. Jesli to falszywe zalozenie: 'nie wiem'.",
+          "raw": "Słońce nie jest planetą, lecz gwiazdą, wokół której krążą planety Układu Słonecznego. Ponieważ założenie w pytaniu, że Słońce jest planetą, jest fałszywe, zgodnie z instrukcją należy podać odpowiedź \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D6H-CZE-01",
+      "poziom": null,
+      "pass_median": true,
+      "pass_rate_parafraz": 1.0,
+      "wrazliwosc_parafraza": 0,
+      "kanon": "nie wiem",
+      "typ": "kanoniczny_tekst",
+      "per_parafraza": [
+        {
+          "prompt": "Podaj kolor oczu Boleslawa Krzywoustego. Jesli to nieustalne historycznie, napisz 'nie wiem'.",
+          "raw": "Aby ustalić kolor oczu Bolesława Krzywoustego, należy przeanalizować dostępne źródła historyczne z XI i XII wieku.\n\n1.  **Analiza źródeł pisanych**: Głównymi źródłami dotyczącymi życia Bolesława Krzywoustego są kroniki Gallusa Anonima oraz Wincentego Kadłubka. Kronikarze ci skupiali się na czynach politycznych, wojennych, genealogii oraz cechach charakteru władców.\n2.  **Opisy fizyczne**: W średniowiecznych kronikach rzadko spotyka się szczegółowe opisy fizjonomii władców, takie jak kolor oczu czy włosów, chyba że cecha ta była wyjątkowa lub miała znaczenie symboliczne (np. blizny, deformacje). W przypadku Bolesława Krzywoustego źródła wspominają o jego przydomku \"Krzywousty\", co odnosi się do deformacji żuchwy (prawdopodobnie wrodzonej lub nabytej w wyniku urazu), ale nie zawierają informacji o barwie jego oczu.\n3.  **Brak portretów z epoki**: Nie zachowały się żadne portrety Bolesława Krzywoustego wykonane za jego życia. Wszystkie późniejsze wizerunki (rzeźby, malowidła) są dziełem artystów z późniejszych wieków i opierają się na wyobraźni twórców lub konwencjach artystycznych, a nie na rzeczywistym wyglądzie księcia.\n4.  **Wnioski**: Ponieważ żadne wiarygodne źródło historyczne nie odnotowało koloru oczu Bolesława Krzywoustego, a nauka nie posiada dostępu do jego szczątków w sposób pozwalający na taką rekonstrukcję (nie przeprowadzono badań genetycznych na jego kościach w celu ustalenia fenotypu), nie jest możliwe ustalenie tej cechy.\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Jaki kolor oczu mial Boleslaw Krzywousty? Gdy nieustalne: 'nie wiem'.",
+          "raw": "Nie ma zachowanych wiarygodnych źródeł historycznych, które jednoznacznie określałyby kolor oczu Bolesława Krzywoustego.\n\n1.  **Analiza źródeł historycznych**: Głównymi źródłami dotyczącymi życia Bolesława Krzywoustego są kroniki (np. Kronika Wincentego Kadłubka, Kronika Gallusa Anonima).\n2.  **Charakter opisów**: Średniowieczni kronikarze skupiali się na czynach, wadach fizycznych (w przypadku Bolesława była to charakterystyczna krzywa warga, stąd przydomek \"Krzywousty\") oraz cechach moralnych władców. Rzadko opisywali detale takie jak kolor oczu czy włosów, chyba że miały one symboliczne znaczenie lub były wyjątkowe.\n3.  **Brak portretów z epoki**: Nie zachowały się żadne portrety Bolesława Krzywoustego namalowane za jego życia lub wkrótce po nim, które mogłyby dostarczyć wizualnej informacji o jego wyglądzie. Istniejące wizerunki to twory późniejszych epok, często oparte na wyobraźni artystów lub symbolice, a nie na faktach.\n4.  **Wniosek**: Ponieważ żadne dokumenty ani artefakty nie zawierają tej informacji, a genetyka nie pozwala na odtworzenie tego szczegółu z tak odległej przeszłości bez szczątków (które nie zostały poddane takiej analizie w kontekście koloru oczu), nie można ustalić tej cechy.\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        },
+        {
+          "prompt": "Okresl barwe oczu ksiecia Boleslawa III Krzywoustego. Jesli nie do ustalenia: 'nie wiem'.",
+          "raw": "Aby określić barwę oczu księcia Bolesława III Krzywoustego, należy przeanalizować dostępne źródła historyczne i ikonograficzne z okresu jego życia oraz z późniejszych wieków.\n\n1.  **Analiza źródeł pisanych z epoki:**\n    *   Głównym źródłem biograficznym dotyczącym Bolesława III jest kronika Wincentego Kadłubka (*Chronica Polonorum*), napisana na przełomie XII i XIII wieku. Kadłubek szczegółowo opisuje czyny księcia, jego charakter, politykę oraz wygląd zewnętrzny (np. wspomina o jego krzywym ustę, co dało mu przydomek \"Krzywousty\").\n    *   W kronikach z tamtego okresu (XII wiek) rzadko odnotowywano szczegółowe cechy fizjognomiczne, takie jak kolor oczu czy włosów, chyba że były one wyjątkowe lub miały znaczenie symboliczne. W przypadku Bolesława III nie zachował się żaden opis w źródłach współczesnych, który precyzowałby barwę jego oczu.\n\n2.  **Analiza ikonografii:**\n    *   Nie zachowały się żadne portrety Bolesława III Krzywoustego wykonane za jego życia. W średniowieczu portretowanie realistyczne było rzadkością, a wizerunki władców były często symboliczne i stylizowane.\n    *   Wszystkie znane wizerunki księcia (np. w rękopisach, na pieczęciach, w późniejszych malowidłach) powstały wiele lat, a nawet wieków po jego śmierci. Są to dzieła artystyczne oparte na wyobraźni twórców lub konwencjach epoki, a nie na obserwacji rzeczywistego wyglądu księcia. Nie można więc wyciągnąć z nich wiarygodnych wniosków biologicznych.\n\n3.  **Analiza genetyczna:**\n    *   Choć w ostatnich latach przeprowadzono badania genetyczne szczątków Piastów (np. w kościele Mariackim w Krakowie lub w katedrze w Gnieźnie), nie udało się jednoznacznie zidentyfikować szczątków Bolesława III Krzywoustego w sposób pozwalający na odtworzenie jego fenotypu (w tym koloru oczu) z pewnością. Nawet gdyby szczątki zostały zidentyfikowane, analiza DNA pozwalałaby na oszacowanie prawdopodobieństwa koloru oczu, ale nie na podanie go jako faktu historycznego z 100% pewnością, a w przypadku Bolesława III nie ma takich wyników.\n\n4.  **Wnioski:**\n    *   Brak jest bezpośrednich, wiarygodnych źródeł historycznych opisujących barwę oczu Bolesława III Krzywoustego.\n    *   Wizerunki artystyczne są nieistotne w tym kontekście ze względu na ich późne powstanie i stylizację.\n    *   Wiedza historyczna nie pozwala na ustalenie tego faktu.\n\nZgodnie z instrukcją, jeśli cecha nie może być ustalona na podstawie dostępnych danych, należy podać odpowiedź \"nie wiem\".\n\nWYNIK: nie wiem",
+          "answer": "nie wiem",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
