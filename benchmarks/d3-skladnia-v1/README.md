@@ -84,7 +84,7 @@ nie podwójne naruszenie).
 ## Format `eval.jsonl`
 
 ```json
-{"id":"MORFO-case-prep-gen-01","wymiar":"D3","poziom_trudnosci":1,"zjawisko":"case-prep-gen","dobre":"bez wody","zle":"bez woda","bajty_dobre":8,"bajty_zle":8,"validity":true,"zle_novel":false,"ratio_zle_dobre":0.0,"discriminating":null,"headline_core":null}
+{"id":"MORFO-case-prep-gen-01","wymiar":"D3","poziom_trudnosci":1,"zjawisko":"case-prep-gen","dobre":"bez wody","zle":"bez woda","bajty_dobre":8,"bajty_zle":8,"validity":true,"zle_novel":false,"ratio_zle_dobre":0.0,"discriminating":false,"headline_core":false,"baseline_margin_norm":0.2761}
 ```
 
 ## Flagi admisyjne (gejtowanie) — pola per-item w `eval.jsonl`
@@ -94,13 +94,15 @@ nie podwójne naruszenie).
 - `validity` — `false` tylko dla par udowodnionych jako wadliwe (nie są parą minimalną). Obecnie jedna: `MORFO-case-prep-loc-01` (`w lesie` vs `w las`) — `w las` jest gramatyczne (biernik ruchu), więc oba człony poprawne.
 - `zle_novel` — `true` gdy forma `zle` jest NIEobecna w treningu (warunek czystości par minimalnych; `false` = skażona).
 - `ratio_zle_dobre` — stosunek częstości formy `zle` do `dobre` w treningu. Niski stosunek mimo trafień bezwzględnych = para ważna (np. `do dom` = typo: ratio 0.00088 przy 214 trafieniach bezwzględnych — ratio obala absolut). Dokumentuje, dlaczego item jest ważny mimo kontaminacji bezwzględnej.
-- `discriminating` — `true` gdy metoda odniesienia (n-gram baseline) na tej parze zawodzi (źródło: audyt dyskryminacji (pomiar baseline-fails)). `null` = PENDING, jeszcze niezmergowane.
-- `headline_core` — `true` iff `validity && zle_novel && discriminating`. `null` = PENDING (czeka na `discriminating`).
+- `discriminating` — `true` gdy metoda odniesienia (n-gram order-4) NIE rozwiązuje pary. Kryterium (lock): `baseline_margin_norm <= 0.0` (margines byte-normalizowany; próg 0.0, NIE 0.05 — 0.05 to add-alpha wygładzania, nie próg rozwiązania). Źródło: `admission.py` na czystym held-oucie.
+- `baseline_margin_norm` — margines byte-normalizowany metody odniesienia dla pary (dodatni = baseline rozwiązuje, ujemny/zero = nie). Niesiony jako float obok boola: itemy blisko 0 to borderline-dyskryminatory (niska rzetelność przy n=30).
+- `headline_core` — `true` iff `validity && zle_novel && discriminating`. To jedyny zbiór, na którym liczy się wynik raportowany modelu.
 
 ### Zbiór headline (jak liczyć wynik)
 
-- Trzy niezależne sita — runner `--admission` AND-uje: `validity` (ważność) AND `zle_novel` (novelty) AND `discriminating` (pomiar baseline-fails).
-- **Admisja** (`validity && zle_novel`) = **23 par** przeszło ważność + novelty. To NIE jest jeszcze headline.
-- **HEADLINE CORE** = admisja ∩ `discriminating` = **PENDING merge audytu dyskryminacji (pomiar baseline-fails)** (spodziewane ~8–10 par). Do tego czasu `headline_core = null`; NIE raportujemy 23 jako wyniku headline.
-- Naiwne accuracy na surowych 30 par (`acc_all`) jest **nieważne**: zawiera parę wadliwą (`validity=false`) i skażone (`zle_novel=false`).
-- Liczby: `validity=true` = 29; `zle_novel=true` = 23; admisja (oba) = 23; `discriminating` = null (pending); skażonych = 7; wadliwych = 1.
+- Trzy niezależne sita — runner `--admission` AND-uje: `validity` (ważność) AND `zle_novel` (novelty) AND `discriminating` (baseline order-4 nie rozwiązuje, `margin_norm <= 0.0`).
+- **Admisja** (`validity && zle_novel`) = **23 par** przeszło ważność + novelty. To NIE jest headline.
+- **HEADLINE CORE** = admisja ∩ `discriminating` = **7 par** (`headline_core=true`). Wynik raportowany modelu liczy się na tych 7, nie na 23 ani 30.
+- Naiwne accuracy na surowych 30 par (`acc_all`) jest **nieważne**: zawiera parę wadliwą (`validity=false`) i skażone (`zle_novel=false`). Accuracy na 23 też nie jest headline (zawiera itemy, które baseline rozwiązuje „za darmo").
+- Liczby: `validity=true` = 29; `zle_novel=true` = 23; admisja (oba) = 23; `discriminating` = 8/30; `headline_core` = **7**; skażonych = 7; wadliwych = 1.
+- Metoda odniesienia (baseline) na rdzeniu headline ma z definicji acc ≈ 0 (rdzeń = tam, gdzie baseline zawodzi); rdzeń służy do pomiaru przewagi modelu docelowego (margines nad baseline), nie do oceny baseline.
