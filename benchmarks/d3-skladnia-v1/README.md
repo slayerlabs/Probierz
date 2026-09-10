@@ -84,22 +84,23 @@ nie podwójne naruszenie).
 ## Format `eval.jsonl`
 
 ```json
-{"id":"MORFO-case-prep-gen-01","wymiar":"D3","poziom_trudnosci":1,"zjawisko":"case-prep-gen","dobre":"bez wody","zle":"bez woda","bajty_dobre":8,"bajty_zle":8,"gate":"NOVELTY_FAIL","contamination_hits":1,"zle_novel":false,"valid_pair":true,"headline_eligible":false}
+{"id":"MORFO-case-prep-gen-01","wymiar":"D3","poziom_trudnosci":1,"zjawisko":"case-prep-gen","dobre":"bez wody","zle":"bez woda","bajty_dobre":8,"bajty_zle":8,"validity":true,"zle_novel":false,"ratio_zle_dobre":0.0,"discriminating":null,"headline_core":null}
 ```
 
 ## Flagi admisyjne (gejtowanie) — pola per-item w `eval.jsonl`
 
-Każdy item niesie wynik audytu admisyjnego (źródło: `_heldout/d3_gates.json` + `_heldout/d3_zle_novel.json`, audyt vs `slayer-pl-8x3b` 11.29M docs). Pola:
+Źródło: `_heldout/eval_admission.jsonl` (kanoniczny, ratio-based; audyt vs `slayer-pl-8x3b` 11.29M docs). Pola per-item:
 
-- `gate` — `ADMIT` | `NOVELTY_FAIL` | `VALIDITY_REVIEW`. `ADMIT` = para ważna i błędna forma nieobecna w treningu. `NOVELTY_FAIL` = błędna forma jednak występuje w treningu (1..10 trafień, szum kierunkowy). `VALIDITY_REVIEW` = >10 trafień, prawdopodobnie gramatyczna w innym czytaniu.
-- `contamination_hits` — liczba wystąpień formy `zle` w korpusie treningowym (0 = czysta).
+- `validity` — `false` tylko dla par udowodnionych jako wadliwe (nie są parą minimalną). Obecnie jedna: `MORFO-case-prep-loc-01` (`w lesie` vs `w las`) — `w las` jest gramatyczne (biernik ruchu), więc oba człony poprawne.
 - `zle_novel` — `true` gdy forma `zle` jest NIEobecna w treningu (warunek czystości par minimalnych; `false` = skażona).
-- `valid_pair` — `false` tylko dla par udowodnionych jako wadliwe (nie są parą minimalną). Obecnie: `MORFO-case-prep-loc-01` (`w lesie` vs `w las`) — `w las` jest gramatyczne (biernik ruchu), więc oba człony poprawne. Pole `valid_pair_note` podaje powód.
-- `headline_eligible` — `true` iff `gate == ADMIT` **oraz** `valid_pair`. To zbiór, na którym liczy się wynik raportowany.
+- `ratio_zle_dobre` — stosunek częstości formy `zle` do `dobre` w treningu. Niski stosunek mimo trafień bezwzględnych = para ważna (np. `do dom` = typo: ratio 0.00088 przy 214 trafieniach bezwzględnych — ratio obala absolut). Dokumentuje, dlaczego item jest ważny mimo kontaminacji bezwzględnej.
+- `discriminating` — `true` gdy metoda odniesienia (n-gram baseline) na tej parze zawodzi (źródło: audyt dyskryminacji (pomiar baseline-fails)). `null` = PENDING, jeszcze niezmergowane.
+- `headline_core` — `true` iff `validity && zle_novel && discriminating`. `null` = PENDING (czeka na `discriminating`).
 
 ### Zbiór headline (jak liczyć wynik)
 
-- Liczby: `ADMIT` = 23, `NOVELTY_FAIL` = 5, `VALIDITY_REVIEW` = 2; `headline_eligible` = **23**; `valid_pair=false` = 1; skażonych (`zle_novel=false`) = 7.
-- **Wynik raportowany (headline) = accuracy na `headline_eligible` (23 par), NIE na wszystkich 30.**
-- Naiwne accuracy na surowych 30 par (`acc_all`) jest **nieważne**: zawiera parę wadliwą i skażone. Runner z trybem `--admission` filtruje po `headline_eligible`.
-- Rdzeń dyskryminujący (podzbiór `headline_eligible`, na którym metoda odniesienia wypada najsłabiej — rodzina `case-*`) to miejsce, gdzie mierzy się przewaga modelu docelowego (margines nad baseline).
+- Trzy niezależne sita — runner `--admission` AND-uje: `validity` (ważność) AND `zle_novel` (novelty) AND `discriminating` (pomiar baseline-fails).
+- **Admisja** (`validity && zle_novel`) = **23 par** przeszło ważność + novelty. To NIE jest jeszcze headline.
+- **HEADLINE CORE** = admisja ∩ `discriminating` = **PENDING merge audytu dyskryminacji (pomiar baseline-fails)** (spodziewane ~8–10 par). Do tego czasu `headline_core = null`; NIE raportujemy 23 jako wyniku headline.
+- Naiwne accuracy na surowych 30 par (`acc_all`) jest **nieważne**: zawiera parę wadliwą (`validity=false`) i skażone (`zle_novel=false`).
+- Liczby: `validity=true` = 29; `zle_novel=true` = 23; admisja (oba) = 23; `discriminating` = null (pending); skażonych = 7; wadliwych = 1.
