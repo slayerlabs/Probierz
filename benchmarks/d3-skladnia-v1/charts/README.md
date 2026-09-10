@@ -63,4 +63,21 @@ Cztery rodziny zjawisk (ile par): rząd przypadka (10), zgoda przymiotnik–rzec
 - Te wyniki dotyczą metody odniesienia (n-gram), nie wytrenowanego modelu docelowego.
 - To pomiar poziomu odniesienia (baseline), nie ostateczna ocena modelu. Ocena modelu docelowego wymaga większej próby (≥85 par rozstrzygających) oraz wytrenowanych modeli (8M / 16M / 32M parametrów).
 
+## 8. Dlaczego metodą odniesienia jest n-gram (a nie inna metoda)
+
+Przypomnienie definicji: n-gram rzędu k przewiduje następny bajt na podstawie k poprzednich bajtów, licząc ich częstości w tekście. Wybraliśmy go jako punkt odniesienia (baseline) z sześciu powodów:
+
+- Uczciwa podłoga: to najprostsza metoda, która realnie używa kontekstu. Jeśli wytrenowany model nie przewyższa n-gramu, nie nauczył się niczego użytecznego ponad powierzchniową statystykę częstości.
+- Ta sama metryka: n-gram jest modelem przewidywania bajtu — dokładnie tym, co mierzymy (BPB, prawdopodobieństwo następnego bajtu). Porównanie modelu z n-gramem odbywa się na tej samej osi (bity-na-bajt), bez mieszania różnych wielkości.
+- Odporność na skażenie: n-gram liczymy wprost z tekstu testowego (held-out), bez uczenia na danych modelu. Jest deterministyczny i reprodukowalny — każdy przelicza go z bajtów i otrzymuje tę samą liczbę. Nie da się go „podkręcić" treningiem.
+- Interpretowalność: rząd k mówi wprost, ile bajtów kontekstu użyto. Rosnąca skuteczność z rzędem (0.40 → 0.667) pokazuje, że test odróżnia metody używające większego kontekstu — to dowód, że benchmark w ogóle różnicuje.
+- Wskazuje właściwą oś: tam, gdzie n-gram zawodzi (rząd przypadka — wymaga zależności strukturalnej, a nie lokalnej częstości), leży realna wartość, którą model docelowy musi wykazać.
+- Standard: n-gram to klasyczny, ugruntowany w literaturze punkt odniesienia dla modeli języka.
+
+Dlaczego nie inne metody:
+
+- Wytrenowany model sieciowy jako odniesienie — błędne koło (to właśnie takie modele testujemy) i podatność na skażenie danymi.
+- Ręczna gramatyka / reguły — budowana ręcznie, nie zwraca prawdopodobieństwa, więc nie daje wspólnej metryki z modelem.
+- Wybór losowy — daje tylko 0.50, bez gradientu; nie pokazuje, czy test cokolwiek różnicuje.
+
 Źródła liczb: `../wyniki-ngram-o1..o4.json` (accuracy, CI, podział na zjawiska); wartości BPB zmierzone na held-oucie (rzędy 0–4); model testowy = przebieg pomiaru na wytrenowanym punkcie kontrolnym.
