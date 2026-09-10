@@ -22,6 +22,8 @@ Cztery rodziny zjawisk (ile par): rząd przypadka (10), zgoda przymiotnik–rzec
 - **Held-out** — tekst NIE użyty w treningu, sprawdzony pod kątem braku pokrycia z danymi treningowymi (dekontaminacja mierzona n-gramowo).
 - **95% CI (przedział ufności)** — zakres, w którym z 95% pewnością leży prawdziwa wartość; słupki błędu na wykresie.
 - **Model testowy** — mały model sieciowy wytrenowany na 2 przykładowych zdaniach (przykład ilustracyjny, nie docelowy).
+- **Rdzeń dyskryminujący** — podzbiór par (tu ~8–10), na których metoda odniesienia wypada najsłabiej (accuracy ≤ losowego). To na nim mierzy się wynik modelu docelowego, bo tylko tam jest realna różnica do pokazania.
+- **Margines nad baseline** — o ile accuracy modelu docelowego przewyższa accuracy metody odniesienia na rdzeniu dyskryminującym. To jest właściwy wynik modelu, nie samo accuracy.
 
 ## 3. Wykres 1 — accuracy metody n-gram według rzędu (plik `01_accuracy_wg_rzedu.png`)
 
@@ -31,6 +33,7 @@ Cztery rodziny zjawisk (ile par): rząd przypadka (10), zgoda przymiotnik–rzec
 - Linia przerywana szara: poziom losowy = 0.50.
 - Wartości: rząd 1 = 0.400; rząd 2 = 0.467; rząd 3 = 0.567; rząd 4 = 0.667.
 - Odczyt: accuracy rośnie wraz z rzędem. Oznacza to, że test odróżnia metody używające większego kontekstu — czyli mierzy realną różnicę, a nie przypadek.
+- Uwaga o wyniku modelu docelowego: ten wykres pokazuje accuracy na WSZYSTKICH 30 parach (metoda odniesienia). Dla wytrenowanego modelu docelowego wynikiem raportowanym (headline) jest accuracy na rdzeniu dyskryminującym (~8–10 par, gdzie metoda odniesienia zawodzi) oraz margines nad baseline — nie accuracy na 30 parach. Przyszłe „0.667 na 30" nie jest wynikiem modelu.
 
 ## 4. Wykres 2 — accuracy według rodziny zjawiska (plik `02_accuracy_wg_rodziny.png`)
 
@@ -38,7 +41,7 @@ Cztery rodziny zjawisk (ile par): rząd przypadka (10), zgoda przymiotnik–rzec
 - Oś Y: accuracy metody n-gram rzędu 4.
 - Linia przerywana szara: poziom losowy = 0.50.
 - Wartości: rząd przypadka = 0.40; zgoda przymiotnik–rzeczownik = 0.875; rodzaj w czasie przeszłym = 0.71; aspekt = 0.80.
-- Odczyt: metoda n-gram wypada najsłabiej na rządzie przypadka (0.40, poniżej losowego), a wysoko na pozostałych. Wniosek: rząd przypadka to zjawisko, którego prosta metoda kontekstowa nie rozwiązuje — to na nim wytrenowany model musi wykazać przewagę.
+- Odczyt: metoda n-gram wypada najsłabiej na rządzie przypadka (0.40). Wartość 0.40 jest PONIŻEJ losowego (0.50): metoda nie jest tu neutralna, lecz systematycznie wybiera formę błędną (bo lokalnie częstszą) — jest anty-skorelowana z poprawnością. Wniosek: rząd przypadka to zjawisko, którego prosta metoda kontekstowa nie tylko nie rozwiązuje, ale rozwiązuje odwrotnie — daje to większy zapas (headroom) dla modelu docelowego i wskazuje właściwą oś dyskryminującą.
 
 ## 5. Wykres 3 — BPB metody n-gram według rzędu (plik `03_bpb_wg_rzedu.png`)
 
