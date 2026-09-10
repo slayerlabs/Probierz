@@ -62,6 +62,7 @@ Cztery rodziny zjawisk (ile par): rząd przypadka (10), zgoda przymiotnik–rzec
 - 30 par to mała próba; przedziały ufności są szerokie (ok. ±0.17 dla accuracy).
 - Te wyniki dotyczą metody odniesienia (n-gram), nie wytrenowanego modelu docelowego.
 - To pomiar poziomu odniesienia (baseline), nie ostateczna ocena modelu. Ocena modelu docelowego wymaga większej próby (≥85 par rozstrzygających) oraz wytrenowanych modeli (8M / 16M / 32M parametrów).
+- Zbiór do liczenia wyniku: plik `../eval.jsonl` niesie flagi admisyjne per-item (`gate`, `zle_novel`, `contamination_hits`, `valid_pair`, `headline_eligible`). Wynik raportowany liczy się na `headline_eligible` (gate==ADMIT i valid_pair) = 23 par, NIE na wszystkich 30. Naiwne accuracy na surowych 30 par jest nieważne — zawiera 1 parę wadliwą (`MORFO-case-prep-loc-01`) i 7 skażonych. Szczegóły: `../README.md` sekcja „Flagi admisyjne".
 
 ## 8. Dlaczego metodą odniesienia jest n-gram (a nie inna metoda)
 

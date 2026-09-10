@@ -84,5 +84,22 @@ nie podwójne naruszenie).
 ## Format `eval.jsonl`
 
 ```json
-{"id":"MORFO-case-prep-gen-01","wymiar":"D3","poziom_trudnosci":1,"zjawisko":"case-prep-gen","dobre":"bez wody","zle":"bez woda","bajty_dobre":8,"bajty_zle":8}
+{"id":"MORFO-case-prep-gen-01","wymiar":"D3","poziom_trudnosci":1,"zjawisko":"case-prep-gen","dobre":"bez wody","zle":"bez woda","bajty_dobre":8,"bajty_zle":8,"gate":"NOVELTY_FAIL","contamination_hits":1,"zle_novel":false,"valid_pair":true,"headline_eligible":false}
 ```
+
+## Flagi admisyjne (gejtowanie) — pola per-item w `eval.jsonl`
+
+Każdy item niesie wynik audytu admisyjnego (źródło: `_heldout/d3_gates.json` + `_heldout/d3_zle_novel.json`, audyt vs `slayer-pl-8x3b` 11.29M docs). Pola:
+
+- `gate` — `ADMIT` | `NOVELTY_FAIL` | `VALIDITY_REVIEW`. `ADMIT` = para ważna i błędna forma nieobecna w treningu. `NOVELTY_FAIL` = błędna forma jednak występuje w treningu (1..10 trafień, szum kierunkowy). `VALIDITY_REVIEW` = >10 trafień, prawdopodobnie gramatyczna w innym czytaniu.
+- `contamination_hits` — liczba wystąpień formy `zle` w korpusie treningowym (0 = czysta).
+- `zle_novel` — `true` gdy forma `zle` jest NIEobecna w treningu (warunek czystości par minimalnych; `false` = skażona).
+- `valid_pair` — `false` tylko dla par udowodnionych jako wadliwe (nie są parą minimalną). Obecnie: `MORFO-case-prep-loc-01` (`w lesie` vs `w las`) — `w las` jest gramatyczne (biernik ruchu), więc oba człony poprawne. Pole `valid_pair_note` podaje powód.
+- `headline_eligible` — `true` iff `gate == ADMIT` **oraz** `valid_pair`. To zbiór, na którym liczy się wynik raportowany.
+
+### Zbiór headline (jak liczyć wynik)
+
+- Liczby: `ADMIT` = 23, `NOVELTY_FAIL` = 5, `VALIDITY_REVIEW` = 2; `headline_eligible` = **23**; `valid_pair=false` = 1; skażonych (`zle_novel=false`) = 7.
+- **Wynik raportowany (headline) = accuracy na `headline_eligible` (23 par), NIE na wszystkich 30.**
+- Naiwne accuracy na surowych 30 par (`acc_all`) jest **nieważne**: zawiera parę wadliwą i skażone. Runner z trybem `--admission` filtruje po `headline_eligible`.
+- Rdzeń dyskryminujący (podzbiór `headline_eligible`, na którym metoda odniesienia wypada najsłabiej — rodzina `case-*`) to miejsce, gdzie mierzy się przewaga modelu docelowego (margines nad baseline).
