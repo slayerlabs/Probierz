@@ -9,7 +9,6 @@
 > w skali dającej **mierzalny progres** — nie da się ich sfałszować.
 >
 > **Autor:** Arkadiusz Słota · **Lab:** SlayerLab 🇵🇱 · **Status:** know-how + runnable rdzeń · _Polska technologia, globalny zasięg_
-> **Metoda pomiarowa:** [Dendrometria](../Optimal%20Design%20of%20Structures/Dendrometria/) (mierzymy, nie deklarujemy)
 
 ## Po co (dwie pieczenie na jednym ogniu)
 
