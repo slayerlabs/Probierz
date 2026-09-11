@@ -19,15 +19,28 @@ Pary są w `benchmarks/d3-skladnia-v2/eval.jsonl` (472 pary, z tego **148 w rdze
 
 ## Krok 2 — policz oceny swojego modelu
 
-Dla każdej pary przepuść przez model osobno tekst `dobre` i tekst `zle`. Dla każdego policz **sumę log-prawdopodobieństwa po znakach** (wyżej = bardziej naturalne). To ta sama liczba, którą model daje przy BPB.
+### Wariant A (najprościej): dowolny gotowy model z Hugging Face
 
-Zapisz do pliku `moje_oceny.jsonl` — jedna linia na parę:
+Jest gotowy skrypt, który sam liczy oceny dla DOWOLNEGO modelu (GPT, Llama, Qwen, Bielik, wasze 8m/16m/32m — cokolwiek ładuje się jako `AutoModelForCausalLM`). Podajesz tylko nazwę modelu:
+
+```
+pip install torch transformers
+python tools/scorer_hf.py --model <id-lub-ścieżka-modelu> --eval benchmarks/d3-skladnia-v2/eval.jsonl --out moje_oceny.jsonl
+```
+
+Przykład: `--model speakleash/Bielik-1.5B` albo lokalna ścieżka do checkpointu. Na GPU dodaj `--device cuda`. Skrypt zapisze `moje_oceny.jsonl` — gotowe do kroku 3.
+
+### Wariant B (ręcznie): model spoza Hugging Face / własny kod
+
+Dla każdej pary przepuść przez model osobno tekst `dobre` i `zle`, policz **sumę log-prawdopodobieństwa** każdego (wyżej = bardziej naturalne; to ta sama liczba, którą model daje przy BPB). Zapisz do `moje_oceny.jsonl`, jedna linia na parę:
 
 ```
 {"id": "MORFO-case-verb-dat-01", "dobre_ll": -12.34, "zle_ll": -15.67}
 ```
 
-`id` musi być identyczne jak w `eval.jsonl`. To jedyna praca po Twojej stronie.
+`id` musi być identyczne jak w `eval.jsonl`.
+
+Uwaga: benchmark liczy prawdopodobieństwo (forced-choice), więc potrzebny jest model, z którego da się wyciągnąć log-prawdopodobieństwo tekstu. Modele-chaty przez API, które zwracają tylko tekst (bez logprobs), nie nadają się do tej metody.
 
 ## Krok 3 — uruchom program
 
