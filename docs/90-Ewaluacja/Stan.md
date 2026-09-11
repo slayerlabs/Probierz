@@ -63,6 +63,25 @@ Model: **Slayer v49** (proxy lokalny). Ocena deterministyczna (T5), 3 parafrazy/
 - Wniosek operacyjny: **kolejne wymiary bez panelu nie zwiększają mocy dowodowej** — priorytetem staje
   się zebranie panelu ≥5 modeli i przejazd D1+D2 wszystkimi.
 
+## ✓ Warstwa leaderboard + metryka BPB (2026-09-11)
+> Nitka: [[../10-Tezy/T8-Metryka-Ciagla-BPB|T8]] ↔ [[../15-Antytezy/AT8-Confound-Tokenizera-Overlapping-CI|AT8]] → [[../25-Syntezy/S7-Leaderboard-BPB-Gate|S7]] → [[../20-Decyzje/D-DEC3-Leaderboard-Eksperymentalny|DEC3]]
+
+| Element | Stan | Dowód |
+|---|---|---|
+| Benchmark `d3-skladnia-v2` | CZYSTY, 148 rdzeń | 472 par (Morfeusz 2), 3 sita; skan 11.29M docs |
+| Benchmark `d3-skladnia-v3` | CZYSTY, 273 rdzeń | skala v2, ta sama metoda + sita |
+| Metryka **BPB** (tokenizer-fair) | działa | `bpb_scorer.py`; held-out 300 docs/153 583 B; round-trip 100%/0 UNK |
+| Metryka **margin** (ciągła d3) | działa | większa moc niż accuracy (paired-bootstrap) |
+| **Panel: 5 modeli zmierzonych** | GoLLeM-45M/110M-v2/v3, Slayer-110M, Polock-125M | BPB + d3 (acc+margin) + 95% CI |
+| Komórka (110M, 32000) | **rozstrzygnięta** | v3<Slayer<v2 (paired-bootstrap; BPB i margin; rdzeń 148 i 273); `caveat:single-seed` |
+| Leaderboard + gate | S7/DEC3 | fabryka-track `leaderboard-d3`; INDISTINGUISHABLE-GATE; `results/` + SHA256 piny |
+
+**Rusza otwarte (§ poniżej):**
+- Panel ≥5 (poz. 3): **5 modeli zmierzonych** — ale różne tokenizery → atrybucja tylko w komórce kontrolowanej; byte-modele fabryki (jedna skala) czekają na loader BDH.
+- Wymiary (poz. 6): **D3-składnia gotowe** (v2+v3); zostają D4–D6.
+
+**Otwarte tej nitki:** Gate 1 (≥3 seedy treningowe → poziom recepty) na RunPod; loader byte-modeli fabryki (arch. BDH, vocab 256); rotacja rdzenia sterowana saturacją (`acc_core < ~0.9`).
+
 ## ○ Otwarte (kryteria sukcesu C1 + C2)
 1. ~~Brak czystego eval-only~~ → **trzy czyste zestawy:** `csharp-solid-v1`, `d1-rozumowanie-v1`, `d2-semantyka-v1` (0%).
 2. **Drugi team** — niezbędny do T2/blind exchange; brak partnera. Bez niego — autowalidacja.
