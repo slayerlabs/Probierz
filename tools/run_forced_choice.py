@@ -92,9 +92,11 @@ def main():
         res=[]
         for it in items:
             j=ll[it["id"]]; bd=-j["dobre_ll"]; bz=-j["zle_ll"]
+            ld=len(it["dobre"].encode()); lz=len(it["zle"].encode())
+            mnorm=(bz/lz)-(bd/ld)        # per-byte, >0 = correct (zdejmuje confound dlugosci)
             res.append({"id":it["id"],"zjawisko":it["zjawisko"],"poziom":it["poziom_trudnosci"],
                         "bits_dobre":round(bd,3),"bits_zle":round(bz,3),"margin_bits":round(bz-bd,3),
-                        "margin_norm":None,"pass":bool(bd<bz),"pass_norm":bool(bd<bz)})
+                        "margin_norm":round(mnorm,4),"pass":bool(bd<bz),"pass_norm":bool(mnorm>0)})
         out=summarize(res,a.model or "logprob",a.eval)
         json.dump(out,open(os.path.join(a.outdir,f"wyniki-{out['summary']['model']}.json"),"w",encoding="utf-8"),ensure_ascii=False,indent=2)
         print(json.dumps(out["summary"],ensure_ascii=False)); return
