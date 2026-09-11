@@ -1,0 +1,434 @@
+{
+  "summary": {
+    "model": "ngram-o4",
+    "eval": "d3_eval.jsonl",
+    "n_items": 30,
+    "chance": 0.5,
+    "accuracy": 0.667,
+    "accuracy_ci95": [
+      0.5,
+      0.833
+    ],
+    "accuracy_norm": 0.733
+  },
+  "per_zjawisko": {
+    "agr-adj-case": {
+      "n": 3,
+      "acc": 0.667
+    },
+    "agr-adj-liczba": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "agr-adj-rodzaj": {
+      "n": 4,
+      "acc": 1.0
+    },
+    "aspekt-adv-bound": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "aspekt-adv-dur": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "aspekt-fut-inf": {
+      "n": 3,
+      "acc": 0.667
+    },
+    "case-neg-gen": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "case-num-gen": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "case-prep-dat": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "case-prep-gen": {
+      "n": 2,
+      "acc": 0.5
+    },
+    "case-prep-ins": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "case-prep-loc": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "case-verb-dat": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "case-verb-gen": {
+      "n": 1,
+      "acc": 1.0
+    },
+    "case-verb-inst": {
+      "n": 1,
+      "acc": 0.0
+    },
+    "past-klityka-pred": {
+      "n": 3,
+      "acc": 1.0
+    },
+    "past-rodzaj-subj": {
+      "n": 4,
+      "acc": 0.5
+    }
+  },
+  "per_poziom": {
+    "1": {
+      "n": 7,
+      "acc": 0.714
+    },
+    "2": {
+      "n": 10,
+      "acc": 0.7
+    },
+    "3": {
+      "n": 10,
+      "acc": 0.5
+    },
+    "4": {
+      "n": 3,
+      "acc": 1.0
+    }
+  },
+  "results": [
+    {
+      "id": "MORFO-case-prep-gen-01",
+      "zjawisko": "case-prep-gen",
+      "poziom": 1,
+      "bits_dobre": 26.48,
+      "bits_zle": 28.689,
+      "margin_bits": 2.209,
+      "margin_norm": 0.2761,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-case-prep-gen-02",
+      "zjawisko": "case-prep-gen",
+      "poziom": 1,
+      "bits_dobre": 20.642,
+      "bits_zle": 19.484,
+      "margin_bits": -1.157,
+      "margin_norm": 0.2986,
+      "pass": false,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-case-prep-ins-01",
+      "zjawisko": "case-prep-ins",
+      "poziom": 1,
+      "bits_dobre": 31.493,
+      "bits_zle": 22.958,
+      "margin_bits": -8.534,
+      "margin_norm": -0.1102,
+      "pass": false,
+      "pass_norm": false
+    },
+    {
+      "id": "MORFO-case-prep-loc-01",
+      "zjawisko": "case-prep-loc",
+      "poziom": 2,
+      "bits_dobre": 23.347,
+      "bits_zle": 22.281,
+      "margin_bits": -1.066,
+      "margin_norm": 1.1209,
+      "pass": false,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-case-prep-dat-01",
+      "zjawisko": "case-prep-dat",
+      "poziom": 2,
+      "bits_dobre": 27.718,
+      "bits_zle": 28.547,
+      "margin_bits": 0.828,
+      "margin_norm": 0.069,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-case-verb-gen-01",
+      "zjawisko": "case-verb-gen",
+      "poziom": 2,
+      "bits_dobre": 34.585,
+      "bits_zle": 40.115,
+      "margin_bits": 5.531,
+      "margin_norm": 0.4254,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-case-verb-dat-01",
+      "zjawisko": "case-verb-dat",
+      "poziom": 3,
+      "bits_dobre": 61.488,
+      "bits_zle": 58.855,
+      "margin_bits": -2.633,
+      "margin_norm": -0.2718,
+      "pass": false,
+      "pass_norm": false
+    },
+    {
+      "id": "MORFO-case-neg-gen-01",
+      "zjawisko": "case-neg-gen",
+      "poziom": 3,
+      "bits_dobre": 37.906,
+      "bits_zle": 38.281,
+      "margin_bits": 0.375,
+      "margin_norm": 0.2371,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-case-num-gen-01",
+      "zjawisko": "case-num-gen",
+      "poziom": 3,
+      "bits_dobre": 44.738,
+      "bits_zle": 41.681,
+      "margin_bits": -3.057,
+      "margin_norm": 0.3478,
+      "pass": false,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-case-verb-inst-01",
+      "zjawisko": "case-verb-inst",
+      "poziom": 3,
+      "bits_dobre": 60.286,
+      "bits_zle": 59.337,
+      "margin_bits": -0.949,
+      "margin_norm": 0.0609,
+      "pass": false,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-agr-adj-rodzaj-01",
+      "zjawisko": "agr-adj-rodzaj",
+      "poziom": 1,
+      "bits_dobre": 43.374,
+      "bits_zle": 43.835,
+      "margin_bits": 0.462,
+      "margin_norm": 0.0257,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-agr-adj-rodzaj-02",
+      "zjawisko": "agr-adj-rodzaj",
+      "poziom": 1,
+      "bits_dobre": 48.459,
+      "bits_zle": 49.496,
+      "margin_bits": 1.037,
+      "margin_norm": 0.061,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-agr-adj-rodzaj-03",
+      "zjawisko": "agr-adj-rodzaj",
+      "poziom": 1,
+      "bits_dobre": 28.855,
+      "bits_zle": 33.623,
+      "margin_bits": 4.769,
+      "margin_norm": 0.5299,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-agr-adj-rodzaj-04",
+      "zjawisko": "agr-adj-rodzaj",
+      "poziom": 2,
+      "bits_dobre": 32.818,
+      "bits_zle": 33.19,
+      "margin_bits": 0.372,
+      "margin_norm": 0.0372,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-agr-adj-liczba-01",
+      "zjawisko": "agr-adj-liczba",
+      "poziom": 2,
+      "bits_dobre": 35.322,
+      "bits_zle": 36.104,
+      "margin_bits": 0.782,
+      "margin_norm": 0.2542,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-agr-adj-case-01",
+      "zjawisko": "agr-adj-case",
+      "poziom": 3,
+      "bits_dobre": 36.768,
+      "bits_zle": 49.165,
+      "margin_bits": 12.397,
+      "margin_norm": 1.2688,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-agr-adj-case-02",
+      "zjawisko": "agr-adj-case",
+      "poziom": 3,
+      "bits_dobre": 39.201,
+      "bits_zle": 37.446,
+      "margin_bits": -1.755,
+      "margin_norm": 0.105,
+      "pass": false,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-agr-adj-case-03",
+      "zjawisko": "agr-adj-case",
+      "poziom": 4,
+      "bits_dobre": 47.32,
+      "bits_zle": 47.697,
+      "margin_bits": 0.376,
+      "margin_norm": 0.1975,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-past-rodzaj-subj-01",
+      "zjawisko": "past-rodzaj-subj",
+      "poziom": 1,
+      "bits_dobre": 56.007,
+      "bits_zle": 57.592,
+      "margin_bits": 1.584,
+      "margin_norm": -0.2371,
+      "pass": true,
+      "pass_norm": false
+    },
+    {
+      "id": "MORFO-past-rodzaj-subj-02",
+      "zjawisko": "past-rodzaj-subj",
+      "poziom": 2,
+      "bits_dobre": 63.488,
+      "bits_zle": 61.751,
+      "margin_bits": -1.737,
+      "margin_norm": 0.1783,
+      "pass": false,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-past-rodzaj-subj-03",
+      "zjawisko": "past-rodzaj-subj",
+      "poziom": 2,
+      "bits_dobre": 59.924,
+      "bits_zle": 59.61,
+      "margin_bits": -0.313,
+      "margin_norm": 0.2007,
+      "pass": false,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-past-rodzaj-subj-04",
+      "zjawisko": "past-rodzaj-subj",
+      "poziom": 2,
+      "bits_dobre": 57.662,
+      "bits_zle": 59.553,
+      "margin_bits": 1.891,
+      "margin_norm": -0.2792,
+      "pass": true,
+      "pass_norm": false
+    },
+    {
+      "id": "MORFO-past-klityka-pred-01",
+      "zjawisko": "past-klityka-pred",
+      "poziom": 3,
+      "bits_dobre": 66.526,
+      "bits_zle": 68.991,
+      "margin_bits": 2.465,
+      "margin_norm": 0.1297,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-past-klityka-pred-02",
+      "zjawisko": "past-klityka-pred",
+      "poziom": 3,
+      "bits_dobre": 63.311,
+      "bits_zle": 63.504,
+      "margin_bits": 0.193,
+      "margin_norm": 0.0107,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-past-klityka-pred-03",
+      "zjawisko": "past-klityka-pred",
+      "poziom": 4,
+      "bits_dobre": 70.131,
+      "bits_zle": 71.673,
+      "margin_bits": 1.542,
+      "margin_norm": 0.067,
+      "pass": true,
+      "pass_norm": true
+    },
+    {
+      "id": "MORFO-aspekt-fut-inf-01",
+      "zjawisko": "aspekt-fut-inf",
+      "poziom": 2,
+      "bits_dobre": 64.731,
+      "bits_zle": 66.839,
+      "margin_bits": 2.108,
+      "margin_norm": -0.2241,
+      "pass": true,
+      "pass_norm": false
+    },
+    {
+      "id": "MORFO-aspekt-fut-inf-02",
+      "zjawisko": "aspekt-fut-inf",
+      "poziom": 2,
+      "bits_dobre": 47.568,
+      "bits_zle": 49.043,
+      "margin_bits": 1.475,
+      "margin_norm": -0.4135,
+      "pass": true,
+      "pass_norm": false
+    },
+    {
+      "id": "MORFO-aspekt-fut-inf-03",
+      "zjawisko": "aspekt-fut-inf",
+      "poziom": 3,
+      "bits_dobre": 69.366,
+      "bits_zle": 68.632,
+      "margin_bits": -0.734,
+      "margin_norm": -0.2001,
+      "pass": false,
+      "pass_norm": false
+    },
+    {
+      "id": "MORFO-aspekt-adv-dur-01",
+      "zjawisko": "aspekt-adv-dur",
+      "poziom": 3,
+      "bits_dobre": 62.581,
+      "bits_zle": 66.726,
+      "margin_bits": 4.146,
+      "margin_norm": -0.2496,
+      "pass": true,
+      "pass_norm": false
+    },
+    {
+      "id": "MORFO-aspekt-adv-bound-01",
+      "zjawisko": "aspekt-adv-bound",
+      "poziom": 4,
+      "bits_dobre": 67.494,
+      "bits_zle": 70.074,
+      "margin_bits": 2.58,
+      "margin_norm": 0.2689,
+      "pass": true,
+      "pass_norm": true
+    }
+  ]
+}

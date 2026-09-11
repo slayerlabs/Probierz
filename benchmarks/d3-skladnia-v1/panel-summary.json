@@ -1,0 +1,50 @@
+{
+  "ngram-o1": {
+    "model": "ngram-o1",
+    "eval": "d3_eval.jsonl",
+    "n_items": 30,
+    "chance": 0.5,
+    "accuracy": 0.4,
+    "accuracy_ci95": [
+      0.233,
+      0.567
+    ],
+    "accuracy_norm": 0.567
+  },
+  "ngram-o2": {
+    "model": "ngram-o2",
+    "eval": "d3_eval.jsonl",
+    "n_items": 30,
+    "chance": 0.5,
+    "accuracy": 0.467,
+    "accuracy_ci95": [
+      0.3,
+      0.633
+    ],
+    "accuracy_norm": 0.533
+  },
+  "ngram-o3": {
+    "model": "ngram-o3",
+    "eval": "d3_eval.jsonl",
+    "n_items": 30,
+    "chance": 0.5,
+    "accuracy": 0.567,
+    "accuracy_ci95": [
+      0.4,
+      0.767
+    ],
+    "accuracy_norm": 0.7
+  },
+  "ngram-o4": {
+    "model": "ngram-o4",
+    "eval": "d3_eval.jsonl",
+    "n_items": 30,
+    "chance": 0.5,
+    "accuracy": 0.667,
+    "accuracy_ci95": [
+      0.5,
+      0.833
+    ],
+    "accuracy_norm": 0.733
+  }
+}
