@@ -47,3 +47,14 @@ Wynik headline = accuracy (i mean margin) na `headline_core` (273). Szczegóły 
 ## Status
 
 `eval-only`, publiczny demonstrator (spala się po ujawnieniu). 273 rdzeń daje mocniejszą oś confirming niż v2; werdykt produkcyjny + wersja tajna jak w v2.
+
+## Zakres stosowalności (saturacja, nie sztywny rozmiar)
+
+d3 różnicuje modele w oknie między podłogą a sufitem na rdzeniu; granica zależy od **saturacji**, nie od samej liczby parametrów.
+
+- **Sufit:** gdy model opanuje podstawową morfoskładnię, `acc_core` → ~1.0 i benchmark przestaje różnicować. Reguła: użyteczne dopóki `acc_core < ~0.9`; powyżej → trudniejszy rdzeń.
+- **Podłoga:** bardzo słaby/nietrenowany model = chance/anty-chance, też nie różnicuje.
+- **Obecne modele fabryki (8M–110M) są w oknie** (0.4–0.7 na rdzeniu). Duże modele (~1.5B) prawdopodobnie blisko sufitu → d3 dla nich słabo różnicuje.
+- **Metryka ciągła (mean margin) i BPB** rozciągają zakres: margin ma większą moc niż acc, BPB nie ma sufitu w użytecznym zakresie.
+
+Krótko: d3 to benchmark reżimu małych/średnich modeli; granicę raportuj przez `acc_core` (saturacja), nie przez sztywny próg parametrów.
