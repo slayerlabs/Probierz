@@ -94,3 +94,7 @@ Probierz/
 3. **Commitment przed wymianą** — hash opublikowany, zestaw jednorazowy.
 
 Inaczej benchmark mierzy zapamiętywanie, nie zdolność — i jest bezwartościowy.
+
+Wyjątek jawny: `benchmarks/zewnetrzne/` to publiczne zestawy cudzego autorstwa do porównań z innymi
+pracami (np. ARC-Easy-PL). Kontraktu nie spełniają i nie są benchmarkami Probierza — patrz
+[`benchmarks/zewnetrzne/README.md`](benchmarks/zewnetrzne/README.md).
