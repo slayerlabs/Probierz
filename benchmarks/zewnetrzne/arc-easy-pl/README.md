@@ -85,7 +85,9 @@ python benchmarks/zewnetrzne/arc-easy-pl/arc_easy_pl.py --model C:/sciezka/do/mo
 Jedyna różnica to pytanie `NYSEDREGENTS_2015_8_24`: w EU20 odpowiedzi C i D mają **identyczny tekst**
 („Ziemi jednokrotny obrót”), więc wyniki są równe i o trafieniu decyduje rozstrzygnięcie remisu; na GPU
 różnice zaokrągleń w ostatnim bicie mogą je odwrócić. Takich pytań z powtórzoną odpowiedzią jest
-**6 w EU20** (w 3 powtórzona jest poprawna) i **1 w ddudek**, więc rozrzut CPU / GPU wynosi co najwyżej ok. 0,25 pp.
+**6 w EU20** (w 3 powtórzona jest poprawna) i **1 w ddudek**, więc same te pytania mogą zmienić wynik
+o ok. 0,25 pp (6 / 2376). To nie jest ogólna granica różnic CPU / GPU: inne pytania z bliskimi wynikami
+też mogą się odwrócić; w naszej kalibracji odwróciło się tylko to jedno.
 
 Punkty odniesienia z tego samego protokołu (pomiar SlayerLab, 2026-09, GPU):
 
