@@ -20,7 +20,7 @@ Uzycie:
   python byte_ppl_w_pl.py --model REPO --revision PELNY_SHA --out wynik.json            # zwykly model HF
   python byte_ppl_w_pl.py --model C:/sciezka/do/modelu --out wynik.json                 # katalog lokalny (HF format)
   python byte_ppl_w_pl.py --gollem-v6 SlayerLab/GoLLeM-v6-250M --revision 77d75a2b48eaab7aec59816f9849cee75a7bdfc1 \\
-         --out kalibracja.json                                                          # kalibracja (loader z repo modelu)
+         --trust-remote-code --out kalibracja.json                                      # kalibracja (kod modelu z jego repo)
 Wymaga: torch, transformers, tokenizers, huggingface_hub.
 """
 import argparse
@@ -92,7 +92,10 @@ def compute_perplexity(logits_fn, tokenizer, text, device, max_length=256):
 
 def wczytaj_model(a):
     if a.gollem_v6:
-        d = snapshot_download(a.gollem_v6, revision=a.revision, token=False)
+        if not a.trust_remote_code:
+            raise SystemExit("--gollem-v6 uruchamia modeling_gollem_v6.py z repo modelu: dodaj --trust-remote-code "
+                             "(tylko dla kodu, ktory przejrzales) i przypnij --revision")
+        d = snapshot_download(a.gollem_v6, revision=a.revision, allow_patterns=BEZPIECZNE + ["*.py"], token=False)
         sys.path.insert(0, d)
         from modeling_gollem_v6 import load_gollem_v6
         model, _ = load_gollem_v6(d, a.device)
@@ -114,7 +117,7 @@ def main():
     ap = argparse.ArgumentParser(description="byte-PPL na W (track.fabryka.ai, board_pl/byte_ppl), protokol Glint compute_perplexity")
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--model", help="repo HF albo katalog lokalny w formacie HF (AutoModelForCausalLM)")
-    g.add_argument("--gollem-v6", help="repo modelu GoLLeM v6 (loader load_gollem_v6 z repo modelu; kalibracja)")
+    g.add_argument("--gollem-v6", help="repo modelu GoLLeM v6 (loader load_gollem_v6 z repo modelu; wymaga --trust-remote-code)")
     ap.add_argument("--revision", default=None, help="pelny sha commitu repo HF (zalecane: przypiety)")
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     ap.add_argument("--trust-remote-code", action="store_true", help="tylko dla modelu, ktorego kod przejrzales")

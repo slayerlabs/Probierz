@@ -31,8 +31,10 @@ Skrypt pobiera plik bez tokenu HF i przerywa, gdy sha256, liczba artykułów alb
 Funkcja `compute_perplexity` w skrypcie jest skopiowana bez zmian z harnessu, którym liczona jest tablica.
 
 1. Tekst = `"\n\n".join(text artykułów w kolejności pliku).strip()` → **1 431 141 bajtów** UTF-8.
-2. `ids` = `tokenizer.json` (biblioteka `tokenizers`) `.encode(tekst).ids`, tak jak jest (z ewentualnym
-   post-processorem tokenizera, bez dokładania BOS/EOS przez skrypt); id ≥ rozmiaru słownika odrzucone.
+2. `ids` = `tokenizer.json` (biblioteka `tokenizers`) `.encode(tekst).ids`, tak jak jest: **jeśli post-processor
+   tokenizera modelu dokłada BOS/EOS, zostają one w `ids`** (skrypt tego nie wyłącza ani nie dokłada sam);
+   id ≥ rozmiaru słownika tokenizera odrzucone. Logity modelu są przycinane do rozmiaru słownika tokenizera
+   (`[..., :V]`), więc softmax liczy się tylko po tokenach, które tokenizer zna.
 3. Okna: `chunk = ids[i : i+257]` dla `i = 0, 256, 512, …`; wejście = `chunk[:-1]` (do 256 tokenów),
    cele = `chunk[1:]`. **Kontekst resetowany w każdym oknie**; pierwszy token okna jest ostatnim celem
    poprzedniego (cele się nie powtarzają). **Pierwszy token tekstu nigdy nie jest celem.** Ostatnie okno
@@ -53,8 +55,9 @@ python benchmarks/zewnetrzne/byte-ppl-w-pl/byte_ppl_w_pl.py --model C:/sciezka/d
 - `--model` — repo HF albo lokalny katalog w formacie HF (`AutoModelForCausalLM`, `*.safetensors`, `tokenizer.json`).
 - Z Hub pobierane są tylko `*.json`, `*.safetensors`, `*.txt`, `*.model`; kod autora modelu wyłącznie z
   `--trust-remote-code` (używaj tylko dla kodu, który przejrzałeś).
-- `--gollem-v6 <repo>` — modele GoLLeM v6 nie są zarejestrowane w `AutoModel`; skrypt używa wtedy loadera
-  `load_gollem_v6` z repo modelu (opis w karcie modelu). Tym trybem liczona jest kalibracja.
+- `--gollem-v6 <repo> --trust-remote-code` — modele GoLLeM v6 nie są zarejestrowane w `AutoModel`; skrypt używa
+  wtedy loadera `load_gollem_v6` z repo modelu (opis w karcie modelu), więc wykonuje kod z tego repo i bez
+  `--trust-remote-code` odmawia. Tym trybem liczona jest kalibracja; przypinaj `--revision`.
 - Wynik: `token_ppl`, `byte_ppl`, liczba tokenów i bajtów, sha danych.
 
 ## Kalibracja (sprawdź zgodność, zanim porównasz liczby)
@@ -64,7 +67,7 @@ python benchmarks/zewnetrzne/byte-ppl-w-pl/byte_ppl_w_pl.py --model C:/sciezka/d
 
 ```
 python benchmarks/zewnetrzne/byte-ppl-w-pl/byte_ppl_w_pl.py --gollem-v6 SlayerLab/GoLLeM-v6-250M \
-       --revision 77d75a2b48eaab7aec59816f9849cee75a7bdfc1 --out kalibracja.json
+       --revision 77d75a2b48eaab7aec59816f9849cee75a7bdfc1 --trust-remote-code --out kalibracja.json
 ```
 
 | | ten skrypt (CPU) | nasz pomiar referencyjny (GPU) |
@@ -80,18 +83,9 @@ Na CPU model 250M liczy się ok. 5 min.
 ## Kontaminacja (co wiemy)
 
 W był wybrany i oczyszczony wobec puli treningowej **GoLLeM v6** (13-gramy tokenów, próg 5 %), nie wobec dowolnego
-modelu. Dla modeli, które widziały polską Wikipedię, wynik na W jest zaniżony (lepszy) i nie mierzy uogólnienia.
-Przykład (pomiar SlayerLab 2026-10-25): w danych treningowych Slayer1B ponad 5 % 13-gramów występuje w
-**co najmniej 434 z 463** artykułów W (checkpointy 1.02 i 1.03). Przy nowym wierszu na tablicy podawaj, jeśli możesz,
-ile artykułów W ma ponad 5 % 13-gramów w Twoich danych treningowych.
-
-Punkty odniesienia z tego samego protokołu (pomiar SlayerLab):
-
-| model | byte_ppl W | uwaga |
-|---|---|---|
-| `SlayerLab/GoLLeM-v6-250M` @`77d75a2b` | 1.9578 | kalibracja, W oczyszczony wobec jego danych |
-| Slayer1B 1.00, krok 1430 | 1.9987 | do 277/463 artykułów >5 % 13-gramów w treningu (górna granica) |
-| Slayer1B 1.01, krok 2860 | 1.9094 | do 396/463 artykułów >5 % 13-gramów w treningu (górna granica) |
+modelu. Polska Wikipedia jest w wielu korpusach, a od 2026-10-25 ten tekst jest publiczny. Dla modeli, które
+widziały te artykuły w treningu, wynik na W jest zaniżony (lepszy) i nie mierzy uogólnienia. Przy nowym wierszu
+na tablicy podawaj, jeśli możesz, ile artykułów W ma ponad 5 % 13-gramów w Twoich danych treningowych.
 
 ## Cytowanie źródeł
 
