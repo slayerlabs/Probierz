@@ -13,7 +13,7 @@ date: 2026-10-24
 > **oś K (eff-PL)** w kartach modeli GoLLeM. Na leaderboardzie track.fabryka.ai jest to kolumna
 > **ARC-Easy-PL** we wpisach właścicieli modeli (`board_pl/arc_easy`). Natywna automatyczna
 > ewaluacja PL serwera liczy obecnie MultiBLiMP; angielski `allenai/ai2_arc` to osobna oś EN.
-> [Jedna mapa danych, skryptów i protokołów leaderboardu](https://github.com/slayerlabs/fabryka-track/blob/61a1b0a962675d207ef3ac34c990e62fa319de49/docs/leaderboard-benchmarks.md).
+> [Jedna mapa danych, skryptów i protokołów leaderboardu](https://github.com/slayerlabs/fabryka-track/blob/main/docs/leaderboard-benchmarks.md).
 >
 > ⚠️ Zestaw publiczny, **kontaminacja niekontrolowana** — patrz [`../README.md`](../README.md).
 
