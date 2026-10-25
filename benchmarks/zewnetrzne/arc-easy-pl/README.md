@@ -10,8 +10,10 @@ date: 2026-10-24
 
 > Polskie tłumaczenie testu **ARC-Easy** (AI2 Reasoning Challenge, pytania wyboru z wiedzy szkolnej):
 > **2376 pytań**, 3–5 odpowiedzi, zgadywanie ≈ 25 %. To ten sam pomiar, który SlayerLab podaje jako
-> **oś K (eff-PL)** w kartach modeli GoLLeM. Nie jest częścią polskiego leaderboardu fabryka-track
-> (ten liczy angielski `allenai/ai2_arc`).
+> **oś K (eff-PL)** w kartach modeli GoLLeM. Na leaderboardzie track.fabryka.ai jest to kolumna
+> **ARC-Easy-PL** we wpisach właścicieli modeli (`board_pl/arc_easy`). Natywna automatyczna
+> ewaluacja PL serwera liczy obecnie MultiBLiMP; angielski `allenai/ai2_arc` to osobna oś EN.
+> [Jedna mapa danych, skryptów i protokołów leaderboardu](https://github.com/slayerlabs/fabryka-track/blob/61a1b0a962675d207ef3ac34c990e62fa319de49/docs/leaderboard-benchmarks.md).
 >
 > ⚠️ Zestaw publiczny, **kontaminacja niekontrolowana** — patrz [`../README.md`](../README.md).
 
