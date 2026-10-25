@@ -18,3 +18,4 @@ Zasady dla tego katalogu:
 | zestaw | co mierzy | źródło |
 |---|---|---|
 | [`arc-easy-pl/`](arc-easy-pl/) | ARC-Easy po polsku (2376 pytań wyboru, wiedza szkolna) | `Eurolingua/arcx` (+ kontrolnie `ddudek/ai2_arc_translated_pol`) |
+| [`byte-ppl-w-pl/`](byte-ppl-w-pl/) | byte-PPL na 463 artykułach polskiej Wikipedii (kolumna W / byte-PPL PL na track.fabryka.ai) | `SlayerLab/fabryka-track-w-pl` |

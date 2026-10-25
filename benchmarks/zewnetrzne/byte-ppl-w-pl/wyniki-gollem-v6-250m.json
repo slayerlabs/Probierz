@@ -1,0 +1,15 @@
+{
+ "benchmark": "W byte-PPL PL (track.fabryka.ai board_pl/byte_ppl)",
+ "protocol": "glint compute_perplexity: okna 256, reset kontekstu; byte_ppl = token_ppl^(tokeny/bajty)",
+ "model": "SlayerLab/GoLLeM-v6-250M",
+ "revision": "77d75a2b48eaab7aec59816f9849cee75a7bdfc1",
+ "device": "cpu",
+ "params": 252760019,
+ "dataset": "SlayerLab/fabryka-track-w-pl/w_final.jsonl@b25c13a445ba8639759264654f37295ebe08871c",
+ "sha256": "234e7ec21bf2236bc74425591531f2c4772f8c49ff853d57f6fa16f33ee90ac7",
+ "bajty": 1431141,
+ "tokeny": 350087,
+ "token_ppl": 15.587384,
+ "byte_ppl": 1.95784,
+ "sekundy": 268
+}
