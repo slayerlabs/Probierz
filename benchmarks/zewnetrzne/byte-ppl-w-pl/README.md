@@ -79,6 +79,9 @@ python benchmarks/zewnetrzne/byte-ppl-w-pl/byte_ppl_w_pl.py --gollem-v6 SlayerLa
 Zgodność: |Δ byte_ppl| ≤ 0,001. Różnica CPU / GPU (4·10⁻⁶) to zaokrąglenia float32. Wynik GPU wyszedł identycznie
 z dwóch niezależnych implementacji (ta funkcja i osobna pętla wsadowa na tych samych oknach; różnica względna 1,7·10⁻⁹).
 Na CPU model 250M liczy się ok. 5 min.
+Kalibrację CPU policzono wersją skryptu o sha256 `724fdad8…`. Późniejsza zmiana dodała tylko zatrzymanie przy
+tokenizacji dającej mniej niż 2 tokeny (inaczej wynik wychodziłby fałszywie 1.0); stoi ono przed obliczeniem i nie
+zmienia liczenia dla poprawnych danych (sprawdzone testem na 0 i 1 tokenie).
 
 ## Kontaminacja (co wiemy)
 

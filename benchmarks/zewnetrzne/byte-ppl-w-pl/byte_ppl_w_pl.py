@@ -128,6 +128,8 @@ def main():
     tok, model, fwd = wczytaj_model(a)
     V = tok.get_vocab_size()
     ids = [i for i in tok.encode(text).ids if i < V]
+    if len(ids) < 2:  # inaczej inf ** 0 = 1.0, czyli falszywie idealny wynik bez zadnego celu
+        raise SystemExit(f"STOP: tokenizacja dala {len(ids)} tokenow (< 2), pomiar niemozliwy")
     t = time.time()
     token_ppl = compute_perplexity(lambda x: fwd(x)[..., :V].float(), tok, text, a.device)
     byte_ppl = token_ppl ** (len(ids) / N_BAJTOW)
