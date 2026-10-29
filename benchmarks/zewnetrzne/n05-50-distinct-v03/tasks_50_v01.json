@@ -1,0 +1,1896 @@
+{
+  "schema_version": 2,
+  "protocol": "N05-50-v0.3",
+  "status": "selected_source_registry_not_measurements_or_execution_approval",
+  "scope": "50 distinct upstream benchmark identities; variants, splits, translations, rounds and suite members are not extra benchmarks",
+  "counts": {
+    "rows": 50,
+    "distinct_benchmarks": 50,
+    "EN": 38,
+    "PL": 12,
+    "source_members": 204,
+    "dataset_repositories": 44
+  },
+  "distinctness": {
+    "key": "benchmark_id and reviewed upstream collection, not YAML task name",
+    "umbrella_suites_not_added_to_components": true,
+    "statistical_independence_claimed": false,
+    "language_balance": "source diversity first; original user directive did not impose25PL/25EN"
+  },
+  "sources": {
+    "lm_eval_commit": "6d2abda4fd171e68a8789330c4149e37c1ca0bda",
+    "openpl_commit": "21d0ea9cf4fd6153dfff4d84d6ad0aab5488f302",
+    "source_registry": "benchmark_sources_v03.json",
+    "origins": {
+      "en": "canonical pinned EN checkout",
+      "pl": "canonical pinned PL checkout",
+      "registry": "this release tasks/ definitions"
+    }
+  },
+  "selection": {
+    "seed": 20261028,
+    "max_documents_per_benchmark": 200,
+    "unit": "source document after the original process_docs; group member namespace included",
+    "ordering": "SHA256(UTF8(20261028|benchmark_id|member_task|source_id)); ties by canonical source bytes",
+    "when": "seal all requested benchmark/member data, source IDs, support and requests before loading model weights",
+    "group_allocation": "reserve min(2,eligible_population) per member; then allocate each remaining slot to the non-full member with largest (budget*source_weight - allocated), ties by member task name; never200 per member",
+    "group_weighting": "source macro/equal-member or eligible-population-size weights retained independently of sample quota; reaggregate member metrics with those fixed weights",
+    "support_policy": "configured source count; hash-selected disjoint support per member unless source supplies fixed examples, which retain source order; record every demo and exclude matching scored inputs",
+    "context_policy": "float32,batch1,max4096,no automaticBOS/chat; reserve task generation limit (default256); drop optional demos from end, never query/options; explicit failure if still over limit",
+    "wikitext": "full source test stream, canonical weighted byte_perplexity, not Glint conversion; descriptive comparison only",
+    "full_protocol_B": "separate full-data evaluation of these selected primary protocols; not the old23-definition OpenPL replication",
+    "harness_seed_tuple": {
+      "python": 0,
+      "numpy": 1234,
+      "torch": 1234,
+      "fewshot": 1234
+    },
+    "empty_group_member": "explicit failure; never silently remove or reweight a required source member"
+  },
+  "rows": [
+    {
+      "id": "T01",
+      "benchmark_id": "blimp",
+      "task": "blimp",
+      "name": "BLiMP",
+      "language": "EN",
+      "family": "blimp",
+      "domain": "syntax",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "group",
+      "split": "train",
+      "shots": 0,
+      "rationale": "syntax",
+      "member_count": 67,
+      "source_record": "blimp",
+      "license": {
+        "declared_tags": [
+          "cc-by-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "nyu-mll/blimp",
+            "revision": "877fba0801ffb7cbd8c39c1ff314a46f053f6036",
+            "metadata_source": "https://huggingface.co/api/datasets/nyu-mll/blimp"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/blimp/_blimp.yaml"
+    },
+    {
+      "id": "T02",
+      "benchmark_id": "arc",
+      "task": "arc_challenge",
+      "name": "ARC Challenge",
+      "language": "EN",
+      "family": "arc",
+      "domain": "science_reasoning",
+      "metric": "acc_norm,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "science reasoning",
+      "member_count": 1,
+      "source_record": "arc",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allenai/ai2_arc",
+            "revision": "210d026faf9955653af8916fad021475a3f00453",
+            "metadata_source": "https://huggingface.co/api/datasets/allenai/ai2_arc"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "ARC Easy and Polish ARC translation are the same counted family, not extra main benchmarks."
+      ],
+      "definition": "lm_eval/tasks/arc/arc_challenge.yaml"
+    },
+    {
+      "id": "T03",
+      "benchmark_id": "wikitext2",
+      "task": "wikitext",
+      "name": "WikiText-2",
+      "language": "EN",
+      "family": "wikitext2",
+      "domain": "language_modeling",
+      "metric": "byte_perplexity,none",
+      "unit": "byte_ppl",
+      "higher_is_better": false,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "language modeling",
+      "member_count": 1,
+      "source_record": "wikitext2",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-3.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "EleutherAI/wikitext_document_level",
+            "revision": "647234772b9554e208af6c826f23b99e3cac88c8",
+            "metadata_source": "https://huggingface.co/api/datasets/EleutherAI/wikitext_document_level"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Canonical harness byte_perplexity, not the historical Glint tp^(N/B) conversion; full evaluation stream."
+      ],
+      "definition": "lm_eval/tasks/wikitext/wikitext.yaml"
+    },
+    {
+      "id": "T04",
+      "benchmark_id": "multiblimp",
+      "task": "multiblimp_pl",
+      "name": "MultiBLiMP-PL",
+      "language": "PL",
+      "family": "multiblimp",
+      "domain": "morphosyntax",
+      "metric": "accuracy",
+      "unit": "percent",
+      "higher_is_better": true,
+      "instrument": "custom_pl",
+      "entrypoint_kind": "custom",
+      "split": "pol/data.tsv",
+      "shots": 0,
+      "rationale": "morphosyntax",
+      "member_count": 1,
+      "source_record": "multiblimp",
+      "license": {
+        "declared_tags": [
+          "cc-by-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "jumelet/multiblimp",
+            "revision": "de923efa8d2483d6b13364ee68e65308e990a991",
+            "metadata_source": "https://huggingface.co/api/datasets/jumelet/multiblimp/revision/de923efa8d2483d6b13364ee68e65308e990a991"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Independent UD/UniMorph construction, not BLiMP translation. Preserve the explicit historical space-prefix log-probability-sum instrument."
+      ]
+    },
+    {
+      "id": "T05",
+      "benchmark_id": "hellaswag",
+      "task": "hellaswag",
+      "name": "HellaSwag",
+      "language": "EN",
+      "family": "hellaswag",
+      "domain": "commonsense",
+      "metric": "acc_norm,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "commonsense",
+      "member_count": 1,
+      "source_record": "hellaswag",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "Rowan/hellaswag",
+            "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+            "metadata_source": "https://huggingface.co/api/datasets/Rowan/hellaswag/revision/218ec52e09a7e7462a5400043bb9a69a41d06b76"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "SWAG is excluded conservatively because the collections reuse ActivityNet context sources.",
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/hellaswag/hellaswag.yaml"
+    },
+    {
+      "id": "T06",
+      "benchmark_id": "piqa",
+      "task": "piqa",
+      "name": "PIQA",
+      "language": "EN",
+      "family": "piqa",
+      "domain": "physical_reasoning",
+      "metric": "acc_norm,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "physical reasoning",
+      "member_count": 1,
+      "source_record": "piqa",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "ybisk/piqa",
+            "revision": "2e8ac2dffd59bac8c3c6714948f4c551a0848bb0",
+            "metadata_source": "https://huggingface.co/api/datasets/ybisk/piqa/revision/2e8ac2dffd59bac8c3c6714948f4c551a0848bb0"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/piqa/piqa.yaml"
+    },
+    {
+      "id": "T07",
+      "benchmark_id": "winogrande",
+      "task": "winogrande",
+      "name": "WinoGrande",
+      "language": "EN",
+      "family": "winogrande",
+      "domain": "coreference",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "coreference",
+      "member_count": 1,
+      "source_record": "winogrande",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allenai/winogrande",
+            "revision": "01e74176c63542e6b0bcb004dcdea22d94fb67b5",
+            "metadata_source": "https://huggingface.co/api/datasets/allenai/winogrande/revision/01e74176c63542e6b0bcb004dcdea22d94fb67b5"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/winogrande/default.yaml"
+    },
+    {
+      "id": "T08",
+      "benchmark_id": "openbookqa",
+      "task": "openbookqa",
+      "name": "OpenBookQA",
+      "language": "EN",
+      "family": "openbookqa",
+      "domain": "science_reasoning",
+      "metric": "acc_norm,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "science reasoning",
+      "member_count": 1,
+      "source_record": "openbookqa",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allenai/openbookqa",
+            "revision": "388097ea7776314e93a529163e0fea805b8a6454",
+            "metadata_source": "https://huggingface.co/api/datasets/allenai/openbookqa/revision/388097ea7776314e93a529163e0fea805b8a6454"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/openbookqa/openbookqa.yaml"
+    },
+    {
+      "id": "T09",
+      "benchmark_id": "sciq",
+      "task": "sciq",
+      "name": "SciQ",
+      "language": "EN",
+      "family": "sciq",
+      "domain": "science_knowledge",
+      "metric": "acc_norm,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "science knowledge",
+      "member_count": 1,
+      "source_record": "sciq",
+      "license": {
+        "declared_tags": [
+          "cc-by-nc-3.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allenai/sciq",
+            "revision": "2c94ad3e1aafab77146f384e23536f97a4849815",
+            "metadata_source": "https://huggingface.co/api/datasets/sciq"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "NC declaration observed: evaluation-use basis must be independently resolved; this is not training permission or run approval."
+      ],
+      "definition": "lm_eval/tasks/sciq/sciq.yaml"
+    },
+    {
+      "id": "T10",
+      "benchmark_id": "boolq",
+      "task": "boolq",
+      "name": "BoolQ",
+      "language": "EN",
+      "family": "boolq",
+      "domain": "reading",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "reading",
+      "member_count": 1,
+      "source_record": "boolq",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "aps/super_glue",
+            "revision": "3de24cf8022e94f4ee4b9d55a6f539891524d646",
+            "metadata_source": "https://huggingface.co/api/datasets/super_glue"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/super_glue/boolq/default.yaml"
+    },
+    {
+      "id": "T11",
+      "benchmark_id": "copa",
+      "task": "copa",
+      "name": "COPA",
+      "language": "EN",
+      "family": "copa",
+      "domain": "causal_reasoning",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "causal reasoning",
+      "member_count": 1,
+      "source_record": "copa",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "aps/super_glue",
+            "revision": "3de24cf8022e94f4ee4b9d55a6f539891524d646",
+            "metadata_source": "https://huggingface.co/api/datasets/super_glue"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/super_glue/copa/default.yaml"
+    },
+    {
+      "id": "T12",
+      "benchmark_id": "cb",
+      "task": "cb",
+      "name": "CommitmentBank",
+      "language": "EN",
+      "family": "cb",
+      "domain": "entailment",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "entailment",
+      "member_count": 1,
+      "source_record": "cb",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "aps/super_glue",
+            "revision": "3de24cf8022e94f4ee4b9d55a6f539891524d646",
+            "metadata_source": "https://huggingface.co/api/datasets/super_glue"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/super_glue/cb/default.yaml"
+    },
+    {
+      "id": "T13",
+      "benchmark_id": "wic",
+      "task": "wic",
+      "name": "WiC",
+      "language": "EN",
+      "family": "wic",
+      "domain": "word_sense",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "word sense",
+      "member_count": 1,
+      "source_record": "wic",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "aps/super_glue",
+            "revision": "3de24cf8022e94f4ee4b9d55a6f539891524d646",
+            "metadata_source": "https://huggingface.co/api/datasets/super_glue"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/super_glue/wic/default.yaml"
+    },
+    {
+      "id": "T14",
+      "benchmark_id": "wsc273",
+      "task": "wsc273",
+      "name": "Winograd Schema Challenge",
+      "language": "EN",
+      "family": "wsc273",
+      "domain": "coreference",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "coreference",
+      "member_count": 1,
+      "source_record": "wsc273",
+      "license": {
+        "declared_tags": [
+          "cc-by-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "ErnestSDavis/winograd_wsc",
+            "revision": "8052c534a4cecd8328c0bc879f6a5aa07404c4da",
+            "metadata_source": "https://huggingface.co/api/datasets/winograd_wsc"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/wsc273/default.yaml"
+    },
+    {
+      "id": "T15",
+      "benchmark_id": "rte",
+      "task": "sglue_rte",
+      "name": "RTE",
+      "language": "EN",
+      "family": "rte",
+      "domain": "entailment",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "entailment",
+      "member_count": 1,
+      "source_record": "rte",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "aps/super_glue",
+            "revision": "3de24cf8022e94f4ee4b9d55a6f539891524d646",
+            "metadata_source": "https://huggingface.co/api/datasets/super_glue"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/super_glue/rte/default.yaml"
+    },
+    {
+      "id": "T16",
+      "benchmark_id": "anli",
+      "task": "anli_r3",
+      "name": "ANLI (R3 primary)",
+      "language": "EN",
+      "family": "anli",
+      "domain": "adversarial_entailment",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test_r3",
+      "shots": 0,
+      "rationale": "adversarial entailment",
+      "member_count": 1,
+      "source_record": "anli",
+      "license": {
+        "declared_tags": [
+          "cc-by-nc-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "facebook/anli",
+            "revision": "8e4813d81f46d313dac7892e1c28076917cfcdf9",
+            "metadata_source": "https://huggingface.co/api/datasets/anli"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "R3 is the primary protocol; R1/R2 do not increase benchmark count.",
+        "NC declaration observed: evaluation-use basis must be independently resolved; this is not training permission or run approval."
+      ],
+      "definition": "lm_eval/tasks/anli/anli_r3.yaml"
+    },
+    {
+      "id": "T17",
+      "benchmark_id": "lambada",
+      "task": "lambada_openai",
+      "name": "LAMBADA",
+      "language": "EN",
+      "family": "lambada",
+      "domain": "contextual_prediction",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "contextual prediction",
+      "member_count": 1,
+      "source_record": "lambada",
+      "license": {
+        "declared_tags": [
+          "mit"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "EleutherAI/lambada_openai",
+            "revision": "900124bf3b8235c6daf21033af9948b3f07346c4",
+            "metadata_source": "https://huggingface.co/api/datasets/EleutherAI/lambada_openai"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/lambada/lambada_openai.yaml"
+    },
+    {
+      "id": "T18",
+      "benchmark_id": "logiqa",
+      "task": "logiqa",
+      "name": "LogiQA",
+      "language": "EN",
+      "family": "logiqa",
+      "domain": "logical_reasoning",
+      "metric": "acc_norm,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "logical reasoning",
+      "member_count": 1,
+      "source_record": "logiqa",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "EleutherAI/logiqa",
+            "revision": "c1eee1b2fd0ddc87777e36490f7ad54d0b97d141",
+            "metadata_source": "https://huggingface.co/api/datasets/EleutherAI/logiqa"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/logiqa/logiqa.yaml"
+    },
+    {
+      "id": "T19",
+      "benchmark_id": "mathqa",
+      "task": "mathqa",
+      "name": "MathQA",
+      "language": "EN",
+      "family": "mathqa",
+      "domain": "mathematics_mc",
+      "metric": "acc_norm,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "mathematics mc",
+      "member_count": 1,
+      "source_record": "mathqa",
+      "license": {
+        "declared_tags": [
+          "apache-2.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allenai/math_qa",
+            "revision": "c4f1cc784c04c4957b50c97858f23893b633eea6",
+            "metadata_source": "https://huggingface.co/api/datasets/math_qa"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/mathqa/mathqa.yaml"
+    },
+    {
+      "id": "T20",
+      "benchmark_id": "prost",
+      "task": "prost",
+      "name": "PROST",
+      "language": "EN",
+      "family": "prost",
+      "domain": "physical_reasoning",
+      "metric": "acc_norm,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "physical reasoning",
+      "member_count": 1,
+      "source_record": "prost",
+      "license": {
+        "declared_tags": [
+          "apache-2.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "corypaik/prost",
+            "revision": "b3efebf08969fc19335ba894353316878b6fa493",
+            "metadata_source": "https://huggingface.co/api/datasets/corypaik/prost"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/prost/corypaik_prost.yaml"
+    },
+    {
+      "id": "T21",
+      "benchmark_id": "sst2",
+      "task": "sst2",
+      "name": "SST-2",
+      "language": "EN",
+      "family": "sst2",
+      "domain": "sentiment",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "sentiment",
+      "member_count": 1,
+      "source_record": "sst2",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "nyu-mll/glue",
+            "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+            "metadata_source": "https://huggingface.co/api/datasets/glue"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/glue/sst2/default.yaml"
+    },
+    {
+      "id": "T22",
+      "benchmark_id": "polemo2",
+      "task": "polemo2_in_multiple_choice",
+      "name": "PoLEMo2 (in-domain MC)",
+      "language": "PL",
+      "family": "polemo2",
+      "domain": "sentiment",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "sentiment",
+      "member_count": 1,
+      "source_record": "polemo2",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allegro/klej-polemo2-in",
+            "revision": "9843af31facd613eb091deaa4141df4331d4f918",
+            "metadata_source": "https://huggingface.co/api/datasets/allegro/klej-polemo2-in"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks."
+      ],
+      "definition": "lm_eval/tasks/polemo2/polemo2_in_mc.yaml"
+    },
+    {
+      "id": "T23",
+      "benchmark_id": "8tags",
+      "task": "polish_8tags_multiple_choice",
+      "name": "8tags",
+      "language": "PL",
+      "family": "8tags",
+      "domain": "topic_classification",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "topic classification",
+      "member_count": 1,
+      "source_record": "8tags",
+      "license": {
+        "declared_tags": [
+          "cc-by-nc-sa-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "sdadas/8tags",
+            "revision": "82ddf9c0d06ffc982aeccf2473b7ce31f2167adf",
+            "metadata_source": "https://huggingface.co/api/datasets/sdadas/8tags"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks.",
+        "NC declaration observed: evaluation-use basis must be independently resolved; this is not training permission or run approval."
+      ],
+      "definition": "lm_eval/tasks/polish_8tags/8tags_mc.yaml"
+    },
+    {
+      "id": "T24",
+      "benchmark_id": "belebele",
+      "task": "polish_belebele_mc",
+      "name": "Belebele-PL",
+      "language": "PL",
+      "family": "belebele",
+      "domain": "reading",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "reading",
+      "member_count": 1,
+      "source_record": "belebele",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "facebook/belebele",
+            "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+            "metadata_source": "https://huggingface.co/api/datasets/facebook/belebele/revision/7899cdfa4e1e0d733fd77c848e2c273cb1d32be2"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks."
+      ],
+      "definition": "lm_eval/tasks/polish_belebele/belebele_mc.yaml"
+    },
+    {
+      "id": "T25",
+      "benchmark_id": "dyk",
+      "task": "polish_dyk_multiple_choice",
+      "name": "CzyWiesz / DYK",
+      "language": "PL",
+      "family": "dyk",
+      "domain": "question_relevance",
+      "metric": "f1,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "question relevance",
+      "member_count": 1,
+      "source_record": "dyk",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-3.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allegro/klej-dyk",
+            "revision": "dd7c3c3bb336738c853ea17c64b85d876e6714a9",
+            "metadata_source": "https://huggingface.co/api/datasets/allegro/klej-dyk"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks."
+      ],
+      "definition": "lm_eval/tasks/polish_dyk/dyk_mc.yaml"
+    },
+    {
+      "id": "T26",
+      "benchmark_id": "ppc",
+      "task": "polish_ppc_multiple_choice",
+      "name": "Polish Paraphrase Corpus",
+      "language": "PL",
+      "family": "ppc",
+      "domain": "paraphrase",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "paraphrase",
+      "member_count": 1,
+      "source_record": "ppc",
+      "license": {
+        "declared_tags": [
+          "cc-by-nc-sa-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "sdadas/ppc",
+            "revision": "073012dc81efb47b0fd66b0ab48bf06ddb62f528",
+            "metadata_source": "https://huggingface.co/api/datasets/sdadas/ppc"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks.",
+        "NC declaration observed: evaluation-use basis must be independently resolved; this is not training permission or run approval."
+      ],
+      "definition": "lm_eval/tasks/polish_ppc/ppc_mc.yaml"
+    },
+    {
+      "id": "T27",
+      "benchmark_id": "psc",
+      "task": "polish_psc_multiple_choice",
+      "name": "Polish Summaries Corpus (matching)",
+      "language": "PL",
+      "family": "psc",
+      "domain": "summary_matching",
+      "metric": "f1,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "summary matching",
+      "member_count": 1,
+      "source_record": "psc",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-3.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allegro/klej-psc",
+            "revision": "9585582aef37e7747ef174b0ec3b74855da8bad2",
+            "metadata_source": "https://huggingface.co/api/datasets/allegro/klej-psc"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks."
+      ],
+      "definition": "lm_eval/tasks/polish_psc/psc_mc.yaml"
+    },
+    {
+      "id": "T28",
+      "benchmark_id": "cbd",
+      "task": "polish_cbd_multiple_choice",
+      "name": "Polish Cyberbullying Dataset",
+      "language": "PL",
+      "family": "cbd",
+      "domain": "toxicity_detection",
+      "metric": "f1,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "toxicity detection",
+      "member_count": 1,
+      "source_record": "cbd",
+      "license": {
+        "declared_tags": [
+          "cc-by-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "ptaszynski/PolishCyberbullyingDataset",
+            "revision": "be3b1236598a02eff6db05ea7ac386afaabc33e8",
+            "metadata_source": "https://huggingface.co/api/datasets/ptaszynski/PolishCyberbullyingDataset"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks."
+      ],
+      "definition": "lm_eval/tasks/polish_cbd/cbd_mc.yaml"
+    },
+    {
+      "id": "T29",
+      "benchmark_id": "klej_ner",
+      "task": "polish_klej_ner_multiple_choice",
+      "name": "KLEJ NKJP-NER (sentence-level)",
+      "language": "PL",
+      "family": "klej_ner",
+      "domain": "sentence_entity_classification",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "entity recognition",
+      "member_count": 1,
+      "source_record": "klej_ner",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allegro/klej-nkjp-ner",
+            "revision": "bfae4047738b985bc2ad533d339dd89c3f7de00d",
+            "metadata_source": "https://huggingface.co/api/datasets/allegro/klej-nkjp-ner/revision/bfae4047738b985bc2ad533d339dd89c3f7de00d"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks.",
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/polish_klej_ner/klej_ner_mc.yaml"
+    },
+    {
+      "id": "T30",
+      "benchmark_id": "polqa",
+      "task": "polish_polqa_open_book",
+      "name": "PolQA (open book)",
+      "language": "PL",
+      "family": "polqa",
+      "domain": "question_answering",
+      "metric": "levenshtein,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "question answering",
+      "member_count": 1,
+      "source_record": "polqa",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "ipipan/polqa",
+            "revision": "d78d036ef08ab3b9f4d85a2893f4d3a0c95a6f37",
+            "metadata_source": "https://huggingface.co/api/datasets/ipipan/polqa"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks."
+      ],
+      "definition": "lm_eval/tasks/polish_polqa/polqa_open_book.yaml"
+    },
+    {
+      "id": "T31",
+      "benchmark_id": "poquad",
+      "task": "polish_poquad_open_book",
+      "name": "PoQuAD",
+      "language": "PL",
+      "family": "poquad",
+      "domain": "question_answering",
+      "metric": "levenshtein,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "openpl_polish4",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 5,
+      "rationale": "question answering",
+      "member_count": 1,
+      "source_record": "poquad",
+      "license": {
+        "declared_tags": [
+          "cc-by-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "clarin-pl/poquad",
+            "revision": "a60f228d836fbbf990d11b4590c60b3e7f2aec2d",
+            "metadata_source": "https://huggingface.co/api/datasets/clarin-pl/poquad"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Other response-format, domain or language protocols of this source are not extra main benchmarks."
+      ],
+      "definition": "lm_eval/tasks/polish_poquad/poquad_open_book.yaml"
+    },
+    {
+      "id": "T32",
+      "benchmark_id": "mmlu",
+      "task": "mmlu",
+      "name": "MMLU",
+      "language": "EN",
+      "family": "mmlu",
+      "domain": "academic_knowledge",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "group",
+      "split": "test",
+      "shots": 5,
+      "rationale": "academic knowledge",
+      "member_count": 57,
+      "source_record": "mmlu",
+      "license": {
+        "declared_tags": [
+          "mit"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "hails/mmlu_no_train",
+            "revision": "b2e1ec9aa795adafe68e8e983248dbd4b52a1c60",
+            "metadata_source": "https://huggingface.co/api/datasets/hails/mmlu_no_train"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "57 subjects count as one benchmark; MMLU-Pro and translations are not additional sources."
+      ],
+      "definition": "lm_eval/tasks/mmlu/default/_mmlu.yaml"
+    },
+    {
+      "id": "T33",
+      "benchmark_id": "gsm8k",
+      "task": "gsm8k",
+      "name": "GSM8K",
+      "language": "EN",
+      "family": "gsm8k",
+      "domain": "mathematics_generation",
+      "metric": "exact_match,strict-match",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 5,
+      "rationale": "mathematics generation",
+      "member_count": 1,
+      "source_record": "gsm8k",
+      "license": {
+        "declared_tags": [
+          "mit"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "openai/gsm8k",
+            "revision": "740312add88f781978c0658806c59bc2815b9866",
+            "metadata_source": "https://huggingface.co/api/datasets/gsm8k"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/gsm8k/gsm8k.yaml"
+    },
+    {
+      "id": "T34",
+      "benchmark_id": "math",
+      "task": "hendrycks_math",
+      "name": "MATH",
+      "language": "EN",
+      "family": "math",
+      "domain": "competition_mathematics",
+      "metric": "exact_match,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "group",
+      "split": "test",
+      "shots": 0,
+      "rationale": "competition mathematics",
+      "member_count": 7,
+      "source_record": "math",
+      "license": {
+        "declared_tags": [
+          "mit"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "EleutherAI/hendrycks_math",
+            "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+            "metadata_source": "https://huggingface.co/api/datasets/EleutherAI/hendrycks_math"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/hendrycks_math/hendrycks_math.yaml"
+    },
+    {
+      "id": "T35",
+      "benchmark_id": "truthfulqa",
+      "task": "truthfulqa_mc2",
+      "name": "TruthfulQA (MC2)",
+      "language": "EN",
+      "family": "truthfulqa",
+      "domain": "truthfulness",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "truthfulness",
+      "member_count": 1,
+      "source_record": "truthfulqa",
+      "license": {
+        "declared_tags": [
+          "apache-2.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "truthfulqa/truthful_qa",
+            "revision": "741b8276f2d1982aa3d5b832d3ee81ed3b896490",
+            "metadata_source": "https://huggingface.co/api/datasets/truthful_qa"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "MC2 is normalized probability mass on true answers, not MC1 classification accuracy; source fixed QA preamble retained."
+      ],
+      "definition": "lm_eval/tasks/truthfulqa/truthfulqa_mc2.yaml"
+    },
+    {
+      "id": "T36",
+      "benchmark_id": "ifeval",
+      "task": "ifeval",
+      "name": "IFEval",
+      "language": "EN",
+      "family": "ifeval",
+      "domain": "instruction_following",
+      "metric": "prompt_level_strict_acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "train",
+      "shots": 0,
+      "rationale": "instruction following",
+      "member_count": 1,
+      "source_record": "ifeval",
+      "license": {
+        "declared_tags": [
+          "apache-2.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "google/IFEval",
+            "revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+            "metadata_source": "https://huggingface.co/api/datasets/google/IFEval"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/ifeval/ifeval.yaml"
+    },
+    {
+      "id": "T37",
+      "benchmark_id": "llmzszl",
+      "task": "n05_llmzszl",
+      "name": "LLMzSzŁ",
+      "language": "PL",
+      "family": "llmzszl",
+      "domain": "native_exam_knowledge",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "n05_static_yaml",
+      "entrypoint_kind": "local_yaml",
+      "split": "test",
+      "shots": 0,
+      "rationale": "native exam knowledge",
+      "member_count": 1,
+      "source_record": "llmzszl",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "amu-cai/llmzszl-dataset",
+            "revision": "9c11d52a415147f1e2c44038a9d4d4155f064e1a",
+            "metadata_source": "https://huggingface.co/api/datasets/amu-cai/llmzszl-dataset"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Dataset card has no license tag: internal evaluation and aggregate export only, per N04. Known training overlap requires revision/ID-bound audit and common clean-subset decision.",
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "tasks/llmzszl.yaml",
+      "contamination_status": "known overlap reported; exact current revision and ID-bound clean-cohort audit required"
+    },
+    {
+      "id": "T38",
+      "benchmark_id": "squad2",
+      "task": "squadv2",
+      "name": "SQuAD 2.0",
+      "language": "EN",
+      "family": "squad2",
+      "domain": "unanswerable_reading",
+      "metric": "f1,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "legacy_task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "unanswerable reading",
+      "member_count": 1,
+      "source_record": "squad2",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "rajpurkar/squad_v2",
+            "revision": "3ffb306f725f7d2ce8394bc1873b24868140c412",
+            "metadata_source": "https://huggingface.co/api/datasets/squad_v2"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Do not also count QNLI, XQuAD or SQuAD completion. Preserve the legacy Task and pinned squad_v2 metric, not a fabricated ConfigurableTask replacement."
+      ],
+      "definition": "lm_eval/tasks/squadv2/task.py"
+    },
+    {
+      "id": "T39",
+      "benchmark_id": "drop",
+      "task": "drop",
+      "name": "DROP",
+      "language": "EN",
+      "family": "drop",
+      "domain": "discrete_reading",
+      "metric": "f1,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "discrete reading",
+      "member_count": 1,
+      "source_record": "drop",
+      "license": {
+        "declared_tags": [
+          "cc-by-4.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "EleutherAI/drop",
+            "revision": "619386fc7ffe6dace3cc6d3483c69b164ebf6bf3",
+            "metadata_source": "https://huggingface.co/api/datasets/EleutherAI/drop"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/drop/default.yaml"
+    },
+    {
+      "id": "T40",
+      "benchmark_id": "race",
+      "task": "race",
+      "name": "RACE (high primary)",
+      "language": "EN",
+      "family": "race",
+      "domain": "reading",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "reading",
+      "member_count": 1,
+      "source_record": "race",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "EleutherAI/race",
+            "revision": "66ca2e6374282f5e35b11559e87185db911a6900",
+            "metadata_source": "https://huggingface.co/api/datasets/EleutherAI/race"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence.",
+        "Pinned harness high protocol includes earlier article Q/A context; not a claim of full original RACE middle+high paper parity."
+      ],
+      "definition": "lm_eval/tasks/race/race.yaml"
+    },
+    {
+      "id": "T41",
+      "benchmark_id": "coqa",
+      "task": "coqa",
+      "name": "CoQA",
+      "language": "EN",
+      "family": "coqa",
+      "domain": "conversational_reading",
+      "metric": "f1,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "conversational reading",
+      "member_count": 1,
+      "source_record": "coqa",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "EleutherAI/coqa",
+            "revision": "82e11af842af6c1396f5e9a5c7de260107c50cf1",
+            "metadata_source": "https://huggingface.co/api/datasets/EleutherAI/coqa"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/coqa/default.yaml"
+    },
+    {
+      "id": "T42",
+      "benchmark_id": "nq_open",
+      "task": "nq_open",
+      "name": "Natural Questions Open",
+      "language": "EN",
+      "family": "nq_open",
+      "domain": "closed_book_knowledge",
+      "metric": "exact_match,remove_whitespace",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "closed book knowledge",
+      "member_count": 1,
+      "source_record": "nq_open",
+      "license": {
+        "declared_tags": [
+          "cc-by-sa-3.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "google-research-datasets/nq_open",
+            "revision": "5dd9790a83002ad084ddeb7c420dc716852c6f28",
+            "metadata_source": "https://huggingface.co/api/datasets/nq_open"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/nq_open/nq_open.yaml"
+    },
+    {
+      "id": "T43",
+      "benchmark_id": "triviaqa",
+      "task": "triviaqa",
+      "name": "TriviaQA",
+      "language": "EN",
+      "family": "triviaqa",
+      "domain": "closed_book_knowledge",
+      "metric": "exact_match,remove_whitespace",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "closed book knowledge",
+      "member_count": 1,
+      "source_record": "triviaqa",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "mandarjoshi/trivia_qa",
+            "revision": "0f7faf33a3908546c6fd5b73a660e0f8ff173c2f",
+            "metadata_source": "https://huggingface.co/api/datasets/mandarjoshi/trivia_qa/revision/0f7faf33a3908546c6fd5b73a660e0f8ff173c2f"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/triviaqa/default.yaml"
+    },
+    {
+      "id": "T44",
+      "benchmark_id": "pubmedqa",
+      "task": "pubmedqa",
+      "name": "PubMedQA",
+      "language": "EN",
+      "family": "pubmedqa",
+      "domain": "biomedical_reading",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "biomedical reading",
+      "member_count": 1,
+      "source_record": "pubmedqa",
+      "license": {
+        "declared_tags": [
+          "mit"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "bigbio/pubmed_qa",
+            "revision": "15578e80ef02c2c9636d33fdd7eb6b05b987ba60",
+            "metadata_source": "https://huggingface.co/api/datasets/bigbio/pubmed_qa"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/pubmedqa/pubmedqa.yaml"
+    },
+    {
+      "id": "T45",
+      "benchmark_id": "medmcqa",
+      "task": "medmcqa",
+      "name": "MedMCQA",
+      "language": "EN",
+      "family": "medmcqa",
+      "domain": "medical_exam_knowledge",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "medical exam knowledge",
+      "member_count": 1,
+      "source_record": "medmcqa",
+      "license": {
+        "declared_tags": [
+          "apache-2.0"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "openlifescienceai/medmcqa",
+            "revision": "91c6572c454088bf71b679ad90aa8dffcd0d5868",
+            "metadata_source": "https://huggingface.co/api/datasets/medmcqa"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [],
+      "definition": "lm_eval/tasks/medmcqa/medmcqa.yaml"
+    },
+    {
+      "id": "T46",
+      "benchmark_id": "social_iqa",
+      "task": "social_iqa",
+      "name": "Social IQa",
+      "language": "EN",
+      "family": "social_iqa",
+      "domain": "social_reasoning",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "social reasoning",
+      "member_count": 1,
+      "source_record": "social_iqa",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "allenai/social_i_qa",
+            "revision": "8835ceb9141d7896d9d968634a9b21ae440e3ec5",
+            "metadata_source": "https://huggingface.co/api/datasets/allenai/social_i_qa/revision/8835ceb9141d7896d9d968634a9b21ae440e3ec5"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/siqa/siqa.yaml"
+    },
+    {
+      "id": "T47",
+      "benchmark_id": "bbh",
+      "task": "bbh_fewshot",
+      "name": "BIG-Bench Hard (direct)",
+      "language": "EN",
+      "family": "bbh",
+      "domain": "formal_reasoning",
+      "metric": "exact_match,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "group",
+      "split": "test",
+      "shots": 3,
+      "rationale": "formal reasoning",
+      "member_count": 27,
+      "source_record": "bbh",
+      "license": {
+        "declared_tags": [
+          "unknown"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "lukaemon/bbh",
+            "revision": "982bb89fd79532a8ac676a61fc42eb1aeec63f99",
+            "metadata_source": "https://huggingface.co/api/datasets/lukaemon/bbh/revision/982bb89fd79532a8ac676a61fc42eb1aeec63f99"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "27 subtasks count once; direct source-provided fixed examples, not an additional CoT benchmark.",
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/bbh/fewshot/_bbh_fewshot.yaml"
+    },
+    {
+      "id": "T48",
+      "benchmark_id": "paws",
+      "task": "paws_en",
+      "name": "PAWS (English PAWS-X protocol)",
+      "language": "EN",
+      "family": "paws",
+      "domain": "adversarial_paraphrase",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "test",
+      "shots": 0,
+      "rationale": "adversarial paraphrase",
+      "member_count": 1,
+      "source_record": "paws",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "google-research-datasets/paws-x",
+            "revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+            "metadata_source": "https://huggingface.co/api/datasets/paws-x"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/paws-x/paws_en.yaml"
+    },
+    {
+      "id": "T49",
+      "benchmark_id": "cola",
+      "task": "cola",
+      "name": "CoLA",
+      "language": "EN",
+      "family": "cola",
+      "domain": "acceptability",
+      "metric": "mcc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "acceptability",
+      "member_count": 1,
+      "source_record": "cola",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "nyu-mll/glue",
+            "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+            "metadata_source": "https://huggingface.co/api/datasets/glue"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "MCC may be negative; do not clamp to accuracy0..1.",
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/glue/cola/default.yaml"
+    },
+    {
+      "id": "T50",
+      "benchmark_id": "record",
+      "task": "record",
+      "name": "ReCoRD",
+      "language": "EN",
+      "family": "record",
+      "domain": "entity_reading",
+      "metric": "f1,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "instrument": "lm_eval_0.4.8",
+      "entrypoint_kind": "task",
+      "split": "validation",
+      "shots": 0,
+      "rationale": "entity reading",
+      "member_count": 1,
+      "source_record": "record",
+      "license": {
+        "declared_tags": [
+          "other"
+        ],
+        "basis": "revision-bound dataset-card metadata, not legal or execution approval",
+        "source_revisions": [
+          {
+            "repo_id": "aps/super_glue",
+            "revision": "3de24cf8022e94f4ee4b9d55a6f539891524d646",
+            "metadata_source": "https://huggingface.co/api/datasets/super_glue"
+          }
+        ]
+      },
+      "data_gate": "required_before_evaluation",
+      "notes": [
+        "News passages may overlap broad media sources of CoQA/RACE; the curated entity-cloze questions are a distinct benchmark, not a translation or answer-format variant.",
+        "Undeclared/umbrella data terms are a gate, not an inferred permissive licence."
+      ],
+      "definition": "lm_eval/tasks/super_glue/record/default.yaml"
+    }
+  ],
+  "verification": {
+    "source_identities": 50,
+    "source_members": 204,
+    "repository_revision_metadata": 44,
+    "declaration_files": 218,
+    "execution_ready": false,
+    "model_quality_measured": false
+  }
+}

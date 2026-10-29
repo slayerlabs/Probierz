@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "protocol_id": "N05-50-v0.3-panel200",
+  "run_id": "contract-example-not-a-measurement",
+  "models": [
+    {
+      "model_id": "slayer106",
+      "repo": "SlayerLab/Slayer1B-1.06",
+      "revision": null,
+      "weights_sha256": null
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T01",
+      "task": "blimp",
+      "family": "blimp",
+      "language": "EN",
+      "split": "train"
+    }
+  ],
+  "observations": [
+    {
+      "task_id": "T01",
+      "model_id": "slayer106",
+      "protocol_id": "N05-50-v0.3-panel200",
+      "metric": "acc,none",
+      "unit": "score",
+      "higher_is_better": true,
+      "n_population": null,
+      "n_selected": null,
+      "n_scored": 0,
+      "state": "not_run",
+      "value": null,
+      "ci95": null,
+      "source_id_digest": null,
+      "results_sha256": null,
+      "runner_sha256": null
+    }
+  ],
+  "contrasts": [],
+  "provenance": {
+    "inventory_commit": "18a798843d300fa82cceb50c8ba5032d17be36d5",
+    "kind": "contract_example"
+  }
+}

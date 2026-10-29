@@ -1,0 +1,596 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kolektyw:n05:benchmark-results:1:protocol-0.3",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "protocol_id": {
+      "enum": ["N05-50-v0.3-panel200", "N05-50-v0.3-fullB"]
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "model_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "repo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "weights_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "model_id",
+          "repo",
+          "revision",
+          "weights_sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "pattern": "^T(0[1-9]|[1-4][0-9]|50)$"
+          },
+          "task": {
+            "type": "string",
+            "minLength": 1
+          },
+          "family": {
+            "type": "string",
+            "minLength": 1
+          },
+          "language": {
+            "enum": [
+              "PL",
+              "EN"
+            ]
+          },
+          "split": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "task_id",
+          "task",
+          "family",
+          "language",
+          "split"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/observation"
+      }
+    },
+    "contrasts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/contrast"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "inventory_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "kind": {
+          "enum": [
+            "measurement",
+            "contract_example"
+          ]
+        }
+      },
+      "required": [
+        "inventory_commit",
+        "kind"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "protocol_id",
+    "run_id",
+    "models",
+    "tasks",
+    "observations",
+    "contrasts",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "ci95": {
+      "type": "object",
+      "properties": {
+        "lower": {
+          "type": "number"
+        },
+        "upper": {
+          "type": "number"
+        },
+        "level": {
+          "const": 0.95
+        },
+        "method": {
+          "const": "paired_bootstrap"
+        },
+        "replicates": {
+          "const": 10000
+        },
+        "seed": {
+          "const": 20261028
+        }
+      },
+      "required": [
+        "lower",
+        "upper",
+        "level",
+        "method",
+        "replicates",
+        "seed"
+      ],
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "pattern": "^T(0[1-9]|[1-4][0-9]|50)$"
+        },
+        "model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "protocol_id": {
+          "enum": ["N05-50-v0.3-panel200", "N05-50-v0.3-fullB"]
+        },
+        "metric": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "enum": [
+            "percent",
+            "score",
+            "byte_ppl"
+          ]
+        },
+        "higher_is_better": {
+          "type": "boolean"
+        },
+        "n_population": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "n_selected": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "n_scored": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "state": {
+          "enum": [
+            "ok",
+            "not_run",
+            "blocked_access",
+            "blocked_runtime",
+            "blocked_security",
+            "blocked_judge",
+            "unsupported",
+            "failed",
+            "skipped"
+          ]
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "ci95": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "lower": {
+                  "type": "number"
+                },
+                "upper": {
+                  "type": "number"
+                },
+                "level": {
+                  "const": 0.95
+                },
+                "method": {
+                  "const": "paired_bootstrap"
+                },
+                "replicates": {
+                  "const": 10000
+                },
+                "seed": {
+                  "const": 20261028
+                }
+              },
+              "required": [
+                "lower",
+                "upper",
+                "level",
+                "method",
+                "replicates",
+                "seed"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_id_digest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "results_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "runner_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "task_id",
+        "model_id",
+        "protocol_id",
+        "metric",
+        "unit",
+        "higher_is_better",
+        "n_population",
+        "n_selected",
+        "n_scored",
+        "state",
+        "value",
+        "ci95",
+        "source_id_digest",
+        "results_sha256",
+        "runner_sha256"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "ok"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "n_scored": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "source_id_digest": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "results_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "runner_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "ci95": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "contrast": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "pattern": "^T(0[1-9]|[1-4][0-9]|50)$"
+        },
+        "model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "protocol_id": {
+          "enum": ["N05-50-v0.3-panel200", "N05-50-v0.3-fullB"]
+        },
+        "model_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "delta": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "ci95": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "lower": {
+                  "type": "number"
+                },
+                "upper": {
+                  "type": "number"
+                },
+                "level": {
+                  "const": 0.95
+                },
+                "method": {
+                  "const": "paired_bootstrap"
+                },
+                "replicates": {
+                  "const": 10000
+                },
+                "seed": {
+                  "const": 20261028
+                }
+              },
+              "required": [
+                "lower",
+                "upper",
+                "level",
+                "method",
+                "replicates",
+                "seed"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "p_raw": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "p_holm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "family_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "verdict": {
+          "enum": [
+            "withheld",
+            "better",
+            "worse",
+            "inconclusive"
+          ]
+        },
+        "review": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "accepted",
+                "rejected"
+              ]
+            },
+            "actor": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "artifact_sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "actor",
+            "artifact_sha256"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "accepted"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "actor": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "artifact_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "task_id",
+        "model_id",
+        "protocol_id",
+        "model_ref",
+        "delta",
+        "ci95",
+        "p_raw",
+        "p_holm",
+        "family_size",
+        "verdict",
+        "review"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "verdict": {
+                "enum": [
+                  "better",
+                  "worse",
+                  "inconclusive"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "review": {
+                "properties": {
+                  "status": {
+                    "const": "accepted"
+                  }
+                }
+              },
+              "delta": {
+                "type": "number"
+              },
+              "p_raw": {
+                "type": "number"
+              },
+              "p_holm": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "review": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "pending",
+                      "rejected"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "verdict": {
+                "const": "withheld"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
