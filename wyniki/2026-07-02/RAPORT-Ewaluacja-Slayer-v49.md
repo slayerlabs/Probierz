@@ -40,8 +40,8 @@ oraz niestabilność w najgłębszym rozumowaniu. To jedyne miejsca, gdzie model
 |---|---|
 | **Ground truth żelazny** | Każda odpowiedź weryfikowana **programowo** (obliczenie/symulacja/brute-force) *przed* przejazdem. Zero „autor tak myśli". |
 | **Anty-kontaminacja** | `tools/contamination_check.py` — n-gram overlap + wspólny span vs `seed_500_training_final`. **Wszystkie zestawy: 0% skażeń.** |
-| **Pomiar stabilności** | 3 parafrazy/item (AT5). Raportujemy medianę **oraz** wrażliwość (ile itemów zależnych od sformułowania). |
-| **Dialektyka** | Każdy konstrukt: teza → antyteza (steelman) → synteza z **warunkiem obalenia** (`docs/`). Chroni przed pozorną trudnością (AT7/floor effect). |
+| **Pomiar stabilności** | 3 parafrazy/item. Raportujemy medianę **oraz** wrażliwość (ile itemów zależnych od sformułowania). |
+| **Warunek obalenia** | Każde założenie konstruktu ma zapisane ryzyka i **warunek obalenia** (`docs/`). Chroni przed pozorną trudnością (pozorna trudność/floor effect). |
 | **Panel odniesienia** | 5 modeli lokalnych jako floor→ceiling — wynik Slayera osadzony, nie w próżni. |
 | **Ocena deterministyczna** | Runner `run_eval.py`, kanoniczny GT, checkpoint/resume, temperatura 0. |
 
@@ -101,7 +101,7 @@ Collatz-111 (0/3, twardy fail). To nie „nie wytrzyma N kroków" — to „nie 
 
 ### 5.2. Niestabilność w głębi rozumowania
 Głębia: mediana 83%, ale **4/6 itemów wrażliwych** — połowa wyników zależy od sformułowania. Pojedynczy
-przejazd **zawyża** ocenę. Wskaźnik wrażliwości (AT5) okazał się tu diagnostyczniejszy niż sam pass-rate.
+przejazd **zawyża** ocenę. Wskaźnik wrażliwości okazał się tu diagnostyczniejszy niż sam pass-rate.
 
 ### 5.3. Kalibracja jako wyróżnik
 100% na D6 (0 halucynacji na pułapkach). W panelu nikt inny nie był testowany na tym wymiarze, ale to
@@ -121,9 +121,9 @@ Kandydat na komponent systemu typu Omp.
   (wstępnie potwierdza §5.1). Przejazd wisiał, bo Slayer generuje setki kroków i uderza w limit
   tokenów/czasu. Do dokończenia z wyższym limitem + instrukcją „podaj tylko liczbę". **Nie wliczyć jako
   pełny wynik.**
-- **Cel „max 3/N" nieosiągnięty.** Zgodnie z S6 **nie nagięto itemów**, by sztucznie zejść (to byłby
+- **Cel „max 3/N" nieosiągnięty.** Zgodnie z warunkiem rzetelnego łamania **nie nagięto itemów**, by sztucznie zejść (to byłby
   Goodhart). Slayer okazał się odporniejszy, niż zakładała hipoteza.
-- **Brak drugiego, niezależnego zespołu (blind exchange, S1/S2).** Ryzyko autowalidacji ograniczone przez
+- **Brak drugiego, niezależnego zespołu (blind exchange).** Ryzyko autowalidacji ograniczone przez
   `contamination_check` (0%), lecz nie wyeliminowane — to detektor n-gramowy, nie dowód niezależności.
 - **csharp-solid-v1** — zestaw istnieje (eval), brak przejazdu w tej sesji.
 
@@ -135,7 +135,7 @@ Kandydat na komponent systemu typu Omp.
    droga do uczciwie niskiego pass-rate (Collatz-63 już FAIL).
 2. **Zbadać niestabilność głębi** — więcej itemów × parafraz, żeby oddzielić „umie" od „czasem wpada".
 3. **Rozszerzyć panel na D5/D6** — osadzić kalibrację/wierność w kontekście floor→ceiling.
-4. **Rozważyć drugi zespół / blind exchange** (S1/S2) dla pełnej rzetelności anty-Goodhart.
+4. **Rozważyć drugi zespół / blind exchange** dla pełnej rzetelności anty-Goodhart.
 
 ---
 

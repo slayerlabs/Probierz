@@ -10,7 +10,7 @@ date: 2026-06-26
 
 # Review Xaviera — Probierz
 
-> Zewnętrzna ocena: README + nitki T/AT/S + protokół wymiany + manifest + `contamination_check.py`.
+> Zewnętrzna ocena: README + dokumenty metody + protokół wymiany + manifest + `contamination_check.py`.
 
 ## Werdykt
 Spójny, samodokumentujący projekt w etosie Slayera. Najmocniejsze: pierwszy audyt znalazł, że **własny**
@@ -32,8 +32,8 @@ eval-only" jako pierwsze zadanie. „We ship the uncomfortable finding" w prakty
 
 ## Docenione (jego punkty)
 - reuse mechanizmu n-gram z `micro-models` (detektor dosłownej pamięci) — spójność z dorobkiem labu;
-- AT1/AT2/AT3 to realne ryzyka, a S1/S2/S3 je adresują;
-- „ciche błędy = najgorszy tryb awarii" = ta sama asymetria co false-discard z jego AT2 sandboxa.
+- spalanie benchmarku po ujawnieniu, przeciek mimo danych od zera i floor effect to realne ryzyka, a commitment przed ujawnieniem, audyt overlapu i taksonomia awarii je adresują;
+- „ciche błędy = najgorszy tryb awarii" = ta sama asymetria co false-discard z jego sandboxa.
 
 ## Powiązania
-[[Stan|Stan]] · [[../../protokol/PROTOKOL-Wymiany|protokół]] · [[../25-Syntezy/S2-Audyt-Overlap|S2]] · [[../../tools/contamination_check.py|narzędzie]]
+[[Stan|Stan]] · [[../../protokol/PROTOKOL-Wymiany|protokół]] · [[../metoda/Kontaminacja-i-wymiana|audyt overlapu]] · [[../../tools/contamination_check.py|narzędzie]]

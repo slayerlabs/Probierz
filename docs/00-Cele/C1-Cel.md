@@ -1,7 +1,7 @@
 ---
 type: cel
 id: BENCH-C1
-title: "Cel — bezlitosne, kontaminacyjnie czyste benchmarki"
+title: "Cel — benchmarki czyste względem treningu, które rozróżniają modele"
 status: aktywny
 author: Arkadiusz Słota
 date: 2026-06-26
@@ -28,4 +28,4 @@ Jeśli benchmark, który zbudowaliśmy, daje **identyczny ranking** co publiczny
 Know-how + protokoły + runnable narzędzia audytu. NIE: gotowy duży benchmark (to produkt iteracyjny).
 
 ## Powiązania
-[[BENCH-T1]] · [[BENCH-T2]] · [[BENCH-T3]] · [[../90-Ewaluacja/Stan|Stan]]
+[[../metoda/Kontaminacja-i-wymiana|provenance]] · [[../metoda/Kontaminacja-i-wymiana|ślepa wymiana]] · [[../metoda/Trudnosc-i-taksonomia-awarii|gradient trudności]] · [[../90-Ewaluacja/Stan|Stan]]

@@ -3,7 +3,7 @@ type: benchmark
 id: BENCH-WYT-V1
 title: "d1-wytrzymalosc-obliczeniowa-v1 — długie bezbłędne łańcuchy (stress-test)"
 status: eval-only
-parents: ["BENCH-T7", "BENCH-S6", "BENCH-DEC2"]
+parents: ["BENCH-METODA-LAMANIE", "BENCH-METODA-LAMANIE", "BENCH-DEC2"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -11,10 +11,10 @@ date: 2026-07-02
 # d1-wytrzymalosc-obliczeniowa-v1 🇵🇱
 
 > **8 zadań: długie, deterministyczne łańcuchy obliczeniowe.** Pod-kategoria **wytrzymałość
-> obliczeniowa** (S6, demarkacja): mało „myślenia", dużo bezbłędnego wykonania — kumulacja błędu jest
-> zabójcza. Stress-test wg T7 (łamanie do niskiego pass-rate).
+> obliczeniowa** (warunek rzetelnego łamania, demarkacja): mało „myślenia", dużo bezbłędnego wykonania — kumulacja błędu jest
+> zabójcza. Stress-test (łamanie modeli) (łamanie do niskiego pass-rate).
 
-## Demarkacja (S6 pkt 4)
+## Demarkacja (warunek rzetelnego łamania, pkt 4)
 To NIE głębia rozumowania. Strategia jest oczywista (znany algorytm: Fibonacci, modulo, Collatz);
 trudność leży w **wykonaniu długiego łańcucha bez błędu**. Osobny zestaw `d1-glebia-rozumowania-v1`
 mierzy drugą pod-kategorię (planowanie/wgląd). Nie sumować wskaźników — różne konstrukty.
@@ -31,14 +31,14 @@ mierzy drugą pod-kategorię (planowanie/wgląd). Nie sumować wskaźników — 
 | WYT-07 | 7^100 mod 13 | 100 / Fermat | 9 |
 | WYT-08 | a(n)=a²−2a+2, a(1)=3, a(6) | 5, kwadratowo | 4294967297 |
 
-## Żelazny GT (S6 pkt 1)
+## Żelazny GT (warunek rzetelnego łamania, pkt 1)
 Wszystkie odpowiedzi **zweryfikowane programowo** (symulacja/iteracja) przed przejazdem — zero GT „z
 głowy". WYT-08 = 2³²+1 (liczby rosną kwadratowo: 3→5→17→257→65537→4294967297).
 
 ## Ocena / stress-test
-Typ `liczba` (porównanie numeryczne). 3 parafrazy/item (AT5). Cel orientacyjny: niski pass-rate (T7),
-ale kryterium to bramka S6, nie sama liczba. Przy 0/N → test odniesienia (nemotron-4B) czy to granica
-Slayera czy floor (S6 pkt 3).
+Typ `liczba` (porównanie numeryczne). 3 parafrazy/item. Cel orientacyjny: niski pass-rate,
+ale kryterium to warunek rzetelnego łamania, nie sama liczba. Przy 0/N → test odniesienia (nemotron-4B) czy to granica
+Slayera czy floor (warunek rzetelnego łamania, pkt 3).
 
 ## Powiązania
-[[../../docs/10-Tezy/T7-Charakterystyka-Przez-Lamanie|T7]] · [[../../docs/25-Syntezy/S6-Warunek-Rzetelnego-Lamania|S6]] · siostra: [[../d1-glebia-rozumowania-v1/README|d1-glebia-rozumowania-v1]]
+[[../../docs/metoda/Lamanie-modeli|łamanie modeli]] · [[../../docs/metoda/Lamanie-modeli|warunek rzetelnego łamania]] · siostra: [[../d1-glebia-rozumowania-v1/README|d1-glebia-rozumowania-v1]]

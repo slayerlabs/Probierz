@@ -14,7 +14,7 @@ date: 2026-09-11
 > Ta sama modalność co v1: wybór wymuszony (forced-choice), chance = 0.50.
 
 > ⚠️ **v2 jest PUBLICZNY = demonstrator/template.** Model trenowany po ujawnieniu może go wchłonąć
-> (AT1: benchmark spala się po ujawnieniu). Do prawdziwego ślepego werdyktu trzymaj wersję zahashowaną/tajną.
+> (benchmark spala się po ujawnieniu). Do prawdziwego ślepego werdyktu trzymaj wersję zahashowaną/tajną.
 
 ## Jak powstał (generacja + 3 sita)
 

@@ -44,7 +44,7 @@ użytkownika — model ma zmapować je na właściwe wywołanie.
 ## Ocena
 Predykaty JSON-aware (`run_eval.py`): `json_tool_is`, `json_tool_args`, `json_only_tool`,
 `json_seq_order` — tolerują otoczkę ``` i tekst wokół (poza `json_only_tool`, który wymaga czystego
-JSON). Zweryfikowane 12 przypadków. 3 parafrazy/item (AT5), wynik = mediana.
+JSON). Zweryfikowane 12 przypadków. 3 parafrazy/item, wynik = mediana.
 
 ## Powiązania
-[[../d5-wiernosc-instrukcji-v1/README|d5-wiernosc-instrukcji-v1]] (twarde ograniczenia) · [[../../docs/20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]] · [[../../docs/10-Tezy/T5-Falsyfikowalna-Rubryka|T5]]
+[[../d5-wiernosc-instrukcji-v1/README|d5-wiernosc-instrukcji-v1]] (twarde ograniczenia) · [[../../docs/20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]] · [[../../docs/metoda/Wymiary-i-rubryka|deterministyczna rubryka]]

@@ -3,7 +3,7 @@ type: benchmark
 id: BENCH-CDL-V1
 title: "d1-czysta-dlugosc-v1 — symulacja bez skrótu (celowany stress-test)"
 status: eval-only
-parents: ["BENCH-T7", "BENCH-S6"]
+parents: ["BENCH-METODA-LAMANIE", "BENCH-METODA-LAMANIE"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -17,7 +17,7 @@ date: 2026-07-02
 
 ## Hipoteza testowana
 Jeśli słabość to „długość bez skrótu" (nie długość ogólnie), to zestaw złożony wyłącznie z takich zadań
-powinien dać **niski pass-rate** — realizacja celu T7 („łamanie") uczciwie, bez naginania (S6).
+powinien dać **niski pass-rate** — realizacja celu „łamania modeli" uczciwie, bez naginania.
 
 ## Pokrycie (brak wzoru zamkniętego w każdym)
 | ID | Zadanie | Kroki symulacji | GT |
@@ -31,18 +31,18 @@ powinien dać **niski pass-rate** — realizacja celu T7 („łamanie") uczciwie
 | CDL-07 | a=(3a+1) mod 100, ×15 | 15 | 2 |
 | CDL-08 | Collatz od 27, licz parzyste | ~110 + zliczanie | 70 |
 
-## Żelazny GT (S6 pkt 1)
+## Żelazny GT (warunek rzetelnego łamania, pkt 1)
 Wszystkie odpowiedzi **zweryfikowane symulacją programową** przed przejazdem. Żaden item nie ma
 obejścia matematycznego — jedyna droga to wykonanie kroków.
 
 ## Demarkacja
-Pod-kategoria wytrzymałość obliczeniowa (S6), wariant „bez skrótu". Odróżnia się od
+Pod-kategoria wytrzymałość obliczeniowa, wariant „bez skrótu". Odróżnia się od
 `d1-wytrzymalosc-obliczeniowa-v1` (tam część itemów miała skrót — Fermat/wzór — i Slayer je zdawał).
 
-## Ocena / interpretacja (S6 pkt 3)
-Typ `liczba`, 3 parafrazy (AT5). Cel: niski pass-rate. Przy 0/N → test odniesienia (nemotron-4B):
+## Ocena / interpretacja (warunek rzetelnego łamania, pkt 3)
+Typ `liczba`, 3 parafrazy. Cel: niski pass-rate. Przy 0/N → test odniesienia (nemotron-4B):
 jeśli odniesienie też 0 → floor (za trudne dla wszystkich); jeśli odniesienie zdaje → realna granica
 Slayera.
 
 ## Powiązania
-[[../../docs/10-Tezy/T7-Charakterystyka-Przez-Lamanie|T7]] · [[../../docs/25-Syntezy/S6-Warunek-Rzetelnego-Lamania|S6]] · [[../d1-wytrzymalosc-obliczeniowa-v1/README|wytrzymałość-v1]] · [[../../docs/90-Ewaluacja/Analiza-Stress-Test-D1|analiza stress-test]]
+[[../../docs/metoda/Lamanie-modeli|łamanie modeli]] · [[../../docs/metoda/Lamanie-modeli|warunek rzetelnego łamania]] · [[../d1-wytrzymalosc-obliczeniowa-v1/README|wytrzymałość-v1]] · [[../../docs/90-Ewaluacja/Analiza-Stress-Test-D1|analiza stress-test]]

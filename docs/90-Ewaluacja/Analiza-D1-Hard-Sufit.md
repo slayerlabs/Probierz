@@ -3,15 +3,15 @@ type: analiza
 id: BENCH-ANALIZA-D1-HARD
 title: "Analiza D1-brutalny — przebicie sufitu koryguje ranking (panel 5 modeli)"
 status: aktywny
-parents: ["BENCH-T3", "BENCH-S3", "BENCH-D1-HARD-V1"]
+parents: ["BENCH-METODA-TRUDNOSC", "BENCH-METODA-TRUDNOSC", "BENCH-D1-HARD-V1"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
 
 # Analiza — brutalny D1 obala mylący ranking z łatwego zestawu
 
-> Empiryczne potwierdzenie tezy T3/S3: łatwy benchmark daje **mylący** ranking (sufit); dopiero
-> bezlitosny w punkcie dyskryminacji ujawnia prawdziwą zdolność.
+> Empiryczne potwierdzenie zasady gradientu trudności: łatwy benchmark daje **mylący** ranking (sufit); dopiero
+> trudny zestaw w punkcie dyskryminacji ujawnia prawdziwą zdolność.
 
 ## Pełny panel 5 modeli — D1 łatwy vs brutalny
 | Model | D1-łatwy (10) | D1-brutalny (11) | delta |
@@ -67,13 +67,13 @@ dokładnie sygnał, który łatwy benchmark całkowicie zamaskował.
 3. **Wrażliwość na parafrazę:** Slayer 1/11, nemotron 4/11, gemma 5/11 — górna liga stabilniejsza
    również pod parafrazą (nie tylko wyższa średnia).
 
-## Znaczenie metodologiczne (T3/S3)
+## Znaczenie metodologiczne
 Gdyby modele oceniono wyłącznie łatwym D1, ogłoszono by błędny wniosek „gemma 4B ≈ Slayer 27B w
-rozumowaniu". Brutalny zestaw w **punkcie dyskryminacji** (S3: informacja itemu maksymalna przy p≈0.5)
+rozumowaniu". Brutalny zestaw w **punkcie dyskryminacji** (informacja itemu maksymalna przy p≈0.5)
 obalił go i ujawnił dwuklasowość. To operacyjny dowód, po co Probierz istnieje: **czysty benchmark w
 punkcie dyskryminacji > łatwy benchmark bez sufitu**.
 
-## Konsekwencje dla pomiaru (S5)
+## Konsekwencje dla pomiaru
 - Łączenie łatwego + brutalnego D1 daje szeroki zakres trudności $b_j$ (floor: bielik → ceiling:
   Slayer/nemotron) — dobre dane do kalibracji Rascha.
 - L9-03 (sprzeczność) łamie nawet ligę A — kandydat na poziom 11+ przy kolejnej rotacji poprzeczki.
@@ -81,4 +81,4 @@ punkcie dyskryminacji > łatwy benchmark bez sufitu**.
   sufit wrócił, tylko wyżej.
 
 ## Powiązania
-[[../10-Tezy/T3-Bezlitosne-Mierzalne|T3]] · [[../25-Syntezy/S3-IRT-Taksonomia|S3]] · [[../../benchmarks/d1-rozumowanie-hard-v1/README|d1-rozumowanie-hard-v1]] · [[Analiza-Panel-D1-D2|analiza panelu 5×2]]
+[[../metoda/Trudnosc-i-taksonomia-awarii|gradient trudności]] · [[../metoda/Trudnosc-i-taksonomia-awarii|taksonomia awarii]] · [[../../benchmarks/d1-rozumowanie-hard-v1/README|d1-rozumowanie-hard-v1]] · [[Analiza-Panel-D1-D2|analiza panelu 5×2]]

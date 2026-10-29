@@ -16,7 +16,7 @@ date: 2026-06-26
 - `trening-only` — wolno trenować; NIGDY jako eval.
 - `eval-only` — NIGDY w treningu; wymaga audytu 0% vs cały trening przed użyciem.
 - `spalony` — był eval, został ujawniony (wymiana) → wraca do puli treningowej jawnie, koniec jako eval.
-- **Warianty** (`v2`, `variants_all`) = ten sam item; nie rozdzielaj train/eval po wariantach (AT2).
+- **Warianty** (`v2`, `variants_all`) = ten sam item; nie rozdzielaj train/eval po wariantach.
 
 ## Rejestr (slayerlabs)
 
@@ -33,7 +33,7 @@ date: 2026-06-26
 ## Wniosek z pierwszego audytu
 „Provenance po nazwie" zawiodło: `test_verification` brzmi jak eval, a przecieka w **100%** (any-match).
 **Eval-only buduje się świeżo i audytuje**, nie dziedziczy nazwy. Pierwszy czysty eval-only **już jest**:
-`csharp-solid-v1` (15 itemów SOLID, audyt 0%). Następne: rozbudowa + kolejne domeny + drugi team (T2).
+`csharp-solid-v1` (15 itemów SOLID, audyt 0%). Następne: rozbudowa + kolejne domeny + drugi team.
 
 ## Powiązania
-[[../docs/10-Tezy/T1-Provenance-Kontaminacja|T1]] · [[../docs/25-Syntezy/S2-Audyt-Overlap|S2]] · [[../tools/contamination_check.py|narzędzie]]
+[[../docs/metoda/Kontaminacja-i-wymiana|provenance]] · [[../docs/metoda/Kontaminacja-i-wymiana|audyt overlapu]] · [[../tools/contamination_check.py|narzędzie]]

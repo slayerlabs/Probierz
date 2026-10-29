@@ -3,7 +3,7 @@ type: benchmark
 id: BENCH-D1-HARD-V1
 title: "d1-rozumowanie-hard-v1 — D1 brutalny (przebicie sufitu)"
 status: eval-only
-parents: ["BENCH-T4", "BENCH-S3", "BENCH-S4", "BENCH-S5"]
+parents: ["BENCH-METODA-WYMIARY", "BENCH-METODA-TRUDNOSC", "BENCH-METODA-WYMIARY", "BENCH-METODA-POMIAR"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -16,7 +16,7 @@ date: 2026-07-02
 
 ## Motywacja (z research panelu 5×2)
 Analiza `Analiza-Panel-D1-D2.md`: D1 (łatwy) miał **sufit** dla mocnych modeli — 10/10 (gemma), 9/10
-(Slayer) z nierozróżnialnymi CI. Lekcja: itemy za łatwe → brak informacji o górnej połowie panelu (S3:
+(Slayer) z nierozróżnialnymi CI. Lekcja: itemy za łatwe → brak informacji o górnej połowie panelu (gradient trudności:
 maksimum informacji przy p≈0.5, nie p≈1). Ten zestaw podnosi trudność tam, gdzie modele realnie pękają.
 
 ## Czystość — zmierzona
@@ -28,7 +28,7 @@ równań, brute-force permutacji (L9-02, L9-03), logika kłamców przez wyczerpa
 składanie mnożników procentowych (L10-01). Rubryka jest tak dobra jak jej GT — dlatego GT są sprawdzone,
 nie zadeklarowane.
 
-## Zakres i demarkacja (S4)
+## Zakres i demarkacja
 D1: **głębia łańcucha wnioskowania**, semantyka trywialna (język prosty, jednoznaczny). Trudność leży w
 liczbie i współzależności kroków, nie w interpretacji znaczenia (to byłoby D2).
 
@@ -44,12 +44,12 @@ Typy pułapek (kuszą do skrótu dającego złą odpowiedź):
 - **układ równań z czasem w dwie strony** (L10-02);
 - **model robotniko-dni w fazach** (L10-03).
 
-## Gradient (S3/T3)
+## Gradient
 Poziomy 7–10 (długość łańcucha / liczba współzależnych ograniczeń): 2 itemy L7, 3× L8, 3× L9, 3× L10.
 
 ## Schemat, ocena, pomiar
 Identyczne jak `d1-rozumowanie-v1` (schemat itemu, grader deterministyczny, 3 parafrazy/item, taksonomia
-awarii S3, estymacja S5). Itemy z odpowiedzią zamkniętą mają `klasy_odpowiedzi` (L8-02, L9-03).
+awarii, estymacja w modelu pomiaru). Itemy z odpowiedzią zamkniętą mają `klasy_odpowiedzi` (L8-02, L9-03).
 
 ## Użycie
 ```bash
@@ -60,7 +60,7 @@ python ../../tools/run_eval.py --eval eval.jsonl --base-url <url> --model <id> -
 ## Status / następne
 v1, eval-only, audyt 0%, GT zweryfikowane. Cel: przejazd panelu → sprawdzić, czy przebija sufit
 (rozrzut w górnej połowie: gemma vs Slayer vs qwen). Wynik zasili estymację $\theta^{(D1)}$ z szerszym
-zakresem trudności (lepsza kalibracja $b_j$, S5).
+zakresem trudności (lepsza kalibracja $b_j$).
 
 ## Powiązania
-[[../d1-rozumowanie-v1/README|d1-rozumowanie-v1]] (łatwy) · [[../../docs/90-Ewaluacja/Analiza-Panel-D1-D2|analiza panelu]] · [[../../docs/25-Syntezy/S3-IRT-Taksonomia|S3]] · [[../../docs/25-Syntezy/S5-MIRT-Panel|S5]]
+[[../d1-rozumowanie-v1/README|d1-rozumowanie-v1]] (łatwy) · [[../../docs/90-Ewaluacja/Analiza-Panel-D1-D2|analiza panelu]] · [[../../docs/metoda/Trudnosc-i-taksonomia-awarii|taksonomia awarii]] · [[../../docs/metoda/Model-pomiaru-IRT|model pomiaru]]

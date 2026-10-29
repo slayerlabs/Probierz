@@ -3,7 +3,7 @@ type: benchmark
 id: BENCH-D1-EXTREME-V1
 title: "d1-rozumowanie-extreme-v1 — D1 ekstremalny (rozróżnienie ligi A)"
 status: eval-only
-parents: ["BENCH-T3", "BENCH-S3", "BENCH-D1-HARD-V1"]
+parents: ["BENCH-METODA-TRUDNOSC", "BENCH-METODA-TRUDNOSC", "BENCH-D1-HARD-V1"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -15,12 +15,12 @@ date: 2026-07-02
 
 ## Motywacja (z analizy D1-hard)
 Brutalny zestaw ujawnił dwie ligi, ale **liga A (Slayer, nemotron) nadal na 91%** — nierozróżnialna.
-Zgodnie z S3 (rotacja poprzeczki): gdy modele nasycą pasmo, podnosimy trudność. Ten zestaw = poziom 11+.
+Zgodnie z regułą rotacji poprzeczki: gdy modele nasycą pasmo, podnosimy trudność. Ten zestaw = poziom 11+.
 
 ## Panel (zawężony — świadomie)
 Testujemy tylko **ligę A + gemma** jako odniesienie. Qwen-1.7B (liga B) i bielik-1.5B (floor) **pominięte**
 — na poziomie 7–10 były już na/pod podłogą, poziom 11+ nie da od nich sygnału (byłyby 0, brak informacji
-wg S3). To celowa decyzja, nie luka.
+o modelu). To celowa decyzja, nie luka.
 
 ## Czystość — zmierzona
 `contamination_check.py` vs `seed_500_training_final`: **CZYSTY 0%** (span 0 tok).
@@ -49,4 +49,4 @@ v1, eval-only, audyt 0%, GT zweryfikowane. Cel przejazdu: czy rozróżnia Slayer
 Jeśli oba znów ~100% → poprzeczkę podnieść dalej; jeśli się rozjadą → mamy dyskryminację na szczycie.
 
 ## Powiązania
-[[../d1-rozumowanie-hard-v1/README|d1-rozumowanie-hard-v1]] · [[../../docs/90-Ewaluacja/Analiza-D1-Hard-Sufit|analiza D1-hard]] · [[../../docs/25-Syntezy/S3-IRT-Taksonomia|S3]]
+[[../d1-rozumowanie-hard-v1/README|d1-rozumowanie-hard-v1]] · [[../../docs/90-Ewaluacja/Analiza-D1-Hard-Sufit|analiza D1-hard]] · [[../../docs/metoda/Trudnosc-i-taksonomia-awarii|taksonomia awarii]]

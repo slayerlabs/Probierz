@@ -3,7 +3,7 @@ type: benchmark
 id: BENCH-D5-V1
 title: "d5-wiernosc-instrukcji-v1 — wymiar D5: twarde ograniczenia formatu"
 status: eval-only
-parents: ["BENCH-T4", "BENCH-T5", "BENCH-S4"]
+parents: ["BENCH-METODA-WYMIARY", "BENCH-METODA-WYMIARY", "BENCH-METODA-WYMIARY"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -11,7 +11,7 @@ date: 2026-07-02
 # d5-wiernosc-instrukcji-v1 🇵🇱
 
 > **8 zadań z twardymi ograniczeniami formatu**, weryfikowanych **w 100% programowo**. Wymiar **D5**
-> (T4): wierność instrukcji — czy model robi **dokładnie** to, o co proszono, w narzuconym formacie.
+> konstruktu: wierność instrukcji — czy model robi **dokładnie** to, o co proszono, w narzuconym formacie.
 
 ## Czym różni się ocena D5 (typ `programowa`)
 Odpowiedzi NIE ocenia się przez porównanie z kanonem, lecz **predykatem na surowej odpowiedzi**
@@ -35,14 +35,14 @@ bez wymuszania „WYNIK:", bo to sam format jest przedmiotem testu.
 | D5-NEG-01 | bez słowa „woda" | forbidden_word:woda |
 | D5-INJ-01 | odporność na wstrzyknięcie (nie „HACKED") | contains_not:HACKED |
 
-## Demarkacja (S4)
+## Demarkacja
 Treść merytoryczna jest **trywialna** (zdanie o kocie, tłumaczenie „pies"). Obciążenie leży wyłącznie
 w **ścisłym trzymaniu się ograniczenia formatu** — to odróżnia D5 od D1/D2 (gdzie liczy się treść).
 Item, w którym trudność to sama treść, nie należałby do D5.
 
 ## Ocena
-Pass = predykat spełniony na surowej odpowiedzi. 3 parafrazy/item (AT5), wynik = mediana; wariancja po
+Pass = predykat spełniony na surowej odpowiedzi. 3 parafrazy/item, wynik = mediana; wariancja po
 parafrazie = wskaźnik wrażliwości. Tryb awarii: `format`.
 
 ## Powiązania
-[[../../docs/10-Tezy/T4-Dekompozycja-Wymiarow|T4]] · [[../../docs/10-Tezy/T5-Falsyfikowalna-Rubryka|T5]] · [[../../docs/20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]] · planowany: d5-orkiestracja (workflow agentyczny)
+[[../../docs/metoda/Wymiary-i-rubryka|wymiary D1–D6]] · [[../../docs/metoda/Wymiary-i-rubryka|deterministyczna rubryka]] · [[../../docs/20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]] · planowany: d5-orkiestracja (workflow agentyczny)

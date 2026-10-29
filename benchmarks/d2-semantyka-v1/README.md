@@ -3,7 +3,7 @@ type: benchmark
 id: BENCH-D2-SEMANTYKA-V1
 title: "d2-semantyka-v1 — wymiar D2: semantyka / wierność znaczeniu"
 status: eval-only
-parents: ["BENCH-T4", "BENCH-S4", "BENCH-S5"]
+parents: ["BENCH-METODA-WYMIARY", "BENCH-METODA-WYMIARY", "BENCH-METODA-POMIAR"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -11,20 +11,20 @@ date: 2026-07-02
 # d2-semantyka-v1 🇵🇱
 
 > **10 zadań interpretacji znaczenia** z gradientem trudności (poziomy 1–4). Mierzy wymiar **D2**
-> konstruktu ([[../../docs/10-Tezy/T4-Dekompozycja-Wymiarow|T4]]): czy model chwyta *znaczenie*, nie
+> konstruktu ([[../../docs/metoda/Wymiary-i-rubryka|wymiary D1–D6]]): czy model chwyta *znaczenie*, nie
 > powierzchnię leksykalną. Każdy item ma **zamknięty zbiór klas odpowiedzi** (`klasy_odpowiedzi`) i
-> deterministyczną rubrykę pass/fail (T5).
+> deterministyczną rubrykę pass/fail.
 
-> ⚠️ **v1 PUBLICZNY = demonstrator/template** (AT1: spala się po ujawnieniu). Realne zestawy do
+> ⚠️ **v1 PUBLICZNY = demonstrator/template** (spala się po ujawnieniu). Realne zestawy do
 > ślepej wymiany trzymaj w sekrecie i hashuj przed reveal.
 
 ## Czystość (held-out) — zmierzona
 `tools/contamination_check.py` vs `datasets/seed_500_training_final.jsonl` (n=13, any-match):
-**CZYSTY 0%** — frakcja 0.000, span 0 tok. Warunek wstępny (C1/T1) spełniony.
+**CZYSTY 0%** — frakcja 0.000, span 0 tok. Warunek wstępny spełniony.
 
-## Zakres wymiaru i demarkacja (S4)
+## Zakres wymiaru i demarkacja
 D2 obciąża **interpretację znaczenia**, a rozumowanie jest **trywialne** (0–1 krok) — odwrotnie niż D1.
-Reguła dominującego obciążenia (S4): o wyniku decyduje poprawne odczytanie znaczenia, nie długość
+Reguła dominującego obciążenia: o wyniku decyduje poprawne odczytanie znaczenia, nie długość
 łańcucha wnioskowania. Item wymagający wielu kroków należałby do D1.
 
 Zjawiska pokryte: **negacja** (w tym podwójna), **kwantyfikatory** (ogólny/egzystencjalny),
@@ -34,9 +34,9 @@ Zjawiska pokryte: **negacja** (w tym podwójna), **kwantyfikatory** (ogólny/egz
 Pułapka każdego itemu: odpowiedź **powierzchniowa** (dopasowanie słów, implikatura potoczna) różni
 się od poprawnej **znaczeniowo/logicznie**. Model bez reprezentacji znaczenia ulega pułapce.
 
-## Gradient trudności (S3/T3)
+## Gradient trudności
 Poziom 1 (negacja prosta) → poziom 4 (scope, presupozycja, implikatura, koreferencja). Poziom to
-hipoteza; kalibracja empiryczna ($b_j$) po przejeździe panelu (S5).
+hipoteza; kalibracja empiryczna ($b_j$) po przejeździe panelu.
 
 ## Schemat itemu (`eval.jsonl`)
 ```json
@@ -54,15 +54,15 @@ hipoteza; kalibracja empiryczna ($b_j$) po przejeździe panelu (S5).
   ocenę deterministyczną mimo odpowiedzi w języku naturalnym.
 - **`uzasadnienie_wzorcowe`** — poprawna ścieżka interpretacji (do klasyfikacji trybu awarii).
 
-## Ocena (rubryka + taksonomia awarii, S3)
+## Ocena (rubryka + taksonomia awarii)
 - **Pass/Fail:** wykryta klasa == `odpowiedz_kanoniczna` (grader z priorytetem najdłuższej frazy).
 - **Tryb awarii** przy fail: głównie `halucynacja` (błędna interpretacja znaczenia); dalej
-  `bledny-plan`, `format`. Klasyfikacja przez ≥2 graderów przy rozbieżności (S4).
-- **Test niezmienniczości promptu (AT5):** 3 parafrazy/item; wynik = mediana, wrażliwość raportowana osobno.
+  `bledny-plan`, `format`. Klasyfikacja przez ≥2 graderów przy rozbieżności.
+- **Test niezmienniczości promptu:** 3 parafrazy/item; wynik = mediana, wrażliwość raportowana osobno.
 
-## Pomiar (S5)
+## Pomiar
 Wynik zasila estymację $\theta^{(D2)}$: Bradley-Terry + 1PL/Rasch, bootstrap CI. Panel ≥5 modeli.
-Macierz [model × wymiar] wejściem do testu rozłączności D1↔D2 (S4: istotne odwrócenia, analiza równoległa).
+Macierz [model × wymiar] wejściem do testu rozłączności D1↔D2 (istotne odwrócenia, analiza równoległa).
 
 ## Użycie
 ```bash
@@ -76,4 +76,4 @@ v1, eval-only, niespalony, audyt 0%. Otwarte: (1) przejazd panelu → kalibracja
 na panelu); (3) rozbudowa po pilotażu.
 
 ## Powiązania
-[[../../docs/10-Tezy/T4-Dekompozycja-Wymiarow|T4]] · [[../../docs/10-Tezy/T5-Falsyfikowalna-Rubryka|T5]] · [[../../docs/25-Syntezy/S4-Taksonomia-Wymiarow|S4]] · [[../../docs/25-Syntezy/S5-MIRT-Panel|S5]] · siostra: [[../d1-rozumowanie-v1/README|d1-rozumowanie-v1]]
+[[../../docs/metoda/Wymiary-i-rubryka|wymiary D1–D6]] · [[../../docs/metoda/Wymiary-i-rubryka|deterministyczna rubryka]] · [[../../docs/metoda/Wymiary-i-rubryka|kryterium rozłączności]] · [[../../docs/metoda/Model-pomiaru-IRT|model pomiaru]] · siostra: [[../d1-rozumowanie-v1/README|d1-rozumowanie-v1]]

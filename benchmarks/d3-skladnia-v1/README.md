@@ -3,7 +3,7 @@ type: benchmark
 id: BENCH-D3-SKLADNIA-V1
 title: "d3-skladnia-v1 — wymiar D3: składnia / morfoskładnia (pary minimalne)"
 status: eval-only
-parents: ["BENCH-T4", "BENCH-S4", "BENCH-S5"]
+parents: ["BENCH-METODA-WYMIARY", "BENCH-METODA-WYMIARY", "BENCH-METODA-POMIAR"]
 author: Arkadiusz Słota
 date: 2026-09-10
 ---
@@ -11,14 +11,14 @@ date: 2026-09-10
 # d3-skladnia-v1 🇵🇱
 
 > **30 par minimalnych** polskiej morfoskładni z gradientem trudności (poziomy 1–4). Mierzy wymiar
-> **D3** konstruktu (patrz [[../../docs/10-Tezy/T4-Dekompozycja-Wymiarow|T4]]): czy model chwyta
+> **D3** konstruktu (patrz [[../../docs/metoda/Wymiary-i-rubryka|wymiary D1–D6]]): czy model chwyta
 > **reguły morfoskładni** (rząd przypadka, zgodę, rodzaj, aspekt), nie powierzchnię leksykalną.
-> Wypełnia lukę taksonomii: D3 istnieje w konstrukcie (C2/T4), ale nie miał jeszcze benchmarku
+> Wypełnia lukę taksonomii: D3 istnieje w konstrukcie, ale nie miał jeszcze benchmarku
 > (są d1/d2/d5/d6). Uzupełnia MultiBLiMP-PL, który pokrywa **tylko** zgodę podmiot–orzeczenie.
 
 > ⚠️ **v1 jest PUBLICZNY = demonstrator/template.** Leży w repo, więc modele trenowane później mogą go
-> wchłonąć (AT1: benchmark spala się po ujawnieniu). Traktuj jak **wzór formatu + dowód metody**, NIE
-> jak sekretny zestaw do ślepej wymiany — te trzymaj zahashowane przed reveal (`protokol/S1-Commitment-Protokol`).
+> wchłonąć (benchmark spala się po ujawnieniu). Traktuj jak **wzór formatu + dowód metody**, NIE
+> jak sekretny zestaw do ślepej wymiany — te trzymaj zahashowane przed reveal (`docs/metoda/Kontaminacja-i-wymiana`).
 
 ## Modalność: para minimalna (forced-choice), nie prompt
 
@@ -31,7 +31,7 @@ umieć wykonywać instrukcji:
   `LL(dobre) > LL(zle)` (margines dodatni). **Chance = 0.50.**
 - **Wynik zbioru:** accuracy (średnia pass) + per-zjawisko i per-poziom; przy nierównych długościach
   raportuj też margines znormalizowany bajtowo (`LL/len_bajtów`), by odjąć confound długości.
-- **Metryka panelowa (S5):** theta IRT per-wymiar zamiast surowego pass-rate (panel ≥5 modeli,
+- **Metryka panelowa:** theta IRT per-wymiar zamiast surowego pass-rate (panel ≥5 modeli,
   bootstrap CI) — item najinformatywniejszy przy `theta ≈ b_j`.
 
 ## Kontaminacja — semantyka par minimalnych (uwaga admisyjna)
@@ -45,11 +45,11 @@ korpusie (np. `bez wody`) — to nie przeciek, to sedno testu. Właściwy warune
 - audyt mierzy overlap **treści par**, nie **szablonu generacji** (Morfeusz/UD) — inaczej fałszywy 0%
   albo fałszywy alarm.
 
-**Admisja D3 do kontraktu Probierza (T1/T2) jest OTWARTA:** pełny audyt prowenancji na
+**Admisja D3 do kontraktu Probierza jest OTWARTA:** pełny audyt prowenancji na
 zdekontaminowanym held-oucie + pieczęć wg poprawionej semantyki należą do seamu pomiaru/prowenancji
 (nie do tego pliku). Do czasu pieczęci: `status: eval-only`, demonstrator.
 
-## Zakres wymiaru (S4)
+## Zakres wymiaru
 
 D3 obciąża **morfoskładnię**; rozumowanie i znaczenie są **trywialne** (reguła dominującego
 obciążenia). Zjawiska pokryte (ortogonalne do zgody podmiot–orzeczenie z MultiBLiMP-PL):
@@ -62,10 +62,10 @@ obciążenia). Zjawiska pokryte (ortogonalne do zgody podmiot–orzeczenie z Mul
   zasięgiem benchmarku podmiot–orzeczenie.
 - **Aspekt** (`aspekt-*`): `będę`+bezokolicznik wymaga niedokonanego; adverbialia durative/bounded.
 
-## Gradient trudności (S3/T3)
+## Gradient trudności
 
 Poziom 1 (rząd/zgoda „podręcznikowa”) → poziom 4 (przypadek w PP, klityka↔orzecznik, aspekt–adverbial).
-Poziom to hipoteza; kalibracja empiryczna (`b_j`) po przejeździe panelu 8m/16m/32m/64m/128m (S5).
+Poziom to hipoteza; kalibracja empiryczna (`b_j`) po przejeździe panelu 8m/16m/32m/64m/128m.
 
 ## Okno bajtowe
 
