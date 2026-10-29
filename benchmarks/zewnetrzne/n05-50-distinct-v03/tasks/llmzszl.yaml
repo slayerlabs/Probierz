@@ -1,0 +1,30 @@
+task: n05_llmzszl
+# Source: Jassem et al., arXiv:2501.02266, section 3.2.
+# Internal evaluation only until dataset terms and contamination gates are bound.
+dataset_path: amu-cai/llmzszl-dataset
+dataset_name: default
+dataset_kwargs:
+  revision: 9c11d52a415147f1e2c44038a9d4d4155f064e1a
+  trust_remote_code: false
+output_type: multiple_choice
+test_split: test
+num_fewshot: 0
+doc_to_text: |-
+  Przykładowe pytanie egzaminacyjne, test jednokrotnego wyboru
+  {{question.strip()}}
+  A. {{answers[0]}}
+  B. {{answers[1]}}
+  C. {{answers[2]}}
+  D. {{answers[3]}}
+  Prawidłowa odpowiedź:
+doc_to_choice: ["A", "B", "C", "D"]
+doc_to_target: correct_answer_index
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
+  source_paper: https://arxiv.org/abs/2501.02266
+  label_indexing: zero_based_0_to_3
+  validate_before_freeze: four_answers_and_integer_target_in_range
