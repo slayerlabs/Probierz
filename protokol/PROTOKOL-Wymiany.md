@@ -9,7 +9,7 @@ date: 2026-06-26
 
 # Protokół ślepej wymiany (Team A ↔ Team B)
 
-> Operacyjny rdzeń T2/S1. Cel: niezależny ground truth bez spalania przewagi (AT1).
+> Operacyjny rdzeń ślepa wymiana. Cel: niezależny ground truth bez spalania przewagi.
 > Zasada: **nie ufamy obietnicom — ufamy hashom i jednorazowości.**
 
 ## Role
@@ -39,7 +39,7 @@ date: 2026-06-26
 - Hash z kroku 2 == hash w kroku 5 (integralność).
 - Każdy zestaw użyty jako eval **dokładnie raz**.
 - Autor NIE widzi puli itemów drugiego teamu (symetria ślepoty).
-- Wynik bez `tryb_awarii` = niepełny (taksonomia obowiązkowa, S3).
+- Wynik bez `tryb_awarii` = niepełny (taksonomia obowiązkowa).
 
 ## Model zaufania (trust-minimized, NIE trustless)
 Commitment (hash) daje **integralność**: A nie podmieni zestawu pod wynik, B nie zwróci innego niż dostał.
@@ -50,4 +50,4 @@ To i tak istotnie mocniejsze niż self-benchmark (Goodhart/M3): niezależny auto
 _(doprecyzowanie z review Xaviera, 2026-06-26)_
 
 ## Powiązania
-[[../docs/25-Syntezy/S1-Commitment-Protokol|S1]] · [[../docs/10-Tezy/T2-Wymiana-Blind|T2]] · [[PROVENANCE-Manifest|manifest]]
+[[../docs/metoda/Kontaminacja-i-wymiana|commitment przed ujawnieniem]] · [[../docs/metoda/Kontaminacja-i-wymiana|ślepa wymiana]] · [[PROVENANCE-Manifest|manifest]]

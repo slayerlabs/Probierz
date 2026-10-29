@@ -3,7 +3,7 @@ type: decyzja
 id: BENCH-DEC2
 title: "Decyzja — po kalibracji zestawów fokus na samym Slayerze"
 status: przyjeta
-parents: ["BENCH-DEC1", "BENCH-S3"]
+parents: ["BENCH-DEC1", "BENCH-METODA-TRUDNOSC"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -16,7 +16,7 @@ trudności i sprawdzenia, że itemy dyskryminują. Ten cel jest osiągnięty:
 - **Gradient działa:** D1 łatwy (2–6 kroków) → brutalny (7–10) → ekstremalny (11–13) rozkłada modele.
 - **Zestawy dyskryminują:** ujawniły dwie ligi rozumowania; liga B (gemma) spada z trudnością, liga A
   (Slayer, nemotron) trzyma się dłużej.
-- **Sufit i floor zmierzone:** wiemy, gdzie itemy tracą informację (S3).
+- **Sufit i floor zmierzone:** wiemy, gdzie itemy tracą informację.
 
 ## Decyzja
 Od teraz **przedmiotem testu jest sam Slayer v49** — próbujemy go ze wszystkich stron. Panel słabych
@@ -27,7 +27,7 @@ Studio, tylko proxy Slayera; szybsza iteracja).
 - Cel projektu (Probierz) to **charakterystyka zdolności modelu docelowego** (Slayer), nie ranking
   cudzych modeli. Panel był środkiem (kalibracja), nie celem.
 - Efektywność: przejazd 5 modeli × zestaw to godziny i zarządzanie VRAM; sam Slayer to minuty.
-- Wynik na słabszych modelach jest już przewidywalny (floor/liga B) — niska wartość informacyjna (S3).
+- Wynik na słabszych modelach jest już przewidywalny (floor/liga B) — niska wartość informacyjna.
 
 ## Zastrzeżenie metodologiczne (kiedy WRACAMY do modelu odniesienia)
 Rezygnacja z panelu ma jeden koszt: **przy pojedynczym modelu nie da się odróżnić „item za trudny/wadliwy"
@@ -35,7 +35,7 @@ od „Slayer tego nie umie".** Dlatego reguła:
 - **Gdy Slayer oblewa item** i chcemy wiedzieć, czy to słabość Slayera czy wada itemu → uruchom **jeden
   model odniesienia** (nemotron-4B, liga A) na tym itemie. Jeśli odniesienie zdaje, a Slayer nie → realna
   słabość Slayera. Jeśli obaj oblewają → podejrzenie wadliwego itemu (do audytu GT).
-- Test rozłączności wymiarów (C2/S4) **nadal wymaga panelu** — gdy do niego wrócimy (D3–D6), panel
+- Test rozłączności wymiarów **nadal wymaga panelu** — gdy do niego wrócimy (D3–D6), panel
   trzeba przywrócić. DEC2 dotyczy fazy **charakterystyki Slayera**, nie fazy dowodzenia konstruktu.
 
 ## Konsekwencje operacyjne
@@ -45,4 +45,4 @@ od „Slayer tego nie umie".** Dlatego reguła:
   przed wadliwą rubryką).
 
 ## Powiązania
-parent: [[D-DEC1-Kolejnosc-Wymiary-Vs-Panel|DEC1]] · [[../25-Syntezy/S3-IRT-Taksonomia|S3]] · [[../90-Ewaluacja/Analiza-D1-Hard-Sufit|analiza D1-hard]] · [[../90-Ewaluacja/Stan|Stan]]
+parent: [[D-DEC1-Kolejnosc-Wymiary-Vs-Panel|DEC1]] · [[../metoda/Trudnosc-i-taksonomia-awarii|taksonomia awarii]] · [[../90-Ewaluacja/Analiza-D1-Hard-Sufit|analiza D1-hard]] · [[../90-Ewaluacja/Stan|Stan]]

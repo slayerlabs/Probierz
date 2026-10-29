@@ -1,8 +1,8 @@
 """run_eval.py — przejazd modelu przez zestaw eval + ocena deterministyczna.
 
 Realizuje pomiar wg dokumentow Probierza:
-- odpytuje model na KAZDEJ parafrazie polecenia (AT5: test niezmienniczosci promptu),
-- weryfikuje odpowiedz deterministycznie (T5),
+- odpytuje model na KAZDEJ parafrazie polecenia (test niezmienniczosci promptu),
+- weryfikuje odpowiedz deterministycznie,
 - liczy wynik itemu jako statystyke odporna (mediana pass po parafrazach) + wariancje (wrazliwosc),
 - zapisuje odpowiedzi surowe do audytu.
 
@@ -273,7 +273,7 @@ def check_predicate(raw, regula):
 
 
 def judge(answer, kanon, typ, klasy=None):
-    """Deterministyczny pass/fail dla typow 'liczba' i 'kanoniczny_tekst' (T5)."""
+    """Deterministyczny pass/fail dla typow 'liczba' i 'kanoniczny_tekst'."""
     if typ == "liczba":
         a, k = normalize_num(answer), normalize_num(kanon)
         if a is None or k is None:

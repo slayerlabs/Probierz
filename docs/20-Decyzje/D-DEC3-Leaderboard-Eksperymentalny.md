@@ -1,9 +1,9 @@
 ---
 type: decyzja
 id: BENCH-DEC3
-title: "Decyzja — leaderboard eksperymentalny fabryki: BPB-primary + gate S7"
+title: "Decyzja — leaderboard eksperymentalny fabryki: BPB-primary + bramka leaderboardu"
 status: przyjeta
-parents: ["BENCH-S7"]
+parents: ["BENCH-METODA-BPB"]
 author: Arkadiusz Słota
 date: 2026-09-11
 ---
@@ -14,7 +14,7 @@ date: 2026-09-11
 Fabryka.ai używa JEDNEGO tokenizera bajtowego (UTF-8, vocab 256) dla wszystkich modeli i rozmiarów (weryfikacja z kodu: `hf_publish.py`, `training.py`). To znaczy: **wewnątrz fabryki confound tokenizera znika z definicji** → porównania są czyste po samym rozmiarze/treningu.
 
 ## Decyzja
-Przyjmujemy protokół [[../25-Syntezy/S7-Leaderboard-BPB-Gate|S7]] jako **eksperymentalny leaderboard fabryki**:
+Przyjmujemy protokół [[../metoda/Metryka-BPB-i-leaderboard|bramka leaderboardu]] jako **eksperymentalny leaderboard fabryki**:
 - **BPB-primary** (jedna skala, dowolny model) + **mean margin** (confirming, moc) + **accuracy** (pomocnicza).
 - **INDISTINGUISHABLE-GATE** obowiązkowy: brak gołych rankingów, A>B tylko przy CI paired-delta rozłącznych, badge:confound między komórkami.
 - **Zakres = reżim mały/średni**, granica przez **saturację** (`acc_core < ~0.9`), nie sztywny próg parametrów. Dla base do ~125M w pełni użyteczny (empiria: 8M–110M na 0.4–0.7).
@@ -28,4 +28,4 @@ Przyjmujemy protokół [[../25-Syntezy/S7-Leaderboard-BPB-Gate|S7]] jako **ekspe
 `leaderboard-d3` @ fabryka-track; `results/` z SHA256 pinami (reprodukcja z bajtów).
 
 ---
-parent: [[../25-Syntezy/S7-Leaderboard-BPB-Gate|S7]] · [[D-DEC2-Fokus-Na-Slayerze|DEC2]] · [[../90-Ewaluacja/Stan|Stan]]
+parent: [[../metoda/Metryka-BPB-i-leaderboard|bramka leaderboardu]] · [[D-DEC2-Fokus-Na-Slayerze|DEC2]] · [[../90-Ewaluacja/Stan|Stan]]

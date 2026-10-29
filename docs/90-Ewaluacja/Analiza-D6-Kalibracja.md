@@ -48,4 +48,4 @@ Nie wyczerpaliśmy D6 — sufit oznacza, że pułapki wciąż za łatwe dla Slay
   „nie wiem" byłoby błędem.
 
 ## Powiązania
-[[../../benchmarks/d6-kalibracja-v1/README|d6-kalibracja-v1]] · [[../../benchmarks/d6-kalibracja-hard-v1/README|d6-kalibracja-hard-v1]] · [[../25-Syntezy/S3-IRT-Taksonomia|S3]] · [[../20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]] · [[Stan|Stan]]
+[[../../benchmarks/d6-kalibracja-v1/README|d6-kalibracja-v1]] · [[../../benchmarks/d6-kalibracja-hard-v1/README|d6-kalibracja-hard-v1]] · [[../metoda/Trudnosc-i-taksonomia-awarii|taksonomia awarii]] · [[../20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]] · [[Stan|Stan]]

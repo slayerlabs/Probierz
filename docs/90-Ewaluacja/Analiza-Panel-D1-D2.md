@@ -3,7 +3,7 @@ type: analiza
 id: BENCH-ANALIZA-PANEL-D1D2
 title: "Analiza panelu 5×2 — rozłączność D1↔D2 (faza research)"
 status: aktywny
-parents: ["BENCH-C2", "BENCH-S4", "BENCH-S5", "BENCH-DEC1"]
+parents: ["BENCH-C2", "BENCH-METODA-WYMIARY", "BENCH-METODA-POMIAR", "BENCH-DEC1"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -11,12 +11,12 @@ date: 2026-07-02
 # Analiza panelu 5 modeli × 2 wymiary (D1 rozumowanie, D2 semantyka)
 
 > Faza **research** wg metody (problem → model matematyczny → baseline → research → eval).
-> Cel: rozstrzygnąć rozłączność D1↔D2 (warunek C2/S4) na pierwszym pełnym panelu.
+> Cel: rozstrzygnąć rozłączność D1↔D2 (warunek C2) na pierwszym pełnym panelu.
 
 ## Panel (gradient słaby→mocny)
 5 modeli: bielik-1.5b, qwen3-1.7b, nemotron-4b, gemma-3n-e4b, slayer-v49-27B.
-Każdy przejechany przez D1 (10 itemów) i D2 (10 itemów), ocena deterministyczna (T5), 3 parafrazy/item
-(AT5, wynik = mediana). Zestawy czyste (audyt 0%, C1/T1). Modele lokalne przez LM Studio, Slayer przez
+Każdy przejechany przez D1 (10 itemów) i D2 (10 itemów), ocena deterministyczna, 3 parafrazy/item
+(test parafraz, wynik = mediana). Zestawy czyste (audyt 0%, C1). Modele lokalne przez LM Studio, Slayer przez
 proxy; sekwencyjnie z rozładowaniem VRAM (4 GB, patrz RUNBOOK-Panel-Modeli).
 
 ## Macierz wyników (pass/10)
@@ -39,7 +39,7 @@ proxy; sekwencyjnie z rozładowaniem VRAM (4 GB, patrz RUNBOOK-Panel-Modeli).
 | Pearson r(D1,D2) po modelach | **0.58** | umiarkowana korelacja, **nie** bliska 1 |
 | Udział 1. składowej głównej | **79%** | **< 90%** → jest miejsce na 2. wymiar |
 | Kierunkowe odwrócenia par (D1 vs D2) | 1/10 | slayer vs gemma |
-| **Istotne** odwrócenia (bootstrap CI, S4) | **0/10** | brak mocy przy 10 itemach |
+| **Istotne** odwrócenia (bootstrap CI) | **0/10** | brak mocy przy 10 itemach |
 
 ## Obserwacje jakościowe (zgodne z konstruktem)
 - **Rozjazd bielika:** najsłabszy w rozumowaniu (D1=2, floor), ale przeciętny w semantyce (D2=5).
@@ -52,8 +52,8 @@ proxy; sekwencyjnie z rozładowaniem VRAM (4 GB, patrz RUNBOOK-Panel-Modeli).
   trudności działa.
 
 ## Wniosek (uczciwie)
-Dane **nie rozstrzygają** rozłączności w sensie twardego kryterium S4:
-- **Przeciw jednowymiarowości (AT4):** r=0.58 i 1. składowa 79% (<90%) — konstrukt **nie** wygląda na
+Dane **nie rozstrzygają** rozłączności w sensie twardego kryterium rozłączności:
+- **Przeciw jednowymiarowości:** r=0.58 i 1. składowa 79% (<90%) — konstrukt **nie** wygląda na
   jednowymiarowy; jest wariancja dla drugiego wymiaru. Kierunek i rozjazdy (bielik, gemma↔slayer)
   wspierają dekompozycję.
 - **Brak dowodu rozłączności:** 0/10 **istotnych** odwróceń — przy 10 itemach przedziały ufności są
@@ -67,9 +67,9 @@ Dane **nie rozstrzygają** rozłączności w sensie twardego kryterium S4:
 3. Panel 5 modeli jest wystarczający jako punkt startowy; rozszerzać przy DIF/stabilności.
 
 ## Rozstrzygnięcie DEC1
-Wynik potwierdza rekomendację **T-DEC1 z warunkiem**: budować D3–D6 (kierunek wspiera dekompozycję, brak
+Wynik potwierdza rekomendację **opcji A z DEC1, z warunkiem**: budować D3–D6 (kierunek wspiera dekompozycję, brak
 istotności wynika z mocy nie z efektu), **równolegle zwiększając liczbę itemów**. Nie ma przesłanki do
-AT-DEC1 (współliniowość) — r=0.58 i 79% jej przeczą.
+opcji B (współliniowość) — r=0.58 i 79% jej przeczą.
 
 ## Powiązania
-[[../00-Cele/C2-Konstrukt-Zdolnosci-Jezykowej|C2]] · [[../25-Syntezy/S4-Taksonomia-Wymiarow|S4]] · [[../25-Syntezy/S5-MIRT-Panel|S5]] · [[../20-Decyzje/D-DEC1-Kolejnosc-Wymiary-Vs-Panel|DEC1]] · [[../15-Antytezy/AT4-Splatanie-Czynnik-G|AT4]] · [[Stan|Stan]]
+[[../00-Cele/C2-Konstrukt-Zdolnosci-Jezykowej|C2]] · [[../metoda/Wymiary-i-rubryka|kryterium rozłączności]] · [[../metoda/Model-pomiaru-IRT|model pomiaru]] · [[../20-Decyzje/D-DEC1-Kolejnosc-Wymiary-Vs-Panel|DEC1]] · [[../metoda/Wymiary-i-rubryka|ryzyko jednego czynnika ogólnego]] · [[Stan|Stan]]

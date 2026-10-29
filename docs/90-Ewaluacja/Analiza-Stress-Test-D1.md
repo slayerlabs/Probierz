@@ -1,17 +1,17 @@
 ---
 type: analiza
 id: BENCH-ANALIZA-STRESS-D1
-title: "Analiza stress-test D1 — wytrzymałość vs głębia (bramka S6)"
+title: "Analiza stress-test D1 — wytrzymałość vs głębia (warunek rzetelnego łamania)"
 status: aktywny
-parents: ["BENCH-T7", "BENCH-AT7", "BENCH-S6"]
+parents: ["BENCH-METODA-LAMANIE", "BENCH-METODA-LAMANIE", "BENCH-METODA-LAMANIE"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
 
 # Analiza stress-test D1 — dwie pod-kategorie
 
-> Wykonano wg bramki S6: żelazny GT (weryfikacja programowa), demarkacja pod-kategorii, gradient.
-> Cel T7: łamanie do niskiego pass-rate. Wynik uczciwie — nie osiągnięto „max 3", ale znaleziono
+> Wykonano wg warunku rzetelnego łamania: żelazny GT (weryfikacja programowa), demarkacja pod-kategorii, gradient.
+> Cel (łamanie modeli): łamanie do niskiego pass-rate. Wynik uczciwie — nie osiągnięto „max 3", ale znaleziono
 > istotny wzorzec.
 
 ## Wyniki (Slayer v49)
@@ -37,10 +37,10 @@ To ważne: mierzy raczej „czy zna skrót" niż „czy wytrzyma N kroków".
 
 **Kluczowy sygnał:** w głębi rozumowania mediana Slayera jest wysoka, lecz **powtarzalność słaba**.
 To znaczy, że pojedynczy przejazd zawyża ocenę — model „czasem wpada" na właściwą strategię, zależnie
-od sformułowania. Wskaźnik wrażliwości (AT5) okazał się tu diagnostyczniejszy niż sam pass-rate.
+od sformułowania. Wskaźnik wrażliwości okazał się tu diagnostyczniejszy niż sam pass-rate.
 
 ## Odniesienie do celu „max 3" (uczciwie)
-Nie zeszliśmy do 2-3/N. Zgodnie z S6 **nie naginam itemów, by sztucznie zejść** (to byłby Goodhart /
+Nie zeszliśmy do 2-3/N. Zgodnie z warunkiem rzetelnego łamania **nie naginam itemów, by sztucznie zejść** (to byłby Goodhart /
 pozorna trudność). Wynik przy spełnionej bramce jest wynikiem o modelu: **Slayer jest odporniejszy,
 niż zakładała hipoteza „max 3"** — zwłaszcza gdy dostępny jest skrót matematyczny.
 
@@ -49,10 +49,10 @@ zadziałał — Collatz 0/3). Kandydaci: dłuższe Collatze (od liczb dających 
 automatu/gry na wiele kroków, ewaluacja długich wyrażeń zagnieżdżonych — wszystko gdzie NIE ma wzoru
 zamkniętego. To atakuje zrefinowaną słabość precyzyjnie.
 
-## Wartość metodologiczna (S6 zadziałała)
+## Wartość metodologiczna (warunek rzetelnego łamania zadziałał)
 Demarkacja pod-kategorii dała wynik, którego jeden worek by nie pokazał: **wytrzymałość i głębia łamią
 się inaczej** — wytrzymałość twardym failem (Collatz 0/3), głębia niestabilnością (4/6 wrażliwych).
 Zsumowane w jeden wskaźnik (11/14=79%) zatarłyby oba sygnały.
 
 ## Powiązania
-[[../10-Tezy/T7-Charakterystyka-Przez-Lamanie|T7]] · [[../15-Antytezy/AT7-Floor-I-Pozorna-Trudnosc|AT7]] · [[../25-Syntezy/S6-Warunek-Rzetelnego-Lamania|S6]] · [[../../benchmarks/d1-wytrzymalosc-obliczeniowa-v1/README|wytrzymałość]] · [[../../benchmarks/d1-glebia-rozumowania-v1/README|głębia]]
+[[../metoda/Lamanie-modeli|łamanie modeli]] · [[../metoda/Lamanie-modeli|pozorna trudność]] · [[../metoda/Lamanie-modeli|warunek rzetelnego łamania]] · [[../../benchmarks/d1-wytrzymalosc-obliczeniowa-v1/README|wytrzymałość]] · [[../../benchmarks/d1-glebia-rozumowania-v1/README|głębia]]

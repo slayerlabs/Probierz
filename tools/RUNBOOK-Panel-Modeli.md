@@ -11,7 +11,7 @@ date: 2026-07-02
 
 > Jak przejechać panel ≥5 modeli przez zestawy D1–D6 na maszynie z **ograniczonym VRAM (4 GB)**.
 > Zasada: **jeden model naraz** (sekwencyjnie), rozładowanie po użyciu. Panel jest warunkiem
-> wniosków (S5, DEC1) — bez niego estymacja i test rozłączności są nieidentyfikowalne.
+> wniosków (model pomiaru, DEC1) — bez niego estymacja i test rozłączności są nieidentyfikowalne.
 
 ## Skład panelu (gradient słaby→mocny)
 | Model | Rozmiar | Endpoint |
@@ -53,8 +53,8 @@ lms unload --all            # zwolnij caly VRAM po panelu
   traci postepu; ponowne uruchomienie z tym samym `--out` dokancza.
 - Lokalne modele bywaja wolne (gemma ~25 s/wywolanie); 10 itemow × 3 parafrazy = ~12 min/wymiar.
 - Nazwa pliku wynikowego: `wyniki-<model-slug>.json` w katalogu danego wymiaru (obok `eval.jsonl`).
-- Po zebraniu macierzy [model × wymiar]: estymacja (Bradley-Terry + 1PL, bootstrap CI, S5) + test
-  rozlacznosci (S4). Patrz DEC1 dla mini-testu D1↔D2.
+- Po zebraniu macierzy [model × wymiar]: estymacja (Bradley-Terry + 1PL, bootstrap CI) + test
+  rozlacznosci. Patrz DEC1 dla mini-testu D1↔D2.
 
 ## Powiązania
-[[../docs/25-Syntezy/S5-MIRT-Panel|S5]] · [[../docs/20-Decyzje/D-DEC1-Kolejnosc-Wymiary-Vs-Panel|DEC1]] · [[../docs/90-Ewaluacja/Stan|Stan]]
+[[../docs/metoda/Model-pomiaru-IRT|model pomiaru]] · [[../docs/20-Decyzje/D-DEC1-Kolejnosc-Wymiary-Vs-Panel|DEC1]] · [[../docs/90-Ewaluacja/Stan|Stan]]

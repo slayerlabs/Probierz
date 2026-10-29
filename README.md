@@ -1,100 +1,93 @@
 <p align="center">
-  <img src="assets/flaga-pl.svg" alt="Flaga Polski" width="200">
+  <img src="assets/flaga-pl.svg" alt="Flag of Poland" width="200">
 </p>
 
-# Probierz 🇵🇱
+# Probierz
 
-> **Kamień probierczy dla modeli** — bezlitosny test, który demaskuje, czy zdolność jest *prawdziwa*,
-> czy zapamiętana (skażona). Rysa nie kłamie. Benchmarki **kontaminacyjnie czyste**, łamiące modele
-> w skali dającej **mierzalny progres** — nie da się ich sfałszować.
->
-> **Autor:** Arkadiusz Słota · **Lab:** SlayerLab 🇵🇱 · **Status:** know-how + runnable rdzeń · _Polska technologia, globalny zasięg_
+Probierz is a set of tools, protocols and small benchmarks for evaluating language models on data that
+we can show was not in their training set. The name is Polish for a touchstone.
 
-## Po co (dwie pieczenie na jednym ogniu)
+**Author:** Arkadiusz Słota · **Status:** working method and runnable core; most benchmarks are small
+public demonstrators (see [Benchmarks](#benchmarks)).
 
-Tworzymy dane treningowe **od zera** (`slayerlabs/datasets`, `academy/lab`, OpenPL, MicroModels).
-Skutek: **wiemy dokładnie, co weszło do treningu** → możemy *udowodnić*, które dane NIE mogą trafić
-do ewaluacji. To rozwiązuje największy nierozwiązany problem ewaluacji LLM — **kontaminację**
-(MMLU i spółka są skażone). Robiąc dane, dostajemy czysty eval za darmo. Logiczne.
+## Why
 
-## Dwa ostrza (rdzeń metody)
+Many popular benchmarks (MMLU and others) have leaked into training corpora, so a high score can mean
+memorisation rather than ability. We build our training data from scratch (`slayerlabs/datasets`,
+OpenPL, MicroModels), so we know what went into training. That lets us check, item by item, that an
+evaluation set does not overlap with it.
 
-### 1. Kontrola kontaminacji przez *provenance* (T1)
-Każdy dataset ma etykietę: **trening-only** vs **eval-only**, które NIGDY się nie krzyżują
-(`protokol/PROVENANCE-Manifest.md`). Nie ufamy deklaracji — **mierzymy** overlap n-gramowy
-(`tools/contamination_check.py`, ten sam mechanizm n-gram co w `micro-models`: detektor dosłownej pamięci).
+## How it works
 
-> **Dowód od pierwszego uruchomienia:** audyt `test_verification.jsonl` vs `seed_500` →
-> **90% itemów skażonych** (mean overlap 0.84, 60% near-verbatim). Ten plik **nie jest** czystym
-> held-out. Narzędzie złapało realny przeciek zanim ktokolwiek ogłosił benchmark.
+1. **Provenance.** Every dataset is labelled *train-only* or *eval-only*, and the two never mix
+   ([`protokol/PROVENANCE-Manifest.md`](protokol/PROVENANCE-Manifest.md)).
+2. **Measured overlap, not declared overlap.** [`tools/contamination_check.py`](tools/contamination_check.py)
+   compares an evaluation set with training data using n-gram overlap and reports both the overlap fraction
+   and the longest copied span. Example: an early audit of `test_verification.jsonl` against `seed_500`
+   found 90% of items contaminated; the stricter any-match + span check later flagged 13/13. That file was
+   reclassified and is not used as held-out data.
+3. **Blind exchange.** A team that builds and tests on its own benchmark will overfit to it. The protocol
+   lets two teams exchange benchmarks that the other side has never seen. Hashes are published before
+   items are revealed, and each set is used once, because a benchmark stops being clean once it is public
+   ([`protokol/PROTOKOL-Wymiany.md`](protokol/PROTOKOL-Wymiany.md)).
+4. **Difficulty with signal.** Items that every model fails or every model passes carry no information.
+   Benchmarks aim for a spread of difficulty, and failures are classified by type (wrong plan, silent
+   omission, format error, ...), not only counted.
 
-### 2. Wymiana dwóch teamów — *blind exchange* (T2)
-Sam-na-sobie **zawsze przeuczysz** swój benchmark (Goodhart → [M3](../ObsidianVault/Slayer/Repozytorium-Mechanizmow/)).
-Drugi team buduje benchmarki, których **nigdy nie widziałeś**, Ty budujesz dla nich — wymieniacie się.
-Nie da się ograć testu, którego nie znasz. To ten sam mechanizm co **ślepy audyt** (M4) i
-ślepy re-review Xaviera: niezależny ewaluator = ground truth.
+### What we measure
 
-> ⚠️ **Pułapka:** benchmark **spala się po ujawnieniu** (staje się danymi drugiego teamu).
-> Dlatego: **commitment scheme** (hash przed reveal), zestawy **jednorazowe**, rotacja —
-> `protokol/PROTOKOL-Wymiany.md`.
+- **Dimensions.** Language ability is split into dimensions that are tested separately: D1 reasoning,
+  D2 semantics, D3 syntax, D4 long context, D5 instruction following, D6 calibration of uncertainty.
+  A dimension stays only if data show it is distinct from the others; if panel results show a single
+  shared factor, the split is dropped ([`docs/00-Cele/C2-Konstrukt-Zdolnosci-Jezykowej.md`](docs/00-Cele/C2-Konstrukt-Zdolnosci-Jezykowej.md)).
+- **Scoring.** Answers are checked deterministically (exact number or canonical text), not by perplexity
+  or a judge model. Each item has three paraphrases; we report the median and how many items depend on
+  the wording.
+- **Measurement model.** Per dimension, a Rasch (1PL) model for item difficulty and a Bradley-Terry
+  comparison between models, with bootstrap confidence intervals. A 2PL model is used only when the
+  panel is large enough to identify it. This needs a panel of at least five models; with fewer, results
+  are reported as raw pass rates.
 
-## Bezlitosne ALE mierzalne (T3)
+Method notes, in Polish: [`docs/INDEX.md`](docs/INDEX.md) and [`docs/metoda/`](docs/metoda/). Current
+measured state and open problems: [`docs/90-Ewaluacja/Stan.md`](docs/90-Ewaluacja/Stan.md).
 
-Za trudne = floor effect (wszyscy ~0, brak sygnału). Za łatwe = sufit. Rozwiązanie:
-**gradient trudności** (dyskryminacja itemów, IRT-style) + **taksonomia awarii** — nie tylko
-accuracy, ale *jak* model pęka (ciche błędy = najgorszy tryb, jak false-discard u Xaviera).
+## Rules for releasing a benchmark
 
-## Co mierzymy i jak to formalizujemy (konstrukt + model pomiaru)
+A Probierz benchmark is released only if:
 
-Dwa ostrza (T1/T2) i T3 odpowiadają na pytanie „**jak testować uczciwie**". Osobna, logicznie
-wcześniejsza warstwa odpowiada na pytanie „**co** mierzymy i **jak** to formalizujemy" — zgodnie z
-metodą naukową **problem → model matematyczny → baseline → research → eval**.
+1. it has a provenance entry (documented source, train/eval label);
+2. the contamination audit passed (`contamination_check.py` reports 0% contaminated items);
+3. for blind exchange, its hash was published before reveal and the set is used once.
 
-- **Warstwa 1 — Konstrukt (problem):** definicja mierzalnej „zdolności językowej LLM" jako zbioru
-  rozłącznych wymiarów (D1 rozumowanie, D2 semantyka, D3 składnia, D4 długi kontekst, D5 wierność
-  instrukcji, D6 kalibracja niepewności). Każdy wymiar pozostaje w taksonomii tylko, jeśli spełnia
-  empiryczny warunek obalenia (rozłączność + wariancja niesprowadzalna do czynnika wspólnego).
-  Dokumenty: `C2`, `T4`, `T5`, `AT4`, `AT5`, `S4`.
-- **Warstwa 2 — Model pomiaru (model matematyczny):** Item Response Theory (2PL/3PL) estymowany
-  osobno per wymiar, na panelu ≥5 modeli, z przedziałami ufności (bootstrap). Zdolność $\theta^{(i)}$
-  zamiast surowego pass-rate; item najbardziej informatywny przy $\theta \approx b$ (formalizacja
-  „punktu dyskryminacji" z T3). Dokumenty: `T6`, `AT6`, `S5`.
+Otherwise it measures memorisation, not ability.
 
-Status: dialektyka domknięta (teza↔antyteza↔synteza z warunkiem obalenia); **dowód empiryczny =
-faza baseline** (przejazd panelu modeli). Patrz `docs/90-Ewaluacja/Stan.md`.
+## Benchmarks
 
-## Mapa repo
+Public sets in [`benchmarks/`](benchmarks/) (D1 reasoning, D2 semantics, D3 syntax, D5 instruction
+following and orchestration, D6 calibration, C# SOLID) are **demonstrators of the format and the method**.
+Once public, they can end up in someone's training data, so for a blind verdict keep a private, hashed
+version.
+
+**Exception:** [`benchmarks/zewnetrzne/`](benchmarks/zewnetrzne/README.md) contains public benchmarks by
+other authors, used to compare with other work (for example ARC-Easy-PL and a list of 50 distinct public
+benchmarks with their protocol). They do not meet the rules above and are not Probierz benchmarks. We do
+not copy their data: each is fetched from a pinned source revision and checked by sha256.
+
+## Repository layout
 
 ```
 Probierz/
-├── README.md                        # ten plik — entrypoint
+├── README.md
 ├── docs/
-│   ├── 00-Cele/
-│   │   ├── C1-Cel.md                # cel: uczciwość pomiaru (provenance, czystość)
-│   │   └── C2-Konstrukt-Zdolnosci-Jezykowej.md  # cel: co mierzymy (konstrukt LLM)
-│   ├── 10-Tezy/                     # T1 provenance · T2 wymiana · T3 bezlitosne-mierzalne
-│   │                                # T4 dekompozycja-wymiarów · T5 rubryka-nie-proxy · T6 IRT
-│   ├── 15-Antytezy/                 # AT1 spalanie · AT2 przeciek · AT3 floor-effect
-│   │                                # AT4 czynnik-g · AT5 format-vs-zdolność · AT6 założenia-IRT
-│   ├── 25-Syntezy/                  # S1 commitment · S2 audyt-overlap · S3 IRT+taksonomia
-│   │                                # S4 taksonomia-wymiarów · S5 IRT-per-wymiar+panel
-│   ├── 60-Reference/Slownik.md
-│   └── 90-Ewaluacja/Stan.md         # żywy stan (zmierzone liczby + status warstw)
-├── protokol/
-│   ├── PROTOKOL-Wymiany.md          # commitment/reveal/rotacja (operacyjny rdzeń)
-│   └── PROVENANCE-Manifest.md       # trening-only vs eval-only (mapa danych)
-└── tools/
-    └── contamination_check.py       # runnable: n-gramowy audyt przecieku (zweryfikowany)
+│   ├── INDEX.md           # start here (Polish)
+│   ├── 00-Cele/           # goals: fair measurement; what "language ability" means here
+│   ├── metoda/            # method: contamination and exchange, difficulty, dimensions,
+│   │                      # measurement model, stress tests, BPB metric and leaderboard
+│   ├── 20-Decyzje/        # decision records
+│   ├── 60-Reference/      # glossary
+│   └── 90-Ewaluacja/      # measured state, analyses, external review
+├── protokol/              # provenance manifest; blind exchange protocol
+├── benchmarks/            # demonstrator sets; zewnetrzne/ = external benchmarks
+├── tools/                 # contamination audit, runners, scorers
+└── wyniki/                # evaluation reports
 ```
-
-## Kontrakt (żaden benchmark nie wychodzi bez tego)
-
-1. **Manifest provenance** — udokumentowane źródło, etykieta trening/eval.
-2. **Audyt kontaminacji PRZESZEDŁ** (`contamination_check.py` → 0% skażonych).
-3. **Commitment przed wymianą** — hash opublikowany, zestaw jednorazowy.
-
-Inaczej benchmark mierzy zapamiętywanie, nie zdolność — i jest bezwartościowy.
-
-Wyjątek jawny: `benchmarks/zewnetrzne/` to publiczne zestawy cudzego autorstwa do porównań z innymi
-pracami (np. ARC-Easy-PL). Kontraktu nie spełniają i nie są benchmarkami Probierza — patrz
-[`benchmarks/zewnetrzne/README.md`](benchmarks/zewnetrzne/README.md).

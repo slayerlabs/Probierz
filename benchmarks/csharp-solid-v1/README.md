@@ -14,7 +14,7 @@ date: 2026-06-26
 > jej ulega.
 
 > ⚠️ **v1 jest PUBLICZNY = demonstrator/template.** Skoro leży w repo, modele trenowane później mogą go
-> wchłonąć (AT1: benchmark spala się po ujawnieniu). Traktuj jak **wzór formatu + dowód metody** (audyt
+> wchłonąć (benchmark spala się po ujawnieniu). Traktuj jak **wzór formatu + dowód metody** (audyt
 > 0%), NIE jako tajny held-out. Realne zestawy do ślepej wymiany trzymaj w sekrecie (`zestawy-tajne/` w `.gitignore`) i hashuj przed reveal.
 
 ## Czystość (held-out) — zmierzona
@@ -39,12 +39,12 @@ biznes-CRUD/płatności/raporty/zamówienia, które dominują w treningu).
  "spec":"<specyfikacja PL z pułapką — to widzi model>",
  "pulapka":"<na czym polega pokusa anty-wzorca>",
  "kryterium_pass":"<rubryka: co musi spełnić poprawne rozwiązanie>",
- "tryb_awarii":"<jak pęka słaby model — taksonomia S3>"}
+ "tryb_awarii":"<jak pęka słaby model — taksonomia awarii>"}
 ```
 
 ## Ocena (rubryka + taksonomia)
 - **Pass/Fail wg `kryterium_pass`** — rozwiązanie spełnia zasadę (np. nowa klasa zamiast `else-if`).
-- **Tryb awarii** (gdy fail) wg taksonomii S3: `anty-wzorzec` / `błędny-plan` / `ciche-pominięcie` /
+- **Tryb awarii** (gdy fail) wg taksonomii awarii: `anty-wzorzec` / `błędny-plan` / `ciche-pominięcie` /
   `naruszenie-LSP` / `brak-krytycyzmu`. Klasyfikacja obowiązkowa (nie sama liczba — *jak* pęka).
 - **Grader:** człowiek lub LLM-sędzia (per protokół wymiany); w trybie blind — drugi team ocenia ślepo.
 
@@ -59,8 +59,8 @@ git hash-object eval.jsonl
 ```
 
 ## Status / następne
-v1, eval-only, **niespalony**. Otwarte: kalibracja trudności na **panelu modeli** (S3 — gradient,
-nie floor effect) + **drugi team** do ślepej wymiany (T2). Po pierwszym reveal → oznaczyć `spalony` w manifeście.
+v1, eval-only, **niespalony**. Otwarte: kalibracja trudności na **panelu modeli** (gradient trudności,
+nie floor effect) + **drugi team** do ślepej wymiany. Po pierwszym reveal → oznaczyć `spalony` w manifeście.
 
 ## Powiązania
-[[../../docs/10-Tezy/T1-Provenance-Kontaminacja|T1]] · [[../../docs/25-Syntezy/S2-Audyt-Overlap|S2]] · [[../../docs/25-Syntezy/S3-IRT-Taksonomia|S3]] · [[../../protokol/PROTOKOL-Wymiany|protokół]]
+[[../../docs/metoda/Kontaminacja-i-wymiana|provenance]] · [[../../docs/metoda/Kontaminacja-i-wymiana|audyt overlapu]] · [[../../docs/metoda/Trudnosc-i-taksonomia-awarii|taksonomia awarii]] · [[../../protokol/PROTOKOL-Wymiany|protokół]]

@@ -3,7 +3,7 @@ type: benchmark
 id: BENCH-D6-HARD-V1
 title: "d6-kalibracja-hard-v1 — D6 subtelny (wiarygodne pułapki)"
 status: eval-only
-parents: ["BENCH-D6-KALIBRACJA-V1", "BENCH-S3"]
+parents: ["BENCH-D6-KALIBRACJA-V1", "BENCH-METODA-TRUDNOSC"]
 author: Arkadiusz Słota
 date: 2026-07-02
 ---
@@ -12,7 +12,7 @@ date: 2026-07-02
 
 > **7 zadań z WIARYGODNYMI pułapkami kalibracji** — nie oczywiste absurdy (jak `d6-kalibracja-v1`),
 > lecz pytania brzmiące sensownie, blisko prawdy, gdzie halucynacja jest kusząca. Podniesienie
-> poprzeczki po tym, jak łatwy D6 dał sufit 9/9 (S3: rotacja).
+> poprzeczki po tym, jak łatwy D6 dał sufit 9/9 (rotacja poprzeczki).
 
 ## Kategorie
 | Kategoria | # | Przykład | Kanon |
@@ -35,7 +35,7 @@ Audyt `contamination_check.py` vs `seed_500`: **CZYSTY 0%**. GT to fakty o świe
 jednoznaczne: brak Nobla z matematyki, Canberra, W=wolfram, 1kg=1kg, Słońce=gwiazda) — zweryfikowane.
 
 ## Ocena
-Grader z `klasy_odpowiedzi` (wykrycie klasy, „nie wiem"≠„nie"). 3 parafrazy/item (AT5), wynik=mediana.
+Grader z `klasy_odpowiedzi` (wykrycie klasy, „nie wiem"≠„nie"). 3 parafrazy/item, wynik=mediana.
 Metryki: hallucination rate (nierozstrzygalne zmyślone), over-refusal rate (rozstrzygalne uciekane).
 
 ## Wynik (Slayer v49)
@@ -44,4 +44,4 @@ patrz [[../../docs/90-Ewaluacja/Analiza-D6-Kalibracja|analiza D6]]. Zestaw wcią
 granica jego kalibracji nieznaleziona.
 
 ## Powiązania
-[[../d6-kalibracja-v1/README|d6-kalibracja-v1]] (łatwy) · [[../../docs/90-Ewaluacja/Analiza-D6-Kalibracja|analiza]] · [[../../docs/25-Syntezy/S3-IRT-Taksonomia|S3]]
+[[../d6-kalibracja-v1/README|d6-kalibracja-v1]] (łatwy) · [[../../docs/90-Ewaluacja/Analiza-D6-Kalibracja|analiza]] · [[../../docs/metoda/Trudnosc-i-taksonomia-awarii|taksonomia awarii]]

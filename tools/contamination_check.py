@@ -1,6 +1,6 @@
 """contamination_check.py — audyt kontaminacji eval ↔ trening (n-gramowy overlap).
 
-Teza (T1): „dane od zera" NIE wystarczy — trzeba ZMIERZYĆ, że zbiór eval nie przecieka
+Założenie: „dane od zera" NIE wystarczy — trzeba ZMIERZYĆ, że zbiór eval nie przecieka
 do treningu. Bez tego benchmark jest skażony i mierzy zapamiętywanie, nie zdolność.
 
 Metoda: n-gramowy overlap (jak dedup GPT-3 / Llama, n=13) + flaga near-verbatim (overlap≈1).
@@ -8,7 +8,7 @@ To dokładnie ten sam mechanizm n-gram co w `micro-models`: n-gram = detektor DO
 Tam mierzył kompresję języka; tu wykrywa, czy item eval był „widziany" w treningu.
 
 Wynik: % itemów eval skażonych (overlap > próg) + najgorsze przypadki. Benchmark jest „czysty"
-DOPIERO gdy audyt to potwierdzi (provenance to teza; ten skrypt to dowód).
+DOPIERO gdy audyt to potwierdzi (provenance to deklaracja; ten skrypt to pomiar).
 
 Użycie:
   python contamination_check.py --train ../../datasets/seed_500_training_final.jsonl \

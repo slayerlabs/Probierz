@@ -38,7 +38,7 @@ sekwencji. Ten zestaw z gradientem długości ma pokazać, **gdzie dokładnie** 
 ## Ocena
 Predykaty JSON-aware (`run_eval.py`): `json_seq_order` (podciąg w kolejności), `json_seq_len_order`
 (dokładna długość+kolejność), `json_seq_dep` (referencja do wyniku w ostatnim kroku), `json_seq_no_tool`
-(sekwencja bez zabronionego narzędzia). Zweryfikowane. 3 parafrazy/item (AT5), wynik = mediana.
+(sekwencja bez zabronionego narzędzia). Zweryfikowane. 3 parafrazy/item, wynik = mediana.
 
 ## Powiązania
 [[../d5-orkiestracja-v1/README|d5-orkiestracja-v1]] · [[../../docs/90-Ewaluacja/Analiza-D5-Wiernosc-Instrukcji|analiza D5]] · [[../../docs/20-Decyzje/D-DEC2-Fokus-Na-Slayerze|DEC2]]
