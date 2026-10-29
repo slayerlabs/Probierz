@@ -19,3 +19,4 @@ Zasady dla tego katalogu:
 |---|---|---|
 | [`arc-easy-pl/`](arc-easy-pl/) | ARC-Easy po polsku (2376 pytań wyboru, wiedza szkolna) | `Eurolingua/arcx` (+ kontrolnie `ddudek/ai2_arc_translated_pol`) |
 | [`byte-ppl-w-pl/`](byte-ppl-w-pl/) | byte-PPL na 463 artykułach polskiej Wikipedii (kolumna W / byte-PPL PL na track.fabryka.ai) | `SlayerLab/fabryka-track-w-pl` |
+| [`n05-50-distinct-v03/`](n05-50-distinct-v03/) | wybór 50 różnych benchmarków (38 EN / 12 PL, 204 podzadania) i protokół N05-50-v0.3 — **lista i protokół, bez wyników i bez skryptu uruchamiającego** | 44 repozytoria HF, rewizje i licencje w `benchmark_sources_v03.json` |
